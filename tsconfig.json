@@ -28,6 +28,8 @@
     "node_modules",
     "dist",
     "script",
+    "example",
+    "public",
     "rollup.config.js"
   ],
 }
