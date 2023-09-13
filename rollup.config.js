@@ -4,6 +4,7 @@ import nodeResolve from '@rollup/plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external';
 import url from '@rollup/plugin-url';
 import json from '@rollup/plugin-json'
+import terser from "@rollup/plugin-terser";
 import pkg from './package.json' assert { type: 'json' };
 
 export default {
@@ -27,5 +28,6 @@ export default {
     url({ exclude: ['**/*.svg'] }),
     typescript(),
     commonjs({ extensions: ['.js', '.ts'] }),
+    terser(),
   ],
 };

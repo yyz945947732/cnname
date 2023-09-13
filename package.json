@@ -6,15 +6,18 @@
   "module": "dist/index.es.js",
   "types": "dist/src/index.d.ts",
   "scripts": {
-    "test": "jest && tsd",
-    "test:cov": "jest --collectCoverage=true && tsd",
+    "start": "node scripts/example.mjs",
+    "test": "jest",
+    "test:cov": "jest --collectCoverage=true",
     "lint": "xo --fix",
     "build": "rimraf dist && rollup -c && tsc -d --emitDeclarationOnly --noEmit false --declarationDir dist"
   },
   "type": "module",
   "author": "yyz945947732 <945947732@qq.com>",
   "license": "MIT",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "bugs": {
     "url": "https://github.com/yyz945947732/cnname/issues",
     "email": "945947732@qq.com"
@@ -28,6 +31,7 @@
     "@rollup/plugin-commonjs": "^15.0.0",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
+    "@rollup/plugin-terser": "^0.4.3",
     "@rollup/plugin-typescript": "^5.0.2",
     "@rollup/plugin-url": "^5.0.1",
     "@types/jest": "^29.5.4",
@@ -37,7 +41,6 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
-    "tsd": "^0.29.0",
     "tslib": "^2.6.2",
     "typescript": "^5.2.2",
     "xo": "^0.56.0"
