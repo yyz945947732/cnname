@@ -1,23 +1,11 @@
 {
-  "include": [
-    "src"
-  ],
+  "include": ["src"],
   "compilerOptions": {
     "module": "esnext",
     "allowJs": true,
     "checkJs": true,
-    "lib": [
-      "ES2015",
-    ],
+    "lib": ["ES2015"],
     "moduleResolution": "node",
-    "noEmit": true,
-  },
-  "exclude": [
-    "node_modules",
-    "dist",
-    "script",
-    "example",
-    "public",
-    "rollup.config.js"
-  ],
+    "noEmit": true
+  }
 }
