@@ -33,7 +33,7 @@ function randomNumber(a: number, b: number): number {
  * 从数组中随机选取 n 个元素
  */
 function pickRandomEle(array: string[], n = 1): string[] {
-  /* istanbul ignore if  */
+  /* istanbul ignore if -- @preserve */
   if (!array || array.length === 0 || n === 0) {
     return [];
   }

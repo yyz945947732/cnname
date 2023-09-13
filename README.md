@@ -21,10 +21,10 @@
       alt="Coverage Status"
     />
   </a>
-  <a href="https://github.com/jestjs/jest">
+  <a href="https://vitest.dev">
     <img
-      src="https://img.shields.io/badge/ Jest-tested-eee.svg?logo=jest&labelColor=99424f"
-      alt="Test in Jest"
+      src="https://img.shields.io/badge/ Vitest-tested-6da13f.svg?logo=vitest&labelColor=edd532"
+      alt="Test in Vitest"
     />
   </a>
   <a href="https://github.com/yyz945947732/cnname/pulls">
