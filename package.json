@@ -27,9 +27,6 @@
     "url": "git+https://github.com/yyz945947732/cnname.git"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.22.15",
-    "@babel/runtime": "^7.3.1",
     "@vitest/coverage-istanbul": "^0.34.4",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2",
