@@ -1,4 +1,4 @@
-import cnname from '../dist/index.es.js';
+import cnname from '../dist/index.js';
 import { writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
