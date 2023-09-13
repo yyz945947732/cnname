@@ -1,4 +1,4 @@
-简体中文 | [English](./READEME.zh-en.md)
+[简体中文](./READEME.md) | English
 
 <p align="center">
   <a href="https://github.com/yyz945947732/gzteacher-auth">
@@ -6,7 +6,7 @@
   </a>
 </p>
 
-🚀 随机生成中文名
+🚀 Randomly generate Chinese names
 
 <p align="center">
   <a href="https://www.npmjs.com/package/cnname">
@@ -64,21 +64,21 @@ cnname('关', 5);
 
 ## API
 
-**cnname(): string** 获取一个随机名字
+**cnname(): string** Get a random Chinese name
 
-**cnname(surname: string): string** 获取指定姓氏的随机名字
+**cnname(surname: string): string** Get a random Chinese name for a specified surname
 
-**cnname(num: number): string[]** 获取指定数量的随机名字
+**cnname(num: number): string[]** Get a specified number of random Chinese names
 
-**cnname(surname: string, num: number): string[]** 获取指定姓氏和数量的随机名字
+**cnname(surname: string, num: number): string[]** Get the specified surname and number of random Chinese names
 
 ## Resource
 
-以下为资源库，如果缺少了你想要的姓氏或名字，[欢迎补充](https://github.com/yyz945947732/cnname/pulls)。
+The following is the resource library, if the surname or words you want is missing，[PR Welcome](https://github.com/yyz945947732/cnname/pulls)。
 
-- [姓氏库](https://github.com/yyz945947732/cnname/blob/master/dict/surnames.json)
+- [Surnames](https://github.com/yyz945947732/cnname/blob/master/dict/surnames.json)
 
-- [名字库](https://github.com/yyz945947732/cnname/blob/master/dict/words.json)
+- [Words](https://github.com/yyz945947732/cnname/blob/master/dict/words.json)
 
 ## Example
 
@@ -105,7 +105,7 @@ ${cnname(1000).join('，')}
 `;
 ```
 
-[输出结果](https://github.com/yyz945947732/cnname/blob/master/example/novel.md)
+[Output](https://github.com/yyz945947732/cnname/blob/master/example/novel.md)
 
 ## LICENSE
 
