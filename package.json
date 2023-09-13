@@ -22,6 +22,10 @@
     "url": "https://github.com/yyz945947732/cnname/issues",
     "email": "945947732@qq.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yyz945947732/cnname.git"
+  },
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.22.15",
@@ -44,5 +48,14 @@
     "tslib": "^2.6.2",
     "typescript": "^5.2.2",
     "xo": "^0.56.0"
-  }
+  },
+  "keywords": [
+    "汉字",
+    "名字",
+    "随机名字",
+    "chinese",
+    "cnchar",
+    "cnchar-name",
+    "chinese name"
+  ]
 }
