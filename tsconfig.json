@@ -1,0 +1,33 @@
+{
+  "include": [
+    "src",
+  ],
+  "compilerOptions": {
+    "module": "esnext",
+    "allowJs": true,
+    "checkJs": true,
+    "lib": [
+      "ES2015",
+    ],
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "noEmit": true
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "script",
+    "rollup.config.js"
+  ]
+}
