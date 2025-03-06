@@ -82,6 +82,8 @@ import { getSurname, ... } from 'cnname';
 
 **getSurname(num: number): string** 获取指定数量的随机姓氏
 
+**getCompoundSurname(num: number): string** 获取指定数量的随机复姓
+
 **isSurname(surname: string): boolean** 判断当前值是否为姓氏
 
 ## Resource

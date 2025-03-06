@@ -2,6 +2,7 @@ import surnameDict from '../../dict/surnames.json';
 import wordsDict from '../../dict/words.json';
 
 const SURNAMES = surnameDict.dict.split(' ');
+const COMPOUND_SURNAMES = surnameDict.dict.split(' ')?.filter(words => words.length > 1);
 const WORDS = wordsDict.dict.split('');
 
 /**
@@ -18,6 +19,15 @@ export function pickRandomWords(n = 1): string {
  */
 export function pickRandomSurname(): string {
   const [surname] = pickRandomEle(SURNAMES);
+  return surname;
+}
+
+/**
+ * @private
+ * 随机获取复姓
+ */
+export function pickRandomCompoundSurname(): string {
+  const [surname] = pickRandomEle(COMPOUND_SURNAMES);
   return surname;
 }
 
