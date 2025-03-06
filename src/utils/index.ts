@@ -1,13 +1,15 @@
 import surnameDict from '../../dict/surnames.json';
 import wordsDict from '../../dict/words.json';
 
+const SURNAMES = surnameDict.dict.split(' ');
+const WORDS = wordsDict.dict.split('');
+
 /**
  * @private
  * 随机获取名
  */
 export function pickRandomWords(n = 1): string {
-  const words = wordsDict.dict;
-  return pickRandomEle(words.split(''), n).join('');
+  return pickRandomEle(WORDS, n).join('');
 }
 
 /**
@@ -15,9 +17,16 @@ export function pickRandomWords(n = 1): string {
  * 随机获取姓氏
  */
 export function pickRandomSurname(): string {
-  const surnames = surnameDict.dict;
-  const [surname] = pickRandomEle(surnames.split(' '));
+  const [surname] = pickRandomEle(SURNAMES);
   return surname;
+}
+
+/**
+ * @private
+ * 判断值是否存在姓氏中
+ */
+export function getIsSurname(surname: string): boolean {
+  return SURNAMES.some(item => item === surname);
 }
 
 /**
@@ -25,7 +34,7 @@ export function pickRandomSurname(): string {
  * 获取数组范围内随机数
  */
 function randomNumber(a: number, b: number): number {
-  return a + Math.round(Math.random() * (b - a));
+  return Math.floor(Math.random() * (b - a + 1));
 }
 
 /**
@@ -34,9 +43,7 @@ function randomNumber(a: number, b: number): number {
  */
 function pickRandomEle(array: string[], n = 1): string[] {
   /* istanbul ignore if -- @preserve */
-  if (!array || array.length === 0 || n === 0) {
-    return [];
-  }
+  if (!array || !array.length || n <= 0) return [];
 
   const result = [];
   const length = array.length;

@@ -82,6 +82,8 @@ import { getSurname, ... } from 'cnname';
 
 **getSurname(num: number): string** Get a specified number of random Chinese surname
 
+**isSurname(surname: string): boolean** Get whether the current value is a surname
+
 ## Resource
 
 The following is the resource library, if the surname or words you want is missing，[PR Welcome](https://github.com/yyz945947732/cnname/pulls)。

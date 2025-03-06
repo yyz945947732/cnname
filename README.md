@@ -82,6 +82,8 @@ import { getSurname, ... } from 'cnname';
 
 **getSurname(num: number): string** 获取指定数量的随机姓氏
 
+**isSurname(surname: string): boolean** 判断当前值是否为姓氏
+
 ## Resource
 
 以下为资源库，如果缺少了你想要的姓氏或名字，[欢迎补充](https://github.com/yyz945947732/cnname/pulls)。
