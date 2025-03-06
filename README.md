@@ -72,6 +72,16 @@ cnname('关', 5);
 
 **cnname(surname: string, num: number): string[]** 获取指定姓氏和数量的随机名字
 
+### Utils
+
+```js
+import { getSurname, ... } from 'cnname';
+```
+
+**getSurname(): string** 获取一个随机姓氏
+
+**getSurname(num: number): string** 获取指定数量的随机姓氏
+
 ## Resource
 
 以下为资源库，如果缺少了你想要的姓氏或名字，[欢迎补充](https://github.com/yyz945947732/cnname/pulls)。

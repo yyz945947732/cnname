@@ -72,6 +72,16 @@ cnname('关', 5);
 
 **cnname(surname: string, num: number): string[]** Get the specified surname and number of random Chinese names
 
+### Utils
+
+```js
+import { getSurname, ... } from 'cnname';
+```
+
+**getSurname(): string** Get a random Chinese surname
+
+**getSurname(num: number): string** Get a specified number of random Chinese surname
+
 ## Resource
 
 The following is the resource library, if the surname or words you want is missing，[PR Welcome](https://github.com/yyz945947732/cnname/pulls)。
