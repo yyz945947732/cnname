@@ -53,24 +53,44 @@ npm install --save cnname
 import cnname from 'cnname';
 
 cnname();
-// 李炜
+// -> 李炜
 cnname('彭');
-// 彭天奇
+// -> 彭天奇
 cnname(5);
-// ["俞俐均","王富","东方全","蒲诚","左哲"]
+// -> ["俞俐均","王富","东方全","蒲诚","左哲"]
 cnname('关', 5);
-// ["关智华","关永毓","关宁","关伟星","关炎城"]
+// -> ["关智华","关永毓","关宁","关伟星","关炎城"]
 ```
 
 ## API
 
-**cnname(): string** 获取一个随机名字
+**`cnname(): string`** 获取一个随机名字
 
-**cnname(surname: string): string** 获取指定姓氏的随机名字
+**`cnname(surname: string): string`** 获取指定姓氏的随机名字
 
-**cnname(num: number): string[]** 获取指定数量的随机名字
+**`cnname(num: number): string[]`** 获取指定数量的随机名字
 
-**cnname(surname: string, num: number): string[]** 获取指定姓氏和数量的随机名字
+**`cnname(surname: string, num: number): string[]`** 获取指定姓氏和数量的随机名字
+
+### Utils
+
+```js
+import { getSurname, ... } from 'cnname';
+```
+
+**`getSurname(): string`** 获取一个随机姓氏
+
+**`getSurname(num: number): string[]`** 获取指定数量的随机姓氏
+
+**`getCompoundSurname(): string`** 获取一个随机复姓
+
+**`getCompoundSurname(num: number): string[]`** 获取指定数量的随机复姓
+
+**`getName(): string`** 获取随机名(不包含姓氏)
+
+**`getName(num: number): string[]`** 获取指定数量的随机名(不包含姓氏)
+
+**`isSurname(surname: string): boolean`** 判断当前值是否为姓氏
 
 ## Resource
 
