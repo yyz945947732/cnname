@@ -53,24 +53,24 @@ npm install --save cnname
 import cnname from 'cnname';
 
 cnname();
-// 李炜
+// -> 李炜
 cnname('彭');
-// 彭天奇
+// -> 彭天奇
 cnname(5);
-// ["俞俐均","王富","东方全","蒲诚","左哲"]
+// -> ["俞俐均","王富","东方全","蒲诚","左哲"]
 cnname('关', 5);
-// ["关智华","关永毓","关宁","关伟星","关炎城"]
+// -> ["关智华","关永毓","关宁","关伟星","关炎城"]
 ```
 
 ## API
 
-**cnname(): string** Get a random Chinese name
+**`cnname(): string`** Get a random Chinese name
 
-**cnname(surname: string): string** Get a random Chinese name for a specified surname
+**`cnname(surname: string): string`** Get a random Chinese name for a specified surname
 
-**cnname(num: number): string[]** Get a specified number of random Chinese names
+**`cnname(num: number): string[]`** Get a specified number of random Chinese names
 
-**cnname(surname: string, num: number): string[]** Get the specified surname and number of random Chinese names
+**`cnname(surname: string, num: number): string[]`** Get the specified surname and number of random Chinese names
 
 ### Utils
 
@@ -78,19 +78,19 @@ cnname('关', 5);
 import { getSurname, ... } from 'cnname';
 ```
 
-**getSurname(): string** Get a random Chinese surname
+**`getSurname(): string`** Get a random Chinese surname
 
-**getSurname(num: number): string[]** Get a specified number of random Chinese surname
+**`getSurname(num: number): string[]`** Get a specified number of random Chinese surname
 
-**getCompoundSurname(): string** Get a random Chinese compound surname
+**`getCompoundSurname(): string`** Get a random Chinese compound surname
 
-**getCompoundSurname(num: number): string[]** Get a specified number of random Chinese compound surname
+**`getCompoundSurname(num: number): string[]`** Get a specified number of random Chinese compound surname
 
-**getName(): string** Get a random Chinese name whitout surname
+**`getName(): string`** Get a random Chinese name whitout surname
 
-**getName(num: number): string[]** Get a specified number of random Chinese name whitout surname
+**`getName(num: number): string[]`** Get a specified number of random Chinese name whitout surname
 
-**isSurname(surname: string): boolean** Get whether the current value is a surname
+**`isSurname(surname: string): boolean`** Get whether the current value is a surname
 
 ## Resource
 
