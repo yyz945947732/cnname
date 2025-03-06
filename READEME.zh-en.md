@@ -80,9 +80,15 @@ import { getSurname, ... } from 'cnname';
 
 **getSurname(): string** Get a random Chinese surname
 
-**getSurname(num: number): string** Get a specified number of random Chinese surname
+**getSurname(num: number): string[]** Get a specified number of random Chinese surname
 
-**getCompoundSurname(num: number): string** Get a specified number of random Chinese compound surname
+**getCompoundSurname(): string** Get a random Chinese compound surname
+
+**getCompoundSurname(num: number): string[]** Get a specified number of random Chinese compound surname
+
+**getName(): string** Get a random Chinese name whitout surname
+
+**getName(num: number): string[]** Get a specified number of random Chinese name whitout surname
 
 **isSurname(surname: string): boolean** Get whether the current value is a surname
 

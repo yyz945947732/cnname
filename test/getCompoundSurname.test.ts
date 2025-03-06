@@ -11,6 +11,9 @@ describe('getCompoundSurname', () => {
     test('getCompoundSurname() should return string more than two word', () => {
         expect(getCompoundSurname().length).gte(2);
     });
+    test('getCompoundSurname(0) should return empty array', () => {
+        expect(getCompoundSurname(0).length).toEqual(0);
+    });
     test('getCompoundSurname(5) should return array with five elements', () => {
         expect(getCompoundSurname(5).length).toEqual(5);
     });
