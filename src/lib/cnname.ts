@@ -1,4 +1,5 @@
-import { pickRandomSurname, pickRandomWords } from '../utils';
+import { pickRandomSurname, pickRandomWords, isOptions } from '../utils';
+import type { Options } from '../types/index';
 
 /**
  * 返回随机中文名
@@ -28,13 +29,23 @@ function cnname(surname: string): string;
  */
 function cnname(surname: string, num: number): string[];
 
+/**
+ * 返回随机中文名
+ * @param {Options} option 高级配置
+ * @returns {string[]} 随机中文名数组
+ */
+function cnname(option: Options): string[];
+
 function cnname(
-  parameter1?: number | string,
+  parameter1?: number | string | Options,
   parameter2?: number
 ): string | string[] {
   let num: number;
   let fixSurname = '';
   let single = false;
+  if (isOptions(parameter1)) {
+    return cnnameWithOptions(parameter1);
+  }
   if (typeof parameter1 === 'string') {
     fixSurname = parameter1;
     num = parameter2;
@@ -60,4 +71,24 @@ function cnname(
 
   return single ? result[0] : result;
 }
+
+/**
+ * `cnname(Options)` 处理高级配置
+ * @param {number} num 随机个数
+ * @returns {string[]} 随机中文名数组
+ */
+function cnnameWithOptions(options: Options): string[] {
+  const {
+    surnameType = 'all',
+    nameType = 'full',
+    count = 1,
+    onlyCommonSurname = false,
+    unique = false,
+    onlyRepeatedGivenName = false,
+    surname,
+    givenNameLength,
+  } = options;
+  return [];
+}
+
 export default cnname;

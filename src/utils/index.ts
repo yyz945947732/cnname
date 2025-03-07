@@ -1,10 +1,14 @@
 import surnameDict from '../../dict/surnames.json';
 import wordsDict from '../../dict/words.json';
+import type { Options } from '../types';
 
 const SURNAMES = surnameDict.dict.split(' ');
 const COMPOUND_SURNAMES = surnameDict.dict
   .split(' ')
   ?.filter((words) => words.length > 1);
+const SINGLE_CHARACTER_SURNAMES = surnameDict.dict
+  .split(' ')
+  ?.filter((words) => words.length === 1);
 const WORDS = wordsDict.dict.split('');
 
 /**
@@ -21,6 +25,15 @@ export function pickRandomWords(n = 1): string {
  */
 export function pickRandomSurname(): string {
   const [surname] = pickRandomEle(SURNAMES);
+  return surname;
+}
+
+/**
+ * @private
+ * 随机获取单字姓
+ */
+export function pickRandomSingleCharacterSurname(): string {
+  const [surname] = pickRandomEle(SINGLE_CHARACTER_SURNAMES);
   return surname;
 }
 
@@ -47,6 +60,17 @@ export function getAllSurname(): string[] {
  */
 export function getIsSurname(surname: string): boolean {
   return SURNAMES.some((item) => item === surname);
+}
+
+/**
+ * @private
+ * 判断值为配置对象
+ */
+export function isOptions(value: unknown): value is Options {
+  return (
+    Object.prototype.toString.call(value) === '[object Object]' &&
+    Object.getPrototypeOf(value) === Object.prototype
+  );
 }
 
 /**
