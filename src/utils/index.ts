@@ -1,10 +1,12 @@
 import surnameDict from '../../dict/surnames.json';
 import wordsDict from '../../dict/words.json';
+import commonSurnameDict from '../../dict/commonSurname.json';
+import type { Options } from '../types';
 
 const SURNAMES = surnameDict.dict.split(' ');
-const COMPOUND_SURNAMES = surnameDict.dict
-  .split(' ')
-  ?.filter((words) => words.length > 1);
+const COMMON_SURNAMES = commonSurnameDict.dict.split(' ');
+const COMPOUND_SURNAMES = SURNAMES.filter((words) => words.length > 1);
+const SINGLE_CHARACTER_SURNAMES = SURNAMES.filter((words) => words.length === 1);
 const WORDS = wordsDict.dict.split('');
 
 /**
@@ -26,11 +28,38 @@ export function pickRandomSurname(): string {
 
 /**
  * @private
+ * 随机获取常用姓
+ */
+export function pickRandomCommonSurname(): string {
+  const [surname] = pickRandomEle(COMMON_SURNAMES);
+  return surname;
+}
+
+/**
+ * @private
  * 随机获取复姓
  */
 export function pickRandomCompoundSurname(): string {
   const [surname] = pickRandomEle(COMPOUND_SURNAMES);
   return surname;
+}
+
+/**
+ * @private
+ * 随机获取单字姓
+ */
+export function pickRandomSingleCharacterSurname(): string {
+  const [surname] = pickRandomEle(SINGLE_CHARACTER_SURNAMES);
+  return surname;
+}
+
+/**
+ * @private
+ * 随机获取叠字名
+*/
+export function pickRepeatedGivenName(): string {
+  const [givenName] = pickRandomEle(WORDS);
+  return givenName + givenName;
 }
 
 /**
@@ -43,10 +72,162 @@ export function getAllSurname(): string[] {
 
 /**
  * @private
+ * 获取所有常用姓
+ */
+export function getAllCommonSurname(): string[] {
+  return COMMON_SURNAMES;
+}
+
+/**
+ * @private
+ * 获取所有复姓
+ */
+export function getAllCompoundSurname(): string[] {
+  return COMPOUND_SURNAMES;
+}
+
+/**
+ * @private
+ * 获取所有单字姓
+ */
+export function getAllSingleCharacterSurname(): string[] {
+  return SINGLE_CHARACTER_SURNAMES;
+}
+
+/**
+ * @private
+ * 获取所有姓氏数量
+ */
+export function getAllSurnameSize(): number {
+  return SURNAMES.length;
+}
+
+/**
+ * @private
+ * 获取所有常用姓氏数量
+ */
+export function getAllCommonSurnameSize(): number {
+  return COMMON_SURNAMES.length;
+}
+
+/**
+ * @private
+ * 获取所有复姓数量
+ */
+export function getAllCompoundSurnameSize(): number {
+  return COMPOUND_SURNAMES.length;
+}
+
+/**
+ * @private
+ * 获取所有单字姓数量
+ */
+export function getAllSingleCharacterSurnameSize(): number {
+  return SINGLE_CHARACTER_SURNAMES.length;
+}
+/**
+ * @private
+ * 获取所有名数量
+ */
+export function getAllWordeSize(): number {
+  return WORDS.length;
+}
+
+/**
+ * @private
  * 判断值是否存在姓氏中
  */
 export function getIsSurname(surname: string): boolean {
   return SURNAMES.some((item) => item === surname);
+}
+
+/**
+ * @private
+ * 判断值为配置对象
+ */
+export function isOptions(value: unknown): value is Options {
+  return (
+    Object.prototype.toString.call(value) === '[object Object]' &&
+    Object.getPrototypeOf(value) === Object.prototype
+  );
+}
+
+/**
+ * @private
+ * 根据高级配置获取单个结果
+*/
+export function getSingleResult(options: Options): string {
+  const {
+    surnameType = 'all',
+    nameType = 'full',
+    onlyCommonSurname = false,
+    onlyRepeatedGivenName = false,
+    givenNameLength,
+    surname: fixedSurname,
+  } = options;
+
+  const surnamePickerMap = {
+    all: pickRandomSurname,
+    compound: pickRandomCompoundSurname,
+    single: pickRandomSingleCharacterSurname,
+  };
+
+  const pickFn = onlyCommonSurname ? pickRandomCommonSurname : surnamePickerMap[surnameType] ?? pickRandomSurname;
+  const nameLength = Number.isInteger(givenNameLength) ? givenNameLength : Math.random() > 0.5 ? 2 : 1;
+
+  let surname: string;
+  let givenName: string;
+
+  if (nameType !== 'givenName') {
+    surname = fixedSurname || pickFn();
+  }
+  if (nameType !== 'surname') {
+    givenName = onlyRepeatedGivenName ? pickRepeatedGivenName() : pickRandomWords(nameLength);
+  }
+
+  switch (nameType) {
+    case 'full': return surname + givenName;
+    case 'surname': return surname;
+    case 'givenName': return givenName;
+    default: return surname + givenName;
+  }
+}
+
+/**
+ * @private
+ * 根据高级配置获取集合最大大小
+*/
+export function getMaxSetSize(options: Options): number {
+  const {
+    surnameType = 'all',
+    nameType = 'full',
+    onlyCommonSurname = false,
+    onlyRepeatedGivenName = false,
+  } = options;
+
+  const MAX_ALL_SURNAME_SIZE = getAllSurnameSize();
+  const MAX_COMMON_SURNAME_SIZE = getAllCommonSurnameSize();
+  const MAX_COMPOUND_SURNAME_SIZE = getAllCompoundSurnameSize();
+  const MAX_SINGLE_CHARACTER_SURNAME_SIZE = getAllSingleCharacterSurnameSize();
+  const MAX_WORD_SIZE = getAllWordeSize();
+
+  const MAX_SURNAME_SIZE_MAP = {
+    all: MAX_ALL_SURNAME_SIZE,
+    compound: MAX_COMPOUND_SURNAME_SIZE,
+    single: MAX_SINGLE_CHARACTER_SURNAME_SIZE,
+  };
+
+  const MAX_SURNAME_SIZE = onlyCommonSurname ? MAX_COMMON_SURNAME_SIZE : MAX_SURNAME_SIZE_MAP[surnameType] ?? MAX_ALL_SURNAME_SIZE;
+
+  if (nameType !== 'surname') {
+    return Number.MAX_SAFE_INTEGER;
+  }
+
+  if (onlyRepeatedGivenName) {
+    return MAX_WORD_SIZE;
+  }
+
+  return MAX_SURNAME_SIZE;
 }
 
 /**
