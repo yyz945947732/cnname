@@ -30,4 +30,4 @@ const novelPath = path.resolve(__dirname, '../example/novel.md');
 
 writeFileSync(novelPath, novel, 'utf-8');
 
-console.log('写入成功！');
+console.log('更新成功！');

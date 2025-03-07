@@ -6,7 +6,8 @@
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "start": "node scripts/example.mjs",
+    "start": "node scripts/preview.mjs",
+    "example": "node scripts/example.mjs",
     "test": "vitest",
     "test:cov": "vitest run --coverage",
     "lint": "biome check --apply-unsafe ./src && biome format --write ./src",
