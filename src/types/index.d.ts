@@ -10,7 +10,7 @@ export interface Options {
   givenNameLength?: number;
   /** 返回不可重复，默认为 `false` */
   unique?: boolean;
-  /** 仅返回常用姓氏（姓氏人数前100名），默认为 `false` */
+  /** 仅返回常用姓氏，默认为 `false` */
   onlyCommonSurname?: boolean;
   /**
    * 支持姓氏类型，默认为 `all`
