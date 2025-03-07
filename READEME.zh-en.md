@@ -80,7 +80,7 @@ cnname('关', 5);
 |-----------|------|-------------|---------|
 | `count` | `number` | Number of names to generate | `1` |
 | `surname` | `string` | Specify a surname | Random surname |
-| `onlyRepeatedGivenName` | `boolean` | Whether to return only repeated given names (e.g., "婷婷", "明明") | `false` |
+| `repeatedGivenNameOnly` | `boolean` | Whether to return only repeated given names (e.g., "婷婷", "明明") | `false` |
 | `givenNameLength` | `number` | Length of the given name | `1` or `2` |
 | `unique` | `boolean` | Ensure the returned names are unique | `false` |
 | `onlyCommonSurname` | `boolean` | Whether to return only common surnames | `false` |

@@ -21,7 +21,7 @@
 
 休闻,束雄,么伯静,钟离宜博,春娜
 
-## cnname({ count: 5, unique: true, onlyRepeatedGivenName: true })
+## cnname({ count: 5, unique: true, repeatedGivenNameOnly: true })
 
 惠毅毅,宿筠筠,错勤勤,阚舒舒,艾枫枫
 

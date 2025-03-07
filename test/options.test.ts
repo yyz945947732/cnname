@@ -34,11 +34,11 @@ describe('cnname(options)', () => {
   test('cnname({ count: 5, unique: true, onlyCommonSurname: true }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, onlyCommonSurname: true }).length).toEqual(5);
   });
-  test('cnname({ count: 5, unique: true, onlyRepeatedGivenName: true }) should return array with five elements', () => {
-    expect(cnname({ count: 5, unique: true, onlyRepeatedGivenName: true }).length).toEqual(5);
+  test('cnname({ count: 5, unique: true, repeatedGivenNameOnly: true }) should return array with five elements', () => {
+    expect(cnname({ count: 5, unique: true, repeatedGivenNameOnly: true }).length).toEqual(5);
   });
-  test('cnname({ count: 5, unique: true, onlyRepeatedGivenName: true }) should return array with repeated givenName', () => {
-    const result = cnname({ count: 5, unique: true, onlyRepeatedGivenName: true });
+  test('cnname({ count: 5, unique: true, repeatedGivenNameOnly: true }) should return array with repeated givenName', () => {
+    const result = cnname({ count: 5, unique: true, repeatedGivenNameOnly: true });
     const [name] = result;
     expect(name[1]).toEqual(name[2]);
   });
