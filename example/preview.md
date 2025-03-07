@@ -33,11 +33,11 @@
 
 鲜于,单于,南宫,段干,公羊
 
-## getName()
+## getGivenName()
 
 致博
 
-## getName(5)
+## getGivenName(5)
 
 翔霭,树杰,琛航,桂辰,智岚
 

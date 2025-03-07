@@ -4,16 +4,16 @@ import { pickRandomWords } from '../utils';
  * 返回随机姓氏
  * @returns {string} 随机姓氏
  */
-function getName(): string;
+function getGivenName(): string;
 
 /**
  * 返回随机姓氏
  * @param {number} num 随机个数
  * @returns {string[]} 随机姓氏数组
  */
-function getName(num: number): string[];
+function getGivenName(num: number): string[];
 
-function getName(num?: number): string | string[] {
+function getGivenName(num?: number): string | string[] {
   let resultNum = num ?? 1;
   if (num < 0) {
     resultNum = 1;
@@ -27,4 +27,4 @@ function getName(num?: number): string | string[] {
   return num === undefined ? result[0] : result;
 }
 
-export default getName;
+export default getGivenName;
