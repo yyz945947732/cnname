@@ -2,7 +2,9 @@ import surnameDict from '../../dict/surnames.json';
 import wordsDict from '../../dict/words.json';
 
 const SURNAMES = surnameDict.dict.split(' ');
-const COMPOUND_SURNAMES = surnameDict.dict.split(' ')?.filter(words => words.length > 1);
+const COMPOUND_SURNAMES = surnameDict.dict
+  .split(' ')
+  ?.filter((words) => words.length > 1);
 const WORDS = wordsDict.dict.split('');
 
 /**
@@ -36,7 +38,7 @@ export function pickRandomCompoundSurname(): string {
  * 判断值是否存在姓氏中
  */
 export function getIsSurname(surname: string): boolean {
-  return SURNAMES.some(item => item === surname);
+  return SURNAMES.some((item) => item === surname);
 }
 
 /**

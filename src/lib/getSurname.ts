@@ -14,14 +14,14 @@ function getSurname(): string;
 function getSurname(num: number): string[];
 
 function getSurname(num?: number): string | string[] {
-    if (num < 0) {
-        num = 1
-    }
-    const result = Array.from({ length: num ?? 1 }, () => {
-        const surname = pickRandomSurname();
-        return surname;
-    });
-    return num === undefined ? result[0] : result
+  if (num < 0) {
+    num = 1;
+  }
+  const result = Array.from({ length: num ?? 1 }, () => {
+    const surname = pickRandomSurname();
+    return surname;
+  });
+  return num === undefined ? result[0] : result;
 }
 
 export default getSurname;

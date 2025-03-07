@@ -7,7 +7,7 @@ import { getIsSurname } from '../utils';
  */
 
 function isSurname(surname: string): boolean {
-    return getIsSurname(surname);
+  return getIsSurname(surname);
 }
 
 export default isSurname;

@@ -1,4 +1,4 @@
-import cnname from "./lib/cnname";
+import cnname from './lib/cnname';
 import getSurname from './lib/getSurname';
 import isSurname from './lib/isSurname';
 import getCompoundSurname from './lib/getCompoundSurname';
