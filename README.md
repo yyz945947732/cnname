@@ -6,7 +6,7 @@
   </a>
 </p>
 
-🚀 随机生成中文名
+👶 随机生成中文名
 
 <p align="center">
   <a href="https://www.npmjs.com/package/cnname">

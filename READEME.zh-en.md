@@ -6,7 +6,7 @@
   </a>
 </p>
 
-🚀 Randomly generate Chinese names
+👦 Randomly generate Chinese names 👧
 
 <p align="center">
   <a href="https://www.npmjs.com/package/cnname">
