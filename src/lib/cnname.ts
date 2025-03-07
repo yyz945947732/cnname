@@ -1,4 +1,4 @@
-import { pickRandomSurname, pickRandomWords, isOptions } from '../utils';
+import { pickRandomSurname, pickRandomWords, isOptions, getSingleResult, getMaxSetSize } from '../utils';
 import type { Options } from '../types/index';
 
 /**
@@ -65,8 +65,8 @@ function cnname(
   const result = Array.from({ length: num }, () => {
     const surname = fixSurname || pickRandomSurname();
     const nameLength = Math.random() > 0.5 ? 2 : 1;
-    const name = pickRandomWords(nameLength);
-    return surname + name;
+    const givenName = pickRandomWords(nameLength);
+    return surname + givenName;
   });
 
   return single ? result[0] : result;
@@ -79,16 +79,26 @@ function cnname(
  */
 function cnnameWithOptions(options: Options): string[] {
   const {
-    surnameType = 'all',
-    nameType = 'full',
     count = 1,
-    onlyCommonSurname = false,
     unique = false,
-    onlyRepeatedGivenName = false,
-    surname,
-    givenNameLength,
   } = options;
-  return [];
+
+  const num = count < 0 ? 1 : count;
+
+  const result = Array.from({ length: num }, () => {
+    return getSingleResult(options);
+  });
+
+  if (unique) {
+    const uniqueResult = new Set<string>(result);
+    const maxSetSize = getMaxSetSize(options);
+    while (uniqueResult.size < num && uniqueResult.size < maxSetSize) {
+      uniqueResult.add(getSingleResult(options));
+    }
+    return Array.from(uniqueResult);
+  }
+
+  return result;
 }
 
 export default cnname;

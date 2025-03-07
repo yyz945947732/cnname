@@ -6,9 +6,9 @@ export interface Options {
   surname?: string;
   /** 仅返回叠字名，默认为 `false` */
   onlyRepeatedGivenName?: boolean;
-  /** 名长度（`1` 或 `2`） */
-  givenNameLength?: 1 | 2;
-  /** 返回不可重复 (优先级大于 `count`)，默认为 `false` */
+  /** 名长度，默认为 `1` 或 `2` */
+  givenNameLength?: number;
+  /** 返回不可重复，默认为 `false` */
   unique?: boolean;
   /** 仅返回常用姓氏（姓氏人数前100名），默认为 `false` */
   onlyCommonSurname?: boolean;
