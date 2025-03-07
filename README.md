@@ -88,9 +88,9 @@ import { getSurname, ... } from 'cnname';
 
 **`getAllSurname(): string[]`** 获取所有姓氏
 
-**`getName(): string`** 获取随机名(不包含姓氏)
+**`getGivenName(): string`** 获取随机名(不包含姓氏)
 
-**`getName(num: number): string[]`** 获取指定数量的随机名(不包含姓氏)
+**`getGivenName(num: number): string[]`** 获取指定数量的随机名(不包含姓氏)
 
 **`isSurname(surname: string): boolean`** 判断当前值是否为姓氏
 

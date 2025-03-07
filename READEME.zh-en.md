@@ -88,9 +88,9 @@ import { getSurname, ... } from 'cnname';
 
 **`getAllSurname(): string[]`** Get all Chinese surname
 
-**`getName(): string`** Get a random Chinese name whitout surname
+**`getGivenName(): string`** Get a random Chinese name whitout surname
 
-**`getName(num: number): string[]`** Get a specified number of random Chinese name whitout surname
+**`getGivenName(num: number): string[]`** Get a specified number of random Chinese name whitout surname
 
 **`isSurname(surname: string): boolean`** Get whether the current value is a surname
 

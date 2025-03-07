@@ -5,6 +5,6 @@ assertType<string[]>(getAllSurname());
 
 describe('getAllSurname', () => {
   test('getAllSurname() should return array with at least 200 elements', () => {
-    expect(getAllSurname().length).lte(200);
+    expect(getAllSurname().length).gte(200);
   });
 });
