@@ -1,7 +1,7 @@
 [简体中文](./READEME.md) | English
 
 <p align="center">
-  <a href="https://github.com/yyz945947732/gzteacher-auth">
+  <a href="https://github.com/yyz945947732/cnname">
     <img src="./public/logo.png" alt="logo.png" border="0"  />
   </a>
 </p>
@@ -85,6 +85,8 @@ import { getSurname, ... } from 'cnname';
 **`getCompoundSurname(): string`** Get a random Chinese compound surname
 
 **`getCompoundSurname(num: number): string[]`** Get a specified number of random Chinese compound surname
+
+**`getAllSurname(): string[]`** Get all Chinese surname
 
 **`getName(): string`** Get a random Chinese name whitout surname
 

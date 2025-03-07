@@ -1,7 +1,7 @@
 简体中文 | [English](./READEME.zh-en.md)
 
 <p align="center">
-  <a href="https://github.com/yyz945947732/gzteacher-auth">
+  <a href="https://github.com/yyz945947732/cnname">
     <img src="./public/logo.png" alt="logo.png" border="0"  />
   </a>
 </p>
@@ -85,6 +85,8 @@ import { getSurname, ... } from 'cnname';
 **`getCompoundSurname(): string`** 获取一个随机复姓
 
 **`getCompoundSurname(num: number): string[]`** 获取指定数量的随机复姓
+
+**`getAllSurname(): string[]`** 获取所有姓氏
 
 **`getName(): string`** 获取随机名(不包含姓氏)
 

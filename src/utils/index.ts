@@ -35,6 +35,14 @@ export function pickRandomCompoundSurname(): string {
 
 /**
  * @private
+ * 获取所有姓
+ */
+export function getAllSurname(): string[] {
+  return SURNAMES;
+}
+
+/**
+ * @private
  * 判断值是否存在姓氏中
  */
 export function getIsSurname(surname: string): boolean {

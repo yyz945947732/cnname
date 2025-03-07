@@ -7,7 +7,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "node scripts/preview.mjs",
-    "example": "node scripts/example.mjs",
+    "example": "node scripts/novel.mjs",
+    "surnames": "node scripts/surnames.mjs",
     "test": "vitest",
     "test:cov": "vitest run --coverage",
     "lint": "biome check --apply-unsafe ./src && biome format --write ./src",

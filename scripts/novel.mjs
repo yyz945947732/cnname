@@ -1,7 +1,5 @@
 import cnname from '../dist/index.js';
-import { writeFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import path from 'node:path';
+import { updateExample } from './utils/index.mjs';
 
 const 主角名字 = cnname();
 const 反派名字 = cnname('张');
@@ -22,12 +20,4 @@ ${主角名字}心头微凉，定睛一看。
 ${cnname(1000).join('，')}
 `;
 
-const __filename = fileURLToPath(import.meta.url);
-
-const __dirname = path.dirname(__filename);
-
-const novelPath = path.resolve(__dirname, '../example/novel.md');
-
-writeFileSync(novelPath, novel, 'utf-8');
-
-console.log('更新成功！');
+updateExample(novel, 'novel');
