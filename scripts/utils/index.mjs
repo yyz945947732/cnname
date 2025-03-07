@@ -16,5 +16,5 @@ export function updateExample(content, filename) {
 
   writeFileSync(examplePath, content, 'utf-8');
 
-  console.log('更新成功！');
+  console.log(`${filename}.md 更新成功！`);
 }
