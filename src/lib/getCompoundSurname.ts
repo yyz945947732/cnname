@@ -14,10 +14,11 @@ function getCompoundSurname(): string;
 function getCompoundSurname(num: number): string[];
 
 function getCompoundSurname(num?: number): string | string[] {
+  let resultNum = num ?? 1;
   if (num < 0) {
-    num = 1;
+    resultNum = 1;
   }
-  const result = Array.from({ length: num ?? 1 }, () => {
+  const result = Array.from({ length: resultNum }, () => {
     const surname = pickRandomCompoundSurname();
     return surname;
   });

@@ -32,8 +32,8 @@ function cnname(
   parameter1?: number | string,
   parameter2?: number
 ): string | string[] {
-  let fixSurname;
-  let num;
+  let num: number;
+  let fixSurname = '';
   let single = false;
   if (typeof parameter1 === 'string') {
     fixSurname = parameter1;

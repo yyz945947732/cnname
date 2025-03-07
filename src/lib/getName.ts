@@ -14,10 +14,11 @@ function getName(): string;
 function getName(num: number): string[];
 
 function getName(num?: number): string | string[] {
+  let resultNum = num ?? 1;
   if (num < 0) {
-    num = 1;
+    resultNum = 1;
   }
-  const result = Array.from({ length: num ?? 1 }, () => {
+  const result = Array.from({ length: resultNum }, () => {
     const nameLength = Math.random() > 0.5 ? 2 : 1;
     const name = pickRandomWords(nameLength);
     return name;
