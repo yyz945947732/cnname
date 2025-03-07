@@ -72,6 +72,21 @@ cnname('关', 5);
 
 **`cnname(surname: string, num: number): string[]`** 获取指定姓氏和数量的随机名字
 
+**`cnname(options: Option): string[]`** 通过[高级配置](#option)获取随机名字
+
+### Option
+
+| 参数 | 类型 | 说明 | 默认值 |
+|------|------|------|------|
+| `count` | `number` | 生成的姓名数量 | `1` |
+| `surname` | `string` | 指定姓氏 | 随机姓氏 |
+| `onlyRepeatedGivenName` | `boolean` | 是否只返回叠字名（如 "婷婷"、"明明"） | `false` |
+| `givenNameLength` | `number` | 名字长度 | 1 或 2 |
+| `unique` | `boolean` | 是否确保返回的值不重复 | `false` |
+| `onlyCommonSurname` | `boolean` | 是否仅返回常见姓氏 | `false` |
+| `surnameType` | `'all' \| 'single' \| 'compound'` | 控制姓氏类型，`'all'` 为全部姓氏，`single` 为单字姓 ，`compound` 为复姓| `'all'` |
+| `nameType` | `'full' \| 'surname' \| 'givenName'` | 返回值，`'full'` 为完整姓名，`'surname'` 为仅姓氏，`'givenName'` 为仅名 | `'full'` |
+
 ### Utils
 
 ```js

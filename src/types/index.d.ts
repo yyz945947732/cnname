@@ -1,12 +1,12 @@
 /** 高级配置 */
 export interface Options {
-  /** 返回数量, 默认为 `1` */
+  /** 返回值数量, 默认为 `1` */
   count?: number;
   /** 仅返回指定姓氏 */
   surname?: string;
   /** 仅返回叠字名，默认为 `false` */
   onlyRepeatedGivenName?: boolean;
-  /** 名长度，默认为 `1` 或 `2` */
+  /** 名长度 */
   givenNameLength?: number;
   /** 返回不可重复，默认为 `false` */
   unique?: boolean;

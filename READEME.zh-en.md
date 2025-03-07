@@ -6,7 +6,7 @@
   </a>
 </p>
 
-👦 Randomly generate Chinese names 👧
+👦 Generate Random Chinese Names 👧
 
 <p align="center">
   <a href="https://www.npmjs.com/package/cnname">
@@ -64,13 +64,28 @@ cnname('关', 5);
 
 ## API
 
-**`cnname(): string`** Get a random Chinese name
+**`cnname(): string`** Get a random name
 
-**`cnname(surname: string): string`** Get a random Chinese name for a specified surname
+**`cnname(surname: string): string`** Get a random name with a specified surname
 
-**`cnname(num: number): string[]`** Get a specified number of random Chinese names
+**`cnname(num: number): string[]`** Get a specified number of random names
 
-**`cnname(surname: string, num: number): string[]`** Get the specified surname and number of random Chinese names
+**`cnname(surname: string, num: number): string[]`** Get a specified number of names with a given surname
+
+**`cnname(options: Option): string[]`** Get random names based on [advanced configuration](#options)
+
+### Options
+
+| Parameter | Type | Description | Default |
+|-----------|------|-------------|---------|
+| `count` | `number` | Number of names to generate | `1` |
+| `surname` | `string` | Specify a surname | Random surname |
+| `onlyRepeatedGivenName` | `boolean` | Whether to return only repeated given names (e.g., "婷婷", "明明") | `false` |
+| `givenNameLength` | `number` | Length of the given name | `1` or `2` |
+| `unique` | `boolean` | Ensure the returned names are unique | `false` |
+| `onlyCommonSurname` | `boolean` | Whether to return only common surnames | `false` |
+| `surnameType` | `'all' \| 'single' \| 'compound'` | Control surname type: `'all'` for all surnames, `'single'` for single-character surnames, `'compound'` for compound surnames | `'all'` |
+| `nameType` | `'full' \| 'surname' \| 'givenName'` | Type of returned value: `'full'` for full names, `'surname'` for surnames only, `'givenName'` for given names only | `'full'` |
 
 ### Utils
 
@@ -78,29 +93,29 @@ cnname('关', 5);
 import { getSurname, ... } from 'cnname';
 ```
 
-**`getSurname(): string`** Get a random Chinese surname
+**`getSurname(): string`** Get a random surname
 
-**`getSurname(num: number): string[]`** Get a specified number of random Chinese surname
+**`getSurname(num: number): string[]`** Get a specified number of random surnames
 
-**`getCompoundSurname(): string`** Get a random Chinese compound surname
+**`getCompoundSurname(): string`** Get a random compound surname
 
-**`getCompoundSurname(num: number): string[]`** Get a specified number of random Chinese compound surname
+**`getCompoundSurname(num: number): string[]`** Get a specified number of random compound surnames
 
-**`getAllSurname(): string[]`** Get all Chinese surname
+**`getAllSurname(): string[]`** Get all available surnames
 
-**`getGivenName(): string`** Get a random Chinese name whitout surname
+**`getGivenName(): string`** Get a random given name (without surname)
 
-**`getGivenName(num: number): string[]`** Get a specified number of random Chinese name whitout surname
+**`getGivenName(num: number): string[]`** Get a specified number of random given names (without surnames)
 
-**`isSurname(surname: string): boolean`** Get whether the current value is a surname
+**`isSurname(surname: string): boolean`** Check if a given string is a surname
 
 ## Resource
 
-The following is the resource library, if the surname or words you want is missing，[PR Welcome](https://github.com/yyz945947732/cnname/pulls)。
+The following are data resources. If you find that a surname or given name is missing, [contributions are welcome](https://github.com/yyz945947732/cnname/pulls).
 
-- [Surnames](https://github.com/yyz945947732/cnname/blob/master/dict/surnames.json)
+- [Surnames Database](https://github.com/yyz945947732/cnname/blob/master/dict/surnames.json)
 
-- [Words](https://github.com/yyz945947732/cnname/blob/master/dict/words.json)
+- [Given Names Database](https://github.com/yyz945947732/cnname/blob/master/dict/words.json)
 
 ## Example
 
@@ -127,7 +142,7 @@ ${cnname(1000).join('，')}
 `;
 ```
 
-[Output](https://github.com/yyz945947732/cnname/blob/master/example/novel.md)
+[Output Result](https://github.com/yyz945947732/cnname/blob/master/example/novel.md)
 
 ## LICENSE
 

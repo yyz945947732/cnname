@@ -9,7 +9,7 @@ assertType<string[]>(cnname({ count: 5, unique: true, surnameType: 'compound' })
 assertType<string[]>(cnname({ count: 5, unique: true, surnameType: 'single' }));
 assertType<string[]>(cnname({ count: 5, unique: true, surnameType: 'all' }));
 
-describe('cnname(Options)', () => {
+describe('cnname(options)', () => {
   test('cnname({ count: 5 }) should return array with five elements', () => {
     expect(cnname({ count: 5 }).length).toEqual(5);
   });

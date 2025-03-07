@@ -31,10 +31,10 @@ function cnname(surname: string, num: number): string[];
 
 /**
  * 返回随机中文名
- * @param {Options} option 高级配置
+ * @param {Options} options 高级配置
  * @returns {string[]} 随机中文名数组
  */
-function cnname(option: Options): string[];
+function cnname(options: Options): string[];
 
 function cnname(
   parameter1?: number | string | Options,
