@@ -99,7 +99,7 @@ Generate random names using [advanced configuration](#options).
 ### 🛠️ Utils
 
 ```js
-import { isSurname, ... } from 'cnname';
+import { isSurname, getAllSurname, cnnamestr, parseName } from 'cnname';
 ```
 **`isSurname(surname: string): boolean`** 
 
@@ -112,6 +112,10 @@ Get all surnames, with an optional filter for surname types. The default is `'al
 **`cnnamestr(options: Option): string`**  
 
 Same parameters and usage as `cnname`, but always returns a string. If multiple results are generated, they are joined with `,`.
+
+**`parseName(name: string): { surname: string, givenName: string }`** 
+
+Parse the name and return the detailed information of the name, including the surname and given name.
 
 ## 📚 Resource
 

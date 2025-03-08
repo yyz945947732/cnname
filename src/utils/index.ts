@@ -197,6 +197,22 @@ export function getIsSurname(surname: string): boolean {
 
 /**
  * @private
+ * 判断值是否存在复姓中
+ */
+export function getIsCompoundSurname(surname: string): boolean {
+  return COMPOUND_SURNAMES.some((item) => item === surname);
+}
+
+/**
+ * @private
+ * 判断值是否存在单字姓中
+ */
+export function getIsSingleCharacterSurname(surname: string): boolean {
+  return SINGLE_CHARACTER_SURNAMES.some((item) => item === surname);
+}
+
+/**
+ * @private
  * 判断值为配置对象
  */
 export function isOptions(value: unknown): value is Options {

@@ -44,3 +44,11 @@ export type SurnameType =
 
 /** 返回的姓名部分 */
 export type Part = 'fullName' | 'surname' | 'givenName';
+
+/** 姓名解析格式 */
+export interface ParseNameResult {
+  /** 姓氏 */
+  surname: string;
+  /** 名 */
+  givenName: string;
+}
