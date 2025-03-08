@@ -8,7 +8,11 @@ export interface Options {
   repeatedGivenNameOnly?: boolean;
   /** 名长度 */
   givenNameLength?: number;
-  /** 返回不可重复，默认为 `false` */
+  /** 
+   * 返回不可重复，默认为 `false` 
+   * 
+   * 如果 `unique` 为 `true`，但字典可返回的数量不足 `count`，则返回的数量可能会少于 `count`。
+   */
   unique?: boolean;
   /**
    * 支持姓氏类型，默认为 `all`
