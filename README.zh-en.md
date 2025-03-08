@@ -105,9 +105,9 @@ import { isSurname, ... } from 'cnname';
 
 Check if a given value is a surname.
 
-**`getAllSurname(surnameType?: 'all' | 'single' | 'compound' | 'common' | 'single-common' | 'compound-common'): string[]`** 
+**`getAllSurname(surnameType?: SurnameType): string[]`** 
 
-Get all surnames, with an optional filter for surname types. Default is `'all'` (all surnames).
+Get all surnames, with an optional filter for surname types. `'all'` for all surnames, `'single'` for single-character surnames, `'compound'` for compound surnames，`common` for common surname，`single-common` for common single-character surnames，`compound-common` for common compound surnames. The default is `'all'`.
 
 ## Resource
 
