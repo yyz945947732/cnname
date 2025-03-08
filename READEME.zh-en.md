@@ -89,24 +89,11 @@ cnname('关', 5);
 ### Utils
 
 ```js
-import { getSurname, ... } from 'cnname';
+import { isSurname, ... } from 'cnname';
 ```
-
-**`getSurname(): string`** Get a random surname
-
-**`getSurname(num: number): string[]`** Get a specified number of random surnames
-
-**`getCompoundSurname(): string`** Get a random compound surname
-
-**`getCompoundSurname(num: number): string[]`** Get a specified number of random compound surnames
+**`isSurname(surname: string): boolean`** Check if a given string is a surname
 
 **`getAllSurname(): string[]`** Get all available surnames
-
-**`getGivenName(): string`** Get a random given name (without surname)
-
-**`getGivenName(num: number): string[]`** Get a specified number of random given names (without surnames)
-
-**`isSurname(surname: string): boolean`** Check if a given string is a surname
 
 ## Resource
 

@@ -89,24 +89,11 @@ cnname('关', 5);
 ### Utils
 
 ```js
-import { getSurname, ... } from 'cnname';
+import { isSurname, ... } from 'cnname';
 ```
-
-**`getSurname(): string`** 获取一个随机姓氏
-
-**`getSurname(num: number): string[]`** 获取指定数量的随机姓氏
-
-**`getCompoundSurname(): string`** 获取一个随机复姓
-
-**`getCompoundSurname(num: number): string[]`** 获取指定数量的随机复姓
+**`isSurname(surname: string): boolean`** 判断当前值是否为姓氏
 
 **`getAllSurname(): string[]`** 获取所有姓氏
-
-**`getGivenName(): string`** 获取随机名(不包含姓氏)
-
-**`getGivenName(num: number): string[]`** 获取指定数量的随机名(不包含姓氏)
-
-**`isSurname(surname: string): boolean`** 判断当前值是否为姓氏
 
 ## Resource
 
