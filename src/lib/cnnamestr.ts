@@ -40,7 +40,7 @@ function cnnamestr(
   parameter1?: string | number | Options,
   parameter2?: number,
 ): string {
-  const result = cnname(parameter1 as unknown as any, parameter2);
+  const result = cnname(parameter1 as unknown as string, parameter2);
   if (Array.isArray(result)) {
     return result.join();
   }
