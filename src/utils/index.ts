@@ -207,7 +207,7 @@ export function isOptions(value: unknown): value is Options {
 export function getSingleResult(options: Options): string {
   const {
     surnameType = 'all',
-    nameType = 'full',
+    part = 'fullName',
     duplicatedGivenNameOnly = false,
     givenNameLength,
     surname: fixedSurname,
@@ -228,15 +228,15 @@ export function getSingleResult(options: Options): string {
   let surname: string;
   let givenName: string;
 
-  if (nameType !== 'givenName') {
+  if (part !== 'givenName') {
     surname = Array.isArray(fixedSurname) ? safePickRandomSingleEle(fixedSurname) : (fixedSurname || pickFn());
   }
-  if (nameType !== 'surname') {
+  if (part !== 'surname') {
     givenName = duplicatedGivenNameOnly ? pickDuplicatedGivenName(givenNameLength) : pickRandomWords(nameLength);
   }
 
-  switch (nameType) {
-    case 'full': return surname + givenName;
+  switch (part) {
+    case 'fullName': return surname + givenName;
     case 'surname': return surname;
     case 'givenName': return givenName;
     default: return surname + givenName;
@@ -250,7 +250,7 @@ export function getSingleResult(options: Options): string {
 export function getMaxSetSize(options: Options): number {
   const {
     surnameType = 'all',
-    nameType = 'full',
+    part = 'fullName',
     duplicatedGivenNameOnly = false,
     surname,
   } = options;
@@ -274,7 +274,7 @@ export function getMaxSetSize(options: Options): number {
 
   const MAX_SURNAME_SIZE = MAX_SURNAME_SIZE_MAP[surnameType] ?? MAX_ALL_SURNAME_SIZE;
 
-  if (nameType !== 'surname') {
+  if (part !== 'surname') {
     return duplicatedGivenNameOnly ? MAX_WORD_SIZE : Number.MAX_SAFE_INTEGER;
   }
 

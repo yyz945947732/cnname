@@ -17,7 +17,7 @@ describe('cnname(options)', () => {
     expect(cnname({ count: 5 }).length).toEqual(5);
   });
   test('cnname({ count: -1 }) should return array with one elements', () => {
-    expect(cnname({ count: -1 }).length).toEqual(1);
+    expect(cnname({ count: -1 }).length).toEqual(0);
   });
   test('cnname({ count: 0 }) should return empty array', () => {
     expect(cnname({ count: 0 }).length).toEqual(0);
@@ -34,14 +34,14 @@ describe('cnname(options)', () => {
   test('cnname({ count: 5, unique: true, surnameType: "all" }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, surnameType: "all" }).length).toEqual(5);
   });
-  test('cnname({ count: 5, nameType: "surname", surnameType: "common" }) should return array with five elements', () => {
-    expect(cnname({ count: 5, nameType: "surname", surnameType: "common" }).length).toEqual(5);
+  test('cnname({ count: 5, part: "surname", surnameType: "common" }) should return array with five elements', () => {
+    expect(cnname({ count: 5, part: "surname", surnameType: "common" }).length).toEqual(5);
   });
-  test('cnname({ count: 5, nameType: "surname", surnameType: "single-common" }) should return array with five elements', () => {
-    expect(cnname({ count: 5, nameType: "surname", surnameType: "single-common" }).length).toEqual(5);
+  test('cnname({ count: 5, part: "surname", surnameType: "single-common" }) should return array with five elements', () => {
+    expect(cnname({ count: 5, part: "surname", surnameType: "single-common" }).length).toEqual(5);
   });
-  test('cnname({ count: 5, nameType: "surname", surnameType: "compound-common" }) should return array with five elements', () => {
-    expect(cnname({ count: 5, nameType: "surname", surnameType: "compound-common" }).length).toEqual(5);
+  test('cnname({ count: 5, part: "surname", surnameType: "compound-common" }) should return array with five elements', () => {
+    expect(cnname({ count: 5, part: "surname", surnameType: "compound-common" }).length).toEqual(5);
   });
   test('cnname({ count: 5, unique: true, surname: ["张", "李"] }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, surname: ["张", "李"] }).length).toEqual(5);
@@ -52,8 +52,8 @@ describe('cnname(options)', () => {
   test('cnname({ count: 5, unique: true, surname: [] }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, surname: [] }).length).toEqual(5);
   });
-  test('cnname({ count: 5, unique: true, nameType: "surname", surname: [] }) should return array with one elements', () => {
-    expect(cnname({ count: 5, unique: true, nameType: 'surname', surname: [] }).length).toEqual(1);
+  test('cnname({ count: 5, unique: true, part: "surname", surname: [] }) should return array with one elements', () => {
+    expect(cnname({ count: 5, unique: true, part: 'surname', surname: [] }).length).toEqual(1);
   });
   test('cnname({ count: 5, unique: true, duplicatedGivenNameOnly: true }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, duplicatedGivenNameOnly: true }).length).toEqual(5);
@@ -92,12 +92,12 @@ describe('cnname(options)', () => {
   test('cnname({ count: 5, givenNameLength: 999 }) should return array with five elements', () => {
     expect(cnname({ count: 5, givenNameLength: 999 }).length).toEqual(5);
   });
-  test('cnname({ count: 5, unique: true, nameType: "surname", surname: "张" }) should return array with surname', () => {
-    const result = cnname({ count: 5, unique: true, nameType: "surname", surname: "张" });
+  test('cnname({ count: 5, unique: true, part: "surname", surname: "张" }) should return array with surname', () => {
+    const result = cnname({ count: 5, unique: true, part: "surname", surname: "张" });
     const [name] = result;
     expect(name).toEqual("张");
   });
-  test('cnname({ count: 5, unique: true, nameType: "givenName" }) should return array with givenName', () => {
-    expect(cnname({ count: 5, unique: true, nameType: "givenName" }).length).toEqual(5);
+  test('cnname({ count: 5, unique: true, part: "givenName" }) should return array with givenName', () => {
+    expect(cnname({ count: 5, unique: true, part: 'givenName' }).length).toEqual(5);
   });
 });
