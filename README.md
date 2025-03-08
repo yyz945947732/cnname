@@ -111,7 +111,7 @@ import { isSurname, getAllSurname, cnnamestr } from 'cnname';
 
 **`cnnamestr(options: Option): string`** 
 
-使用与 `cnname` 相同的参数和功能，但始终返回字符串。若生成多个结果，则使用 `,` 拼接。
+与 `cnname` 相同的参数和使用方式，但始终返回字符串。若生成多个结果，则使用 `,` 拼接。
 
 ## 📚 资源
 
