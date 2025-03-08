@@ -105,9 +105,9 @@ import { isSurname, getAllSurname } from 'cnname';
 
 判断当前值是否为姓氏。
 
-**`getAllSurname(surnameType?: 'all' | 'single' | 'compound' | 'common' | 'single-common' | 'compound-common'): string[]`** 
+**`getAllSurname(surnameType?: SurnameType): string[]`** 
 
-获取所有姓氏，可指定姓氏类型，默认为 `'all'`（全部姓氏）。
+获取所有姓氏，可指定姓氏类型，`'all'` 为全部姓氏，`single` 为单字姓，`compound` 为复姓，`common` 为常见姓氏，`single-common` 为常见单字姓，`compound-common` 为常见复姓，默认为 `'all'`。
 
 ## Resource
 
