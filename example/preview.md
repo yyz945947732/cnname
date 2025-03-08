@@ -3,67 +3,67 @@
 
 ## cnname()
 
-闪鹏凝
+蔚岩谣
 
 ## cnname("彭")
 
-彭琴
+彭丰
 
 ## cnname(5)
 
-拓跋亮泉,法钧纯,仵诗旭,斐河,强舒
+唐娴伯,窦棋贵,沙芸艳,桑珠,东彩雯
 
 ## cnname("姚", 5)
 
-姚昌娥,姚克丰,姚朗绮,姚珊峰,姚烁巧
+姚礼辰,姚惠贤,姚柔玉,姚翊,姚琴
 
 ## cnname({ count: 5 })
 
-瑞信孝,卫琼俭,茆会彬,狂妍峰,纵翊文
+皇甫成,繁天启,法波,督云娴,郦廉谦
 
 ## cnname({ count: 5, unique: true, duplicatedGivenNameOnly: true })
 
-侍壮壮,撒骏骏,纳姬姬,无歌歌,示辰辰
+糜涛涛,员启启,操玉玉,泥忠忠,易启启
 
 ## cnname({ count: 5, surname: "张" })
 
-张之,张园惠,张奋有,张岩义,张保
+张盛泰,张墨筠,张晔,张廉画,张珍
 
 ## cnname({ count: 5, surname: "张", givenNameLength: 2 })
 
-张荔承,张姬绍,张仪毅,张岩峰,张毓豪
+张辰保,张羽蕊,张青超,张彬荷,张瑞心
 
 ## cnname({ count: 5, unique: true, part: "surname" })
 
-刀,勾,叶,褒,洛
+童,丹,毓,叶,萨
 
 ## cnname({ count: 5, unique: true, part: "givenName" })
 
-红舞,攀,建,淑弘,丹
+滢,顺爽,昭,韬莺,东
 
 ## cnname({ count: 5, unique: true, surnameType: "single", givenNameLength: 1 })
 
-潘月,五忠,秘融,阿悦,种淑
+于文,陀扬,区幽,崇山,匡之
 
 ## cnname({ count: 5, unique: true, surnameType: "compound", givenNameLength: 1 })
 
-轩辕园,亓官莺,呼延海,南门昭,司徒滢
+单于灿,司空楠,长孙晖,子车鹤,空曾珊
 
 ## cnname({ count: 5, unique: true, surnameType: "common", givenNameLength: 1 })
 
-孙绍,谢平,伍琳,薛羽,江翎
+卫鹏,郭飘,韩茂,贺韬,龙爽
 
 ## cnname({ count: 5, unique: true, surnameType: "single-common", givenNameLength: 1 })
 
-郑丰,钟城,彭裕,程川,黄福
+居福,康韵,戴思,方芳,党新
 
 ## cnname({ count: 5, unique: true, surnameType: "compound-common", givenNameLength: 1 })
 
-诸葛谣,长孙川,上官峰,令狐淑,慕容轮
+上官友,长孙友,东方恒,夏侯轮,尉迟茂
 
 ## cnname({ count: 5, unique: true,  surname: ["张", "李"] })
 
-张娟,张俭轩,李星,李壮琰,张香梦
+张康,张志,李雯灿,李绍,张昕
 
 ## isSurname("张")
 
@@ -87,24 +87,44 @@ false
 
 ## cnnamestr()
 
-邝泽
+兰鸿
 
 ## cnnamestr("彭")
 
-彭冬东
+彭俊博
 
 ## cnnamestr(5)
 
-厚昭,黎琬谣,关才,本祺,达坚
+阮艳彪,蓬涛,万俟晗瑗,夫俊,斐柏明
 
 ## cnnamestr("姚", 5)
 
-姚歌,姚慧,姚慧,姚楠勇,姚欢晔
+姚国雪,姚洁,姚岩震,姚霄东,姚祥
 
 ## cnnamestr({ count: 5 })
 
-咸波,依舞彬,环枝晗,米珠寒,舒璋盛
+祖青茗,堵怡,檀贵,宝德启,茂利
 
 ## cnnamestr({ count: 5, unique: true, duplicatedGivenNameOnly: true })
 
-苏飘飘,端雪雪,鱼生生,忻建建,轩辕茗茗
+求章章,暴光光,俟菁菁,检进进,云友友
+
+## parseName("张三")
+
+{"surname":"张","givenName":"三"}
+
+## parseName("笑三")
+
+{"surname":"","givenName":"笑三"}
+
+## parseName("三")
+
+{"surname":"","givenName":"三"}
+
+## parseName("")
+
+{"surname":"","givenName":""}
+
+## parseName("欧阳三")
+
+{"surname":"欧阳","givenName":"三"}
