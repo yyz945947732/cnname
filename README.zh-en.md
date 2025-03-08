@@ -109,6 +109,10 @@ Check if a given value is a surname.
 
 Get all surnames, with an optional filter for surname types. `'all'` for all surnames, `'single'` for single-character surnames, `'compound'` for compound surnames，`common` for common surname，`single-common` for common single-character surnames，`compound-common` for common compound surnames. The default is `'all'`.
 
+**`cnnamestr(options: Option): string`**  
+
+Same parameters and usage as `cnname`, but always returns a string. If multiple results are generated, they are joined with `,`.
+
 ## 📚 Resource
 
 Below are the available resources. If you find missing surnames or names, [contributions are welcome](https://github.com/yyz945947732/cnname/pulls).

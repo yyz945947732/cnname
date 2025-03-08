@@ -99,7 +99,7 @@ cnname('关', 5);
 ### 🛠️ 工具方法
 
 ```js
-import { isSurname, getAllSurname } from 'cnname';
+import { isSurname, getAllSurname, cnnamestr } from 'cnname';
 ```
 **`isSurname(surname: string): boolean`** 
 
@@ -108,6 +108,10 @@ import { isSurname, getAllSurname } from 'cnname';
 **`getAllSurname(surnameType?: SurnameType): string[]`** 
 
 获取所有姓氏，可指定姓氏类型，`'all'` 为全部姓氏，`single` 为单字姓，`compound` 为复姓，`common` 为常见姓氏，`single-common` 为常见单字姓，`compound-common` 为常见复姓，默认为 `'all'`。
+
+**`cnnamestr(options: Option): string`** 
+
+使用与 `cnname` 相同的参数和功能，但始终返回字符串。若生成多个结果，则使用 `,` 拼接。
 
 ## 📚 资源
 
