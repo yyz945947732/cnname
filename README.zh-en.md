@@ -41,13 +41,13 @@
   </a>
 </p>
 
-## Install
+## 📦 Install
 
 ```bash
 npm install --save cnname
 ```
 
-### Usage
+### 🚀 Usage
 
 ```js
 import cnname from 'cnname';
@@ -62,7 +62,7 @@ cnname('关', 5);
 // -> ["关智华","关永毓","关宁","关伟星","关炎城"]
 ```
 
-## API
+## 📖 API
 
 **`cnname(): string`** 
 
@@ -84,7 +84,7 @@ Generate a specified number of random Chinese names with a given surname.
 
 Generate random names using [advanced configuration](#options).
 
-### Options
+### ⚡ Options
 
 | Parameter | Type | Description | Default |
 |-----------|------|-------------|---------|
@@ -96,7 +96,7 @@ Generate random names using [advanced configuration](#options).
 | `surnameType` | `'all' \| 'single' \| 'compound' \| 'common' \| 'single-common' \| 'compound-common'` | Control surname type: `'all'` for all surnames, `'single'` for single-character surnames, `'compound'` for compound surnames，`common` for [common surname](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`single-common` for common single-character surnames，`compound-common` for common compound surnames | `'all'` |
 | `part` | `'fullName' \| 'surname' \| 'givenName'` | Part of returned name: `'fullName'` for full names, `'surname'` for surnames only, `'givenName'` for given names only | `'fullName'` |
 
-### Utils
+### 🛠️ Utils
 
 ```js
 import { isSurname, ... } from 'cnname';
@@ -109,17 +109,17 @@ Check if a given value is a surname.
 
 Get all surnames, with an optional filter for surname types. `'all'` for all surnames, `'single'` for single-character surnames, `'compound'` for compound surnames，`common` for common surname，`single-common` for common single-character surnames，`compound-common` for common compound surnames. The default is `'all'`.
 
-## Resource
+## 📚 Resource
 
 Below are the available resources. If you find missing surnames or names, [contributions are welcome](https://github.com/yyz945947732/cnname/pulls).
 
-- [Surnames Database](https://github.com/yyz945947732/cnname/blob/master/dict/surnames.json)
+- 📖 [Surnames Database](https://github.com/yyz945947732/cnname/blob/master/dict/surnames.json)
 
-- [Common Surnames Database](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)
+- 🔥 [Common Surnames Database](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)
 
-- [Given Names Database](https://github.com/yyz945947732/cnname/blob/master/dict/words.json)
+- 📝 [Given Names Database](https://github.com/yyz945947732/cnname/blob/master/dict/words.json)
 
-## Example
+## ✍️ Example
 
 ```js
 import cnname from 'cnname';
@@ -146,6 +146,6 @@ ${cnname(1000).join('，')}
 
 👉 [View Output](https://github.com/yyz945947732/cnname/blob/master/example/novel.md)
 
-## LICENSE
+## 📜 LICENSE
 
 [MIT License](https://github.com/yyz945947732/cnname/blob/master/LICENSE)
