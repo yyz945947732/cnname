@@ -72,8 +72,9 @@ export function pickRandomCommonSingleCharacterSurname(): string {
  * 随机获取叠字名
 */
 export function pickDuplicatedGivenName(len: number = 2): string {
+  const num = Number.isInteger(len) ? len : 2;
   const givenName = safePickRandomSingleEle(WORDS);
-  const duplicatedGivenName = givenName.repeat(len);
+  const duplicatedGivenName = givenName.repeat(num);
   return duplicatedGivenName;
 }
 
