@@ -1,4 +1,4 @@
-简体中文 | [English](./READEME.zh-en.md)
+简体中文 | [English](./README.zh-en.md)
 
 <p align="center">
   <a href="https://github.com/yyz945947732/cnname">
@@ -41,13 +41,13 @@
   </a>
 </p>
 
-## Install
+## 安装
 
 ```bash
 npm install --save cnname
 ```
 
-### Usage
+### 使用示例
 
 ```js
 import cnname from 'cnname';
@@ -64,15 +64,25 @@ cnname('关', 5);
 
 ## API
 
-**`cnname(): string`** 获取一个随机名字
+**`cnname(): string`** 
 
-**`cnname(surname: string): string`** 获取指定姓氏的随机名字
+获取一个随机姓名。
 
-**`cnname(num: number): string[]`** 获取指定数量的随机名字
+**`cnname(surname: string): string`** 
 
-**`cnname(surname: string, num: number): string[]`** 获取指定姓氏和数量的随机名字
+获取指定姓氏的随机姓名。
 
-**`cnname(options: Option): string[]`** 通过[高级配置](#option)获取随机名字
+**`cnname(num: number): string[]`** 
+
+获取指定数量的随机姓名。
+
+**`cnname(surname: string, num: number): string[]`** 
+
+获取指定姓氏和数量的随机姓名。
+
+**`cnname(options: Option): string[]`** 
+
+使用[高级配置](#option)获取随机名字。
 
 ### Option
 
@@ -84,29 +94,20 @@ cnname('关', 5);
 | `givenNameLength` | `number` | 名字长度 | `1` 或 `2` |
 | `unique` | `boolean` | 是否确保返回的值不重复 | `false` |
 | `surnameType` | `'all' \| 'single' \| 'compound' \| 'common' \| 'single-common' \| 'compound-common'` | 控制姓氏类型，`'all'` 为全部姓氏，`single` 为单字姓，`compound` 为复姓，`common` 为[常见姓氏](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`single-common` 为常见单字姓，`compound-common` 为常见复姓| `'all'` |
-| `part` | `'fullName' \| 'surname' \| 'givenName'` | 返回部分，`'fullName'` 为完整姓名，`'surname'` 为姓氏，`'givenName'` 为名 | `'fullName'` |
+| `part` | `'fullName' \| 'surname' \| 'givenName'` | 返回的部分，`'fullName'` 为完整姓名，`'surname'` 为姓氏，`'givenName'` 为名 | `'fullName'` |
 
 ### Utils
 
 ```js
-import { getSurname, ... } from 'cnname';
+import { isSurname, getAllSurname } from 'cnname';
 ```
+**`isSurname(surname: string): boolean`** 
 
-**`getSurname(): string`** 获取一个随机姓氏
+判断当前值是否为姓氏。
 
-**`getSurname(num: number): string[]`** 获取指定数量的随机姓氏
+**`getAllSurname(surnameType?: 'all' | 'single' | 'compound' | 'common' | 'single-common' | 'compound-common'): string[]`** 
 
-**`getCompoundSurname(): string`** 获取一个随机复姓
-
-**`getCompoundSurname(num: number): string[]`** 获取指定数量的随机复姓
-
-**`getAllSurname(): string[]`** 获取所有姓氏
-
-**`getGivenName(): string`** 获取随机名(不包含姓氏)
-
-**`getGivenName(num: number): string[]`** 获取指定数量的随机名(不包含姓氏)
-
-**`isSurname(surname: string): boolean`** 判断当前值是否为姓氏
+获取所有姓氏，可指定姓氏类型，默认为 `'all'`（全部姓氏）。
 
 ## Resource
 
@@ -143,8 +144,8 @@ ${cnname(1000).join('，')}
 `;
 ```
 
-[输出结果](https://github.com/yyz945947732/cnname/blob/master/example/novel.md)
+👉 [输出结果](https://github.com/yyz945947732/cnname/blob/master/example/novel.md)
 
 ## LICENSE
 
-[MIT](https://github.com/yyz945947732/cnname/blob/master/LICENSE)
+[MIT License](https://github.com/yyz945947732/cnname/blob/master/LICENSE)

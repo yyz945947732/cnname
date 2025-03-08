@@ -5,7 +5,6 @@ import { getIsSurname } from '../utils';
  * @param {surname} string 姓氏
  * @returns {boolean} 是否为姓氏
  */
-
 function isSurname(surname: string): boolean {
   return getIsSurname(surname);
 }

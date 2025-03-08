@@ -23,12 +23,18 @@ export interface Options {
    * @type `single-common` 仅包括单姓常用姓氏
    * @type `compound-common` 仅包括复姓常用姓氏
    */
-  surnameType?: 'all' | 'single' | 'compound' | 'common' | 'single-common' | 'compound-common';
+  surnameType?: SurnameType;
   /**
    * 返回的姓名部分，默认为 `fullName`
    * @type `fullName` 返回完整姓名
    * @type `surname` 只返回姓
    * @type `givenName` 只返回名
    */
-  part?: 'fullName' | 'surname' | 'givenName';
+  part?: Part;
 }
+
+/** 姓氏类型 */
+export type SurnameType = 'all' | 'single' | 'compound' | 'common' | 'single-common' | 'compound-common';
+
+/** 返回的姓名部分 */
+export type Part = 'fullName' | 'surname' | 'givenName';

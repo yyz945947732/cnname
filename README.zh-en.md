@@ -64,15 +64,25 @@ cnname('关', 5);
 
 ## API
 
-**`cnname(): string`** Get a random name
+**`cnname(): string`** 
 
-**`cnname(surname: string): string`** Get a random name with a specified surname
+Generate a random Chinese name.
 
-**`cnname(num: number): string[]`** Get a specified number of random names
+**`cnname(surname: string): string`** 
 
-**`cnname(surname: string, num: number): string[]`** Get a specified number of names with a given surname
+Generate a random Chinese name with a specified surname.
 
-**`cnname(options: Option): string[]`** Get random names based on [advanced configuration](#options)
+**`cnname(num: number): string[]`** 
+
+Generate a specified number of random Chinese names.
+
+**`cnname(surname: string, num: number): string[]`** 
+
+Generate a specified number of random Chinese names with a given surname.
+
+**`cnname(options: Option): string[]`** 
+
+Generate random names using [advanced configuration](#options).
 
 ### Options
 
@@ -89,28 +99,19 @@ cnname('关', 5);
 ### Utils
 
 ```js
-import { getSurname, ... } from 'cnname';
+import { isSurname, ... } from 'cnname';
 ```
+**`isSurname(surname: string): boolean`** 
 
-**`getSurname(): string`** Get a random surname
+Check if a given value is a surname.
 
-**`getSurname(num: number): string[]`** Get a specified number of random surnames
+**`getAllSurname(surnameType?: 'all' | 'single' | 'compound' | 'common' | 'single-common' | 'compound-common'): string[]`** 
 
-**`getCompoundSurname(): string`** Get a random compound surname
-
-**`getCompoundSurname(num: number): string[]`** Get a specified number of random compound surnames
-
-**`getAllSurname(): string[]`** Get all available surnames
-
-**`getGivenName(): string`** Get a random given name (without surname)
-
-**`getGivenName(num: number): string[]`** Get a specified number of random given names (without surnames)
-
-**`isSurname(surname: string): boolean`** Check if a given string is a surname
+Get all surnames, with an optional filter for surname types. Default is `'all'` (all surnames).
 
 ## Resource
 
-The following are data resources. If you find that a surname or given name is missing, [contributions are welcome](https://github.com/yyz945947732/cnname/pulls).
+Below are the available resources. If you find missing surnames or names, [contributions are welcome](https://github.com/yyz945947732/cnname/pulls).
 
 - [Surnames Database](https://github.com/yyz945947732/cnname/blob/master/dict/surnames.json)
 
@@ -143,8 +144,8 @@ ${cnname(1000).join('，')}
 `;
 ```
 
-[Output Result](https://github.com/yyz945947732/cnname/blob/master/example/novel.md)
+👉 [View Output](https://github.com/yyz945947732/cnname/blob/master/example/novel.md)
 
 ## LICENSE
 
-[MIT](https://github.com/yyz945947732/cnname/blob/master/LICENSE)
+[MIT License](https://github.com/yyz945947732/cnname/blob/master/LICENSE)
