@@ -107,7 +107,7 @@ Check if a given value is a surname.
 
 **`getAllSurname(surnameType?: SurnameType): string[]`** 
 
-Get all surnames, with an optional filter for surname types. `'all'` for all surnames, `'single'` for single-character surnames, `'compound'` for compound surnames，`common` for common surname，`single-common` for common single-character surnames，`compound-common` for common compound surnames. The default is `'all'`.
+Get all surnames, with an optional filter for surname types. The default is `'all'` (all surnames).
 
 **`cnnamestr(options: Option): string`**  
 
