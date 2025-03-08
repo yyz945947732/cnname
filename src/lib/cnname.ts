@@ -59,7 +59,7 @@ function cnname(
   }
 
   if (num < 0) {
-    num = 1;
+    num = 0;
   }
 
   const result = Array.from({ length: num }, () => {
