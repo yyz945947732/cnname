@@ -21,7 +21,7 @@
 
 逄兴功,缪利薇,曾英,司徒世,雪丽彬
 
-## cnname({ count: 5, unique: true, repeatedGivenNameOnly: true })
+## cnname({ count: 5, unique: true, duplicatedGivenNameOnly: true })
 
 顾辞辞,任亮亮,雀仪仪,泰寒寒,糜攀攀
 
