@@ -83,7 +83,7 @@ cnname('关', 5);
 | `repeatedGivenNameOnly` | `boolean` | 是否只返回叠字名（如 "婷婷"、"明明"） | `false` |
 | `givenNameLength` | `number` | 名字长度 | `1` 或 `2` |
 | `unique` | `boolean` | 是否确保返回的值不重复 | `false` |
-| `surnameType` | `'all' \| 'single' \| 'compound' \| 'common' \| 'single-common' \| 'compound-common'` | 控制姓氏类型，`'all'` 为全部姓氏，`single` 为单字姓，`compound` 为复姓，`common` 为[常见姓氏](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`single-common` 为常见单字姓，`compound-common` 为常见单复姓| `'all'` |
+| `surnameType` | `'all' \| 'single' \| 'compound' \| 'common' \| 'single-common' \| 'compound-common'` | 控制姓氏类型，`'all'` 为全部姓氏，`single` 为单字姓，`compound` 为复姓，`common` 为[常见姓氏](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`single-common` 为常见单字姓，`compound-common` 为常见复姓| `'all'` |
 | `nameType` | `'full' \| 'surname' \| 'givenName'` | 返回值，`'full'` 为完整姓名，`'surname'` 为仅姓氏，`'givenName'` 为仅名 | `'full'` |
 
 ### Utils

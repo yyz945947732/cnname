@@ -83,7 +83,7 @@ cnname('关', 5);
 | `repeatedGivenNameOnly` | `boolean` | Whether to return only repeated given names (e.g., "婷婷", "明明") | `false` |
 | `givenNameLength` | `number` | Length of the given name | `1` or `2` |
 | `unique` | `boolean` | Ensure the returned names are unique | `false` |
-| `surnameType` | `'all' \| 'single' \| 'compound' \| 'common' \| 'single-common' \| 'compound-common'` | Control surname type: `'all'` for all surnames, `'single'` for single-character surnames, `'compound'` for compound surnames，`common` for [common surname](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`single-common` for common compound surnames，`compound-common` for common single-character surnames | `'all'` |
+| `surnameType` | `'all' \| 'single' \| 'compound' \| 'common' \| 'single-common' \| 'compound-common'` | Control surname type: `'all'` for all surnames, `'single'` for single-character surnames, `'compound'` for compound surnames，`common` for [common surname](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`single-common` for common single-character surnames，`compound-common` for common compound surnames | `'all'` |
 | `nameType` | `'full' \| 'surname' \| 'givenName'` | Type of returned value: `'full'` for full names, `'surname'` for surnames only, `'givenName'` for given names only | `'full'` |
 
 ### Utils
