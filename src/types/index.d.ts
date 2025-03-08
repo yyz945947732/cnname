@@ -3,7 +3,7 @@ export interface Options {
   /** 返回值数量, 默认为 `1` */
   count?: number;
   /** 仅返回指定姓氏 */
-  surname?: string;
+  surname?: string | string[];
   /** 仅返回叠字名，默认为 `false` */
   duplicatedGivenNameOnly?: boolean;
   /** 名长度 */

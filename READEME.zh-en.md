@@ -79,7 +79,7 @@ cnname('关', 5);
 | Parameter | Type | Description | Default |
 |-----------|------|-------------|---------|
 | `count` | `number` | Number of names to generate | `1` |
-| `surname` | `string` | Specify a surname | Random surname |
+| `surname` | `string \| string[]` | Specify a surname (single or array) | Random surname |
 | `duplicatedGivenNameOnly` | `boolean` | Whether to return only repeated given names (e.g., "婷婷", "明明") | `false` |
 | `givenNameLength` | `number` | Length of the given name | `1` or `2` |
 | `unique` | `boolean` | Ensure the returned names are unique | `false` |

@@ -43,6 +43,18 @@ describe('cnname(options)', () => {
   test('cnname({ count: 5, nameType: "surname", surnameType: "compound-common" }) should return array with five elements', () => {
     expect(cnname({ count: 5, nameType: "surname", surnameType: "compound-common" }).length).toEqual(5);
   });
+  test('cnname({ count: 5, unique: true, surname: ["张", "李"] }) should return array with five elements', () => {
+    expect(cnname({ count: 5, unique: true, surname: ["张", "李"] }).length).toEqual(5);
+  });
+  test('cnname({ count: 5, unique: true, surname: ["张", "李"] }) should return array with surname "张" or "李"', () => {
+    expect(cnname({ count: 5, unique: true, surname: ["张", "李"] }).every(surname => ["张", "李"].includes(surname[0]))).toEqual(true);
+  });
+  test('cnname({ count: 5, unique: true, surname: [] }) should return array with five elements', () => {
+    expect(cnname({ count: 5, unique: true, surname: [] }).length).toEqual(5);
+  });
+  test('cnname({ count: 5, unique: true, nameType: "surname", surname: [] }) should return array with one elements', () => {
+    expect(cnname({ count: 5, unique: true, nameType: 'surname', surname: [] }).length).toEqual(1);
+  });
   test('cnname({ count: 5, unique: true, duplicatedGivenNameOnly: true }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, duplicatedGivenNameOnly: true }).length).toEqual(5);
   });
