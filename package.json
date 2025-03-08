@@ -32,10 +32,10 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.1.2",
-    "@vitest/coverage-istanbul": "^3.0.8",
+    "@vitest/coverage-istanbul": "^3.0.7",
     "tsup": "^8.4.0",
     "typescript": "^5.2.2",
-    "vitest": "^3.0.8"
+    "vitest": "^3.0.7"
   },
   "keywords": [
     "汉字",
