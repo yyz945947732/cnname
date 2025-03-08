@@ -89,7 +89,10 @@ describe('cnname(options)', () => {
     const [name] = result;
     expect(name.length).toEqual(3);
   });
-  test('cnname({ count: 5, unique: true, nameType: "surname" }) should return array with surname', () => {
+  test('cnname({ count: 5, givenNameLength: 999 }) should return array with five elements', () => {
+    expect(cnname({ count: 5, givenNameLength: 999 }).length).toEqual(5);
+  });
+  test('cnname({ count: 5, unique: true, nameType: "surname", surname: "张" }) should return array with surname', () => {
     const result = cnname({ count: 5, unique: true, nameType: "surname", surname: "张" });
     const [name] = result;
     expect(name).toEqual("张");
