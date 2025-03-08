@@ -8,6 +8,9 @@ assertType<string[]>(cnname({ unique: true }));
 assertType<string[]>(cnname({ count: 5, unique: true, surnameType: 'compound' }));
 assertType<string[]>(cnname({ count: 5, unique: true, surnameType: 'single' }));
 assertType<string[]>(cnname({ count: 5, unique: true, surnameType: 'all' }));
+assertType<string[]>(cnname({ count: 5, unique: true, surnameType: 'common' }));
+assertType<string[]>(cnname({ count: 5, unique: true, surnameType: 'single-common' }));
+assertType<string[]>(cnname({ count: 5, unique: true, surnameType: 'compound-common' }));
 
 describe('cnname(options)', () => {
   test('cnname({ count: 5 }) should return array with five elements', () => {
@@ -31,8 +34,14 @@ describe('cnname(options)', () => {
   test('cnname({ count: 5, unique: true, surnameType: "all" }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, surnameType: "all" }).length).toEqual(5);
   });
-  test('cnname({ count: 5, unique: true, onlyCommonSurname: true }) should return array with five elements', () => {
-    expect(cnname({ count: 5, unique: true, onlyCommonSurname: true }).length).toEqual(5);
+  test('cnname({ count: 5, nameType: "surname", surnameType: "common" }) should return array with five elements', () => {
+    expect(cnname({ count: 5, nameType: "surname", surnameType: "common" }).length).toEqual(5);
+  });
+  test('cnname({ count: 5, nameType: "surname", surnameType: "single-common" }) should return array with five elements', () => {
+    expect(cnname({ count: 5, nameType: "surname", surnameType: "single-common" }).length).toEqual(5);
+  });
+  test('cnname({ count: 5, nameType: "surname", surnameType: "compound-common" }) should return array with five elements', () => {
+    expect(cnname({ count: 5, nameType: "surname", surnameType: "compound-common" }).length).toEqual(5);
   });
   test('cnname({ count: 5, unique: true, repeatedGivenNameOnly: true }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, repeatedGivenNameOnly: true }).length).toEqual(5);

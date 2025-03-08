@@ -50,11 +50,15 @@ export default [
     value: cnname({ count: 5, unique: true, surnameType: "compound", givenNameLength: 1 }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, onlyCommonSurname: true })',
-    value: cnname({ count: 5, unique: true, onlyCommonSurname: true }),
+    label: 'cnname({ count: 5, unique: true, surnameType: "common", givenNameLength: 1 })',
+    value: cnname({ count: 5, unique: true, surnameType: "common", givenNameLength: 1 }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, onlyCommonSurname: true, nameType: "surname" })',
-    value: cnname({ count: 5, unique: true, onlyCommonSurname: true, nameType: "surname" }),
+    label: 'cnname({ count: 5, unique: true, surnameType: "single-common", givenNameLength: 1 })',
+    value: cnname({ count: 5, unique: true, surnameType: "single-common", givenNameLength: 1 }),
+  },
+  {
+    label: 'cnname({ count: 5, unique: true, surnameType: "compound-common", givenNameLength: 1 })',
+    value: cnname({ count: 5, unique: true, surnameType: "compound-common", givenNameLength: 1 }),
   },
 ];
