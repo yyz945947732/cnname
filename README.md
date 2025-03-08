@@ -96,7 +96,7 @@ cnname('关', 5);
 | `surnameType` | `'all' \| 'single' \| 'compound' \| 'common' \| 'single-common' \| 'compound-common'` | 控制姓氏类型，`'all'` 为全部姓氏，`single` 为单字姓，`compound` 为复姓，`common` 为[常见姓氏](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`single-common` 为常见单字姓，`compound-common` 为常见复姓| `'all'` |
 | `part` | `'fullName' \| 'surname' \| 'givenName'` | 返回的部分，`'fullName'` 为完整姓名，`'surname'` 为姓氏，`'givenName'` 为名 | `'fullName'` |
 
-### Utils
+### 工具方法
 
 ```js
 import { isSurname, getAllSurname } from 'cnname';
@@ -109,7 +109,7 @@ import { isSurname, getAllSurname } from 'cnname';
 
 获取所有姓氏，可指定姓氏类型，`'all'` 为全部姓氏，`single` 为单字姓，`compound` 为复姓，`common` 为常见姓氏，`single-common` 为常见单字姓，`compound-common` 为常见复姓，默认为 `'all'`。
 
-## Resource
+## 资源
 
 以下为资源库，如果缺少了你想要的姓氏或名字，[欢迎补充](https://github.com/yyz945947732/cnname/pulls)。
 
@@ -119,7 +119,7 @@ import { isSurname, getAllSurname } from 'cnname';
 
 - [名字库](https://github.com/yyz945947732/cnname/blob/master/dict/words.json)
 
-## Example
+## 示例
 
 ```js
 import cnname from 'cnname';
@@ -146,6 +146,6 @@ ${cnname(1000).join('，')}
 
 👉 [输出结果](https://github.com/yyz945947732/cnname/blob/master/example/novel.md)
 
-## LICENSE
+## 许可证
 
 [MIT License](https://github.com/yyz945947732/cnname/blob/master/LICENSE)
