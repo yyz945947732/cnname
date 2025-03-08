@@ -114,6 +114,8 @@ import { getSurname, ... } from 'cnname';
 
 - [姓氏库](https://github.com/yyz945947732/cnname/blob/master/dict/surnames.json)
 
+- [常见姓氏库](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)
+
 - [名字库](https://github.com/yyz945947732/cnname/blob/master/dict/words.json)
 
 ## Example

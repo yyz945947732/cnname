@@ -114,6 +114,8 @@ The following are data resources. If you find that a surname or given name is mi
 
 - [Surnames Database](https://github.com/yyz945947732/cnname/blob/master/dict/surnames.json)
 
+- [Common Surnames Database](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)
+
 - [Given Names Database](https://github.com/yyz945947732/cnname/blob/master/dict/words.json)
 
 ## Example
