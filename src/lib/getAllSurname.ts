@@ -1,5 +1,12 @@
-import { getAllSurname, getAllSingleCharacterSurname, getAllCompoundSurname, getAllCommonSurname, getAllCommonSingleCharacterSurname, getAllCommonCompoundSurname } from '../utils';
 import type { SurnameType } from '../types';
+import {
+  getAllCommonCompoundSurname,
+  getAllCommonSingleCharacterSurname,
+  getAllCommonSurname,
+  getAllCompoundSurname,
+  getAllSingleCharacterSurname,
+  getAllSurname,
+} from '../utils';
 
 /**
  * 获取所有姓氏

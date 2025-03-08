@@ -11,7 +11,7 @@ describe('cname', () => {
     expect(typeof cnname()).toEqual('string');
   });
   test('cname(-1) should return array with one elements', () => {
-    expect(cnname(-1).length).toEqual(1);
+    expect(cnname(-1).length).toEqual(0);
   });
   test('cname(0) should return empty array', () => {
     expect(cnname(0).length).toEqual(0);

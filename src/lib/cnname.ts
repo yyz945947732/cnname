@@ -1,5 +1,11 @@
-import { pickRandomSurname, pickRandomWords, isOptions, getSingleResult, getMaxSetSize } from '../utils';
 import type { Options } from '../types/index';
+import {
+  getMaxSetSize,
+  getSingleResult,
+  isOptions,
+  pickRandomSurname,
+  pickRandomWords,
+} from '../utils';
 
 /**
  * 返回随机中文名
@@ -38,7 +44,7 @@ function cnname(options: Options): string[];
 
 function cnname(
   parameter1?: number | string | Options,
-  parameter2?: number
+  parameter2?: number,
 ): string | string[] {
   let num: number;
   let fixSurname = '';
@@ -78,10 +84,7 @@ function cnname(
  * @returns {string[]} 随机中文名数组
  */
 function cnnameWithOptions(options: Options): string[] {
-  const {
-    count = 1,
-    unique = false,
-  } = options;
+  const { count = 1, unique = false } = options;
 
   const num = count < 0 ? 0 : count;
 

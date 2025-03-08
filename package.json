@@ -13,7 +13,7 @@
     "surnames": "node scripts/surnames.mjs",
     "test": "vitest",
     "test:cov": "vitest run --coverage",
-    "lint": "biome check --apply-unsafe ./src && biome format --write ./src",
+    "lint": "biome check --write --unsafe ./src && biome format --write ./src",
     "build": "tsup --config tsup.config.ts"
   },
   "type": "module",

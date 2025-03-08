@@ -1,14 +1,20 @@
+import commonSurnameDict from '../../dict/commonSurname.json';
 import surnameDict from '../../dict/surnames.json';
 import wordsDict from '../../dict/words.json';
-import commonSurnameDict from '../../dict/commonSurname.json';
 import type { Options } from '../types';
 
 const SURNAMES = surnameDict.dict.split(' ');
 const COMPOUND_SURNAMES = SURNAMES.filter((words) => words.length > 1);
-const SINGLE_CHARACTER_SURNAMES = SURNAMES.filter((words) => words.length === 1);
+const SINGLE_CHARACTER_SURNAMES = SURNAMES.filter(
+  (words) => words.length === 1,
+);
 const COMMON_SURNAMES = commonSurnameDict.dict.split(' ');
-const COMMON_COMPOUND_SURNAMES = COMMON_SURNAMES.filter((words) => words.length > 1);
-const COMMON_SINGLE_CHARACTER_SURNAMES = COMMON_SURNAMES.filter((words) => words.length === 1);
+const COMMON_COMPOUND_SURNAMES = COMMON_SURNAMES.filter(
+  (words) => words.length > 1,
+);
+const COMMON_SINGLE_CHARACTER_SURNAMES = COMMON_SURNAMES.filter(
+  (words) => words.length === 1,
+);
 const WORDS = wordsDict.dict.split('');
 
 /**
@@ -70,8 +76,8 @@ export function pickRandomCommonSingleCharacterSurname(): string {
 /**
  * @private
  * 随机获取叠字名
-*/
-export function pickDuplicatedGivenName(len: number = 2): string {
+ */
+export function pickDuplicatedGivenName(len = 2): string {
   const num = Number.isInteger(len) ? len : 2;
   const givenName = safePickRandomSingleEle(WORDS);
   const duplicatedGivenName = givenName.repeat(num);
@@ -203,7 +209,7 @@ export function isOptions(value: unknown): value is Options {
 /**
  * @private
  * 根据高级配置获取单个结果
-*/
+ */
 export function getSingleResult(options: Options): string {
   const {
     surnameType = 'all',
@@ -223,30 +229,42 @@ export function getSingleResult(options: Options): string {
   };
 
   const pickFn = surnamePickerMap[surnameType] ?? pickRandomSurname;
-  const nameLength = Number.isInteger(givenNameLength) ? givenNameLength : Math.random() > 0.5 ? 2 : 1;
+  const nameLength = Number.isInteger(givenNameLength)
+    ? givenNameLength
+    : Math.random() > 0.5
+      ? 2
+      : 1;
 
   let surname: string;
   let givenName: string;
 
   if (part !== 'givenName') {
-    surname = Array.isArray(fixedSurname) ? safePickRandomSingleEle(fixedSurname) : (fixedSurname || pickFn());
+    surname = Array.isArray(fixedSurname)
+      ? safePickRandomSingleEle(fixedSurname)
+      : fixedSurname || pickFn();
   }
   if (part !== 'surname') {
-    givenName = duplicatedGivenNameOnly ? pickDuplicatedGivenName(givenNameLength) : pickRandomWords(nameLength);
+    givenName = duplicatedGivenNameOnly
+      ? pickDuplicatedGivenName(givenNameLength)
+      : pickRandomWords(nameLength);
   }
 
   switch (part) {
-    case 'fullName': return surname + givenName;
-    case 'surname': return surname;
-    case 'givenName': return givenName;
-    default: return surname + givenName;
+    case 'fullName':
+      return surname + givenName;
+    case 'surname':
+      return surname;
+    case 'givenName':
+      return givenName;
+    default:
+      return surname + givenName;
   }
 }
 
 /**
  * @private
  * 根据高级配置获取集合最大大小
-*/
+ */
 export function getMaxSetSize(options: Options): number {
   const {
     surnameType = 'all',
@@ -260,7 +278,8 @@ export function getMaxSetSize(options: Options): number {
   const MAX_SINGLE_CHARACTER_SURNAME_SIZE = getAllSingleCharacterSurnameSize();
   const MAX_COMMON_SURNAME_SIZE = getAllCommonSurnameSize();
   const MAX_COMMON_COMPOUND_SURNAME_SIZE = getAllCommonCompoundSurnameSize();
-  const MAX_COMMON_SINGLE_CHARACTER_SURNAME_SIZE = getAllCommonSingleCharacterSurnameSize();
+  const MAX_COMMON_SINGLE_CHARACTER_SURNAME_SIZE =
+    getAllCommonSingleCharacterSurnameSize();
   const MAX_WORD_SIZE = getAllWordeSize();
 
   const MAX_SURNAME_SIZE_MAP = {
@@ -272,7 +291,8 @@ export function getMaxSetSize(options: Options): number {
     'compound-common': MAX_COMMON_COMPOUND_SURNAME_SIZE,
   };
 
-  const MAX_SURNAME_SIZE = MAX_SURNAME_SIZE_MAP[surnameType] ?? MAX_ALL_SURNAME_SIZE;
+  const MAX_SURNAME_SIZE =
+    MAX_SURNAME_SIZE_MAP[surnameType] ?? MAX_ALL_SURNAME_SIZE;
 
   if (part !== 'surname') {
     return duplicatedGivenNameOnly ? MAX_WORD_SIZE : Number.MAX_SAFE_INTEGER;
@@ -300,7 +320,7 @@ function randomNumber(a: number, b: number): number {
 /**
  * @private
  * 安全的从数组中随机选取 1 个元素
-*/
+ */
 function safePickRandomSingleEle(array: string[]): string {
   if (!array || !array.length) {
     return '';
