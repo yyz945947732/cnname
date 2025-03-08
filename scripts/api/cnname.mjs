@@ -34,12 +34,12 @@ export default [
     value: cnname({ count: 5, surname: "张", givenNameLength: 2 }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, nameType: "surname" })',
-    value: cnname({ count: 5, unique: true, nameType: "surname" }),
+    label: 'cnname({ count: 5, unique: true, part: "surname" })',
+    value: cnname({ count: 5, unique: true, part: "surname" }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, nameType: "givenName" })',
-    value: cnname({ count: 5, unique: true, nameType: "givenName" }),
+    label: 'cnname({ count: 5, unique: true, part: "givenName" })',
+    value: cnname({ count: 5, unique: true, part: "givenName" }),
   },
   {
     label: 'cnname({ count: 5, unique: true, surnameType: "single", givenNameLength: 1 })',

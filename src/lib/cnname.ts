@@ -83,7 +83,7 @@ function cnnameWithOptions(options: Options): string[] {
     unique = false,
   } = options;
 
-  const num = count < 0 ? 1 : count;
+  const num = count < 0 ? 0 : count;
 
   const result = Array.from({ length: num }, () => {
     return getSingleResult(options);

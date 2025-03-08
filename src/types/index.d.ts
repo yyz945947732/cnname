@@ -25,10 +25,10 @@ export interface Options {
    */
   surnameType?: 'all' | 'single' | 'compound' | 'common' | 'single-common' | 'compound-common';
   /**
-   * 返回的姓名类型，默认为 `full`
-   * @type `full` 返回完整姓名
+   * 返回的姓名部分，默认为 `fullName`
+   * @type `fullName` 返回完整姓名
    * @type `surname` 只返回姓
    * @type `givenName` 只返回名
    */
-  nameType?: 'full' | 'surname' | 'givenName';
+  part?: 'fullName' | 'surname' | 'givenName';
 }
