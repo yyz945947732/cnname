@@ -61,4 +61,8 @@ export default [
     label: 'cnname({ count: 5, unique: true, surnameType: "compound-common", givenNameLength: 1 })',
     value: cnname({ count: 5, unique: true, surnameType: "compound-common", givenNameLength: 1 }),
   },
+  {
+    label: 'cnname({ count: 5, unique: true,  surname: ["张", "李"] })',
+    value: cnname({ count: 5, unique: true, surname: ["张", "李"] }),
+  },
 ];

@@ -24,8 +24,7 @@ export function pickRandomWords(n = 1): string {
  * 随机获取姓氏
  */
 export function pickRandomSurname(): string {
-  const [surname = ''] = pickRandomEle(SURNAMES);
-  return surname;
+  return safePickRandomSingleEle(SURNAMES);
 }
 
 /**
@@ -33,8 +32,7 @@ export function pickRandomSurname(): string {
  * 随机获取复姓
  */
 export function pickRandomCompoundSurname(): string {
-  const [surname = ''] = pickRandomEle(COMPOUND_SURNAMES);
-  return surname;
+  return safePickRandomSingleEle(COMPOUND_SURNAMES);
 }
 
 /**
@@ -42,8 +40,7 @@ export function pickRandomCompoundSurname(): string {
  * 随机获取单字姓
  */
 export function pickRandomSingleCharacterSurname(): string {
-  const [surname = ''] = pickRandomEle(SINGLE_CHARACTER_SURNAMES);
-  return surname;
+  return safePickRandomSingleEle(SINGLE_CHARACTER_SURNAMES);
 }
 
 /**
@@ -51,8 +48,7 @@ export function pickRandomSingleCharacterSurname(): string {
  * 随机获取常用姓
  */
 export function pickRandomCommonSurname(): string {
-  const [surname = ''] = pickRandomEle(COMMON_SURNAMES);
-  return surname;
+  return safePickRandomSingleEle(COMMON_SURNAMES);
 }
 
 /**
@@ -60,8 +56,7 @@ export function pickRandomCommonSurname(): string {
  * 随机获取常用复姓
  */
 export function pickRandomCommonCompoundSurname(): string {
-  const [surname = ''] = pickRandomEle(COMMON_COMPOUND_SURNAMES);
-  return surname;
+  return safePickRandomSingleEle(COMMON_COMPOUND_SURNAMES);
 }
 
 /**
@@ -69,8 +64,7 @@ export function pickRandomCommonCompoundSurname(): string {
  * 随机获取常用单字姓
  */
 export function pickRandomCommonSingleCharacterSurname(): string {
-  const [surname = ''] = pickRandomEle(COMMON_SINGLE_CHARACTER_SURNAMES);
-  return surname;
+  return safePickRandomSingleEle(COMMON_SINGLE_CHARACTER_SURNAMES);
 }
 
 /**
@@ -233,7 +227,7 @@ export function getSingleResult(options: Options): string {
   let givenName: string;
 
   if (nameType !== 'givenName') {
-    surname = fixedSurname || pickFn();
+    surname = Array.isArray(fixedSurname) ? safePickRandomSingleEle(fixedSurname) : (fixedSurname || pickFn());
   }
   if (nameType !== 'surname') {
     givenName = duplicatedGivenNameOnly ? pickRepeatedGivenName() : pickRandomWords(nameLength);
@@ -279,15 +273,15 @@ export function getMaxSetSize(options: Options): number {
   const MAX_SURNAME_SIZE = MAX_SURNAME_SIZE_MAP[surnameType] ?? MAX_ALL_SURNAME_SIZE;
 
   if (nameType !== 'surname') {
-    return Number.MAX_SAFE_INTEGER;
+    return duplicatedGivenNameOnly ? MAX_WORD_SIZE : Number.MAX_SAFE_INTEGER;
+  }
+
+  if (Array.isArray(surname)) {
+    return surname.length > 0 ? surname.length : 1;
   }
 
   if (surname !== undefined) {
     return 1;
-  }
-
-  if (duplicatedGivenNameOnly) {
-    return MAX_WORD_SIZE;
   }
 
   return MAX_SURNAME_SIZE;
@@ -299,6 +293,17 @@ export function getMaxSetSize(options: Options): number {
  */
 function randomNumber(a: number, b: number): number {
   return Math.floor(Math.random() * (b - a + 1));
+}
+
+/**
+ * @private
+ * 安全的从数组中随机选取 1 个元素
+*/
+function safePickRandomSingleEle(array: string[]): string {
+  if (!array || !array.length) {
+    return '';
+  }
+  return pickRandomEle(array, 1)[0];
 }
 
 /**
