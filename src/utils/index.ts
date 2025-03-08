@@ -71,9 +71,10 @@ export function pickRandomCommonSingleCharacterSurname(): string {
  * @private
  * 随机获取叠字名
 */
-export function pickDuplicatedGivenName(): string {
-  const [givenName] = pickRandomEle(WORDS);
-  return givenName + givenName;
+export function pickDuplicatedGivenName(len: number = 2): string {
+  const givenName = safePickRandomSingleEle(WORDS);
+  const duplicatedGivenName = givenName.repeat(len);
+  return duplicatedGivenName;
 }
 
 /**
@@ -230,7 +231,7 @@ export function getSingleResult(options: Options): string {
     surname = Array.isArray(fixedSurname) ? safePickRandomSingleEle(fixedSurname) : (fixedSurname || pickFn());
   }
   if (nameType !== 'surname') {
-    givenName = duplicatedGivenNameOnly ? pickDuplicatedGivenName() : pickRandomWords(nameLength);
+    givenName = duplicatedGivenNameOnly ? pickDuplicatedGivenName(givenNameLength) : pickRandomWords(nameLength);
   }
 
   switch (nameType) {
