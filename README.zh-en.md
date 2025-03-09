@@ -41,10 +41,26 @@
   </a>
 </p>
 
+## ✨ Features  
+
+- 🎲 Simply and easily generate random Chinese names.
+- 🎭 Supports a wide range of surname types and name characteristics.
+- ⚡ Lightweight and fast with no extra dependencies.  
+- 🛠 Provides various APIs for custom generation rules. 
+- 📚 Suitable for test data, novel writing, game characters, and more.  
+
 ## 📦 Install
 
 ```bash
 npm install --save cnname
+```
+
+```bash
+yarn add cnname
+```
+
+```bash
+pnpm install cnname
 ```
 
 ### 🚀 Usage
