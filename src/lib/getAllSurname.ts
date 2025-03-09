@@ -1,12 +1,5 @@
 import type { SurnameType } from '../types';
-import {
-  getAllCommonCompoundSurname,
-  getAllCommonSingleCharacterSurname,
-  getAllCommonSurname,
-  getAllCompoundSurname,
-  getAllSingleCharacterSurname,
-  getAllSurname,
-} from '../utils';
+import { getSurnameListBySurnameType } from '../utils';
 
 /**
  * 获取所有姓氏
@@ -14,22 +7,7 @@ import {
  * @returns {string[]} 获取所有姓氏
  */
 function getSurnameList(surnameType: SurnameType = 'all'): string[] {
-  switch (surnameType) {
-    case 'all':
-      return getAllSurname();
-    case 'single':
-      return getAllSingleCharacterSurname();
-    case 'compound':
-      return getAllCompoundSurname();
-    case 'common':
-      return getAllCommonSurname();
-    case 'single-common':
-      return getAllCommonSingleCharacterSurname();
-    case 'compound-common':
-      return getAllCommonCompoundSurname();
-    default:
-      return getAllSurname();
-  }
+  return getSurnameListBySurnameType(surnameType);
 }
 
 export default getSurnameList;

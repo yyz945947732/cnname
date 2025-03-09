@@ -90,11 +90,12 @@ function cnnameWithOptions(options: Options): string[] {
 
   const result = Array.from({ length: num }, () => {
     return getSingleResult(options);
-  });
+  }).filter(Boolean);
 
   if (unique) {
-    const uniqueResult = new Set<string>(result);
     const maxSetSize = getMaxSetSize(options);
+    const uniqueResult = new Set<string>(result);
+
     while (uniqueResult.size < num && uniqueResult.size < maxSetSize) {
       uniqueResult.add(getSingleResult(options));
     }
