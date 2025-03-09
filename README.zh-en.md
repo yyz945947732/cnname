@@ -6,7 +6,9 @@
   </a>
 </p>
 
-👦 Generate Random Chinese Names 👧
+<p align="center">
+  👦 Generate Random Chinese Names 👧
+</p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/cnname">
@@ -43,7 +45,7 @@
 
 ## ✨ Features  
 
-- 🎲 Simply and easily generate random Chinese names.
+- 🎲 Easily and simply generate random Chinese names.
 - 🎭 Supports a wide range of surname types and name characteristics.
 - ⚡ Lightweight and fast with no extra dependencies.  
 - 🛠 Provides various APIs for custom generation rules. 
