@@ -336,7 +336,9 @@ export function getMaxSetSize(options: Options): number {
  * @private
  * 获取所有姓氏
  */
-export function getSurnameListBySurnameType(surnameType: SurnameType = 'all'): string[] {
+export function getSurnameListBySurnameType(
+  surnameType: SurnameType = 'all',
+): string[] {
   switch (surnameType) {
     case 'all':
       return getAllSurname();
