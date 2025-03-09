@@ -1,20 +1,27 @@
 import commonSurnameDict from '../../dict/commonSurname.json';
 import surnameDict from '../../dict/surnames.json';
 import wordsDict from '../../dict/words.json';
-import type { Options } from '../types';
+import type { Options, SurnameType } from '../types';
 
+/** 所有姓氏 */
 const SURNAMES = surnameDict.dict.split(' ');
+/** 所有复姓 */
 const COMPOUND_SURNAMES = SURNAMES.filter((words) => words.length > 1);
+/** 所有单字姓 */
 const SINGLE_CHARACTER_SURNAMES = SURNAMES.filter(
   (words) => words.length === 1,
 );
+/** 所有常用姓氏 */
 const COMMON_SURNAMES = commonSurnameDict.dict.split(' ');
+/** 所有常用复姓 */
 const COMMON_COMPOUND_SURNAMES = COMMON_SURNAMES.filter(
   (words) => words.length > 1,
 );
+/** 所有常用单字姓 */
 const COMMON_SINGLE_CHARACTER_SURNAMES = COMMON_SURNAMES.filter(
   (words) => words.length === 1,
 );
+/** 所有名 */
 const WORDS = wordsDict.dict.split('');
 
 /**
@@ -315,7 +322,7 @@ export function getMaxSetSize(options: Options): number {
   }
 
   if (Array.isArray(surname)) {
-    return surname.length > 0 ? surname.length : 1;
+    return surname.length;
   }
 
   if (surname !== undefined) {
@@ -323,6 +330,29 @@ export function getMaxSetSize(options: Options): number {
   }
 
   return MAX_SURNAME_SIZE;
+}
+
+/**
+ * @private
+ * 获取所有姓氏
+ */
+export function getSurnameListBySurnameType(surnameType: SurnameType = 'all'): string[] {
+  switch (surnameType) {
+    case 'all':
+      return getAllSurname();
+    case 'single':
+      return getAllSingleCharacterSurname();
+    case 'compound':
+      return getAllCompoundSurname();
+    case 'common':
+      return getAllCommonSurname();
+    case 'single-common':
+      return getAllCommonSingleCharacterSurname();
+    case 'compound-common':
+      return getAllCommonCompoundSurname();
+    default:
+      return getAllSurname();
+  }
 }
 
 /**

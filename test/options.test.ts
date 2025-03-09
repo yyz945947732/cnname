@@ -53,7 +53,7 @@ describe('cnname(options)', () => {
     expect(cnname({ count: 5, unique: true, surname: [] }).length).toEqual(5);
   });
   test('cnname({ count: 5, unique: true, part: "surname", surname: [] }) should return array with one elements', () => {
-    expect(cnname({ count: 5, unique: true, part: 'surname', surname: [] }).length).toEqual(1);
+    expect(cnname({ count: 5, unique: true, part: 'surname', surname: [] }).length).toEqual(0);
   });
   test('cnname({ count: 5, unique: true, duplicatedGivenNameOnly: true }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, duplicatedGivenNameOnly: true }).length).toEqual(5);
@@ -92,12 +92,19 @@ describe('cnname(options)', () => {
   test('cnname({ count: 5, givenNameLength: 999 }) should return array with five elements', () => {
     expect(cnname({ count: 5, givenNameLength: 999 }).length).toEqual(5);
   });
-  test('cnname({ count: 5, unique: true, part: "surname", surname: "张" }) should return array with surname', () => {
-    const result = cnname({ count: 5, unique: true, part: "surname", surname: "张" });
+  test('cnname({ count: 5, unique: true, part: "surname", surname: "欧阳" }) should return array with one elements', () => {
+    const result = cnname({ count: 5, unique: true, part: "surname", surname: "欧阳" });
     const [name] = result;
-    expect(name).toEqual("张");
+    expect(result.length).toEqual(1);
+    expect(name).toEqual("欧阳");
   });
   test('cnname({ count: 5, unique: true, part: "givenName" }) should return array with givenName', () => {
     expect(cnname({ count: 5, unique: true, part: 'givenName' }).length).toEqual(5);
+  });
+  test('cnname({ count: 5000, unique: true, part: "surname", surnameType: "common" }) should return instantly', () => {
+    expect(cnname({ count: 5000, unique: true, part: 'surname', surnameType: 'common' }).length).lt(5000);
+  });
+  test('cnname({ count: 50000, unique: true, part: "surname", surnameType: "all" }) should return instantly', () => {
+    expect(cnname({ count: 50000, unique: true, part: 'surname', surnameType: 'all' }).length).lt(50000);
   });
 });
