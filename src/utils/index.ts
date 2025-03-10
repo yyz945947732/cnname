@@ -10,17 +10,17 @@ const SURNAMES = surnameDict.dict.split(' ');
 const COMPOUND_SURNAMES = SURNAMES.filter((words) => words.length > 1);
 /** 所有单字姓 */
 const SINGLE_CHARACTER_SURNAMES = SURNAMES.filter(
-  (words) => words.length === 1,
+  (words) => words.length === 1
 );
 /** 所有常用姓氏 */
 const COMMON_SURNAMES = commonSurnameDict.dict.split(' ');
 /** 所有常用复姓 */
 const COMMON_COMPOUND_SURNAMES = COMMON_SURNAMES.filter(
-  (words) => words.length > 1,
+  (words) => words.length > 1
 );
 /** 所有常用单字姓 */
 const COMMON_SINGLE_CHARACTER_SURNAMES = COMMON_SURNAMES.filter(
-  (words) => words.length === 1,
+  (words) => words.length === 1
 );
 /** 所有名 */
 const WORDS = wordsDict.dict.split('');
@@ -39,7 +39,7 @@ export function pickRandomWords(n = 1): string {
  */
 export function pickSurnameByAlgorithm(
   surnameType: SurnameType,
-  algorithm: Algorithm,
+  algorithm: Algorithm
 ): string {
   const list = getSurnameListBySurnameType(surnameType);
   return safePickSingleEleByAlgorithm(list, algorithm);
@@ -211,8 +211,8 @@ export function getSingleResult(options: Options): string {
   const nameLength = Number.isInteger(givenNameLength)
     ? givenNameLength
     : Math.random() > 0.5
-      ? 2
-      : 1;
+    ? 2
+    : 1;
 
   let surname: string;
   let givenName: string;
@@ -293,7 +293,7 @@ export function getMaxSetSize(options: Options): number {
  * 获取所有姓氏
  */
 export function getSurnameListBySurnameType(
-  surnameType: SurnameType = 'all',
+  surnameType: SurnameType = 'all'
 ): string[] {
   switch (surnameType) {
     case 'all':
@@ -318,7 +318,7 @@ export function getSurnameListBySurnameType(
  * 处理 `{ part: 'surname', unique: 'true' }` 边缘情况的性能问题
  */
 export function handleuUniqueSrunamePartEdgeCase(
-  options: Options,
+  options: Options
 ): string[] | undefined {
   const {
     count = 1,
@@ -354,7 +354,7 @@ export function handleuUniqueSrunamePartEdgeCase(
 export function pickEleByAlgorithm(
   array: string[],
   algorithm: Algorithm,
-  n = 1,
+  n = 1
 ): string[] {
   const pickFnMap = {
     weight: pickWeightEle,
@@ -385,7 +385,7 @@ function randomNumber(a: number, b: number): number {
  */
 function safePickSingleEleByAlgorithm(
   array: string[],
-  algorithm: Algorithm,
+  algorithm: Algorithm
 ): string {
   if (!array || !array.length) {
     return '';
@@ -427,18 +427,22 @@ function pickWeightEle(array: string[], n = 1): string[] {
   /* istanbul ignore if -- @preserve */
   if (!array || !array.length || n <= 0) return [];
 
-  const weights = array.map((_, index) => array.length - index);
-  const totalWeight = weights.reduce((acc, weight) => acc + weight, 0);
-  const result = [];
+  const len = array.length;
+  const totalWeight = (len * (len + 1)) / 2;
+  const result: string[] = [];
 
   while (result.length < n) {
-    let random = Math.floor(Math.random() * totalWeight);
-    for (let i = 0; i < array.length; i++) {
-      random -= weights[i];
-      if (random < 0) {
-        result.push(array[i]);
-      }
+    let random = Math.random() * totalWeight;
+    let index = 0;
+    let weight = len;
+
+    while (random >= weight) {
+      random -= weight;
+      index++;
+      weight--;
     }
+
+    result.push(array[index]);
   }
 
   return result;
