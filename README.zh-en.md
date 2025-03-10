@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  👦 Generate Random Chinese Names 👧
+  👦 Randomly generate Chinese names 👧
 </p>
 
 <p align="center">
