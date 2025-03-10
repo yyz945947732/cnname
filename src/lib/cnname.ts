@@ -5,6 +5,7 @@ import {
   isOptions,
   pickSurnameByAlgorithm,
   pickRandomWords,
+  handleuUniqueSrunamePartEdgeCase,
 } from '../utils';
 import { DEFAULT_SURNAME_TYPE, DEFAULT_ALGORITHM } from '../utils/default';
 
@@ -87,7 +88,7 @@ function cnname(
  * @returns {string[]} 随机中文名数组
  */
 function cnnameWithOptions(options: Options): string[] {
-  const { count = 1, unique = false } = options;
+  const { count = 1, part = 'fullName', unique = false } = options;
 
   const num = count < 0 ? 0 : count;
 
@@ -98,6 +99,14 @@ function cnnameWithOptions(options: Options): string[] {
   if (unique) {
     const maxSetSize = getMaxSetSize(options);
     const uniqueResult = new Set<string>(result);
+
+    // 由于姓氏数据样本量太少，考虑到性能问题直接返回全部数据
+    if (part === 'surname' && num > maxSetSize) {
+      const list = handleuUniqueSrunamePartEdgeCase(options);
+      if (list) {
+        return list;
+      }
+    }
 
     while (uniqueResult.size < num && uniqueResult.size < maxSetSize) {
       uniqueResult.add(getSingleResult(options));

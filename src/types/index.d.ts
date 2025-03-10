@@ -15,7 +15,7 @@ export interface Options {
    */
   unique?: boolean;
   /**
-   * 支持姓氏类型，默认为 `all`
+   * 支持姓氏类型，默认为 `common`
    * @type `all` 包括所有姓氏
    * @type `single` 仅包括单姓
    * @type `compound` 仅包括复姓

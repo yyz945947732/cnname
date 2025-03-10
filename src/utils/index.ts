@@ -315,6 +315,39 @@ export function getSurnameListBySurnameType(
 
 /**
  * @private
+ * 处理 `{ part: 'surname', unique: 'true' }` 边缘情况的性能问题
+ */
+export function handleuUniqueSrunamePartEdgeCase(
+  options: Options
+): string[] | undefined {
+  const {
+    count = 1,
+    surnameType = DEFAULT_SURNAME_TYPE,
+    unique = false,
+    part = 'fullName',
+    surname,
+  } = options;
+
+  const list = getSurnameListBySurnameType(surnameType);
+  const maxSetSize = getMaxSetSize(options);
+
+  if (!unique || part !== 'surname' || count <= maxSetSize) {
+    return;
+  }
+
+  if (Array.isArray(surname)) {
+    return surname;
+  }
+
+  if (surname !== undefined) {
+    return [surname];
+  }
+
+  return list;
+}
+
+/**
+ * @private
  * 通过算法从数组中随机选取 n 个元素
  */
 export function pickEleByAlgorithm(
