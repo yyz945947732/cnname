@@ -427,18 +427,22 @@ function pickWeightEle(array: string[], n = 1): string[] {
   /* istanbul ignore if -- @preserve */
   if (!array || !array.length || n <= 0) return [];
 
-  const weights = array.map((_, index) => array.length - index);
-  const totalWeight = weights.reduce((acc, weight) => acc + weight, 0);
-  const result = [];
+  const len = array.length;
+  const totalWeight = (len * (len + 1)) / 2;
+  const result: string[] = [];
 
   while (result.length < n) {
-    let random = Math.floor(Math.random() * totalWeight);
-    for (let i = 0; i < array.length; i++) {
-      random -= weights[i];
-      if (random < 0) {
-        result.push(array[i]);
-      }
+    let random = Math.random() * totalWeight;
+    let index = 0;
+    let weight = len;
+
+    while (random >= weight) {
+      random -= weight;
+      index++;
+      weight--;
     }
+
+    result.push(array[index]);
   }
 
   return result;
