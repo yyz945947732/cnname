@@ -41,12 +41,12 @@ export interface Options {
 
 /** 姓氏类型 */
 export type SurnameType =
-  | 'all'
-  | 'all-single'
-  | 'all-compound'
   | 'common'
   | 'common-single'
-  | 'common-compound';
+  | 'common-compound'
+  | 'all'
+  | 'all-single'
+  | 'all-compound';
 
 /** 返回的姓名部分 */
 export type Part = 'fullName' | 'surname' | 'givenName';
