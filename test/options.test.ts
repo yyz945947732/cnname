@@ -107,10 +107,16 @@ describe('cnname(options)', () => {
   test('cnname({ count: 5, unique: true, part: "givenName" }) should return array with givenName', () => {
     expect(cnname({ count: 5, unique: true, part: 'givenName' }).length).toEqual(5);
   });
-  test('cnname({ count: 5000, unique: true, part: "surname", surnameType: "common" }) should return instantly', () => {
-    expect(cnname({ count: 5000, unique: true, part: 'surname', surnameType: 'common' }).length).lt(5000);
+  test('cnname({ count: 5000, unique: true, part: "surname", surnameType: "common", algorithm: "weight" }) should return instantly', () => {
+    expect(cnname({ count: 5000, unique: true, part: 'surname', surnameType: 'common', algorithm: 'weight' }).length).lt(5000);
   });
-  test('cnname({ count: 50000, unique: true, part: "surname", surnameType: "all" }) should return instantly', () => {
-    expect(cnname({ count: 50000, unique: true, part: 'surname', surnameType: 'all' }).length).lt(50000);
+  test('cnname({ count: 50000, unique: true, part: "surname", surnameType: "all", algorithm: "weight" }) should return instantly', () => {
+    expect(cnname({ count: 50000, unique: true, part: 'surname', surnameType: 'all', algorithm: 'weight' }).length).lt(50000);
+  });
+  test('cnname({ count: 5000, unique: true, part: "surname", surnameType: "common", algorithm: "random" }) should return instantly', () => {
+    expect(cnname({ count: 5000, unique: true, part: 'surname', surnameType: 'common', algorithm: 'random' }).length).lt(5000);
+  });
+  test('cnname({ count: 50000, unique: true, part: "surname", surnameType: "all", algorithm: "random" }) should return instantly', () => {
+    expect(cnname({ count: 50000, unique: true, part: 'surname', surnameType: 'all', algorithm: 'random' }).length).lt(50000);
   });
 });
