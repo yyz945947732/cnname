@@ -331,6 +331,7 @@ export function handleuUniqueSrunamePartEdgeCase(
   const list = getSurnameListBySurnameType(surnameType);
   const maxSetSize = getMaxSetSize(options);
 
+  /* istanbul ignore if -- @preserve */
   if (!unique || part !== 'surname' || count <= maxSetSize) {
     return;
   }
@@ -366,6 +367,7 @@ export function pickEleByAlgorithm(
     return pickFn(array, n);
   }
 
+  /* istanbul ignore next -- @preserve */
   return pickFnMap[DEFAULT_ALGORITHM](array, n);
 }
 

@@ -8,9 +8,9 @@
   "scripts": {
     "start": "node scripts/preview.mjs",
     "example": "tsup --config tsup.config.ts && node scripts/novel.mjs && node scripts/preview.mjs && node scripts/surnames.mjs",
-    "novel": "node scripts/novel.mjs",
-    "preview": "node scripts/preview.mjs",
-    "surnames": "node scripts/surnames.mjs",
+    "example:novel": "node scripts/novel.mjs",
+    "example:preview": "node scripts/preview.mjs",
+    "example:surnames": "node scripts/surnames.mjs",
     "test": "vitest",
     "test:cov": "vitest run --coverage",
     "lint": "biome check --write --unsafe && biome format --write",
