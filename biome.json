@@ -1,4 +1,7 @@
 {
+  "files": {
+    "include": ["src"]
+  },
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,
@@ -86,9 +89,6 @@
         "useValidTypeof": "error"
       }
     },
-    "ignore": [
-      "node_modules",
-      "dist"
-    ]
+    "ignore": ["node_modules", "dist"]
   }
 }
