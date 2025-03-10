@@ -7,14 +7,16 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "node scripts/preview.mjs",
-    "example": "tsup --config tsup.config.ts && node scripts/novel.mjs && node scripts/preview.mjs && node scripts/surnames.mjs",
+    "example": "tsup && node scripts/novel.mjs && node scripts/preview.mjs && node scripts/surnames.mjs",
     "example:novel": "node scripts/novel.mjs",
     "example:preview": "node scripts/preview.mjs",
     "example:surnames": "node scripts/surnames.mjs",
     "test": "vitest",
     "test:cov": "vitest run --coverage",
     "lint": "biome check --write --unsafe && biome format --write",
-    "build": "tsup --config tsup.config.ts"
+    "build": "tsup",
+    "prepublishOnly": "tsup",
+    "prepare": "husky"
   },
   "type": "module",
   "author": "yyz945947732 <945947732@qq.com>",
@@ -33,6 +35,8 @@
   "devDependencies": {
     "@biomejs/biome": "^1.1.2",
     "@vitest/coverage-istanbul": "^3.0.7",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
     "tsup": "^8.4.0",
     "typescript": "^5.2.2",
     "vitest": "^3.0.7"
@@ -45,5 +49,11 @@
     "cnchar",
     "cnchar-name",
     "chinese name"
-  ]
+  ],
+  "lint-staged": {
+    "src/**/*.ts": [
+      "biome check --write",
+      "biome format --write"
+    ]
+  }
 }
