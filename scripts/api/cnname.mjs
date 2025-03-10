@@ -42,24 +42,24 @@ export default [
     value: cnname({ count: 5, unique: true, part: "givenName" }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, surnameType: "single", givenNameLength: 1 })',
-    value: cnname({ count: 5, unique: true, surnameType: "single", givenNameLength: 1 }),
+    label: 'cnname({ count: 5, unique: true, surnameType: "all-single", givenNameLength: 1 })',
+    value: cnname({ count: 5, unique: true, surnameType: "all-single", givenNameLength: 1 }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, surnameType: "compound", givenNameLength: 1 })',
-    value: cnname({ count: 5, unique: true, surnameType: "compound", givenNameLength: 1 }),
+    label: 'cnname({ count: 5, unique: true, surnameType: "all-compound", givenNameLength: 1 })',
+    value: cnname({ count: 5, unique: true, surnameType: "all-compound", givenNameLength: 1 }),
   },
   {
     label: 'cnname({ count: 5, unique: true, surnameType: "common", givenNameLength: 1 })',
     value: cnname({ count: 5, unique: true, surnameType: "common", givenNameLength: 1 }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, surnameType: "single-common", givenNameLength: 1 })',
-    value: cnname({ count: 5, unique: true, surnameType: "single-common", givenNameLength: 1 }),
+    label: 'cnname({ count: 5, unique: true, surnameType: "common-single", givenNameLength: 1 })',
+    value: cnname({ count: 5, unique: true, surnameType: "common-single", givenNameLength: 1 }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, surnameType: "compound-common", givenNameLength: 1 })',
-    value: cnname({ count: 5, unique: true, surnameType: "compound-common", givenNameLength: 1 }),
+    label: 'cnname({ count: 5, unique: true, surnameType: "common-compound", givenNameLength: 1 })',
+    value: cnname({ count: 5, unique: true, surnameType: "common-compound", givenNameLength: 1 }),
   },
   {
     label: 'cnname({ count: 5, unique: true,  surname: ["张", "李"] })',

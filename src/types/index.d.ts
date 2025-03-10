@@ -16,12 +16,12 @@ export interface Options {
   unique?: boolean;
   /**
    * 支持姓氏类型，默认为 `common`
+   * @type `common` 包括常用姓氏
+   * @type `common-single` 包括常用单姓姓氏
+   * @type `common-compound` 包括常用复姓姓氏
    * @type `all` 包括所有姓氏
-   * @type `single` 仅包括单姓
-   * @type `compound` 仅包括复姓
-   * @type `common` 仅包括常用姓氏
-   * @type `single-common` 仅包括单姓常用姓氏
-   * @type `compound-common` 仅包括复姓常用姓氏
+   * @type `all-single` 包括所有单姓
+   * @type `all-compound` 包括所有复姓
    */
   surnameType?: SurnameType;
   /**
@@ -42,11 +42,11 @@ export interface Options {
 /** 姓氏类型 */
 export type SurnameType =
   | 'all'
-  | 'single'
-  | 'compound'
+  | 'all-single'
+  | 'all-compound'
   | 'common'
-  | 'single-common'
-  | 'compound-common';
+  | 'common-single'
+  | 'common-compound';
 
 /** 返回的姓名部分 */
 export type Part = 'fullName' | 'surname' | 'givenName';

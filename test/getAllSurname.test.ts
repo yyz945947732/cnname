@@ -2,11 +2,11 @@ import { getAllSurname } from '../src';
 import { describe, test, expect, assertType } from 'vitest';
 
 assertType<string[]>(getAllSurname());
-assertType<string[]>(getAllSurname('single'));
-assertType<string[]>(getAllSurname('compound'));
+assertType<string[]>(getAllSurname('all-single'));
+assertType<string[]>(getAllSurname('all-compound'));
 assertType<string[]>(getAllSurname('common'));
-assertType<string[]>(getAllSurname('single-common'));
-assertType<string[]>(getAllSurname('compound-common'));
+assertType<string[]>(getAllSurname('common-single'));
+assertType<string[]>(getAllSurname('common-compound'));
 
 describe('getAllSurname', () => {
   test('getAllSurname() should return array with at least 200 elements', () => {
