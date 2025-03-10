@@ -51,7 +51,7 @@
     "chinese name"
   ],
   "lint-staged": {
-    "src/*.ts": [
+    "**/*.ts": [
       "biome check --write",
       "biome format --write"
     ]
