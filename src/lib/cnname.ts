@@ -2,12 +2,12 @@ import type { Options } from '../types/index';
 import {
   getMaxSetSize,
   getSingleResult,
-  isOptions,
-  pickSurnameByAlgorithm,
-  pickRandomWords,
   handleuUniqueSrunamePartEdgeCase,
+  isOptions,
+  pickRandomWords,
+  pickSurnameByAlgorithm,
 } from '../utils';
-import { DEFAULT_SURNAME_TYPE, DEFAULT_ALGORITHM } from '../utils/default';
+import { DEFAULT_ALGORITHM, DEFAULT_SURNAME_TYPE } from '../utils/default';
 
 /**
  * 返回随机中文名
@@ -46,7 +46,7 @@ function cnname(options: Options): string[];
 
 function cnname(
   parameter1?: number | string | Options,
-  parameter2?: number
+  parameter2?: number,
 ): string | string[] {
   let num: number;
   let fixSurname = '';
