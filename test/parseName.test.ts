@@ -1,6 +1,6 @@
 import { parseName } from '../src';
 import { describe, test, expect, assertType } from 'vitest';
-import { ParseNameResult } from '../src/types';
+import type { ParseNameResult } from '../src/types';
 
 assertType<ParseNameResult>(parseName('张三'));
 assertType<ParseNameResult>(parseName('笑三'));

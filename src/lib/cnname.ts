@@ -3,9 +3,10 @@ import {
   getMaxSetSize,
   getSingleResult,
   isOptions,
-  pickRandomSurname,
+  pickSurnameByAlgorithm,
   pickRandomWords,
 } from '../utils';
+import { DEFAULT_SURNAME_TYPE, DEFAULT_ALGORITHM } from '../utils/default';
 
 /**
  * 返回随机中文名
@@ -44,7 +45,7 @@ function cnname(options: Options): string[];
 
 function cnname(
   parameter1?: number | string | Options,
-  parameter2?: number,
+  parameter2?: number
 ): string | string[] {
   let num: number;
   let fixSurname = '';
@@ -69,7 +70,9 @@ function cnname(
   }
 
   const result = Array.from({ length: num }, () => {
-    const surname = fixSurname || pickRandomSurname();
+    const surname =
+      fixSurname ||
+      pickSurnameByAlgorithm(DEFAULT_SURNAME_TYPE, DEFAULT_ALGORITHM);
     const nameLength = Math.random() > 0.5 ? 2 : 1;
     const givenName = pickRandomWords(nameLength);
     return surname + givenName;

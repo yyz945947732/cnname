@@ -37,6 +37,12 @@ describe('cnname(options)', () => {
   test('cnname({ count: 5, part: "surname", surnameType: "common" }) should return array with five elements', () => {
     expect(cnname({ count: 5, part: "surname", surnameType: "common" }).length).toEqual(5);
   });
+  test('cnname({ count: 5, part: "surname", surnameType: "common", algorithm: "random" }) should return array with five elements', () => {
+    expect(cnname({ count: 5, part: "surname", surnameType: "common", algorithm: 'random' }).length).toEqual(5);
+  });
+  test('cnname({ count: 5, part: "surname", surnameType: "common", algorithm: "weight" }) should return array with five elements', () => {
+    expect(cnname({ count: 5, part: "surname", surnameType: "common", algorithm: 'weight' }).length).toEqual(5);
+  });
   test('cnname({ count: 5, part: "surname", surnameType: "single-common" }) should return array with five elements', () => {
     expect(cnname({ count: 5, part: "surname", surnameType: "single-common" }).length).toEqual(5);
   });
