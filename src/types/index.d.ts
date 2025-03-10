@@ -15,7 +15,7 @@ export interface Options {
    */
   unique?: boolean;
   /**
-   * 支持姓氏类型，默认为 `all`
+   * 支持姓氏类型，默认为 `common`
    * @type `all` 包括所有姓氏
    * @type `single` 仅包括单姓
    * @type `compound` 仅包括复姓
@@ -31,6 +31,12 @@ export interface Options {
    * @type `givenName` 只返回名
    */
   part?: Part;
+  /**
+   * 随机抽取算法，默认为 `weight`
+   * @type `weight` 按常见度加权
+   * @type `random` 纯随机算法
+   */
+  algorithm?: Algorithm;
 }
 
 /** 姓氏类型 */
@@ -44,6 +50,8 @@ export type SurnameType =
 
 /** 返回的姓名部分 */
 export type Part = 'fullName' | 'surname' | 'givenName';
+
+export type Algorithm = 'weight' | 'random';
 
 /** 姓名解析格式 */
 export interface ParseNameResult {

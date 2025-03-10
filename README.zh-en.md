@@ -43,13 +43,13 @@
   </a>
 </p>
 
-## ✨ Features  
+## ✨ Features
 
 - 🎲 Easily and simply generate random Chinese names.
 - 🎭 Supports a wide range of surname types and name characteristics.
-- ⚡ Lightweight and fast with no extra dependencies.  
-- 🛠 Provides various APIs for custom generation rules. 
-- 📚 Suitable for test data, novel writing, game characters, and more.  
+- ⚡ Lightweight and fast with no extra dependencies.
+- 🛠 Provides various APIs for custom generation rules.
+- 📚 Suitable for test data, novel writing, game characters, and more.
 
 ## 📦 Install
 
@@ -82,23 +82,23 @@ cnname('关', 5);
 
 ## 📖 API
 
-**`cnname(): string`** 
+**`cnname(): string`**
 
 Generate a random Chinese name.
 
-**`cnname(surname: string): string`** 
+**`cnname(surname: string): string`**
 
 Generate a random Chinese name with a specified surname.
 
-**`cnname(num: number): string[]`** 
+**`cnname(num: number): string[]`**
 
 Generate a specified number of random Chinese names.
 
-**`cnname(surname: string, num: number): string[]`** 
+**`cnname(surname: string, num: number): string[]`**
 
 Generate a specified number of random Chinese names with a given surname.
 
-**`cnname(options: Option): string[]`** 
+**`cnname(options: Option): string[]`**
 
 Generate random names using [advanced configuration](#options).
 
@@ -111,27 +111,29 @@ Generate random names using [advanced configuration](#options).
 | `duplicatedGivenNameOnly` | `boolean` | Whether to return only repeated given names (e.g., "婷婷", "明明") | `false` |
 | `givenNameLength` | `number` | Length of the given name | `1` or `2` |
 | `unique` | `boolean` | Ensure the returned names are unique | `false` |
-| `surnameType` | `'all' \| 'single' \| 'compound' \| 'common' \| 'single-common' \| 'compound-common'` | Control surname type: `'all'` for all surnames, `'single'` for single-character surnames, `'compound'` for compound surnames，`common` for [common surname](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`single-common` for common single-character surnames，`compound-common` for common compound surnames | `'all'` |
+| `surnameType` | `'all' \| 'single' \| 'compound' \| 'common' \| 'single-common' \| 'compound-common'` | Control surname type: `'all'` for all surnames, `'single'` for single-character surnames, `'compound'` for compound surnames，`common` for [common surname](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`single-common` for common single-character surnames，`compound-common` for common compound surnames | `'common'` |
 | `part` | `'fullName' \| 'surname' \| 'givenName'` | Part of returned name: `'fullName'` for full names, `'surname'` for surnames only, `'givenName'` for given names only | `'fullName'` |
+| `algorithm` | `'weight' \| 'random'` | Random selection algorithm，`'weight'` weighted by frequency，`'random'` purely random | `'weight'` |
 
 ### 🛠️ Utils
 
 ```js
 import { isSurname, getAllSurname, cnnamestr, parseName } from 'cnname';
 ```
-**`isSurname(surname: string): boolean`** 
+
+**`isSurname(surname: string): boolean`**
 
 Check if a given value is a surname.
 
-**`getAllSurname(surnameType?: SurnameType): string[]`** 
+**`getAllSurname(surnameType?: SurnameType): string[]`**
 
 Get all surnames, with an optional filter for surname types. The default is `'all'` (all surnames).
 
-**`cnnamestr(options: Option): string`**  
+**`cnnamestr(options: Option): string`**
 
 Same parameters and usage as `cnname`, but always returns a string. If multiple results are generated, they are joined with `,`.
 
-**`parseName(name: string): { surname: string, givenName: string }`** 
+**`parseName(name: string): { surname: string, givenName: string }`**
 
 Parse the name and return the detailed information of the name, including the surname and given name.
 
@@ -139,9 +141,9 @@ Parse the name and return the detailed information of the name, including the su
 
 Below are the available resources. If you find missing surnames or names, [contributions are welcome](https://github.com/yyz945947732/cnname/pulls).
 
-- 📖 [Surnames Database](https://github.com/yyz945947732/cnname/blob/master/dict/surnames.json)
-
 - 🔥 [Common Surnames Database](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)
+
+- 📖 [Surnames Database](https://github.com/yyz945947732/cnname/blob/master/dict/surnames.json)
 
 - 📝 [Given Names Database](https://github.com/yyz945947732/cnname/blob/master/dict/words.json)
 

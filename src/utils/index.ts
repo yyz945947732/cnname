@@ -1,7 +1,8 @@
 import commonSurnameDict from '../../dict/commonSurname.json';
 import surnameDict from '../../dict/surnames.json';
 import wordsDict from '../../dict/words.json';
-import type { Options, SurnameType } from '../types';
+import type { Algorithm, Options, SurnameType } from '../types';
+import { DEFAULT_SURNAME_TYPE, DEFAULT_ALGORITHM } from './default';
 
 /** 所有姓氏 */
 const SURNAMES = surnameDict.dict.split(' ');
@@ -9,17 +10,17 @@ const SURNAMES = surnameDict.dict.split(' ');
 const COMPOUND_SURNAMES = SURNAMES.filter((words) => words.length > 1);
 /** 所有单字姓 */
 const SINGLE_CHARACTER_SURNAMES = SURNAMES.filter(
-  (words) => words.length === 1,
+  (words) => words.length === 1
 );
 /** 所有常用姓氏 */
 const COMMON_SURNAMES = commonSurnameDict.dict.split(' ');
 /** 所有常用复姓 */
 const COMMON_COMPOUND_SURNAMES = COMMON_SURNAMES.filter(
-  (words) => words.length > 1,
+  (words) => words.length > 1
 );
 /** 所有常用单字姓 */
 const COMMON_SINGLE_CHARACTER_SURNAMES = COMMON_SURNAMES.filter(
-  (words) => words.length === 1,
+  (words) => words.length === 1
 );
 /** 所有名 */
 const WORDS = wordsDict.dict.split('');
@@ -34,50 +35,14 @@ export function pickRandomWords(n = 1): string {
 
 /**
  * @private
- * 随机获取姓氏
+ * 按随机算法获取姓氏
  */
-export function pickRandomSurname(): string {
-  return safePickRandomSingleEle(SURNAMES);
-}
-
-/**
- * @private
- * 随机获取复姓
- */
-export function pickRandomCompoundSurname(): string {
-  return safePickRandomSingleEle(COMPOUND_SURNAMES);
-}
-
-/**
- * @private
- * 随机获取单字姓
- */
-export function pickRandomSingleCharacterSurname(): string {
-  return safePickRandomSingleEle(SINGLE_CHARACTER_SURNAMES);
-}
-
-/**
- * @private
- * 随机获取常用姓
- */
-export function pickRandomCommonSurname(): string {
-  return safePickRandomSingleEle(COMMON_SURNAMES);
-}
-
-/**
- * @private
- * 随机获取常用复姓
- */
-export function pickRandomCommonCompoundSurname(): string {
-  return safePickRandomSingleEle(COMMON_COMPOUND_SURNAMES);
-}
-
-/**
- * @private
- * 随机获取常用单字姓
- */
-export function pickRandomCommonSingleCharacterSurname(): string {
-  return safePickRandomSingleEle(COMMON_SINGLE_CHARACTER_SURNAMES);
+export function pickSurnameByAlgorithm(
+  surnameType: SurnameType,
+  algorithm: Algorithm
+): string {
+  const list = getSurnameListBySurnameType(surnameType);
+  return safePickSingleEleByAlgorithm(list, algorithm);
 }
 
 /**
@@ -86,7 +51,7 @@ export function pickRandomCommonSingleCharacterSurname(): string {
  */
 export function pickDuplicatedGivenName(len = 2): string {
   const num = Number.isInteger(len) ? len : 2;
-  const givenName = safePickRandomSingleEle(WORDS);
+  const givenName = safePickSingleEleByRandom(WORDS);
   const duplicatedGivenName = givenName.repeat(num);
   return duplicatedGivenName;
 }
@@ -235,36 +200,27 @@ export function isOptions(value: unknown): value is Options {
  */
 export function getSingleResult(options: Options): string {
   const {
-    surnameType = 'all',
     part = 'fullName',
+    surnameType = DEFAULT_SURNAME_TYPE,
+    algorithm = DEFAULT_ALGORITHM,
     duplicatedGivenNameOnly = false,
     givenNameLength,
     surname: fixedSurname,
   } = options;
 
-  const surnamePickerMap = {
-    all: pickRandomSurname,
-    compound: pickRandomCompoundSurname,
-    single: pickRandomSingleCharacterSurname,
-    common: pickRandomCommonSurname,
-    'single-common': pickRandomCommonSingleCharacterSurname,
-    'compound-common': pickRandomCommonCompoundSurname,
-  };
-
-  const pickFn = surnamePickerMap[surnameType] ?? pickRandomSurname;
   const nameLength = Number.isInteger(givenNameLength)
     ? givenNameLength
     : Math.random() > 0.5
-      ? 2
-      : 1;
+    ? 2
+    : 1;
 
   let surname: string;
   let givenName: string;
 
   if (part !== 'givenName') {
     surname = Array.isArray(fixedSurname)
-      ? safePickRandomSingleEle(fixedSurname)
-      : fixedSurname || pickFn();
+      ? safePickSingleEleByAlgorithm(fixedSurname, algorithm)
+      : fixedSurname || pickSurnameByAlgorithm(surnameType, algorithm);
   }
   if (part !== 'surname') {
     givenName = duplicatedGivenNameOnly
@@ -337,7 +293,7 @@ export function getMaxSetSize(options: Options): number {
  * 获取所有姓氏
  */
 export function getSurnameListBySurnameType(
-  surnameType: SurnameType = 'all',
+  surnameType: SurnameType = 'all'
 ): string[] {
   switch (surnameType) {
     case 'all':
@@ -359,6 +315,62 @@ export function getSurnameListBySurnameType(
 
 /**
  * @private
+ * 处理 `{ part: 'surname', unique: 'true' }` 边缘情况的性能问题
+ */
+export function handleuUniqueSrunamePartEdgeCase(
+  options: Options
+): string[] | undefined {
+  const {
+    count = 1,
+    surnameType = DEFAULT_SURNAME_TYPE,
+    unique = false,
+    part = 'fullName',
+    surname,
+  } = options;
+
+  const list = getSurnameListBySurnameType(surnameType);
+  const maxSetSize = getMaxSetSize(options);
+
+  if (!unique || part !== 'surname' || count <= maxSetSize) {
+    return;
+  }
+
+  if (Array.isArray(surname)) {
+    return surname;
+  }
+
+  if (surname !== undefined) {
+    return [surname];
+  }
+
+  return list;
+}
+
+/**
+ * @private
+ * 通过算法从数组中随机选取 n 个元素
+ */
+export function pickEleByAlgorithm(
+  array: string[],
+  algorithm: Algorithm,
+  n = 1
+): string[] {
+  const pickFnMap = {
+    weight: pickWeightEle,
+    random: pickRandomEle,
+  };
+
+  const pickFn = pickFnMap[algorithm];
+
+  if (pickFn) {
+    return pickFn(array, n);
+  }
+
+  return pickFnMap[DEFAULT_ALGORITHM](array, n);
+}
+
+/**
+ * @private
  * 获取数组范围内随机数
  */
 function randomNumber(a: number, b: number): number {
@@ -367,18 +379,29 @@ function randomNumber(a: number, b: number): number {
 
 /**
  * @private
- * 安全的从数组中随机选取 1 个元素
+ * 通过算法安全的从数组中随机选取 1 个元素
  */
-function safePickRandomSingleEle(array: string[]): string {
+function safePickSingleEleByAlgorithm(
+  array: string[],
+  algorithm: Algorithm
+): string {
   if (!array || !array.length) {
     return '';
   }
-  return pickRandomEle(array, 1)[0];
+  return pickEleByAlgorithm(array, algorithm, 1)[0];
 }
 
 /**
  * @private
- * 从数组中随机选取 n 个元素
+ * 通过随机算法安全的从数组中随机选取 1 个元素
+ */
+function safePickSingleEleByRandom(array: string[]): string {
+  return safePickSingleEleByAlgorithm(array, 'random');
+}
+
+/**
+ * @private
+ * 通过纯随机算法从数组中随机选取 n 个元素
  */
 function pickRandomEle(array: string[], n = 1): string[] {
   /* istanbul ignore if -- @preserve */
@@ -389,6 +412,31 @@ function pickRandomEle(array: string[], n = 1): string[] {
   while (result.length < n) {
     const i = randomNumber(0, length - 1);
     result.push(array[i]);
+  }
+
+  return result;
+}
+
+/**
+ * @private
+ * 通过权重算法从数组中随机选取 n 个元素
+ */
+function pickWeightEle(array: string[], n = 1): string[] {
+  /* istanbul ignore if -- @preserve */
+  if (!array || !array.length || n <= 0) return [];
+
+  const weights = array.map((_, index) => array.length - index);
+  const totalWeight = weights.reduce((acc, weight) => acc + weight, 0);
+  const result = [];
+
+  while (result.length < n) {
+    let random = Math.floor(Math.random() * totalWeight);
+    for (let i = 0; i < array.length; i++) {
+      random -= weights[i];
+      if (random < 0) {
+        result.push(array[i]);
+      }
+    }
   }
 
   return result;

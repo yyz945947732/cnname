@@ -43,13 +43,13 @@
   </a>
 </p>
 
-## ✨ 特性  
+## ✨ 特性
 
-- 🎲 轻松简单的随机生成中文姓名。  
-- 🎭 支持丰富的姓氏类型和名字特性。  
-- ⚡ 轻量级库，快速生成，无额外依赖。  
-- 🛠 提供多种 API，可自定义生成规则。  
-- 📚 适用于测试数据、小说创作、游戏角色等场景。  
+- 🎲 轻松简单的随机生成中文姓名。
+- 🎭 支持丰富的姓氏类型和名字特性。
+- ⚡ 轻量级库，快速生成，无额外依赖。
+- 🛠 提供多种 API，可自定义生成规则。
+- 📚 适用于测试数据、小说创作、游戏角色等场景。
 
 ## 📦 安装
 
@@ -82,23 +82,23 @@ cnname('关', 5);
 
 ## 📖 API
 
-**`cnname(): string`** 
+**`cnname(): string`**
 
 获取一个随机姓名。
 
-**`cnname(surname: string): string`** 
+**`cnname(surname: string): string`**
 
 获取指定姓氏的随机姓名。
 
-**`cnname(num: number): string[]`** 
+**`cnname(num: number): string[]`**
 
 获取指定数量的随机姓名。
 
-**`cnname(surname: string, num: number): string[]`** 
+**`cnname(surname: string, num: number): string[]`**
 
 获取指定姓氏和数量的随机姓名。
 
-**`cnname(options: Option): string[]`** 
+**`cnname(options: Option): string[]`**
 
 使用[高级配置](#option)获取随机名字。
 
@@ -111,27 +111,29 @@ cnname('关', 5);
 | `duplicatedGivenNameOnly` | `boolean` | 是否只返回叠字名（如 "婷婷"、"明明"） | `false` |
 | `givenNameLength` | `number` | 名字长度 | `1` 或 `2` |
 | `unique` | `boolean` | 是否确保返回的值不重复 | `false` |
-| `surnameType` | `'all' \| 'single' \| 'compound' \| 'common' \| 'single-common' \| 'compound-common'` | 控制姓氏类型，`'all'` 为全部姓氏，`single` 为单字姓，`compound` 为复姓，`common` 为[常见姓氏](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`single-common` 为常见单字姓，`compound-common` 为常见复姓| `'all'` |
+| `surnameType` | `'all' \| 'single' \| 'compound' \| 'common' \| 'single-common' \| 'compound-common'` | 控制姓氏类型，`'all'` 为全部姓氏，`single` 为单字姓，`compound` 为复姓，`common` 为[常见姓氏](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`single-common` 为常见单字姓，`compound-common` 为常见复姓| `'common'` |
 | `part` | `'fullName' \| 'surname' \| 'givenName'` | 返回的部分，`'fullName'` 为完整姓名，`'surname'` 为姓氏，`'givenName'` 为名 | `'fullName'` |
+| `algorithm` | `'weight' \| 'random'` | 随机算法，`'weight'` 按常见度加权，`'random'` 纯随机 | `'weight'` |
 
 ### 🛠️ 工具方法
 
 ```js
 import { isSurname, getAllSurname, cnnamestr, parseName } from 'cnname';
 ```
-**`isSurname(surname: string): boolean`** 
+
+**`isSurname(surname: string): boolean`**
 
 判断当前值是否为姓氏。
 
-**`getAllSurname(surnameType?: SurnameType): string[]`** 
+**`getAllSurname(surnameType?: SurnameType): string[]`**
 
 获取所有姓氏，可指定姓氏类型，默认为 `'all'` (全部姓氏)。
 
-**`cnnamestr(options: Option): string`** 
+**`cnnamestr(options: Option): string`**
 
 与 `cnname` 相同的参数和使用方式，但始终返回字符串。若生成多个结果，则使用 `,` 拼接。
 
-**`parseName(name: string): { surname: string, givenName: string }`** 
+**`parseName(name: string): { surname: string, givenName: string }`**
 
 解析传入的名字，返回名字的详细信息（包括姓和名）。
 
@@ -139,9 +141,9 @@ import { isSurname, getAllSurname, cnnamestr, parseName } from 'cnname';
 
 以下为资源库，如果缺少了你想要的姓氏或名字，[欢迎补充](https://github.com/yyz945947732/cnname/pulls)。
 
-- 📖 [姓氏库](https://github.com/yyz945947732/cnname/blob/master/dict/surnames.json)
-
 - 🔥 [常见姓氏库](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)
+
+- 📖 [姓氏库](https://github.com/yyz945947732/cnname/blob/master/dict/surnames.json)
 
 - 📝 [名字库](https://github.com/yyz945947732/cnname/blob/master/dict/words.json)
 
