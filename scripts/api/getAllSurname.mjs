@@ -10,19 +10,19 @@ export default [
     value: getAllSurname('common').length,
   },
   {
-    label: 'getAllSurname("compound-common")',
-    value: getAllSurname('compound-common'),
+    label: 'getAllSurname("common-compound")',
+    value: getAllSurname('common-compound'),
   },
   {
-    label: 'getAllSurname("compound-common").length',
-    value: getAllSurname('compound-common').length,
+    label: 'getAllSurname("common-compound").length',
+    value: getAllSurname('common-compound').length,
   },
   {
-    label: 'getAllSurname("single-common")',
-    value: getAllSurname('single-common'),
+    label: 'getAllSurname("common-single")',
+    value: getAllSurname('common-single'),
   },
   {
-    label: 'getAllSurname("single-common").length',
-    value: getAllSurname('single-common').length,
+    label: 'getAllSurname("common-single").length',
+    value: getAllSurname('common-single').length,
   },
 ];

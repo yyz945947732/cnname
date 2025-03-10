@@ -111,7 +111,7 @@ Generate random names using [advanced configuration](#options).
 | `duplicatedGivenNameOnly` | `boolean` | Whether to return only repeated given names (e.g., "婷婷", "明明") | `false` |
 | `givenNameLength` | `number` | Length of the given name | `1` or `2` |
 | `unique` | `boolean` | Ensure the returned names are unique | `false` |
-| `surnameType` | `'all' \| 'single' \| 'compound' \| 'common' \| 'single-common' \| 'compound-common'` | Control surname type: `'all'` for all surnames, `'single'` for single-character surnames, `'compound'` for compound surnames，`common` for [common surname](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`single-common` for common single-character surnames，`compound-common` for common compound surnames | `'common'` |
+| `surnameType` | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | Control surname type: `'common'` for [common surname](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`'common-single'` for common single-character surnames，`'common-compound'` for common compound surnames，`'all'` for all surnames, `'all-single'` for single-character surnames, `'all-compound'` for compound surnames | `'common'` |
 | `part` | `'fullName' \| 'surname' \| 'givenName'` | Part of returned name: `'fullName'` for full names, `'surname'` for surnames only, `'givenName'` for given names only | `'fullName'` |
 | `algorithm` | `'weight' \| 'random'` | Random selection algorithm，`'weight'` weighted by frequency，`'random'` purely random | `'weight'` |
 
@@ -143,7 +143,7 @@ Below are the available resources. If you find missing surnames or names, [contr
 
 - 🔥 [Common Surnames Database](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)
 
-- 📖 [Surnames Database](https://github.com/yyz945947732/cnname/blob/master/dict/surnames.json)
+- 📖 [Surnames Database](https://github.com/yyz945947732/cnname/blob/master/dict/allSurnames.json)
 
 - 📝 [Given Names Database](https://github.com/yyz945947732/cnname/blob/master/dict/words.json)
 

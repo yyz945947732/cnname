@@ -111,7 +111,7 @@ cnname('关', 5);
 | `duplicatedGivenNameOnly` | `boolean` | 是否只返回叠字名（如 "婷婷"、"明明"） | `false` |
 | `givenNameLength` | `number` | 名字长度 | `1` 或 `2` |
 | `unique` | `boolean` | 是否确保返回的值不重复 | `false` |
-| `surnameType` | `'all' \| 'single' \| 'compound' \| 'common' \| 'single-common' \| 'compound-common'` | 控制姓氏类型，`'all'` 为全部姓氏，`single` 为单字姓，`compound` 为复姓，`common` 为[常见姓氏](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`single-common` 为常见单字姓，`compound-common` 为常见复姓| `'common'` |
+| `surnameType` | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | 控制姓氏类型，`'common'` 为[常见姓氏](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`'common-single'` 为常见单字姓，`'common-compound'` 为常见复姓，`'all'` 为全部姓氏，`'all-single'` 为全部单字姓，`'all-compound'` 为全部复姓 | `'common'` |
 | `part` | `'fullName' \| 'surname' \| 'givenName'` | 返回的部分，`'fullName'` 为完整姓名，`'surname'` 为姓氏，`'givenName'` 为名 | `'fullName'` |
 | `algorithm` | `'weight' \| 'random'` | 随机算法，`'weight'` 按常见度加权，`'random'` 纯随机 | `'weight'` |
 
@@ -143,7 +143,7 @@ import { isSurname, getAllSurname, cnnamestr, parseName } from 'cnname';
 
 - 🔥 [常见姓氏库](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)
 
-- 📖 [姓氏库](https://github.com/yyz945947732/cnname/blob/master/dict/surnames.json)
+- 📖 [姓氏库](https://github.com/yyz945947732/cnname/blob/master/dict/allSurnames.json)
 
 - 📝 [名字库](https://github.com/yyz945947732/cnname/blob/master/dict/words.json)
 

@@ -1,15 +1,15 @@
+import allSurnameDict from '../../dict/allSurnames.json';
 import commonSurnameDict from '../../dict/commonSurname.json';
-import surnameDict from '../../dict/surnames.json';
 import wordsDict from '../../dict/words.json';
 import type { Algorithm, Options, SurnameType } from '../types';
 import { DEFAULT_ALGORITHM, DEFAULT_SURNAME_TYPE } from './default';
 
 /** 所有姓氏 */
-const SURNAMES = surnameDict.dict.split(' ');
+const ALL_SURNAMES = allSurnameDict.dict.split(' ');
 /** 所有复姓 */
-const COMPOUND_SURNAMES = SURNAMES.filter((words) => words.length > 1);
+const ALL_COMPOUND_SURNAMES = ALL_SURNAMES.filter((words) => words.length > 1);
 /** 所有单字姓 */
-const SINGLE_CHARACTER_SURNAMES = SURNAMES.filter(
+const ALL_SINGLE_CHARACTER_SURNAMES = ALL_SURNAMES.filter(
   (words) => words.length === 1,
 );
 /** 所有常用姓氏 */
@@ -61,7 +61,7 @@ export function pickDuplicatedGivenName(len = 2): string {
  * 获取所有姓
  */
 export function getAllSurname(): string[] {
-  return SURNAMES;
+  return ALL_SURNAMES;
 }
 
 /**
@@ -69,7 +69,7 @@ export function getAllSurname(): string[] {
  * 获取所有复姓
  */
 export function getAllCompoundSurname(): string[] {
-  return COMPOUND_SURNAMES;
+  return ALL_COMPOUND_SURNAMES;
 }
 
 /**
@@ -77,7 +77,7 @@ export function getAllCompoundSurname(): string[] {
  * 获取所有单字姓
  */
 export function getAllSingleCharacterSurname(): string[] {
-  return SINGLE_CHARACTER_SURNAMES;
+  return ALL_SINGLE_CHARACTER_SURNAMES;
 }
 
 /**
@@ -108,7 +108,7 @@ export function getAllCommonSingleCharacterSurname(): string[] {
  * 获取所有姓氏数量
  */
 export function getAllSurnameSize(): number {
-  return SURNAMES.length;
+  return ALL_SURNAMES.length;
 }
 
 /**
@@ -116,7 +116,7 @@ export function getAllSurnameSize(): number {
  * 获取所有复姓数量
  */
 export function getAllCompoundSurnameSize(): number {
-  return COMPOUND_SURNAMES.length;
+  return ALL_COMPOUND_SURNAMES.length;
 }
 
 /**
@@ -124,7 +124,7 @@ export function getAllCompoundSurnameSize(): number {
  * 获取所有单字姓数量
  */
 export function getAllSingleCharacterSurnameSize(): number {
-  return SINGLE_CHARACTER_SURNAMES.length;
+  return ALL_SINGLE_CHARACTER_SURNAMES.length;
 }
 
 /**
@@ -164,7 +164,7 @@ export function getAllWordeSize(): number {
  * 判断值是否存在姓氏中
  */
 export function getIsSurname(surname: string): boolean {
-  return SURNAMES.some((item) => item === surname);
+  return ALL_SURNAMES.some((item) => item === surname);
 }
 
 /**
@@ -172,7 +172,7 @@ export function getIsSurname(surname: string): boolean {
  * 判断值是否存在复姓中
  */
 export function getIsCompoundSurname(surname: string): boolean {
-  return COMPOUND_SURNAMES.some((item) => item === surname);
+  return ALL_COMPOUND_SURNAMES.some((item) => item === surname);
 }
 
 /**
@@ -180,7 +180,7 @@ export function getIsCompoundSurname(surname: string): boolean {
  * 判断值是否存在单字姓中
  */
 export function getIsSingleCharacterSurname(surname: string): boolean {
-  return SINGLE_CHARACTER_SURNAMES.some((item) => item === surname);
+  return ALL_SINGLE_CHARACTER_SURNAMES.some((item) => item === surname);
 }
 
 /**
@@ -253,21 +253,22 @@ export function getMaxSetSize(options: Options): number {
   } = options;
 
   const MAX_ALL_SURNAME_SIZE = getAllSurnameSize();
-  const MAX_COMPOUND_SURNAME_SIZE = getAllCompoundSurnameSize();
-  const MAX_SINGLE_CHARACTER_SURNAME_SIZE = getAllSingleCharacterSurnameSize();
+  const MAX_ALL_COMPOUND_SURNAME_SIZE = getAllCompoundSurnameSize();
+  const MAX_ALL_SINGLE_CHARACTER_SURNAME_SIZE =
+    getAllSingleCharacterSurnameSize();
   const MAX_COMMON_SURNAME_SIZE = getAllCommonSurnameSize();
   const MAX_COMMON_COMPOUND_SURNAME_SIZE = getAllCommonCompoundSurnameSize();
   const MAX_COMMON_SINGLE_CHARACTER_SURNAME_SIZE =
     getAllCommonSingleCharacterSurnameSize();
   const MAX_WORD_SIZE = getAllWordeSize();
 
-  const MAX_SURNAME_SIZE_MAP = {
+  const MAX_SURNAME_SIZE_MAP: Record<SurnameType, number> = {
     all: MAX_ALL_SURNAME_SIZE,
-    compound: MAX_COMPOUND_SURNAME_SIZE,
-    single: MAX_SINGLE_CHARACTER_SURNAME_SIZE,
+    'all-compound': MAX_ALL_COMPOUND_SURNAME_SIZE,
+    'all-single': MAX_ALL_SINGLE_CHARACTER_SURNAME_SIZE,
     common: MAX_COMMON_SURNAME_SIZE,
-    'single-common': MAX_COMMON_SINGLE_CHARACTER_SURNAME_SIZE,
-    'compound-common': MAX_COMMON_COMPOUND_SURNAME_SIZE,
+    'common-single': MAX_COMMON_SINGLE_CHARACTER_SURNAME_SIZE,
+    'common-compound': MAX_COMMON_COMPOUND_SURNAME_SIZE,
   };
 
   const MAX_SURNAME_SIZE =
@@ -298,15 +299,15 @@ export function getSurnameListBySurnameType(
   switch (surnameType) {
     case 'all':
       return getAllSurname();
-    case 'single':
+    case 'all-single':
       return getAllSingleCharacterSurname();
-    case 'compound':
+    case 'all-compound':
       return getAllCompoundSurname();
     case 'common':
       return getAllCommonSurname();
-    case 'single-common':
+    case 'common-single':
       return getAllCommonSingleCharacterSurname();
-    case 'compound-common':
+    case 'common-compound':
       return getAllCommonCompoundSurname();
     default:
       return getAllSurname();
