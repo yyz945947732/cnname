@@ -3,67 +3,79 @@
 
 ## cnname()
 
-张文韵
+戴野
 
 ## cnname("彭")
 
-彭凯
+彭锐
 
 ## cnname(5)
 
-童境绣,唐梧晖,马境清,孟锴,伍星辰
+薛昊萧,熊岩然,乔可绮,蔡航桦,金茜庆
 
 ## cnname("姚", 5)
 
-姚钰,姚承清,姚桂,姚茜清,姚辰榆
+姚然毓,姚馨,姚文辉,姚昆,姚绮炯
 
 ## cnname({ count: 5 })
 
-段炎,翁雨澜,朱义轩,许超,单栋颖
+薛垒悠,何军楠,史元桦,程森,曾维烈
 
 ## cnname({ count: 5, unique: true, duplicatedGivenName: true })
 
-顾昊昊,姚丽丽,姜梁梁,蒋韵韵,庞杉杉
+胡诗诗,朱炜炜,龙诚诚,房弘弘,杜义义
 
 ## cnname({ count: 5, surname: "张" })
 
-张漪坡,张豪,张茹,张伟,张涛
+张萧锡,张澜,张承,张皓涛,张岳
 
 ## cnname({ count: 5, surname: "张", givenNameLength: 2 })
 
-张皓柔,张柏阳,张勇浩,张淼灿,张骏昆
+张天岱,张楠颖,张梓东,张妍梁,张智桂
 
 ## cnname({ count: 5, unique: true, part: "surname" })
 
-康,梁,刘,贾,庄
+童,汪,廖,万,施
 
 ## cnname({ count: 5, unique: true, part: "givenName" })
 
-宏铭,垒劲,颖婷,梧,梓
+瑜,灿,伦,心,岳运
 
 ## cnname({ count: 5, unique: true, surnameType: "all-single", givenNameLength: 1 })
 
-盖俊,扶昊,海晗,阮佳,羊诚
+苏镇,岑悠,喻润,汤辰,牛煜
 
 ## cnname({ count: 5, unique: true, surnameType: "all-compound", givenNameLength: 1 })
 
-仲孙瑜,东方榆,太叔志,上官维,司徒阳
+闻人岱,漆雕翊,段干梦,夏侯志,万俟烈
 
 ## cnname({ count: 5, unique: true, surnameType: "common", givenNameLength: 1 })
 
-苏瑜,高坤,陈均,石熙,赖朗
+冯健,孔昆,毛依,高佳,陆信
 
 ## cnname({ count: 5, unique: true, surnameType: "common-single", givenNameLength: 1 })
 
-谢晖,戴义,钟柯,孔绮,陆海
+何槿,刘璋,樊滨,高杉,牛佳
 
 ## cnname({ count: 5, unique: true, surnameType: "common-compound", givenNameLength: 1 })
 
-司徒锻,司空承,欧阳昊,上官波,公孙俊
+司徒辉,司徒梓,司空震,令狐峥,慕容茹
 
 ## cnname({ count: 5, unique: true,  surname: ["张", "李"] })
 
-张星桂,张泽,李绮,张栋,张均
+李东,张然,张亮,张尧峥,张军岩
+
+## cnname({ count: 5, unique: true, givenNameType: "male" })
+
+单展伟,杨超,许昊,文卫,徐光涛
+
+## cnname({ count: 5, unique: true, givenNameType: "female" })
+
+江语,闫穗,王茹,朱嫣颖,蒋霏霜
+
+## cnname({ count: 5, unique: true, givenNameType: "all" })
+
+汤龙杰,于强,陆峻,郭瑶,谭海
 
 ## isSurname("张")
 
@@ -99,27 +111,27 @@ false
 
 ## cnnamestr()
 
-罗星
+司茵
 
 ## cnnamestr("彭")
 
-彭境
+彭韬
 
 ## cnnamestr(5)
 
-于钧钧,杜茜,翁娇乔,唐静嘉,申泓深
+杜杉,戴婷奇,欧阳均芮,潘元安,龙彤燕
 
 ## cnnamestr("姚", 5)
 
-姚昕志,姚梦,姚湛,姚熙桂,姚义梓
+姚美,姚峻,姚钧奇,姚勋,姚茵楠
 
 ## cnnamestr({ count: 5 })
 
-乔伦,车安希,邓修枫,郝昕龙,魏娇然
+马倩,叶韬善,郭霄柏,方辉贺,苏梦阳
 
 ## cnnamestr({ count: 5, unique: true, duplicatedGivenName: true })
 
-高峥峥,谢劲劲,冯淼淼,成培培,吕婷婷
+冯希希,宋弘弘,费雪雪,樊岳岳,陈萧萧
 
 ## parseName("张三")
 
