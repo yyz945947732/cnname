@@ -1,5 +1,9 @@
 import type { Algorithm, GivenNameType, Options, SurnameType } from '../types';
-import { DEFAULT_ALGORITHM, DEFAULT_SURNAME_TYPE } from './default';
+import {
+  DEFAULT_ALGORITHM,
+  DEFAULT_GIVEN_NAME_TYPE,
+  DEFAULT_SURNAME_TYPE,
+} from './default';
 import {
   getAllCommonCompoundSurname,
   getAllCommonCompoundSurnameSize,
@@ -315,7 +319,7 @@ export function getSurnameByOptions(options: Options): string {
 export function getGivenNameByOptions(options: Options): string {
   const {
     duplicatedGivenName = false,
-    givenNameType = 'all',
+    givenNameType = DEFAULT_GIVEN_NAME_TYPE,
     givenNameLength,
   } = options;
 
