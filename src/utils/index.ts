@@ -1,4 +1,4 @@
-import type { Algorithm, Options, SurnameType } from '../types';
+import type { Algorithm, GivenNameType, Options, SurnameType } from '../types';
 import { DEFAULT_ALGORITHM, DEFAULT_SURNAME_TYPE } from './default';
 import {
   getAllCommonCompoundSurname,
@@ -9,6 +9,11 @@ import {
   getAllCommonSurnameSize,
   getAllCompoundSurname,
   getAllCompoundSurnameSize,
+  getAllFemaleWords,
+  getAllFemaleWordsSize,
+  getAllMaleWords,
+  getAllMaleWordsSize,
+  getAllNormalWords,
   getAllSingleCharacterSurname,
   getAllSingleCharacterSurnameSize,
   getAllSurname,
@@ -48,9 +53,15 @@ export function getIsSingleCharacterSurname(surname: string): boolean {
  * @private
  * 随机获取名
  */
-export function pickRandomWords(n = 1): string {
-  const words = getAllWords();
-  return pickRandomEle(words, n).join('');
+export function pickRandomWords(
+  givenNameType: GivenNameType = 'all',
+  n = 1,
+): string {
+  if (givenNameType === 'all') {
+    const words = getGivenNameListByGivenNameType(givenNameType);
+    return pickRandomEle(words, n).join('');
+  }
+  return getGivenNameByGivenNameType(givenNameType, n);
 }
 
 /**
@@ -69,10 +80,13 @@ export function pickSurnameByAlgorithm(
  * @private
  * 随机获取叠字名
  */
-export function pickDuplicatedGivenName(len = 2): string {
-  const words = getAllWords();
+export function pickDuplicatedGivenName(
+  givenNameType: GivenNameType = 'all',
+  len = 2,
+): string {
+  const words = getGivenNameListByGivenNameType(givenNameType);
   const num = Number.isInteger(len) ? len : 2;
-  const givenName = safePickSingleEleByRandom(words);
+  const givenName = pickRandomSingleEle(words);
   const duplicatedGivenName = givenName.repeat(num);
   return duplicatedGivenName;
 }
@@ -93,33 +107,16 @@ export function isOptions(value: unknown): value is Options {
  * 根据高级配置获取单个结果
  */
 export function getSingleResult(options: Options): string {
-  const {
-    part = 'fullName',
-    surnameType = DEFAULT_SURNAME_TYPE,
-    algorithm = DEFAULT_ALGORITHM,
-    duplicatedGivenName = false,
-    givenNameLength,
-    surname: fixedSurname,
-  } = options;
-
-  const nameLength = Number.isInteger(givenNameLength)
-    ? givenNameLength
-    : Math.random() > 0.5
-      ? 2
-      : 1;
+  const { part = 'fullName' } = options;
 
   let surname: string;
   let givenName: string;
 
   if (part !== 'givenName') {
-    surname = Array.isArray(fixedSurname)
-      ? safePickSingleEleByAlgorithm(fixedSurname, algorithm)
-      : fixedSurname || pickSurnameByAlgorithm(surnameType, algorithm);
+    surname = getSurnameByOptions(options);
   }
   if (part !== 'surname') {
-    givenName = duplicatedGivenName
-      ? pickDuplicatedGivenName(givenNameLength)
-      : pickRandomWords(nameLength);
+    givenName = getGivenNameByOptions(options);
   }
 
   switch (part) {
@@ -141,16 +138,22 @@ export function getSingleResult(options: Options): string {
 export function getMaxSetSize(options: Options): number {
   const {
     surnameType = 'all',
+    givenNameType = 'all',
     part = 'fullName',
     duplicatedGivenName = false,
+    givenNameLength,
     surname,
   } = options;
 
   const MAX_WORD_SIZE = getAllWordeSize();
   const MAX_SURNAME_SIZE = getListSizeBySurnameType(surnameType);
 
-  if (part !== 'surname') {
+  if (part === 'fullName') {
     return duplicatedGivenName ? MAX_WORD_SIZE : Number.MAX_SAFE_INTEGER;
+  }
+
+  if (part === 'givenName' && givenNameLength === 1) {
+    return getListSizeByGivenNameType(givenNameType);
   }
 
   if (Array.isArray(surname)) {
@@ -186,6 +189,25 @@ export function getSurnameListBySurnameType(
       return getAllCommonCompoundSurname();
     default:
       return getAllSurname();
+  }
+}
+
+/**
+ * @private
+ * 根据 `givenNameType` 获取所有名
+ */
+export function getGivenNameListByGivenNameType(
+  givenNameType: GivenNameType = 'all',
+): string[] {
+  switch (givenNameType) {
+    case 'all':
+      return getAllWords();
+    case 'male':
+      return getAllMaleWords();
+    case 'female':
+      return getAllFemaleWords();
+    default:
+      return getAllWords();
   }
 }
 
@@ -266,6 +288,52 @@ export function shuffle(array: string[]): string[] {
 
 /**
  * @private
+ * 根据 Options 获取 `surname` 的值
+ */
+export function getSurnameByOptions(options: Options): string {
+  const {
+    surnameType = DEFAULT_SURNAME_TYPE,
+    algorithm = DEFAULT_ALGORITHM,
+    surname: fixedSurname,
+  } = options;
+
+  if (Array.isArray(fixedSurname)) {
+    return safePickSingleEleByAlgorithm(fixedSurname, algorithm);
+  }
+
+  if (fixedSurname !== undefined) {
+    return fixedSurname;
+  }
+
+  return pickSurnameByAlgorithm(surnameType, algorithm);
+}
+
+/**
+ * @private
+ * 根据 Options 获取 `givenName` 的值
+ */
+export function getGivenNameByOptions(options: Options): string {
+  const {
+    duplicatedGivenName = false,
+    givenNameType = 'all',
+    givenNameLength,
+  } = options;
+
+  const nameLength = Number.isInteger(givenNameLength)
+    ? givenNameLength
+    : Math.random() > 0.5
+      ? 2
+      : 1;
+
+  if (duplicatedGivenName) {
+    return pickDuplicatedGivenName(givenNameType, givenNameLength);
+  }
+
+  return pickRandomWords(givenNameType, nameLength);
+}
+
+/**
+ * @private
  * 根据 `surnameType` 获取集合大小
  */
 function getListSizeBySurnameType(surnameType: SurnameType): number {
@@ -288,6 +356,45 @@ function getListSizeBySurnameType(surnameType: SurnameType): number {
   };
 
   return MAX_SURNAME_SIZE_MAP[surnameType] ?? MAX_ALL_SURNAME_SIZE;
+}
+
+/**
+ * @private
+ * 根据 `givenNameType` 获取集合大小
+ */
+function getListSizeByGivenNameType(givenNameType: GivenNameType): number {
+  const MAX_ALL_GIVEN_NAME_SIZE = getAllWordeSize();
+  const MAX_MALE_GIVEN_NAME_SIZE = getAllMaleWordsSize();
+  const MAX_FEMALE_GIVEN_NAME_SIZE = getAllFemaleWordsSize();
+
+  const MAX_GIVEN_NAME_SIZE_MAP: Record<GivenNameType, number> = {
+    all: MAX_ALL_GIVEN_NAME_SIZE,
+    male: MAX_MALE_GIVEN_NAME_SIZE,
+    female: MAX_FEMALE_GIVEN_NAME_SIZE,
+  };
+
+  return MAX_GIVEN_NAME_SIZE_MAP[givenNameType] ?? MAX_ALL_GIVEN_NAME_SIZE;
+}
+
+/**
+ * @private
+ * 根据 `givenNameType` 获取名
+ */
+function getGivenNameByGivenNameType(
+  givenNameType: GivenNameType,
+  n = 1,
+): string {
+  const words = getGivenNameListByGivenNameType(givenNameType);
+  const normalWords = getAllNormalWords();
+  const result: string[] = [pickRandomSingleEle(words)];
+  while (result.length < n) {
+    if (Math.random() > 0.5) {
+      result.push(pickRandomSingleEle(normalWords));
+    } else {
+      result.push(pickRandomSingleEle(words));
+    }
+  }
+  return shuffle(result).join('');
 }
 
 /**
@@ -316,7 +423,7 @@ function safePickSingleEleByAlgorithm(
  * @private
  * 通过随机算法安全的从数组中随机选取 1 个元素
  */
-function safePickSingleEleByRandom(array: string[]): string {
+function pickRandomSingleEle(array: string[]): string {
   return safePickSingleEleByAlgorithm(array, 'random');
 }
 

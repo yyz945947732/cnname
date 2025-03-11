@@ -11,6 +11,9 @@ assertType<string[]>(cnname({ count: 5, unique: true, surnameType: 'all' }));
 assertType<string[]>(cnname({ count: 5, unique: true, surnameType: 'common' }));
 assertType<string[]>(cnname({ count: 5, unique: true, surnameType: 'common-single' }));
 assertType<string[]>(cnname({ count: 5, unique: true, surnameType: 'common-compound' }));
+assertType<string[]>(cnname({ count: 5, unique: true, givenNameType: 'male' }));
+assertType<string[]>(cnname({ count: 5, unique: true, givenNameType: 'female' }));
+assertType<string[]>(cnname({ count: 5, unique: true, givenNameType: 'all' }));
 
 describe('cnname(options)', () => {
   test('cnname({ count: 5 }) should return array with five elements', () => {
@@ -107,6 +110,15 @@ describe('cnname(options)', () => {
   test('cnname({ count: 5, unique: true, part: "givenName" }) should return array with givenName', () => {
     expect(cnname({ count: 5, unique: true, part: 'givenName' }).length).toEqual(5);
   });
+  test('cnname({ count: 5, unique: true, givenNameType: "male" }) should return array with five elements', () => {
+    expect(cnname({ count: 5, unique: true, givenNameType: "male" }).length).toEqual(5);
+  });
+  test('cnname({ count: 5, unique: true, givenNameType: "all" }) should return array with five elements', () => {
+    expect(cnname({ count: 5, unique: true, givenNameType: "all" }).length).toEqual(5);
+  });
+  test('cnname({ count: 5, unique: true, givenNameType: "female" }) should return array with five elements', () => {
+    expect(cnname({ count: 5, unique: true, givenNameType: "female" }).length).toEqual(5);
+  });
   test('cnname({ count: 5, surnameType: "error", algorithm: "random" }) should return array with five elements', () => {
     // @ts-expect-error
     expect(cnname({ count: 5, surnameType: 'error', algorithm: 'random' }).length).toEqual(5);
@@ -129,5 +141,14 @@ describe('cnname(options)', () => {
   });
   test('cnname({ count: 50000, unique: true, part: "surname", surnameType: "all", algorithm: "random" }) should return instantly', () => {
     expect(cnname({ count: 50000, unique: true, part: 'surname', surnameType: 'all', algorithm: 'random' }).length).lt(50000);
+  });
+  test('cnname({ count: 100, unique: true, part: "givenName", givenNameType: "male", givenNameLength: 1 }) should return instantly', () => {
+    expect(cnname({ count: 100, unique: true, part: 'givenName', givenNameType: "male", givenNameLength: 1 }).length).lt(100);
+  });
+  test('cnname({ count: 100, unique: true, part: "givenName", givenNameType: "female", givenNameLength: 1 }) should return instantly', () => {
+    expect(cnname({ count: 100, unique: true, part: 'givenName', givenNameType: "female", givenNameLength: 1 }).length).lt(100);
+  });
+  test('cnname({ count: 50000, unique: true, part: "givenName", givenNameType: "all", givenNameLength: 1 }) should return instantly', () => {
+    expect(cnname({ count: 50000, unique: true, part: 'givenName', givenNameType: "all", givenNameLength: 1 }).length).lt(50000);
   });
 });

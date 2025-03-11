@@ -25,6 +25,12 @@ export interface Options {
    */
   surnameType?: SurnameType;
   /**
+   * 支持名类型，默认为 `all`
+   * @type `male` 男性常用名
+   * @type `female` 女性常用名
+   */
+  givenNameType?: GivenNameType;
+  /**
    * 返回的姓名部分，默认为 `fullName`
    * @type `fullName` 返回完整姓名
    * @type `surname` 只返回姓
@@ -48,9 +54,13 @@ export type SurnameType =
   | 'all-single'
   | 'all-compound';
 
+/** 名字特性 */
+export type GivenNameType = 'all' | 'male' | 'female';
+
 /** 返回的姓名部分 */
 export type Part = 'fullName' | 'surname' | 'givenName';
 
+/** 随机抽取算法 */
 export type Algorithm = 'weight' | 'random';
 
 /** 姓名解析格式 */

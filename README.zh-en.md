@@ -46,7 +46,7 @@
 ## ✨ Features
 
 - 🎲 Easily and simply generate random Chinese names.
-- 🎭 Supports a wide range of surname types and name characteristics.
+- 🎭 Supports a wide range of surname types and name attribute.
 - ⚡ Lightweight and fast with no extra dependencies.
 - 🛠 Provides various APIs for custom generation rules.
 - 📚 Suitable for test data, novel writing, game characters, and more.
@@ -111,7 +111,8 @@ Generate random names using [advanced configuration](#options).
 | `duplicatedGivenName` | `boolean` | Whether to return only repeated given names (e.g., "婷婷", "明明") | `false` |
 | `givenNameLength` | `number` | Length of the given name | `1` or `2` |
 | `unique` | `boolean` | Ensure the returned names are unique | `false` |
-| `surnameType` | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | Control surname type: `'common'` for [common surname](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`'common-single'` for common single-character surnames，`'common-compound'` for common compound surnames，`'all'` for all surnames, `'all-single'` for single-character surnames, `'all-compound'` for compound surnames | `'common'` |
+| `surnameType` | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | Surname type: `'common'` for [common surname](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`'common-single'` for common single-character surnames，`'common-compound'` for common compound surnames，`'all'` for all surnames, `'all-single'` for single-character surnames, `'all-compound'` for compound surnames | `'common'` |
+| `givenNameType` | `'all' \| 'male' \| 'female'` | Name attribute: `'all'` for no specific attribute, `'male'` for male names, `'female'` for female names | `'all'` |
 | `part` | `'fullName' \| 'surname' \| 'givenName'` | Part of returned name: `'fullName'` for full names, `'surname'` for surnames only, `'givenName'` for given names only | `'fullName'` |
 | `algorithm` | `'weight' \| 'random'` | Random selection algorithm，`'weight'` weighted by frequency，`'random'` purely random | `'weight'` |
 
