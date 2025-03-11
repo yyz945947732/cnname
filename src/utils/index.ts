@@ -252,27 +252,8 @@ export function getMaxSetSize(options: Options): number {
     surname,
   } = options;
 
-  const MAX_ALL_SURNAME_SIZE = getAllSurnameSize();
-  const MAX_ALL_COMPOUND_SURNAME_SIZE = getAllCompoundSurnameSize();
-  const MAX_ALL_SINGLE_CHARACTER_SURNAME_SIZE =
-    getAllSingleCharacterSurnameSize();
-  const MAX_COMMON_SURNAME_SIZE = getAllCommonSurnameSize();
-  const MAX_COMMON_COMPOUND_SURNAME_SIZE = getAllCommonCompoundSurnameSize();
-  const MAX_COMMON_SINGLE_CHARACTER_SURNAME_SIZE =
-    getAllCommonSingleCharacterSurnameSize();
   const MAX_WORD_SIZE = getAllWordeSize();
-
-  const MAX_SURNAME_SIZE_MAP: Record<SurnameType, number> = {
-    all: MAX_ALL_SURNAME_SIZE,
-    'all-compound': MAX_ALL_COMPOUND_SURNAME_SIZE,
-    'all-single': MAX_ALL_SINGLE_CHARACTER_SURNAME_SIZE,
-    common: MAX_COMMON_SURNAME_SIZE,
-    'common-single': MAX_COMMON_SINGLE_CHARACTER_SURNAME_SIZE,
-    'common-compound': MAX_COMMON_COMPOUND_SURNAME_SIZE,
-  };
-
-  const MAX_SURNAME_SIZE =
-    MAX_SURNAME_SIZE_MAP[surnameType] ?? MAX_ALL_SURNAME_SIZE;
+  const MAX_SURNAME_SIZE = getListSizeBySurnameType(surnameType);
 
   if (part !== 'surname') {
     return duplicatedGivenName ? MAX_WORD_SIZE : Number.MAX_SAFE_INTEGER;
@@ -370,6 +351,32 @@ export function pickEleByAlgorithm(
 
   /* istanbul ignore next -- @preserve */
   return pickFnMap[DEFAULT_ALGORITHM](array, n);
+}
+
+/**
+ * @private
+ * 根据 `surnameType` 获取集合大小
+ */
+function getListSizeBySurnameType(surnameType: SurnameType): number {
+  const MAX_ALL_SURNAME_SIZE = getAllSurnameSize();
+  const MAX_ALL_COMPOUND_SURNAME_SIZE = getAllCompoundSurnameSize();
+  const MAX_ALL_SINGLE_CHARACTER_SURNAME_SIZE =
+    getAllSingleCharacterSurnameSize();
+  const MAX_COMMON_SURNAME_SIZE = getAllCommonSurnameSize();
+  const MAX_COMMON_COMPOUND_SURNAME_SIZE = getAllCommonCompoundSurnameSize();
+  const MAX_COMMON_SINGLE_CHARACTER_SURNAME_SIZE =
+    getAllCommonSingleCharacterSurnameSize();
+
+  const MAX_SURNAME_SIZE_MAP: Record<SurnameType, number> = {
+    all: MAX_ALL_SURNAME_SIZE,
+    'all-compound': MAX_ALL_COMPOUND_SURNAME_SIZE,
+    'all-single': MAX_ALL_SINGLE_CHARACTER_SURNAME_SIZE,
+    common: MAX_COMMON_SURNAME_SIZE,
+    'common-single': MAX_COMMON_SINGLE_CHARACTER_SURNAME_SIZE,
+    'common-compound': MAX_COMMON_COMPOUND_SURNAME_SIZE,
+  };
+
+  return MAX_SURNAME_SIZE_MAP[surnameType] ?? MAX_ALL_SURNAME_SIZE;
 }
 
 /**
