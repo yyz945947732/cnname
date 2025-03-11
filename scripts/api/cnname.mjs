@@ -65,4 +65,16 @@ export default [
     label: 'cnname({ count: 5, unique: true,  surname: ["张", "李"] })',
     value: cnname({ count: 5, unique: true, surname: ["张", "李"] }),
   },
+  {
+    label: 'cnname({ count: 5, unique: true, givenNameType: "male" })',
+    value: cnname({ count: 5, unique: true, givenNameType: "male" }),
+  },
+  {
+    label: 'cnname({ count: 5, unique: true, givenNameType: "female" })',
+    value: cnname({ count: 5, unique: true, givenNameType: "female" }),
+  },
+  {
+    label: 'cnname({ count: 5, unique: true, givenNameType: "all" })',
+    value: cnname({ count: 5, unique: true, givenNameType: "all" }),
+  },
 ];

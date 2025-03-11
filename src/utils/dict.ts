@@ -193,6 +193,22 @@ export function getAllNormalWords(): string[] {
 
 /**
  * @private
+ * 获取所有女性名数量
+ */
+export function getAllFemaleWordsSize(): number {
+  return FEMALE_WORDS.length;
+}
+
+/**
+ * @private
+ * 获取所有男性名数量
+ */
+export function getAllMaleWordsSize(): number {
+  return MALE_WORDS.length;
+}
+
+/**
+ * @private
  * 获取所有金属性名
  */
 export function getAllMetalWords(): string[] {
