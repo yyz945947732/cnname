@@ -22,7 +22,7 @@ export default [
     value: cnnamestr({ count: 5 }),
   },
   {
-    label: 'cnnamestr({ count: 5, unique: true, duplicatedGivenNameOnly: true })',
-    value: cnnamestr({ count: 5, unique: true, duplicatedGivenNameOnly: true }),
+    label: 'cnnamestr({ count: 5, unique: true, duplicatedGivenName: true })',
+    value: cnnamestr({ count: 5, unique: true, duplicatedGivenName: true }),
   }
 ];

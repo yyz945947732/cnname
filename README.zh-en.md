@@ -108,7 +108,7 @@ Generate random names using [advanced configuration](#options).
 |-----------|------|-------------|---------|
 | `count` | `number` | Number of names to generate | `1` |
 | `surname` | `string \| string[]` | Specify a surname (single or array) | Random surname |
-| `duplicatedGivenNameOnly` | `boolean` | Whether to return only repeated given names (e.g., "婷婷", "明明") | `false` |
+| `duplicatedGivenName` | `boolean` | Whether to return only repeated given names (e.g., "婷婷", "明明") | `false` |
 | `givenNameLength` | `number` | Length of the given name | `1` or `2` |
 | `unique` | `boolean` | Ensure the returned names are unique | `false` |
 | `surnameType` | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | Control surname type: `'common'` for [common surname](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`'common-single'` for common single-character surnames，`'common-compound'` for common compound surnames，`'all'` for all surnames, `'all-single'` for single-character surnames, `'all-compound'` for compound surnames | `'common'` |

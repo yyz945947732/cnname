@@ -203,7 +203,7 @@ export function getSingleResult(options: Options): string {
     part = 'fullName',
     surnameType = DEFAULT_SURNAME_TYPE,
     algorithm = DEFAULT_ALGORITHM,
-    duplicatedGivenNameOnly = false,
+    duplicatedGivenName = false,
     givenNameLength,
     surname: fixedSurname,
   } = options;
@@ -223,7 +223,7 @@ export function getSingleResult(options: Options): string {
       : fixedSurname || pickSurnameByAlgorithm(surnameType, algorithm);
   }
   if (part !== 'surname') {
-    givenName = duplicatedGivenNameOnly
+    givenName = duplicatedGivenName
       ? pickDuplicatedGivenName(givenNameLength)
       : pickRandomWords(nameLength);
   }
@@ -248,7 +248,7 @@ export function getMaxSetSize(options: Options): number {
   const {
     surnameType = 'all',
     part = 'fullName',
-    duplicatedGivenNameOnly = false,
+    duplicatedGivenName = false,
     surname,
   } = options;
 
@@ -275,7 +275,7 @@ export function getMaxSetSize(options: Options): number {
     MAX_SURNAME_SIZE_MAP[surnameType] ?? MAX_ALL_SURNAME_SIZE;
 
   if (part !== 'surname') {
-    return duplicatedGivenNameOnly ? MAX_WORD_SIZE : Number.MAX_SAFE_INTEGER;
+    return duplicatedGivenName ? MAX_WORD_SIZE : Number.MAX_SAFE_INTEGER;
   }
 
   if (Array.isArray(surname)) {
