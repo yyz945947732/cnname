@@ -13,6 +13,7 @@ import {
   getAllFemaleWordsSize,
   getAllMaleWords,
   getAllMaleWordsSize,
+  getAllNormalWords,
   getAllSingleCharacterSurname,
   getAllSingleCharacterSurnameSize,
   getAllSurname,
@@ -56,8 +57,11 @@ export function pickRandomWords(
   givenNameType: GivenNameType = 'all',
   n = 1,
 ): string {
-  const words = getGivenNameListByGivenNameType(givenNameType);
-  return pickRandomEle(words, n).join('');
+  if (givenNameType === 'all') {
+    const words = getGivenNameListByGivenNameType(givenNameType);
+    return pickRandomEle(words, n).join('');
+  }
+  return getGivenNameByGivenNameType(givenNameType, n);
 }
 
 /**
@@ -374,6 +378,27 @@ function getListSizeByGivenNameType(givenNameType: GivenNameType): number {
 
 /**
  * @private
+ * 根据 `givenNameType` 获取名
+ */
+function getGivenNameByGivenNameType(
+  givenNameType: GivenNameType,
+  n = 1,
+): string {
+  const words = getGivenNameListByGivenNameType(givenNameType);
+  const normalWords = getAllNormalWords();
+  const result: string[] = [pickRandomSingleEle(words)];
+  while (result.length < n) {
+    if (Math.random() > 0.5) {
+      result.push(pickRandomSingleEle(normalWords));
+    } else {
+      result.push(pickRandomSingleEle(words));
+    }
+  }
+  return result.join('');
+}
+
+/**
+ * @private
  * 获取数组范围内随机数
  */
 function randomNumber(a: number, b: number): number {
@@ -400,6 +425,21 @@ function safePickSingleEleByAlgorithm(
  */
 function safePickSingleEleByRandom(array: string[]): string {
   return safePickSingleEleByAlgorithm(array, 'random');
+}
+
+/**
+ * @private
+ * 通过纯随机算法从数组中随机选取 1 个元素
+ */
+function pickRandomSingleEle(array: string[]): string {
+  /* istanbul ignore if -- @preserve */
+  if (!array || !array.length) return '';
+
+  const length = array.length;
+  const i = randomNumber(0, length - 1);
+  const result = array[i];
+
+  return result;
 }
 
 /**

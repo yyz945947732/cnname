@@ -4,7 +4,7 @@
     "module": "esnext",
     "allowJs": true,
     "checkJs": true,
-    "lib": ["ES2015"],
+    "lib": ["ES2017"],
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
