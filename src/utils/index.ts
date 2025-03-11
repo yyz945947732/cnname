@@ -394,7 +394,7 @@ function getGivenNameByGivenNameType(
       result.push(pickRandomSingleEle(words));
     }
   }
-  return result.join('');
+  return shuffle(result).join('');
 }
 
 /**
