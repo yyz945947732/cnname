@@ -5,7 +5,7 @@ export interface Options {
   /** 仅返回指定姓氏 */
   surname?: string | string[];
   /** 仅返回叠字名，默认为 `false` */
-  duplicatedGivenName?: boolean;
+  givenNameDuplicated?: boolean;
   /** 名长度 */
   givenNameLength?: number;
   /**

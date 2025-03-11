@@ -111,7 +111,7 @@ cnname({ count: 5, givenNameType: 'female' });
 | `count` | `number` | 生成的姓名数量 | `1` |
 | `givenNameType` | `'all' \| 'male' \| 'female'` | 名特性，`'all'` 无限制，`'male'` 男性名，`'female'` 女性名 | `'all'` |
 | `givenNameLength` | `number` | 名字长度（不包括姓氏） | `1` 或 `2` | 
-| `duplicatedGivenName` | `boolean` | 是否只返回叠字名（如 "婷婷"、"明明"） | `false` |
+| `givenNameDuplicated` | `boolean` | 是否只返回叠字名（如 "婷婷"、"明明"） | `false` |
 | `surnameType` | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | 姓氏类型，`'common'` [常见姓氏](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`'common-single'` 常见单字姓，`'common-compound'` 常见复姓，`'all'` 全部姓氏，`'all-single'` 全部单字姓，`'all-compound'` 全部复姓 | `'common'` |
 | `surname` | `string \| string[]` | 指定姓氏，可传单个姓或姓氏数组 | 随机姓氏 |
 | `algorithm` | `'weight' \| 'random'` | 随机算法（姓氏），`'weight'` 按真实常见度加权，`'random'` 纯随机 | `'weight'` |
