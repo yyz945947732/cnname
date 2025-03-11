@@ -112,7 +112,7 @@ cnname('关', 5);
 | `givenNameLength` | `number` | 名字长度 | `1` 或 `2` |
 | `unique` | `boolean` | 是否确保返回的值不重复 | `false` |
 | `surnameType` | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | 姓氏类型，`'common'` [常见姓氏](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`'common-single'` 常见单字姓，`'common-compound'` 常见复姓，`'all'` 全部姓氏，`'all-single'` 全部单字姓，`'all-compound'` 全部复姓 | `'common'` |
-| `givenNameType` | `'all' \| 'male' \| 'female'` | 名特性，`'all'` 无特性，`'male'` 男性名，`'female'` 女性名 | `'all'` |
+| `givenNameType` | `'all' \| 'male' \| 'female'` | 名特性，`'all'` 无限制，`'male'` 男性名，`'female'` 女性名 | `'all'` |
 | `part` | `'fullName' \| 'surname' \| 'givenName'` | 返回部分，`'fullName'` 完整姓名，`'surname'` 姓氏，`'givenName'` 名 | `'fullName'` |
 | `algorithm` | `'weight' \| 'random'` | 随机算法，`'weight'` 按常见度加权，`'random'` 纯随机 | `'weight'` |
 
