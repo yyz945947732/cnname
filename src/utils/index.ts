@@ -1,36 +1,56 @@
-import allSurnameDict from '../../dict/allSurnames.json';
-import commonSurnameDict from '../../dict/commonSurname.json';
-import wordsDict from '../../dict/words.json';
 import type { Algorithm, Options, SurnameType } from '../types';
 import { DEFAULT_ALGORITHM, DEFAULT_SURNAME_TYPE } from './default';
+import {
+  getAllCommonCompoundSurname,
+  getAllCommonCompoundSurnameSize,
+  getAllCommonSingleCharacterSurname,
+  getAllCommonSingleCharacterSurnameSize,
+  getAllCommonSurname,
+  getAllCommonSurnameSize,
+  getAllCompoundSurname,
+  getAllCompoundSurnameSize,
+  getAllSingleCharacterSurname,
+  getAllSingleCharacterSurnameSize,
+  getAllSurname,
+  getAllSurnameSize,
+  getAllWordeSize,
+  getAllWords,
+} from './dict';
 
-/** 所有姓氏 */
-const ALL_SURNAMES = allSurnameDict.dict.split(' ');
-/** 所有复姓 */
-const ALL_COMPOUND_SURNAMES = ALL_SURNAMES.filter((words) => words.length > 1);
-/** 所有单字姓 */
-const ALL_SINGLE_CHARACTER_SURNAMES = ALL_SURNAMES.filter(
-  (words) => words.length === 1,
-);
-/** 所有常用姓氏 */
-const COMMON_SURNAMES = commonSurnameDict.dict.split(' ');
-/** 所有常用复姓 */
-const COMMON_COMPOUND_SURNAMES = COMMON_SURNAMES.filter(
-  (words) => words.length > 1,
-);
-/** 所有常用单字姓 */
-const COMMON_SINGLE_CHARACTER_SURNAMES = COMMON_SURNAMES.filter(
-  (words) => words.length === 1,
-);
-/** 所有名 */
-const WORDS = wordsDict.dict.split('');
+/**
+ * @private
+ * 判断值是否存在姓氏中
+ */
+export function getIsSurname(surname: string): boolean {
+  const allSurnames = getAllSurname();
+  return allSurnames.some((item) => item === surname);
+}
+
+/**
+ * @private
+ * 判断值是否存在复姓中
+ */
+export function getIsCompoundSurname(surname: string): boolean {
+  const allCompoundSurnames = getAllCompoundSurname();
+  return allCompoundSurnames.some((item) => item === surname);
+}
+
+/**
+ * @private
+ * 判断值是否存在单字姓中
+ */
+export function getIsSingleCharacterSurname(surname: string): boolean {
+  const allSingleCharacterSurnames = getAllSingleCharacterSurname();
+  return allSingleCharacterSurnames.some((item) => item === surname);
+}
 
 /**
  * @private
  * 随机获取名
  */
 export function pickRandomWords(n = 1): string {
-  return pickRandomEle(WORDS, n).join('');
+  const words = getAllWords();
+  return pickRandomEle(words, n).join('');
 }
 
 /**
@@ -50,137 +70,11 @@ export function pickSurnameByAlgorithm(
  * 随机获取叠字名
  */
 export function pickDuplicatedGivenName(len = 2): string {
+  const words = getAllWords();
   const num = Number.isInteger(len) ? len : 2;
-  const givenName = safePickSingleEleByRandom(WORDS);
+  const givenName = safePickSingleEleByRandom(words);
   const duplicatedGivenName = givenName.repeat(num);
   return duplicatedGivenName;
-}
-
-/**
- * @private
- * 获取所有姓
- */
-export function getAllSurname(): string[] {
-  return ALL_SURNAMES;
-}
-
-/**
- * @private
- * 获取所有复姓
- */
-export function getAllCompoundSurname(): string[] {
-  return ALL_COMPOUND_SURNAMES;
-}
-
-/**
- * @private
- * 获取所有单字姓
- */
-export function getAllSingleCharacterSurname(): string[] {
-  return ALL_SINGLE_CHARACTER_SURNAMES;
-}
-
-/**
- * @private
- * 获取所有常用姓
- */
-export function getAllCommonSurname(): string[] {
-  return COMMON_SURNAMES;
-}
-
-/**
- * @private
- * 获取所有常用复姓
- */
-export function getAllCommonCompoundSurname(): string[] {
-  return COMMON_COMPOUND_SURNAMES;
-}
-
-/**
- * @private
- * 获取所有常用单字姓
- */
-export function getAllCommonSingleCharacterSurname(): string[] {
-  return COMMON_SINGLE_CHARACTER_SURNAMES;
-}
-
-/**
- * 获取所有姓氏数量
- */
-export function getAllSurnameSize(): number {
-  return ALL_SURNAMES.length;
-}
-
-/**
- * @private
- * 获取所有复姓数量
- */
-export function getAllCompoundSurnameSize(): number {
-  return ALL_COMPOUND_SURNAMES.length;
-}
-
-/**
- * @private
- * 获取所有单字姓数量
- */
-export function getAllSingleCharacterSurnameSize(): number {
-  return ALL_SINGLE_CHARACTER_SURNAMES.length;
-}
-
-/**
- * @private
- * 获取所有常用姓氏数量
- */
-export function getAllCommonSurnameSize(): number {
-  return COMMON_SURNAMES.length;
-}
-
-/**
- * @private
- * 获取所有常用复姓数量
- */
-export function getAllCommonCompoundSurnameSize(): number {
-  return COMMON_COMPOUND_SURNAMES.length;
-}
-
-/**
- * @private
- * 获取所有常用单字姓数量
- */
-export function getAllCommonSingleCharacterSurnameSize(): number {
-  return COMMON_SINGLE_CHARACTER_SURNAMES.length;
-}
-
-/**
- * @private
- * 获取所有名数量
- */
-export function getAllWordeSize(): number {
-  return WORDS.length;
-}
-
-/**
- * @private
- * 判断值是否存在姓氏中
- */
-export function getIsSurname(surname: string): boolean {
-  return ALL_SURNAMES.some((item) => item === surname);
-}
-
-/**
- * @private
- * 判断值是否存在复姓中
- */
-export function getIsCompoundSurname(surname: string): boolean {
-  return ALL_COMPOUND_SURNAMES.some((item) => item === surname);
-}
-
-/**
- * @private
- * 判断值是否存在单字姓中
- */
-export function getIsSingleCharacterSurname(surname: string): boolean {
-  return ALL_SINGLE_CHARACTER_SURNAMES.some((item) => item === surname);
 }
 
 /**
@@ -351,6 +245,23 @@ export function pickEleByAlgorithm(
 
   /* istanbul ignore next -- @preserve */
   return pickFnMap[DEFAULT_ALGORITHM](array, n);
+}
+
+/**
+ * @private
+ *  打乱数组
+ */
+export function shuffle(array: string[]): string[] {
+  let m = array.length;
+  let t: string;
+  let i: number;
+  while (m) {
+    i = Math.floor(Math.random() * m--);
+    t = array[m];
+    array[m] = array[i];
+    array[i] = t;
+  }
+  return array;
 }
 
 /**
