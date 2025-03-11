@@ -144,7 +144,7 @@ export function getMaxSetSize(options: Options): number {
     surnameType = 'all',
     givenNameType = 'all',
     part = 'fullName',
-    duplicatedGivenName = false,
+    givenNameDuplicated = false,
     givenNameLength,
     surname,
   } = options;
@@ -153,7 +153,7 @@ export function getMaxSetSize(options: Options): number {
   const MAX_SURNAME_SIZE = getListSizeBySurnameType(surnameType);
 
   if (part === 'fullName') {
-    return duplicatedGivenName ? MAX_WORD_SIZE : Number.MAX_SAFE_INTEGER;
+    return givenNameDuplicated ? MAX_WORD_SIZE : Number.MAX_SAFE_INTEGER;
   }
 
   if (part === 'givenName' && givenNameLength === 1) {
@@ -318,7 +318,7 @@ export function getSurnameByOptions(options: Options): string {
  */
 export function getGivenNameByOptions(options: Options): string {
   const {
-    duplicatedGivenName = false,
+    givenNameDuplicated = false,
     givenNameType = DEFAULT_GIVEN_NAME_TYPE,
     givenNameLength,
   } = options;
@@ -329,7 +329,7 @@ export function getGivenNameByOptions(options: Options): string {
       ? 2
       : 1;
 
-  if (duplicatedGivenName) {
+  if (givenNameDuplicated) {
     return pickDuplicatedGivenName(givenNameType, givenNameLength);
   }
 
