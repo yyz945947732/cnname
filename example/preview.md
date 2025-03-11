@@ -3,67 +3,67 @@
 
 ## cnname()
 
-段芝伯
+朱鹏
 
 ## cnname("彭")
 
-彭谦
+彭哲志
 
 ## cnname(5)
 
-卢鹤新,苏善,司徒姬震,王裕章,武爱茜
+顾晨,高萍铭,韩芝颖,董逸霏,费霏
 
 ## cnname("姚", 5)
 
-姚瑗,姚燕婕,姚巧飞,姚菲,姚馥卓
+姚才,姚晶,姚楠铭,姚庆艳,姚哲荔
 
 ## cnname({ count: 5 })
 
-谢雯,司环,方静,石茗霜,郭寒
+黄晓,程凌影,熊翎,佟锦震,姚昌洁
 
-## cnname({ count: 5, unique: true, duplicatedGivenNameOnly: true })
+## cnname({ count: 5, unique: true, duplicatedGivenName: true })
 
-袁健健,史晶晶,顾超超,段水水,唐跃跃
+沈馥涛,乔和海,谢奋城,田毓霞,顾雄富
 
 ## cnname({ count: 5, surname: "张" })
 
-张晴,张聪,张淑水,张雁咏,张洞
+张明,张香,张茜博,张冬森,张柔学
 
 ## cnname({ count: 5, surname: "张", givenNameLength: 2 })
 
-张丰扬,张知智,张彪行,张鸿莺,张虹晨
+张君岩,张进翊,张盛舞,张羽邦,张欢思
 
 ## cnname({ count: 5, unique: true, part: "surname" })
 
-成,严,闫,袁,武
+唐,易,徐,贾,刘
 
 ## cnname({ count: 5, unique: true, part: "givenName" })
 
-雄承,纯民,扬,谣,朝
+伊凯,露,子,涛,蓓
 
 ## cnname({ count: 5, unique: true, surnameType: "all-single", givenNameLength: 1 })
 
-贲旭,夔韵,司曲,冀融,阴昌
+孙志,仰绍,马冬,终琴,郗富
 
 ## cnname({ count: 5, unique: true, surnameType: "all-compound", givenNameLength: 1 })
 
-仲孙树,公西致,百里夏,轩辕磊,皇甫菲
+呼延宾,闾丘昌,濮阳强,乐正然,端木强
 
 ## cnname({ count: 5, unique: true, surnameType: "common", givenNameLength: 1 })
 
-蔡春,汤青,金飞,尹露,田浩
+戴灿,何茗,吴娴,柏达,陆勇
 
 ## cnname({ count: 5, unique: true, surnameType: "common-single", givenNameLength: 1 })
 
-李轮,史烁,彭先,范邦,尹奇
+徐发,秦曲,乔星,章彬,任娅
 
 ## cnname({ count: 5, unique: true, surnameType: "common-compound", givenNameLength: 1 })
 
-司徒梁,夏侯固,司空榕,公孙霄,慕容敬
+上官仁,司马俊,司马曲,司空晗,令狐彬
 
 ## cnname({ count: 5, unique: true,  surname: ["张", "李"] })
 
-张仪月,李跃恒,张嘉,李怡,张玲蓓
+张馥以,张苑,李瀚,张曦艺,张毅泉
 
 ## isSurname("张")
 
@@ -99,27 +99,27 @@ false
 
 ## cnnamestr()
 
-郭国
+杜云静
 
 ## cnnamestr("彭")
 
-彭琴
+彭河
 
 ## cnnamestr(5)
 
-严闻,孔书,江昌贵,祝超,聂卓
+康娟明,蔡香绍,蒋雷固,夏佳,林壮
 
 ## cnnamestr("姚", 5)
 
-姚丽眉,姚绮,姚兰龙,姚欣,姚虹毓
+姚盛,姚澜忠,姚莲,姚攀悦,姚秋
 
 ## cnnamestr({ count: 5 })
 
-毛晓晔,刘嘉,杜冰,尹强晖,关凯
+甄清,龙翰,谭竹,谭琛绍,徐昕焕
 
-## cnnamestr({ count: 5, unique: true, duplicatedGivenNameOnly: true })
+## cnnamestr({ count: 5, unique: true, duplicatedGivenName: true })
 
-石飘飘,田裕裕,冯家家,段谐谐,金兰兰
+夏建,丁德,高墨行,杜荣,明裕颖
 
 ## parseName("张三")
 

@@ -108,7 +108,7 @@ cnname('关', 5);
 |------|------|------|------|
 | `count` | `number` | 生成的姓名数量 | `1` |
 | `surname` | `string \| string[]` | 指定姓氏，可传单个姓或姓氏数组 | 随机姓氏 |
-| `duplicatedGivenNameOnly` | `boolean` | 是否只返回叠字名（如 "婷婷"、"明明"） | `false` |
+| `duplicatedGivenName` | `boolean` | 是否只返回叠字名（如 "婷婷"、"明明"） | `false` |
 | `givenNameLength` | `number` | 名字长度 | `1` 或 `2` |
 | `unique` | `boolean` | 是否确保返回的值不重复 | `false` |
 | `surnameType` | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | 控制姓氏类型，`'common'` 为[常见姓氏](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`'common-single'` 为常见单字姓，`'common-compound'` 为常见复姓，`'all'` 为全部姓氏，`'all-single'` 为全部单字姓，`'all-compound'` 为全部复姓 | `'common'` |

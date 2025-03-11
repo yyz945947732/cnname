@@ -22,8 +22,8 @@ export default [
     value: cnname({ count: 5 }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, duplicatedGivenNameOnly: true })',
-    value: cnname({ count: 5, unique: true, duplicatedGivenNameOnly: true }),
+    label: 'cnname({ count: 5, unique: true, duplicatedGivenName: true })',
+    value: cnname({ count: 5, unique: true, duplicatedGivenName: true }),
   },
   {
     label: 'cnname({ count: 5, surname: "张" })',
