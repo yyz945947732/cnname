@@ -111,8 +111,9 @@ cnname('关', 5);
 | `duplicatedGivenName` | `boolean` | 是否只返回叠字名（如 "婷婷"、"明明"） | `false` |
 | `givenNameLength` | `number` | 名字长度 | `1` 或 `2` |
 | `unique` | `boolean` | 是否确保返回的值不重复 | `false` |
-| `surnameType` | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | 控制姓氏类型，`'common'` 为[常见姓氏](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`'common-single'` 为常见单字姓，`'common-compound'` 为常见复姓，`'all'` 为全部姓氏，`'all-single'` 为全部单字姓，`'all-compound'` 为全部复姓 | `'common'` |
-| `part` | `'fullName' \| 'surname' \| 'givenName'` | 返回的部分，`'fullName'` 为完整姓名，`'surname'` 为姓氏，`'givenName'` 为名 | `'fullName'` |
+| `surnameType` | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | 姓氏类型，`'common'` [常见姓氏](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`'common-single'` 常见单字姓，`'common-compound'` 常见复姓，`'all'` 全部姓氏，`'all-single'` 全部单字姓，`'all-compound'` 全部复姓 | `'common'` |
+| `givenNameType` | `'all' \| 'male' \| 'female'` | 名特性，`'all'` 无特性，`'male'` 男性名，`'female'` 女性名 | `'all'` |
+| `part` | `'fullName' \| 'surname' \| 'givenName'` | 返回部分，`'fullName'` 完整姓名，`'surname'` 姓氏，`'givenName'` 名 | `'fullName'` |
 | `algorithm` | `'weight' \| 'random'` | 随机算法，`'weight'` 按常见度加权，`'random'` 纯随机 | `'weight'` |
 
 ### 🛠️ 工具方法
