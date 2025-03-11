@@ -86,7 +86,7 @@ export function pickDuplicatedGivenName(
 ): string {
   const words = getGivenNameListByGivenNameType(givenNameType);
   const num = Number.isInteger(len) ? len : 2;
-  const givenName = safePickSingleEleByRandom(words);
+  const givenName = pickRandomSingleEle(words);
   const duplicatedGivenName = givenName.repeat(num);
   return duplicatedGivenName;
 }
@@ -423,23 +423,8 @@ function safePickSingleEleByAlgorithm(
  * @private
  * 通过随机算法安全的从数组中随机选取 1 个元素
  */
-function safePickSingleEleByRandom(array: string[]): string {
-  return safePickSingleEleByAlgorithm(array, 'random');
-}
-
-/**
- * @private
- * 通过纯随机算法从数组中随机选取 1 个元素
- */
 function pickRandomSingleEle(array: string[]): string {
-  /* istanbul ignore if -- @preserve */
-  if (!array || !array.length) return '';
-
-  const length = array.length;
-  const i = randomNumber(0, length - 1);
-  const result = array[i];
-
-  return result;
+  return safePickSingleEleByAlgorithm(array, 'random');
 }
 
 /**
