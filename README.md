@@ -75,9 +75,11 @@ cnname();
 cnname('彭');
 // -> 彭天奇
 cnname(5);
-// -> ["俞俐均","王富","东方全","蒲诚","左哲"]
+// -> ["俞俐均", "王富", "东方全", "蒲诚", "左哲"]
 cnname('关', 5);
-// -> ["关智华","关永毓","关宁","关伟星","关炎城"]
+// -> ["关智华", "关永毓", "关宁", "关伟星", "关炎诚"]
+cnname({ count: 5, givenNameType: 'female' });
+// -> ["麦绮雯", "熊芮", "姜莹", "莫惠安", "王语嫣"]
 ```
 
 ## 📖 API
@@ -107,14 +109,14 @@ cnname('关', 5);
 | 参数 | 类型 | 说明 | 默认值 |
 |------|------|------|------|
 | `count` | `number` | 生成的姓名数量 | `1` |
-| `surname` | `string \| string[]` | 指定姓氏，可传单个姓或姓氏数组 | 随机姓氏 |
-| `duplicatedGivenName` | `boolean` | 是否只返回叠字名（如 "婷婷"、"明明"） | `false` |
-| `givenNameLength` | `number` | 名字长度 | `1` 或 `2` |
-| `unique` | `boolean` | 是否确保返回的值不重复 | `false` |
-| `surnameType` | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | 姓氏类型，`'common'` [常见姓氏](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`'common-single'` 常见单字姓，`'common-compound'` 常见复姓，`'all'` 全部姓氏，`'all-single'` 全部单字姓，`'all-compound'` 全部复姓 | `'common'` |
 | `givenNameType` | `'all' \| 'male' \| 'female'` | 名特性，`'all'` 无限制，`'male'` 男性名，`'female'` 女性名 | `'all'` |
+| `givenNameLength` | `number` | 名字长度（不包括姓氏） | `1` 或 `2` | 
+| `duplicatedGivenName` | `boolean` | 是否只返回叠字名（如 "婷婷"、"明明"） | `false` |
+| `surnameType` | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | 姓氏类型，`'common'` [常见姓氏](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`'common-single'` 常见单字姓，`'common-compound'` 常见复姓，`'all'` 全部姓氏，`'all-single'` 全部单字姓，`'all-compound'` 全部复姓 | `'common'` |
+| `surname` | `string \| string[]` | 指定姓氏，可传单个姓或姓氏数组 | 随机姓氏 |
+| `algorithm` | `'weight' \| 'random'` | 随机算法（姓氏），`'weight'` 按真实常见度加权，`'random'` 纯随机 | `'weight'` |
+| `unique` | `boolean` | 是否确保返回的值不重复 | `false` |
 | `part` | `'fullName' \| 'surname' \| 'givenName'` | 返回部分，`'fullName'` 完整姓名，`'surname'` 姓氏，`'givenName'` 名 | `'fullName'` |
-| `algorithm` | `'weight' \| 'random'` | 随机算法，`'weight'` 按常见度加权，`'random'` 纯随机 | `'weight'` |
 
 ### 🛠️ 工具方法
 

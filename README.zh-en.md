@@ -75,9 +75,11 @@ cnname();
 cnname('彭');
 // -> 彭天奇
 cnname(5);
-// -> ["俞俐均","王富","东方全","蒲诚","左哲"]
+// -> ["俞俐均", "王富", "东方全", "蒲诚", "左哲"]
 cnname('关', 5);
-// -> ["关智华","关永毓","关宁","关伟星","关炎城"]
+// -> ["关智华", "关永毓", "关宁", "关伟星", "关炎诚"]
+cnname({ count: 5, givenNameType: 'female' });
+// -> ["麦绮雯", "熊芮", "姜莹", "莫惠安", "王语嫣"]
 ```
 
 ## 📖 API
@@ -107,14 +109,14 @@ Generate random names using [advanced configuration](#options).
 | Parameter | Type | Description | Default |
 |-----------|------|-------------|---------|
 | `count` | `number` | Number of names to generate | `1` |
-| `surname` | `string \| string[]` | Specify a surname (single or array) | Random surname |
-| `duplicatedGivenName` | `boolean` | Whether to return only repeated given names (e.g., "婷婷", "明明") | `false` |
-| `givenNameLength` | `number` | Length of the given name | `1` or `2` |
-| `unique` | `boolean` | Ensure the returned names are unique | `false` |
-| `surnameType` | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | Surname type: `'common'` for [common surname](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`'common-single'` for common single-character surnames，`'common-compound'` for common compound surnames，`'all'` for all surnames, `'all-single'` for single-character surnames, `'all-compound'` for compound surnames | `'common'` |
 | `givenNameType` | `'all' \| 'male' \| 'female'` | Name attribute: `'all'` for no specific attribute, `'male'` for male names, `'female'` for female names | `'all'` |
+| `givenNameLength` | `number` | Length of the given name | `1` or `2` |
+| `duplicatedGivenName` | `boolean` | Whether to return only repeated given names (e.g., "婷婷", "明明") | `false` |
+| `surnameType` | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | Surname type: `'common'` for [common surname](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`'common-single'` for common single-character surnames，`'common-compound'` for common compound surnames，`'all'` for all surnames, `'all-single'` for single-character surnames, `'all-compound'` for compound surnames | `'common'` |
+| `surname` | `string \| string[]` | Specify a surname (single or array) | Random surname |
+| `algorithm` | `'weight' \| 'random'` | Random generate algorithm（surname），`'weight'` weighted by real frequency，`'random'` purely random | `'weight'` |
+| `unique` | `boolean` | Ensure the returned names are unique | `false` |
 | `part` | `'fullName' \| 'surname' \| 'givenName'` | Part of returned name: `'fullName'` for full names, `'surname'` for surnames only, `'givenName'` for given names only | `'fullName'` |
-| `algorithm` | `'weight' \| 'random'` | Random selection algorithm，`'weight'` weighted by frequency，`'random'` purely random | `'weight'` |
 
 ### 🛠️ Utils
 
