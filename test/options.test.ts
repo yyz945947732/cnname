@@ -14,6 +14,11 @@ assertType<string[]>(cnname({ count: 5, unique: true, surnameType: 'common-compo
 assertType<string[]>(cnname({ count: 5, unique: true, givenNameType: 'male' }));
 assertType<string[]>(cnname({ count: 5, unique: true, givenNameType: 'female' }));
 assertType<string[]>(cnname({ count: 5, unique: true, givenNameType: 'all' }));
+assertType<string[]>(cnname({ count: 5, unique: true, surname: '张' }));
+assertType<string[]>(cnname({ count: 5, unique: true, surname: ['张', '李'] }));
+assertType<string[]>(cnname({ count: 5, unique: true, givenNameLength: 2 }));
+assertType<string[]>(cnname({ count: 5, unique: true, givenNameLength: 2, givenNameStartsWith: '俊' }));
+assertType<string[]>(cnname({ count: 5, unique: true, givenNameLength: 2, givenNameEndsWith: '科' }));
 
 describe('cnname(options)', () => {
   test('cnname({ count: 5 }) should return array with five elements', () => {
@@ -58,6 +63,9 @@ describe('cnname(options)', () => {
   test('cnname({ count: 5, unique: true, surname: ["张", "李"] }) should return array with surname "张" or "李"', () => {
     expect(cnname({ count: 5, unique: true, surname: ["张", "李"] }).every(surname => ["张", "李"].includes(surname[0]))).toBeTruthy();
   });
+  test('cnname({ count: 5, unique: true, surname: ["张", "张"] }) should return array with surname "张" or "张"', () => {
+    expect(cnname({ count: 5, unique: true, surname: ["张", "张"] }).every(surname => ["张", "张"].includes(surname[0]))).toBeTruthy();
+  });
   test('cnname({ count: 5, unique: true, surname: [] }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, surname: [] }).length).toEqual(5);
   });
@@ -97,6 +105,16 @@ describe('cnname(options)', () => {
     const result = cnname({ count: 5, surname: "张", givenNameLength: 2 });
     const [name] = result;
     expect(name.length).toEqual(3);
+  });
+  test('cnname({ count: 5, surname: "李", givenNameLength: 2, givenNameStartsWith: "俊" }) should return array with givenNameStartsWith "俊"', () => {
+    const result = cnname({ count: 5, surname: "李", givenNameLength: 2, givenNameStartsWith: "俊" });
+    const [name] = result;
+    expect(name[1]).toEqual('俊');
+  });
+  test('cnname({ count: 5, surname: "张", givenNameLength: 2, givenNameStartsWith: "英" }) should return array with givenNameEndsWith "英"', () => {
+    const result = cnname({ count: 5, surname: "张", givenNameLength: 2, givenNameEndsWith: "英" });
+    const [name] = result;
+    expect(name[2]).toEqual('英');
   });
   test('cnname({ count: 5, givenNameLength: 999 }) should return array with five elements', () => {
     expect(cnname({ count: 5, givenNameLength: 999 }).length).toEqual(5);
@@ -150,5 +168,11 @@ describe('cnname(options)', () => {
   });
   test('cnname({ count: 50000, unique: true, part: "givenName", givenNameType: "all", givenNameLength: 1 }) should return instantly', () => {
     expect(cnname({ count: 50000, unique: true, part: 'givenName', givenNameType: "all", givenNameLength: 1 }).length).lt(50000);
+  });
+  test('cnname({ count: 50000, unique: true, surname: "张", givenNameLength: 2, givenNameStartsWith: "俊" }) should return instantly', () => {
+    expect(cnname({ count: 50000, unique: true, surname: '张', givenNameLength: 2, givenNameStartsWith: '俊' }).length).lt(50000);
+  });
+  test('cnname({ count: 50000, unique: true, surname: "张", givenNameLength: 2, givenNameStartsWith: "俊", givenNameEndsWith: "科" }) should return instantly', () => {
+    expect(cnname({ count: 50000, unique: true, surname: '张', givenNameLength: 2, givenNameStartsWith: '俊', givenNameEndsWith: '科' }).length).lt(50000);
   });
 });

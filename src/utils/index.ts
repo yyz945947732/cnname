@@ -6,25 +6,17 @@ import {
 } from './default';
 import {
   getAllCommonCompoundSurname,
-  getAllCommonCompoundSurnameSize,
   getAllCommonSingleCharacterSurname,
-  getAllCommonSingleCharacterSurnameSize,
   getAllCommonSurname,
-  getAllCommonSurnameSize,
   getAllCompoundSurname,
-  getAllCompoundSurnameSize,
   getAllFemaleWords,
-  getAllFemaleWordsSize,
   getAllMaleWords,
-  getAllMaleWordsSize,
   getAllNormalWords,
   getAllSingleCharacterSurname,
-  getAllSingleCharacterSurnameSize,
   getAllSurname,
-  getAllSurnameSize,
-  getAllWordeSize,
   getAllWords,
 } from './dict';
+import { getMaxSetSize } from './size';
 
 /**
  * @private
@@ -58,7 +50,7 @@ export function getIsSingleCharacterSurname(surname: string): boolean {
  * 随机获取名
  */
 export function pickRandomWords(
-  givenNameType: GivenNameType = 'all',
+  givenNameType: GivenNameType = DEFAULT_GIVEN_NAME_TYPE,
   n = 1,
 ): string {
   if (givenNameType === 'all') {
@@ -85,11 +77,15 @@ export function pickSurnameByAlgorithm(
  * 随机获取叠字名
  */
 export function pickDuplicatedGivenName(
-  givenNameType: GivenNameType = 'all',
+  givenNameType: GivenNameType = DEFAULT_GIVEN_NAME_TYPE,
   len = 2,
+  fixWord?: string,
 ): string {
-  const words = getGivenNameListByGivenNameType(givenNameType);
   const num = Number.isInteger(len) ? len : 2;
+  if (fixWord) {
+    return fixWord.repeat(num);
+  }
+  const words = getGivenNameListByGivenNameType(givenNameType);
   const givenName = pickRandomSingleEle(words);
   const duplicatedGivenName = givenName.repeat(num);
   return duplicatedGivenName;
@@ -137,46 +133,10 @@ export function getSingleResult(options: Options): string {
 
 /**
  * @private
- * 根据高级配置获取集合最大大小
- */
-export function getMaxSetSize(options: Options): number {
-  const {
-    surnameType = 'all',
-    givenNameType = 'all',
-    part = 'fullName',
-    givenNameDuplicated = false,
-    givenNameLength,
-    surname,
-  } = options;
-
-  const MAX_WORD_SIZE = getAllWordeSize();
-  const MAX_SURNAME_SIZE = getListSizeBySurnameType(surnameType);
-
-  if (part === 'fullName') {
-    return givenNameDuplicated ? MAX_WORD_SIZE : Number.MAX_SAFE_INTEGER;
-  }
-
-  if (part === 'givenName' && givenNameLength === 1) {
-    return getListSizeByGivenNameType(givenNameType);
-  }
-
-  if (Array.isArray(surname)) {
-    return surname.length;
-  }
-
-  if (surname !== undefined) {
-    return 1;
-  }
-
-  return MAX_SURNAME_SIZE;
-}
-
-/**
- * @private
  * 获取所有姓氏
  */
 export function getSurnameListBySurnameType(
-  surnameType: SurnameType = 'all',
+  surnameType: SurnameType = DEFAULT_SURNAME_TYPE,
 ): string[] {
   switch (surnameType) {
     case 'all':
@@ -201,7 +161,7 @@ export function getSurnameListBySurnameType(
  * 根据 `givenNameType` 获取所有名
  */
 export function getGivenNameListByGivenNameType(
-  givenNameType: GivenNameType = 'all',
+  givenNameType: GivenNameType = DEFAULT_GIVEN_NAME_TYPE,
 ): string[] {
   switch (givenNameType) {
     case 'all':
@@ -321,6 +281,8 @@ export function getGivenNameByOptions(options: Options): string {
     givenNameDuplicated = false,
     givenNameType = DEFAULT_GIVEN_NAME_TYPE,
     givenNameLength,
+    givenNameStartsWith,
+    givenNameEndsWith,
   } = options;
 
   const nameLength = Number.isInteger(givenNameLength)
@@ -329,55 +291,27 @@ export function getGivenNameByOptions(options: Options): string {
       ? 2
       : 1;
 
+  let result = '';
+
   if (givenNameDuplicated) {
-    return pickDuplicatedGivenName(givenNameType, givenNameLength);
+    return pickDuplicatedGivenName(
+      givenNameType,
+      givenNameLength,
+      givenNameStartsWith || givenNameEndsWith,
+    );
   }
 
-  return pickRandomWords(givenNameType, nameLength);
-}
+  result = pickRandomWords(givenNameType, nameLength);
 
-/**
- * @private
- * 根据 `surnameType` 获取集合大小
- */
-function getListSizeBySurnameType(surnameType: SurnameType): number {
-  const MAX_ALL_SURNAME_SIZE = getAllSurnameSize();
-  const MAX_ALL_COMPOUND_SURNAME_SIZE = getAllCompoundSurnameSize();
-  const MAX_ALL_SINGLE_CHARACTER_SURNAME_SIZE =
-    getAllSingleCharacterSurnameSize();
-  const MAX_COMMON_SURNAME_SIZE = getAllCommonSurnameSize();
-  const MAX_COMMON_COMPOUND_SURNAME_SIZE = getAllCommonCompoundSurnameSize();
-  const MAX_COMMON_SINGLE_CHARACTER_SURNAME_SIZE =
-    getAllCommonSingleCharacterSurnameSize();
+  if (givenNameStartsWith) {
+    result = givenNameStartsWith + result.slice(1);
+  }
 
-  const MAX_SURNAME_SIZE_MAP: Record<SurnameType, number> = {
-    all: MAX_ALL_SURNAME_SIZE,
-    'all-compound': MAX_ALL_COMPOUND_SURNAME_SIZE,
-    'all-single': MAX_ALL_SINGLE_CHARACTER_SURNAME_SIZE,
-    common: MAX_COMMON_SURNAME_SIZE,
-    'common-single': MAX_COMMON_SINGLE_CHARACTER_SURNAME_SIZE,
-    'common-compound': MAX_COMMON_COMPOUND_SURNAME_SIZE,
-  };
+  if (givenNameEndsWith) {
+    result = result.slice(0, -1) + givenNameEndsWith;
+  }
 
-  return MAX_SURNAME_SIZE_MAP[surnameType] ?? MAX_ALL_SURNAME_SIZE;
-}
-
-/**
- * @private
- * 根据 `givenNameType` 获取集合大小
- */
-function getListSizeByGivenNameType(givenNameType: GivenNameType): number {
-  const MAX_ALL_GIVEN_NAME_SIZE = getAllWordeSize();
-  const MAX_MALE_GIVEN_NAME_SIZE = getAllMaleWordsSize();
-  const MAX_FEMALE_GIVEN_NAME_SIZE = getAllFemaleWordsSize();
-
-  const MAX_GIVEN_NAME_SIZE_MAP: Record<GivenNameType, number> = {
-    all: MAX_ALL_GIVEN_NAME_SIZE,
-    male: MAX_MALE_GIVEN_NAME_SIZE,
-    female: MAX_FEMALE_GIVEN_NAME_SIZE,
-  };
-
-  return MAX_GIVEN_NAME_SIZE_MAP[givenNameType] ?? MAX_ALL_GIVEN_NAME_SIZE;
+  return result;
 }
 
 /**
