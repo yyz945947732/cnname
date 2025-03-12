@@ -1,6 +1,6 @@
 {
   "name": "cnname",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "随机生成中文名",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
