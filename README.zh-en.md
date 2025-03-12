@@ -4,7 +4,7 @@
   <a href="https://github.com/yyz945947732/cnname">
     <img src="./public/logo.svg" alt="logo.svg" border="0" width="200" />
   </a>
-  <h1 style="margin-top: 0px; font-family: 'Comic Sans MS';">cnname</h1>
+  <h1 style="margin-top: 0;">cnname</h1>
   <p>👦 Randomly generate Chinese names 👧</p>
 </div>
 
