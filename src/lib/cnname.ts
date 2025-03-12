@@ -7,7 +7,10 @@ import {
   pickRandomWords,
   pickSurnameByAlgorithm,
 } from '../utils';
-import { DEFAULT_ALGORITHM, DEFAULT_SURNAME_TYPE } from '../utils/default';
+import {
+  DEFAULT_SURNAME_ALGORITHM,
+  DEFAULT_SURNAME_TYPE,
+} from '../utils/default';
 
 /**
  * 返回随机中文名
@@ -73,7 +76,7 @@ function cnname(
   const result = Array.from({ length: num }, () => {
     const surname =
       fixSurname ||
-      pickSurnameByAlgorithm(DEFAULT_SURNAME_TYPE, DEFAULT_ALGORITHM);
+      pickSurnameByAlgorithm(DEFAULT_SURNAME_TYPE, DEFAULT_SURNAME_ALGORITHM);
     const nameLength = Math.random() > 0.5 ? 2 : 1;
     const givenName = pickRandomWords('all', nameLength);
     return surname + givenName;

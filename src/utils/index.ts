@@ -1,7 +1,7 @@
 import type { Algorithm, GivenNameType, Options, SurnameType } from '../types';
 import {
-  DEFAULT_ALGORITHM,
   DEFAULT_GIVEN_NAME_TYPE,
+  DEFAULT_SURNAME_ALGORITHM,
   DEFAULT_SURNAME_TYPE,
 } from './default';
 import {
@@ -270,7 +270,7 @@ export function pickEleByAlgorithm(
   }
 
   /* istanbul ignore next -- @preserve */
-  return pickFnMap[DEFAULT_ALGORITHM](array, n);
+  return pickFnMap[DEFAULT_SURNAME_ALGORITHM](array, n);
 }
 
 /**
@@ -297,19 +297,19 @@ export function shuffle(array: string[]): string[] {
 export function getSurnameByOptions(options: Options): string {
   const {
     surnameType = DEFAULT_SURNAME_TYPE,
-    algorithm = DEFAULT_ALGORITHM,
+    surnameAlgorithm = DEFAULT_SURNAME_ALGORITHM,
     surname: fixedSurname,
   } = options;
 
   if (Array.isArray(fixedSurname)) {
-    return safePickSingleEleByAlgorithm(fixedSurname, algorithm);
+    return safePickSingleEleByAlgorithm(fixedSurname, surnameAlgorithm);
   }
 
   if (fixedSurname !== undefined) {
     return fixedSurname;
   }
 
-  return pickSurnameByAlgorithm(surnameType, algorithm);
+  return pickSurnameByAlgorithm(surnameType, surnameAlgorithm);
 }
 
 /**

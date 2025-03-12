@@ -14,6 +14,6 @@ export const DEFAULT_GIVEN_NAME_TYPE: GivenNameType = 'all';
 
 /**
  * @private
- * 默认 `algorithm`
+ * 默认 `surnameAlgorithm`
  */
-export const DEFAULT_ALGORITHM: Algorithm = 'weight';
+export const DEFAULT_SURNAME_ALGORITHM: Algorithm = 'weight';
