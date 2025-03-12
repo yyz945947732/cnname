@@ -23,7 +23,7 @@ export interface Options {
    */
   surnameType?: SurnameType;
   /**
-   * 随机抽取算法，默认为 `weight`
+   * 姓氏抽取算法，默认为 `weight`
    * @type `weight` 按常见度加权（接近真实概率）
    * @type `random` 纯随机算法
    */
