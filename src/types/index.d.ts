@@ -2,18 +2,16 @@
 export interface Options {
   /** 返回值数量, 默认为 `1` */
   count?: number;
-  /** 仅返回指定姓氏 */
-  surname?: string | string[];
-  /** 仅返回叠字名，默认为 `false` */
-  givenNameDuplicated?: boolean;
+  /**
+   * 支持名类型，默认为 `all`
+   * @type `male` 男性常用名
+   * @type `female` 女性常用名
+   */
+  givenNameType?: GivenNameType;
   /** 名长度 */
   givenNameLength?: number;
-  /**
-   * 返回不可重复，默认为 `false`
-   *
-   * 如果 `unique` 为 `true`，但字典可返回的数量不足 `count`，则返回的数量可能会少于 `count`。
-   */
-  unique?: boolean;
+  /** 仅返回叠字名，默认为 `false` */
+  givenNameDuplicated?: boolean;
   /**
    * 支持姓氏类型，默认为 `common`
    * @type `common` 包括常用姓氏
@@ -25,11 +23,19 @@ export interface Options {
    */
   surnameType?: SurnameType;
   /**
-   * 支持名类型，默认为 `all`
-   * @type `male` 男性常用名
-   * @type `female` 女性常用名
+   * 随机抽取算法，默认为 `weight`
+   * @type `weight` 按常见度加权（接近真实概率）
+   * @type `random` 纯随机算法
    */
-  givenNameType?: GivenNameType;
+  surnameAlgorithm?: Algorithm;
+  /** 仅返回指定姓氏 */
+  surname?: string | string[];
+  /**
+   * 返回不可重复，默认为 `false`
+   *
+   * 如果 `unique` 为 `true`，但字典可返回的数量不足 `count`，则返回的数量可能会少于 `count`。
+   */
+  unique?: boolean;
   /**
    * 返回的姓名部分，默认为 `fullName`
    * @type `fullName` 返回完整姓名
@@ -37,12 +43,6 @@ export interface Options {
    * @type `givenName` 只返回名
    */
   part?: Part;
-  /**
-   * 随机抽取算法，默认为 `weight`
-   * @type `weight` 按常见度加权
-   * @type `random` 纯随机算法
-   */
-  algorithm?: Algorithm;
 }
 
 /** 姓氏类型 */
