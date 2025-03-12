@@ -34,6 +34,14 @@ export default [
     value: cnname({ count: 5, surname: "张", givenNameLength: 2 }),
   },
   {
+    label: 'cnname({ count: 5, surname: "李", givenNameLength: 2, givenNameStartsWith: "俊" })',
+    value: cnname({ count: 5, surname: "李", givenNameLength: 2, givenNameStartsWith: "俊" }),
+  },
+  {
+    label: 'cnname({ count: 5, surname: "张", givenNameLength: 2, givenNameEndsWith: "英" })',
+    value: cnname({ count: 5, surname: "张", givenNameLength: 2, givenNameEndsWith: "英" }),
+  },
+  {
     label: 'cnname({ count: 5, unique: true, part: "surname" })',
     value: cnname({ count: 5, unique: true, part: "surname" }),
   },

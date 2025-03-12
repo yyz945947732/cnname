@@ -87,9 +87,13 @@ export function pickSurnameByAlgorithm(
 export function pickDuplicatedGivenName(
   givenNameType: GivenNameType = 'all',
   len = 2,
+  fixWord?: string,
 ): string {
-  const words = getGivenNameListByGivenNameType(givenNameType);
   const num = Number.isInteger(len) ? len : 2;
+  if (fixWord) {
+    return fixWord.repeat(num);
+  }
+  const words = getGivenNameListByGivenNameType(givenNameType);
   const givenName = pickRandomSingleEle(words);
   const duplicatedGivenName = givenName.repeat(num);
   return duplicatedGivenName;
@@ -321,6 +325,8 @@ export function getGivenNameByOptions(options: Options): string {
     givenNameDuplicated = false,
     givenNameType = DEFAULT_GIVEN_NAME_TYPE,
     givenNameLength,
+    givenNameStartsWith,
+    givenNameEndsWith,
   } = options;
 
   const nameLength = Number.isInteger(givenNameLength)
@@ -329,11 +335,27 @@ export function getGivenNameByOptions(options: Options): string {
       ? 2
       : 1;
 
+  let result = '';
+
   if (givenNameDuplicated) {
-    return pickDuplicatedGivenName(givenNameType, givenNameLength);
+    return pickDuplicatedGivenName(
+      givenNameType,
+      givenNameLength,
+      givenNameStartsWith || givenNameEndsWith,
+    );
   }
 
-  return pickRandomWords(givenNameType, nameLength);
+  result = pickRandomWords(givenNameType, nameLength);
+
+  if (givenNameStartsWith) {
+    result = givenNameStartsWith + result.slice(1);
+  }
+
+  if (givenNameEndsWith) {
+    result = result.slice(0, -1) + givenNameEndsWith;
+  }
+
+  return result;
 }
 
 /**

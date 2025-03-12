@@ -3,79 +3,87 @@
 
 ## cnname()
 
-叶利
+杨炜锐
 
 ## cnname("彭")
 
-彭德
+彭欣嫣
 
 ## cnname(5)
 
-魏梧,轩辕修,梁逸希,曹垒慧,卫梦峻
+宋祥,白森,翁樱,蓝祥,谭震
 
 ## cnname("姚", 5)
 
-姚冠,姚华林,姚涵博,姚豪,姚垚伦
+姚翔衡,姚烁乔,姚萧,姚烽梧,姚枫炀
 
 ## cnname({ count: 5 })
 
-应展瑶,叶勋惠,许克骏,牛昆,龙泽
+叶绣,范镇智,夏亦,伍境,易俊
 
 ## cnname({ count: 5, unique: true, givenNameDuplicated: true })
 
-轩辕奕奕,夏军军,韩祥祥,王展展,程瑞瑞
+徐炜炜,刘榆榆,樊柯柯,邱辰辰,秦昊昊
 
 ## cnname({ count: 5, surname: "张" })
 
-张利梦,张娇杰,张永炎,张焱,张馨
+张奕勋,张骏希,张俐,张琦,张嫣垒
 
 ## cnname({ count: 5, surname: "张", givenNameLength: 2 })
 
-张晴柯,张俐宇,张元宏,张燕烽,张乔彬
+张璋翰,张灿绣,张艳展,张芳旭,张瑶书
+
+## cnname({ count: 5, surname: "李", givenNameLength: 2, givenNameStartsWith: "俊" })
+
+李俊焰,李俊德,李俊岳,李俊弘,李俊涵
+
+## cnname({ count: 5, surname: "张", givenNameLength: 2, givenNameEndsWith: "英" })
+
+张龙英,张铠英,张鸿英,张涛英,张绮英
 
 ## cnname({ count: 5, unique: true, part: "surname" })
 
-许,邓,罗,于,石
+陆,秦,汪,薛,谭
 
 ## cnname({ count: 5, unique: true, part: "givenName" })
 
-毅,露基,芊,波棠,泽
+震,瑜,颖景,智书,淼棠
 
 ## cnname({ count: 5, unique: true, surnameType: "all-single", givenNameLength: 1 })
 
-井烽,杨露,安超,暴信,冯书
+隆霞,蒯俊,佴烽,车琳,雷栋
 
 ## cnname({ count: 5, unique: true, surnameType: "all-compound", givenNameLength: 1 })
 
-赫连妍,宇文煜,公西逸,赫连湛,司空绮
+呼延强,漆雕岱,夏侯劲,尉迟奇,钟离柯
 
 ## cnname({ count: 5, unique: true, surnameType: "common", givenNameLength: 1 })
 
-尹少,黄奇,韩华,钱炫,范欣
+乔野,易庆,龙维,戴莹,夏逸
 
 ## cnname({ count: 5, unique: true, surnameType: "common-single", givenNameLength: 1 })
 
-苏辰,胡锴,章妍,郑诚,倪伦
+田天,高运,马深,谭锻,韩伊
 
 ## cnname({ count: 5, unique: true, surnameType: "common-compound", givenNameLength: 1 })
 
-长孙慧,诸葛维,司空亮,上官宏,慕容芮
+夏侯霞,司空书,东方衡,东方威,司马焕
 
 ## cnname({ count: 5, unique: true,  surname: ["张", "李"] })
 
-张承,张鼎尧,张华,李舒,张坡深
+张伦悠,李炎,张尧,张翰,张柏
 
 ## cnname({ count: 5, unique: true, givenNameType: "male" })
 
-唐峰,徐祥,屈昊卓,萧伟乐,郭利涛
+陈锋君,宿强,唐伦彬,程朗峻,汤冠骏
 
 ## cnname({ count: 5, unique: true, givenNameType: "female" })
 
-曹昕霜,石婉,田诗,于柔,冯惠
+高馨,郭雯,唐琦,姜静,赵瑜欣
 
 ## cnname({ count: 5, unique: true, givenNameType: "all" })
 
-萧佩,伍航润,范艳庆,段辰,周穗栋
+黎珍炯,袁莹,林潇,岑穗,常全
 
 ## isSurname("张")
 
@@ -111,27 +119,27 @@ false
 
 ## cnnamestr()
 
-许荣凯
+甘健富
 
 ## cnnamestr("彭")
 
-彭昀
+彭丽槿
 
 ## cnnamestr(5)
 
-李心,龚希卫,苏佳然,卢槿,庄雪
+程林,应钧,屈卓艳,傅悠,龙晖岚
 
 ## cnnamestr("姚", 5)
 
-姚棠琦,姚书,姚云,姚骏凯,姚穗柏
+姚义竹,姚歆强,姚凌,姚垚,姚子
 
 ## cnnamestr({ count: 5 })
 
-余灿,冯豪钜,章利,刘珂漪,郭书
+秦欣,丁炎,方卫炫,蓝焕,毛诚博
 
 ## cnnamestr({ count: 5, unique: true, givenNameDuplicated: true })
 
-孙森森,邹健健,高勇勇,赵智智,刘榆榆
+高东东,万强强,许森森,韩少少,卢玲玲
 
 ## parseName("张三")
 

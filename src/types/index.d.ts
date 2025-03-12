@@ -10,6 +10,10 @@ export interface Options {
   givenNameType?: GivenNameType;
   /** 名长度 */
   givenNameLength?: number;
+  /** 指定名字第一个字 */
+  givenNameStartsWith?: string;
+  /** 指定名字最后一个字 */
+  givenNameEndsWith?: string;
   /** 仅返回叠字名，默认为 `false` */
   givenNameDuplicated?: boolean;
   /**

@@ -98,6 +98,16 @@ describe('cnname(options)', () => {
     const [name] = result;
     expect(name.length).toEqual(3);
   });
+  test('cnname({ count: 5, surname: "李", givenNameLength: 2, givenNameStartsWith: "俊" }) should return array with givenNameStartsWith "俊"', () => {
+    const result = cnname({ count: 5, surname: "李", givenNameLength: 2, givenNameStartsWith: "俊" });
+    const [name] = result;
+    expect(name[1]).toEqual('俊');
+  });
+  test('cnname({ count: 5, surname: "张", givenNameLength: 2, givenNameStartsWith: "英" }) should return array with givenNameEndsWith "英"', () => {
+    const result = cnname({ count: 5, surname: "张", givenNameLength: 2, givenNameEndsWith: "英" });
+    const [name] = result;
+    expect(name[2]).toEqual('英');
+  });
   test('cnname({ count: 5, givenNameLength: 999 }) should return array with five elements', () => {
     expect(cnname({ count: 5, givenNameLength: 999 }).length).toEqual(5);
   });
