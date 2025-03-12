@@ -14,6 +14,11 @@ assertType<string[]>(cnname({ count: 5, unique: true, surnameType: 'common-compo
 assertType<string[]>(cnname({ count: 5, unique: true, givenNameType: 'male' }));
 assertType<string[]>(cnname({ count: 5, unique: true, givenNameType: 'female' }));
 assertType<string[]>(cnname({ count: 5, unique: true, givenNameType: 'all' }));
+assertType<string[]>(cnname({ count: 5, unique: true, surname: '张' }));
+assertType<string[]>(cnname({ count: 5, unique: true, surname: ['张', '李'] }));
+assertType<string[]>(cnname({ count: 5, unique: true, givenNameLength: 2 }));
+assertType<string[]>(cnname({ count: 5, unique: true, givenNameLength: 2, givenNameStartsWith: '俊' }));
+assertType<string[]>(cnname({ count: 5, unique: true, givenNameLength: 2, givenNameEndsWith: '科' }));
 
 describe('cnname(options)', () => {
   test('cnname({ count: 5 }) should return array with five elements', () => {
@@ -166,5 +171,8 @@ describe('cnname(options)', () => {
   });
   test('cnname({ count: 50000, unique: true, surname: "张", givenNameLength: 2, givenNameStartsWith: "俊" }) should return instantly', () => {
     expect(cnname({ count: 50000, unique: true, surname: '张', givenNameLength: 2, givenNameStartsWith: '俊' }).length).lt(50000);
+  });
+  test('cnname({ count: 50000, unique: true, surname: "张", givenNameLength: 2, givenNameStartsWith: "俊", givenNameEndsWith: "科" }) should return instantly', () => {
+    expect(cnname({ count: 50000, unique: true, surname: '张', givenNameLength: 2, givenNameStartsWith: '俊', givenNameEndsWith: '科' }).length).lt(50000);
   });
 });
