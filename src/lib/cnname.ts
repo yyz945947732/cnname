@@ -1,6 +1,5 @@
 import type { Options } from '../types/index';
 import {
-  getMaxSetSize,
   getSingleResult,
   handleuUniqueSrunamePartEdgeCase,
   isOptions,
@@ -11,6 +10,7 @@ import {
   DEFAULT_SURNAME_ALGORITHM,
   DEFAULT_SURNAME_TYPE,
 } from '../utils/default';
+import { getMaxSetSize } from '../utils/size';
 
 /**
  * 返回随机中文名
