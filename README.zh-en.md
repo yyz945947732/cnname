@@ -43,7 +43,7 @@
 
 ## ✨ Features
 
-- 🎲 Easily and simply generate random Chinese names.
+- 🎲 Easily and simply generate various random Chinese names.
 - 🎭 Supports a wide range of surname types and name attribute.
 - ⚡ Lightweight and fast with no extra dependencies.
 - 🛠 Provides various APIs for custom generation rules.
