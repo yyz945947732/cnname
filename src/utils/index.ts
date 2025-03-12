@@ -50,7 +50,7 @@ export function getIsSingleCharacterSurname(surname: string): boolean {
  * 随机获取名
  */
 export function pickRandomWords(
-  givenNameType: GivenNameType = 'all',
+  givenNameType: GivenNameType = DEFAULT_GIVEN_NAME_TYPE,
   n = 1,
 ): string {
   if (givenNameType === 'all') {
@@ -77,7 +77,7 @@ export function pickSurnameByAlgorithm(
  * 随机获取叠字名
  */
 export function pickDuplicatedGivenName(
-  givenNameType: GivenNameType = 'all',
+  givenNameType: GivenNameType = DEFAULT_GIVEN_NAME_TYPE,
   len = 2,
   fixWord?: string,
 ): string {
@@ -136,7 +136,7 @@ export function getSingleResult(options: Options): string {
  * 获取所有姓氏
  */
 export function getSurnameListBySurnameType(
-  surnameType: SurnameType = 'all',
+  surnameType: SurnameType = DEFAULT_SURNAME_TYPE,
 ): string[] {
   switch (surnameType) {
     case 'all':
@@ -161,7 +161,7 @@ export function getSurnameListBySurnameType(
  * 根据 `givenNameType` 获取所有名
  */
 export function getGivenNameListByGivenNameType(
-  givenNameType: GivenNameType = 'all',
+  givenNameType: GivenNameType = DEFAULT_GIVEN_NAME_TYPE,
 ): string[] {
   switch (givenNameType) {
     case 'all':

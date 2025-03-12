@@ -58,6 +58,9 @@ describe('cnname(options)', () => {
   test('cnname({ count: 5, unique: true, surname: ["张", "李"] }) should return array with surname "张" or "李"', () => {
     expect(cnname({ count: 5, unique: true, surname: ["张", "李"] }).every(surname => ["张", "李"].includes(surname[0]))).toBeTruthy();
   });
+  test('cnname({ count: 5, unique: true, surname: ["张", "张"] }) should return array with surname "张" or "张"', () => {
+    expect(cnname({ count: 5, unique: true, surname: ["张", "张"] }).every(surname => ["张", "张"].includes(surname[0]))).toBeTruthy();
+  });
   test('cnname({ count: 5, unique: true, surname: [] }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, surname: [] }).length).toEqual(5);
   });
@@ -160,5 +163,8 @@ describe('cnname(options)', () => {
   });
   test('cnname({ count: 50000, unique: true, part: "givenName", givenNameType: "all", givenNameLength: 1 }) should return instantly', () => {
     expect(cnname({ count: 50000, unique: true, part: 'givenName', givenNameType: "all", givenNameLength: 1 }).length).lt(50000);
+  });
+  test('cnname({ count: 50000, unique: true, surname: "张", givenNameLength: 2, givenNameStartsWith: "俊" }) should return instantly', () => {
+    expect(cnname({ count: 50000, unique: true, surname: '张', givenNameLength: 2, givenNameStartsWith: '俊' }).length).lt(50000);
   });
 });

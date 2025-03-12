@@ -1,4 +1,5 @@
 import type { GivenNameType, Options, SurnameType } from '../types';
+import { DEFAULT_GIVEN_NAME_TYPE, DEFAULT_SURNAME_TYPE } from './default';
 import {
   getAllCommonCompoundSurnameSize,
   getAllCommonSingleCharacterSurnameSize,
@@ -16,35 +17,68 @@ import {
  * 根据高级配置获取集合最大大小
  */
 export function getMaxSetSize(options: Options): number {
-  const {
-    surnameType = 'all',
-    givenNameType = 'all',
-    part = 'fullName',
-    givenNameDuplicated = false,
-    givenNameLength,
-    surname,
-  } = options;
+  const { part = 'fullName' } = options;
 
-  const MAX_WORD_SIZE = getAllWordeSize();
+  const maxSurnameNum = getSurnamePartMaxSize(options);
+  const maxGivenNameNum = getGivenNamePartMaxSize(options);
+
+  if (part === 'surname') {
+    return maxSurnameNum;
+  }
+
+  if (part === 'givenName') {
+    return maxGivenNameNum;
+  }
+
+  return maxSurnameNum * maxGivenNameNum;
+}
+
+/**
+ * @private
+ * 计算 `part` 为 `surname` 时，集合大小
+ */
+function getSurnamePartMaxSize(options: Options): number {
+  const { surnameType = DEFAULT_SURNAME_TYPE, surname } = options;
   const MAX_SURNAME_SIZE = getListSizeBySurnameType(surnameType);
-
-  if (part === 'fullName') {
-    return givenNameDuplicated ? MAX_WORD_SIZE : Number.MAX_SAFE_INTEGER;
-  }
-
-  if (part === 'givenName' && givenNameLength === 1) {
-    return getListSizeByGivenNameType(givenNameType);
-  }
-
   if (Array.isArray(surname)) {
-    return surname.length;
+    const uniqueSurname = Array.from(new Set(surname));
+    return uniqueSurname.length;
   }
-
   if (surname !== undefined) {
     return 1;
   }
-
   return MAX_SURNAME_SIZE;
+}
+
+/**
+ * @private
+ * 计算 `part` 为 `givenName` 时，集合大小
+ */
+function getGivenNamePartMaxSize(options: Options): number {
+  const {
+    givenNameType = DEFAULT_GIVEN_NAME_TYPE,
+    givenNameLength,
+    givenNameDuplicated,
+    givenNameStartsWith,
+    givenNameEndsWith,
+  } = options;
+  let len = givenNameLength || 2;
+  if (givenNameDuplicated) {
+    return 1;
+  }
+  if (givenNameStartsWith) {
+    len -= 1;
+  }
+  if (givenNameEndsWith) {
+    len -= 1;
+  }
+  if (len <= 0) {
+    return 1;
+  }
+  if (len === 1) {
+    return getListSizeByGivenNameType(givenNameType);
+  }
+  return Number.MAX_SAFE_INTEGER;
 }
 
 /**
