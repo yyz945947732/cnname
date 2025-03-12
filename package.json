@@ -48,7 +48,8 @@
     "chinese",
     "cnchar",
     "cnchar-name",
-    "chinese name"
+    "chinese name",
+    "fake chinese name"
   ],
   "lint-staged": {
     "src/**/*.ts": [

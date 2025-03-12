@@ -177,6 +177,6 @@ ${cnname(1000).join('，')}
 
 👉 [View Output](https://github.com/yyz945947732/cnname/blob/master/example/novel.md)
 
-## 📜 LICENSE
+## 🔑 LICENSE
 
-[MIT License](https://github.com/yyz945947732/cnname/blob/master/LICENSE)
+[MIT](https://github.com/yyz945947732/cnname/blob/master/LICENSE)
