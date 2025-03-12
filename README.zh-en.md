@@ -1,14 +1,12 @@
 [简体中文](./READEME.md) | English
 
-<p align="center">
+<div align="center">
   <a href="https://github.com/yyz945947732/cnname">
-    <img src="./public/logo.png" alt="logo.png" border="0"  />
+    <img src="./public/logo.svg" alt="logo.svg" border="0" width="200" />
   </a>
-</p>
-
-<p align="center">
-  👦 Randomly generate Chinese names 👧
-</p>
+  <h1 style="margin-top: 0px; font-family: 'Comic Sans MS';">cnname</h1>
+  <p>👦 Randomly generate Chinese names 👧</p>
+</div>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/cnname">
