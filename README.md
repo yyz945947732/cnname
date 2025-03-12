@@ -113,7 +113,7 @@ cnname({ count: 5, givenNameType: 'female' });
 | `givenNameEndsWith` | `string` | 指定名字（不含姓氏）最后一个字 | 随机字 |
 | `givenNameDuplicated` | `boolean` | 是否只返回叠字名（如 "婷婷"、"明明"） | `false` |
 | `surnameType` | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | 姓氏类型，`'common'` [常见姓氏](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`'common-single'` 常见单字姓，`'common-compound'` 常见复姓，`'all'` 全部姓氏，`'all-single'` 全部单字姓，`'all-compound'` 全部复姓 | `'common'` |
-| `surnameAlgorithm` | `'weight' \| 'random'` | 随机算法（姓氏），`'weight'` 按常见度加权（接近真实概率），`'random'` 纯随机 | `'weight'` |
+| `surnameAlgorithm` | `'weight' \| 'random'` | 随机算法（姓氏），`'weight'` 按常见度加权（接近现实世界概率），`'random'` 纯随机 | `'weight'` |
 | `surname` | `string \| string[]` | 指定姓氏，可传单个姓或姓氏数组 | 随机姓氏 |
 | `unique` | `boolean` | 是否确保返回的值不重复 | `false` |
 | `part` | `'fullName' \| 'surname' \| 'givenName'` | 返回部分，`'fullName'` 完整姓名，`'surname'` 姓氏，`'givenName'` 名 | `'fullName'` |
