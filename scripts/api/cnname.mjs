@@ -82,6 +82,26 @@ export default [
     value: cnname({ count: 5, unique: true, givenNameType: "female" }),
   },
   {
+    label: 'cnname({ count: 5, unique: true, givenNameType: "metal" })',
+    value: cnname({ count: 5, unique: true, givenNameType: "metal" }),
+  },
+  {
+    label: 'cnname({ count: 5, unique: true, givenNameType: "wood" })',
+    value: cnname({ count: 5, unique: true, givenNameType: "wood" }),
+  },
+  {
+    label: 'cnname({ count: 5, unique: true, givenNameType: "water" })',
+    value: cnname({ count: 5, unique: true, givenNameType: "water" }),
+  },
+  {
+    label: 'cnname({ count: 5, unique: true, givenNameType: "fire" })',
+    value: cnname({ count: 5, unique: true, givenNameType: "fire" }),
+  },
+  {
+    label: 'cnname({ count: 5, unique: true, givenNameType: "earth" })',
+    value: cnname({ count: 5, unique: true, givenNameType: "earth" }),
+  },
+  {
     label: 'cnname({ count: 5, unique: true, givenNameType: "all" })',
     value: cnname({ count: 5, unique: true, givenNameType: "all" }),
   },

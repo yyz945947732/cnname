@@ -5,10 +5,15 @@ import {
   getAllCommonSingleCharacterSurnameSize,
   getAllCommonSurnameSize,
   getAllCompoundSurnameSize,
+  getAllEarthWordsSize,
   getAllFemaleWordsSize,
+  getAllFireWordsSize,
   getAllMaleWordsSize,
+  getAllMetalWordsSize,
   getAllSingleCharacterSurnameSize,
   getAllSurnameSize,
+  getAllWaterWordsSize,
+  getAllWoodWordsSize,
   getAllWordeSize,
 } from './dict';
 
@@ -115,11 +120,21 @@ function getListSizeByGivenNameType(givenNameType: GivenNameType): number {
   const MAX_ALL_GIVEN_NAME_SIZE = getAllWordeSize();
   const MAX_MALE_GIVEN_NAME_SIZE = getAllMaleWordsSize();
   const MAX_FEMALE_GIVEN_NAME_SIZE = getAllFemaleWordsSize();
+  const MAX_METAL_GIVEN_NAME_SIZE = getAllMetalWordsSize();
+  const MAX_WOOD_GIVEN_NAME_SIZE = getAllWoodWordsSize();
+  const MAX_WATER_GIVEN_NAME_SIZE = getAllWaterWordsSize();
+  const MAX_FIRE_GIVEN_NAME_SIZE = getAllFireWordsSize();
+  const MAX_EARTH_GIVEN_NAME_SIZE = getAllEarthWordsSize();
 
   const MAX_GIVEN_NAME_SIZE_MAP: Record<GivenNameType, number> = {
     all: MAX_ALL_GIVEN_NAME_SIZE,
     male: MAX_MALE_GIVEN_NAME_SIZE,
     female: MAX_FEMALE_GIVEN_NAME_SIZE,
+    metal: MAX_METAL_GIVEN_NAME_SIZE,
+    wood: MAX_WOOD_GIVEN_NAME_SIZE,
+    water: MAX_WATER_GIVEN_NAME_SIZE,
+    fire: MAX_FIRE_GIVEN_NAME_SIZE,
+    earth: MAX_EARTH_GIVEN_NAME_SIZE,
   };
 
   return MAX_GIVEN_NAME_SIZE_MAP[givenNameType] ?? MAX_ALL_GIVEN_NAME_SIZE;
