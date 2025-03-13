@@ -1,4 +1,4 @@
-import { getAllSurname } from '../src';
+import { getAllSurname } from '../../src';
 import { describe, test, expect, assertType } from 'vitest';
 
 assertType<string[]>(getAllSurname());

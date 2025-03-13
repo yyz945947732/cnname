@@ -1,4 +1,4 @@
-import { cnnamestr } from '../src';
+import { cnnamestr } from '../../src';
 import { describe, test, expect, assertType } from 'vitest';
 
 assertType<string>(cnnamestr());
