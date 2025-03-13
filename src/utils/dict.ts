@@ -246,3 +246,43 @@ export function getAllFireWords(): string[] {
 export function getAllEarthWords(): string[] {
   return EARTH_WORDS;
 }
+
+/**
+ * @private
+ * 获取所有金属性名数量
+ */
+export function getAllMetalWordsSize(): number {
+  return METAL_WORDS.length;
+}
+
+/**
+ * @private
+ * 获取所有木属性名数量
+ */
+export function getAllWoodWordsSize(): number {
+  return WOOD_WORDS.length;
+}
+
+/**
+ * @private
+ * 获取所有水属性名数量
+ */
+export function getAllWaterWordsSize(): number {
+  return WATER_WORDS.length;
+}
+
+/**
+ * @private
+ * 获取所有火属性名数量
+ */
+export function getAllFireWordsSize(): number {
+  return FIRE_WORDS.length;
+}
+
+/**
+ * @private
+ * 获取所有土属性名数量
+ */
+export function getAllEarthWordsSize(): number {
+  return EARTH_WORDS.length;
+}

@@ -9,11 +9,16 @@ import {
   getAllCommonSingleCharacterSurname,
   getAllCommonSurname,
   getAllCompoundSurname,
+  getAllEarthWords,
   getAllFemaleWords,
+  getAllFireWords,
   getAllMaleWords,
+  getAllMetalWords,
   getAllNormalWords,
   getAllSingleCharacterSurname,
   getAllSurname,
+  getAllWaterWords,
+  getAllWoodWords,
   getAllWords,
 } from './dict';
 import { getMaxSetSize } from './size';
@@ -167,6 +172,16 @@ export function getGivenNameListByGivenNameType(
       return getAllMaleWords();
     case 'female':
       return getAllFemaleWords();
+    case 'metal':
+      return getAllMetalWords();
+    case 'wood':
+      return getAllWoodWords();
+    case 'water':
+      return getAllWaterWords();
+    case 'fire':
+      return getAllFireWords();
+    case 'earth':
+      return getAllEarthWords();
     default:
       return getAllWords();
   }

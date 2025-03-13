@@ -6,6 +6,11 @@ export interface Options {
    * 支持名类型，默认为 `all`
    * @type `male` 男性常用名
    * @type `female` 女性常用名
+   * @type `metal` 金属性名
+   * @type `wood` 木属性名
+   * @type `water` 水属性名
+   * @type `fire` 火属性名
+   * @type `earth` 土属性名
    */
   givenNameType?: GivenNameType;
   /** 名长度 */
@@ -59,7 +64,15 @@ export type SurnameType =
   | 'all-compound';
 
 /** 名字特性 */
-export type GivenNameType = 'all' | 'male' | 'female';
+export type GivenNameType =
+  | 'all'
+  | 'male'
+  | 'female'
+  | 'metal'
+  | 'wood'
+  | 'water'
+  | 'fire'
+  | 'earth';
 
 /** 返回的姓名部分 */
 export type Part = 'fullName' | 'surname' | 'givenName';
