@@ -120,25 +120,13 @@ cnname({ count: 5, givenNameType: 'female' });
 
 ### 🛠️ 工具方法
 
-```js
-import { isSurname, getAllSurname, cnnamestr, parseName } from 'cnname';
-```
+- [isSurname](docs/cn/isSurname.md)
 
-**`isSurname(surname: string): boolean`**
+- [getAllSurname](docs/cn/getAllSurname.md)
 
-判断当前值是否为姓氏。
+- [cnnamestr](docs/cn/cnnamestr.md)
 
-**`getAllSurname(surnameType?: SurnameType): string[]`**
-
-获取所有姓氏，可指定姓氏类型，默认为 `'all'` (全部姓氏)。
-
-**`cnnamestr(options: Option): string`**
-
-与 `cnname` 相同的参数和使用方式，但始终返回字符串。若生成多个结果，则使用 `,` 拼接。
-
-**`parseName(name: string): { surname: string, givenName: string }`**
-
-解析传入的名字，返回名字的详细信息（包括姓和名）。
+- [parseName](docs/cn/parseName.md)
 
 ## 📚 资源
 

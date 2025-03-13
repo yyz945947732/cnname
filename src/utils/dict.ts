@@ -11,13 +11,13 @@ const ALL_SINGLE_CHARACTER_SURNAMES = ALL_SURNAMES.filter(
   (words) => words.length === 1,
 );
 
-/** 所有常用姓氏 */
+/** 所有常见姓氏 */
 const COMMON_SURNAMES = commonSurnameDict.dict.split(' ');
-/** 所有常用复姓 */
+/** 所有常见复姓 */
 const COMMON_COMPOUND_SURNAMES = COMMON_SURNAMES.filter(
   (words) => words.length > 1,
 );
-/** 所有常用单字姓 */
+/** 所有常见单字姓 */
 const COMMON_SINGLE_CHARACTER_SURNAMES = COMMON_SURNAMES.filter(
   (words) => words.length === 1,
 );
@@ -68,7 +68,7 @@ export function getAllSingleCharacterSurname(): string[] {
 
 /**
  * @private
- * 获取所有常用姓
+ * 获取所有常见姓
  */
 export function getAllCommonSurname(): string[] {
   return COMMON_SURNAMES;
@@ -76,7 +76,7 @@ export function getAllCommonSurname(): string[] {
 
 /**
  * @private
- * 获取所有常用复姓
+ * 获取所有常见复姓
  */
 export function getAllCommonCompoundSurname(): string[] {
   return COMMON_COMPOUND_SURNAMES;
@@ -84,7 +84,7 @@ export function getAllCommonCompoundSurname(): string[] {
 
 /**
  * @private
- * 获取所有常用单字姓
+ * 获取所有常见单字姓
  */
 export function getAllCommonSingleCharacterSurname(): string[] {
   return COMMON_SINGLE_CHARACTER_SURNAMES;
@@ -115,7 +115,7 @@ export function getAllSingleCharacterSurnameSize(): number {
 
 /**
  * @private
- * 获取所有常用姓氏数量
+ * 获取所常见姓氏数量
  */
 export function getAllCommonSurnameSize(): number {
   return COMMON_SURNAMES.length;
@@ -123,7 +123,7 @@ export function getAllCommonSurnameSize(): number {
 
 /**
  * @private
- * 获取所有常用复姓数量
+ * 获取所有常见复姓数量
  */
 export function getAllCommonCompoundSurnameSize(): number {
   return COMMON_COMPOUND_SURNAMES.length;
@@ -131,7 +131,7 @@ export function getAllCommonCompoundSurnameSize(): number {
 
 /**
  * @private
- * 获取所有常用单字姓数量
+ * 获取所常见单字姓数量
  */
 export function getAllCommonSingleCharacterSurnameSize(): number {
   return COMMON_SINGLE_CHARACTER_SURNAMES.length;
