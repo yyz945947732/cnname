@@ -107,7 +107,7 @@ cnname({ count: 5, givenNameType: 'female' });
 | 参数 | 类型 | 说明 | 默认值 |
 |------|------|------|------|
 | count | `number` | 生成的姓名数量。 | `1` |
-| givenNameType | `'all' \| 'male' \| 'female'` | 名特性。<br>`'all'` 无限制。<br> 支持性别类型：<br>`'male'` 男性名。<br>`'female'` 女性名。 | `'all'` |
+| givenNameType | `'all' \| 'male' \| 'female'` | 名特性。<br>`'all'` 无限制。<br> 性别：<br>`'male'` 男性名，`'female'` 女性名。 | `'all'` |
 | givenNameLength | `number` | 名字长度（不含姓氏）。 | `1` 或 `2` |
 | givenNameStartsWith | `string` | 指定名字（不含姓氏）第一个字。 | 随机字 |
 | givenNameEndsWith | `string` | 指定名字（不含姓氏）最后一个字。 | 随机字 |

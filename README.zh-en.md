@@ -107,7 +107,7 @@ Generate random names using [custom rules](#-options), allowing control over nam
 | Parameter | Type | Description | Default |
 |-----------|------|-------------|---------|
 | count | `number` | Number of names to generate. | `1` |
-| givenNameType | `'all' \| 'male' \| 'female'` | Name attribute: <br>`'all'` for no specific attribute. <br> Support gender types: <br> `'male'` for male names. <br>`'female'` for female names. | `'all'` |
+| givenNameType | `'all' \| 'male' \| 'female'` | Name attribute: <br>`'all'` for no specific attribute. <br> Gender: <br> `'male'` for male names, `'female'` for female names. | `'all'` |
 | givenNameLength | `number` | Length of the given name. | `1` or `2` |
 | givenNameStartsWith | `string` | Specify the first character of the given name. | Random character |
 | givenNameEndsWith | `string` | Specify the last character of the given name. | Random character |
