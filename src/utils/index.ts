@@ -81,13 +81,10 @@ export function pickDuplicatedGivenName(
   len = 2,
   fixWord?: string,
 ): string {
-  const num = Number.isInteger(len) ? len : 2;
-  if (fixWord) {
-    return fixWord.repeat(num);
-  }
+  if (fixWord) return fixWord.repeat(len);
   const words = getGivenNameListByGivenNameType(givenNameType);
   const givenName = pickRandomSingleEle(words);
-  const duplicatedGivenName = givenName.repeat(num);
+  const duplicatedGivenName = givenName.repeat(len);
   return duplicatedGivenName;
 }
 
