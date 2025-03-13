@@ -100,7 +100,7 @@ Generate a specified number of random Chinese names with a given surname.
 
 **`cnname(options: Option): string[]`**
 
-Generate random names using [advanced configuration](#options).
+Generate random names using [advanced options](#options).
 
 ### ⚡ Options
 
@@ -120,25 +120,13 @@ Generate random names using [advanced configuration](#options).
 
 ### 🛠️ Utils
 
-```js
-import { isSurname, getAllSurname, cnnamestr, parseName } from 'cnname';
-```
+- [isSurname](docs/en/isSurname.md)
 
-**`isSurname(surname: string): boolean`**
+- [getAllSurname](docs/en/getAllSurname.md)
 
-Check if a given value is a surname.
+- [cnnamestr](docs/en/cnnamestr.md)
 
-**`getAllSurname(surnameType?: SurnameType): string[]`**
-
-Get all surnames, with an optional filter for surname types. The default is `'all'` (all surnames).
-
-**`cnnamestr(options: Option): string`**
-
-Same parameters and usage as `cnname`, but always returns a string. If multiple results are generated, they are joined with `,`.
-
-**`parseName(name: string): { surname: string, givenName: string }`**
-
-Parse the name and return the detailed information of the name, including the surname and given name.
+- [parseName](docs/en/parseName.md)
 
 ## 📚 Resource
 

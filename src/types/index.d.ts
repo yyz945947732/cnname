@@ -18,9 +18,9 @@ export interface Options {
   givenNameDuplicated?: boolean;
   /**
    * 支持姓氏类型，默认为 `common`
-   * @type `common` 包括常用姓氏
-   * @type `common-single` 包括常用单字姓氏
-   * @type `common-compound` 包括常用复姓
+   * @type `common` 包括常见姓氏
+   * @type `common-single` 包括常见单字姓氏
+   * @type `common-compound` 包括常见复姓
    * @type `all` 包括所有姓氏
    * @type `all-single` 包括所有单字姓
    * @type `all-compound` 包括所有复姓
