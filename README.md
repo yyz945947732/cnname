@@ -77,7 +77,7 @@ cnname(5);
 cnname('关', 5);
 // -> ["关智华", "关永毓", "关宁", "关伟星", "关炎诚"]
 cnname({ count: 5, givenNameType: 'female' });
-// -> ["麦绮雯", "熊芮", "姜莹", "莫惠安", "王语嫣"]
+// -> ["麦绮雯", "熊芮", "姜莹", "莫惠安", "张萍"]
 ```
 
 ## 📖 API
@@ -100,7 +100,7 @@ cnname({ count: 5, givenNameType: 'female' });
 
 **`cnname(options: Option): string[]`**
 
-使用[高级配置](#option)获取随机名字。
+使用[自定义规则](#-option)生成随机名字，可控制名字长度、性别等。
 
 ### ⚡ Option
 

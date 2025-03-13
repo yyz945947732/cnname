@@ -77,7 +77,7 @@ cnname(5);
 cnname('关', 5);
 // -> ["关智华", "关永毓", "关宁", "关伟星", "关炎诚"]
 cnname({ count: 5, givenNameType: 'female' });
-// -> ["麦绮雯", "熊芮", "姜莹", "莫惠安", "王语嫣"]
+// -> ["麦绮雯", "熊芮", "姜莹", "莫惠安", "张萍"]
 ```
 
 ## 📖 API
@@ -100,7 +100,7 @@ Generate a specified number of random Chinese names with a given surname.
 
 **`cnname(options: Option): string[]`**
 
-Generate random names using [advanced options](#options).
+Generate random names using [custom rules](#-options), allowing control over name length, gender, and more.
 
 ### ⚡ Options
 
