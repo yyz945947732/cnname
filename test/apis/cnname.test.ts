@@ -1,4 +1,4 @@
-import cnname from '../src';
+import cnname from '../../src';
 import { describe, test, expect, assertType } from 'vitest';
 
 assertType<string>(cnname());

@@ -1,0 +1,29 @@
+import cnname from '../../src';
+import { describe, test, expect, assertType } from 'vitest';
+
+assertType<string[]>(cnname({ count: 5, surnameAlgorithm: 'random' }));
+assertType<string[]>(cnname({ count: 5, surnameAlgorithm: 'weight' }));
+
+describe('cnname.options.surnameAlgorithm', () => {
+  test('cnname({ count: 5, surnameAlgorithm: "weight" }) should return array with five elements', () => {
+    expect(cnname({ count: 5, surnameAlgorithm: "weight" }).length).toEqual(5);
+  });
+  test('cnname({ count: 5, surnameAlgorithm: "random" }) should return array with five elements', () => {
+    expect(cnname({ count: 5, surnameAlgorithm: "random" }).length).toEqual(5);
+  });
+  test('cnname({ count: 5, part: "surname", surnameType: "common", surnameAlgorithm: "random" }) should return array with five elements', () => {
+    expect(cnname({ count: 5, part: "surname", surnameType: "common", surnameAlgorithm: "random" }).length).toEqual(5);
+  });
+  test('cnname({ count: 5, part: "surname", surnameType: "common", surnameAlgorithm: "weight" }) should return array with five elements', () => {
+    expect(cnname({ count: 5, part: "surname", surnameType: "common", surnameAlgorithm: "weight" }).length).toEqual(5);
+  });
+  test('cnname({ count: 50, unique: true, part: "surname", surnameType: "common", surnameAlgorithm: "random" }) should return instantly', () => {
+    expect(cnname({ count: 50, unique: true, part: 'surname', surnameType: 'common', surnameAlgorithm: 'random' }).length).toEqual(50);
+  });
+  test('cnname({ count: 5000, unique: true, part: "surname", surnameType: "common", surnameAlgorithm: "weight" }) should return instantly', () => {
+    expect(cnname({ count: 5000, unique: true, part: 'surname', surnameType: 'common', surnameAlgorithm: 'weight' }).length).lt(5000);
+  });
+  test('cnname({ count: 50000, unique: true, part: "surname", surnameType: "all", surnameAlgorithm: "weight" }) should return instantly', () => {
+    expect(cnname({ count: 50000, unique: true, part: 'surname', surnameType: 'all', surnameAlgorithm: 'weight' }).length).lt(50000);
+  });
+});

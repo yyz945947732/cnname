@@ -1,4 +1,4 @@
-import { isSurname } from '../src';
+import { isSurname } from '../../src';
 import { describe, test, expect, assertType } from 'vitest';
 
 assertType<boolean>(isSurname('张'));
