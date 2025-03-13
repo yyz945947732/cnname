@@ -106,27 +106,27 @@ Generate random names using [advanced options](#options).
 
 | Parameter | Type | Description | Default |
 |-----------|------|-------------|---------|
-| `count` | `number` | Number of names to generate | `1` |
-| `givenNameType` | `'all' \| 'male' \| 'female'` | Name attribute: `'all'` for no specific attribute, `'male'` for male names, `'female'` for female names | `'all'` |
-| `givenNameLength` | `number` | Length of the given name | `1` or `2` |
-| `givenNameStartsWith` | `string` | Specify the first character of the given name | Random character |
-| `givenNameEndsWith` | `string` | Specify the last character of the given name | Random character |
-| `givenNameDuplicated` | `boolean` | Whether to return only repeated given names (e.g., "婷婷", "明明") | `false` |
-| `surnameType` | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | Surname type: `'common'` for [common surname](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)，`'common-single'` for common single-character surnames，`'common-compound'` for common compound surnames，`'all'` for all surnames, `'all-single'` for single-character surnames, `'all-compound'` for compound surnames | `'common'` |
-| `surnameAlgorithm` | `'weight' \| 'random'` | Random generate algorithm（surname），`'weight'` weighted by real frequency，`'random'` purely random | `'weight'` |
-| `surname` | `string \| string[]` | Specify a surname (single or array) | Random surname |
-| `unique` | `boolean` | Ensure the returned names are unique | `false` |
-| `part` | `'fullName' \| 'surname' \| 'givenName'` | Part of returned name: `'fullName'` for full names, `'surname'` for surnames only, `'givenName'` for given names only | `'fullName'` |
+| count | `number` | Number of names to generate. | `1` |
+| givenNameType | `'all' \| 'male' \| 'female'` | Name attribute: <br>`'all'` for no specific attribute. <br> Support gender types: <br> `'male'` for male names. <br>`'female'` for female names. | `'all'` |
+| givenNameLength | `number` | Length of the given name. | `1` or `2` |
+| givenNameStartsWith | `string` | Specify the first character of the given name. | Random character |
+| givenNameEndsWith | `string` | Specify the last character of the given name. | Random character |
+| givenNameDuplicated | `boolean` | Whether to return only repeated given names (e.g., "婷婷", "明明"). | `false` |
+| surnameType | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | Surname type: <br>`'common'` for [common surname](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json). <br>`'common-single'` for common single-character surnames. <br> `'common-compound'` for common compound surnames. <br>`'all'` for all surnames. <br> `'all-single'` for single-character surnames. <br> `'all-compound'` for compound surnames. | `'common'` |
+| surnameAlgorithm | `'weight' \| 'random'` | Random generate algorithm（surname）. <br>`'weight'` weighted by real frequency. <br>`'random'` purely random. | `'weight'` |
+| surname | `string \| string[]` | Specify a surname (single or array). | Random surname |
+| unique | `boolean` | Ensure the returned names are unique. | `false` |
+| part | `'fullName' \| 'surname' \| 'givenName'` | Part of returned name: <br> `'fullName'` for full names. <br> `'surname'` for surnames only. <br> `'givenName'` for given names only. | `'fullName'` |
 
 ### 🛠️ Utils
 
 - [isSurname](docs/en/isSurname.md)
 
-- [getAllSurname](docs/en/getAllSurname.md)
-
 - [cnnamestr](docs/en/cnnamestr.md)
 
 - [parseName](docs/en/parseName.md)
+
+- [getAllSurname](docs/en/getAllSurname.md)
 
 ## 📚 Resource
 
