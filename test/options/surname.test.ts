@@ -12,7 +12,7 @@ describe('cnname.options.surname', () => {
     expect(name[0]).toBe("张");
   });
   test('cnname({ count: 5, unique: true, surname: ["张", "李"] }) should return array with five elements', () => {
-    expect(cnname({ count: 5, unique: true, surname: ["张", "李"] }).length).toEqual(5);
+    expect(cnname({ count: 5, unique: true, surname: ["张", "李"] }).length).toBe(5);
   });
   test('cnname({ count: 5, unique: true, surname: ["张", "李"] }) should return array with surname "张" or "李"', () => {
     expect(cnname({ count: 5, unique: true, surname: ["张", "李"] }).every(surname => ["张", "李"].includes(surname[0]))).toBeTruthy();
