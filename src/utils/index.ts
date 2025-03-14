@@ -34,6 +34,15 @@ export function getIsSurname(surname: string): boolean {
 
 /**
  * @private
+ * 判断值是否存在姓氏中
+ */
+export function getIsCommonSurname(surname: string): boolean {
+  const allCommonSurnames = getAllCommonSurname();
+  return allCommonSurnames.some((item) => item === surname);
+}
+
+/**
+ * @private
  * 判断值是否存在复姓中
  */
 export function getIsCompoundSurname(surname: string): boolean {
@@ -91,6 +100,17 @@ export function pickDuplicatedGivenName(
   const givenName = pickRandomSingleEle(words);
   const duplicatedGivenName = givenName.repeat(len);
   return duplicatedGivenName;
+}
+
+/**
+ * @private
+ * 判断是否为叠字名
+ */
+export function getIsDuplicatedGivenName(givenName: string): boolean {
+  return (
+    givenName.length > 1 &&
+    givenName.split('').every((char) => char === givenName[0])
+  );
 }
 
 /**
