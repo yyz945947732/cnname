@@ -9,7 +9,7 @@ describe('cnname.options.surname', () => {
   test('cnname({ count: 5, surname: "张" }) should return array with surname "张"', () => {
     const result = cnname({ count: 5, surname: "张" });
     const [name] = result;
-    expect(name[0]).toEqual("张");
+    expect(name[0]).toBe("张");
   });
   test('cnname({ count: 5, unique: true, surname: ["张", "李"] }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, surname: ["张", "李"] }).length).toEqual(5);
@@ -21,9 +21,9 @@ describe('cnname.options.surname', () => {
     expect(cnname({ count: 5, unique: true, surname: ["张", "张"] }).every(surname => ["张"].includes(surname[0]))).toBeTruthy();
   });
   test('cnname({ count: 5, unique: true, surname: [] }) should return array with five elements', () => {
-    expect(cnname({ count: 5, unique: true, surname: [] }).length).toEqual(5);
+    expect(cnname({ count: 5, unique: true, surname: [] }).length).toBe(5);
   });
   test('cnname({ count: 5, unique: true, part: "surname", surname: [] }) should return array with one elements', () => {
-    expect(cnname({ count: 5, unique: true, part: 'surname', surname: [] }).length).toEqual(0);
+    expect(cnname({ count: 5, unique: true, part: 'surname', surname: [] }).length).toBe(0);
   });
 });
