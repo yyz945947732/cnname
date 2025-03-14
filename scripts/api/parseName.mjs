@@ -21,4 +21,8 @@ export default [
     label: 'parseName("欧阳三")',
     value: JSON.stringify(parseName('欧阳三')),
   },
+  {
+    label: 'parseName("欧阳娜娜")',
+    value: JSON.stringify(parseName('欧阳娜娜')),
+  },
 ];

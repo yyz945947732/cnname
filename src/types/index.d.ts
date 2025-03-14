@@ -80,10 +80,20 @@ export type Part = 'fullName' | 'surname' | 'givenName';
 /** 随机抽取算法 */
 export type Algorithm = 'weight' | 'random';
 
-/** 姓名解析格式 */
-export interface ParseNameResult {
+/** 详细姓名信息 */
+export interface NameDetail {
   /** 姓氏 */
   surname: string;
   /** 名 */
   givenName: string;
+  /** 是否为复姓 */
+  isCompoundSurname: boolean;
+  /** 是否为单字姓氏 */
+  isSingleCharacterSurname: boolean;
+  /** 名(不包括姓氏)长度 */
+  givenNameLength: number;
+  /** 是否为叠字名 */
+  isGivenNameDuplicated: boolean;
+  /** 是否为常见姓氏 */
+  isCommonSurname: boolean;
 }
