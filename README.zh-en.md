@@ -125,6 +125,10 @@ Generate random names using [custom rules](#-options), allowing control over nam
 
 - [getAllSurname](docs/en/getAllSurname.md)
 
+- [getSurname](docs/en/getSurname.md)
+
+- [getGivenName](docs/en/getGivenName.md)
+
 ## 📚 Resource
 
 Below are the available resources. If you find missing surnames or names, [contributions are welcome](https://github.com/yyz945947732/cnname/pulls).

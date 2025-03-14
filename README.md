@@ -125,6 +125,10 @@ cnname({ count: 5, givenNameType: 'female' });
 
 - [getAllSurname](docs/cn/getAllSurname.md)
 
+- [getSurname](docs/cn/getSurname.md)
+
+- [getGivenName](docs/cn/getGivenName.md)
+
 ## 📚 资源
 
 以下为资源库，如果缺少了你想要的姓氏或名字，[欢迎补充](https://github.com/yyz945947732/cnname/pulls)。
