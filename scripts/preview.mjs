@@ -1,4 +1,4 @@
-import apis from './api/index.mjs';
+import apis from './apis/index.mjs';
 import { updateExample } from './utils/index.mjs';
 
 const apisPreview = apis.map(item =>
