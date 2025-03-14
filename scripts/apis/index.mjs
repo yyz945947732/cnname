@@ -3,6 +3,8 @@ import isSurname from './isSurname.mjs';
 import getAllSurname from './getAllSurname.mjs';
 import cnnamestr from './cnnamestr.mjs';
 import parseName from './parseName.mjs';
+import getSurname from './getSurname.mjs';
+import getGivenName from './getGivenName.mjs';
 
 export default [
   ...cnname,
@@ -10,4 +12,6 @@ export default [
   ...getAllSurname,
   ...cnnamestr,
   ...parseName,
+  ...getSurname,
+  ...getGivenName,
 ];
