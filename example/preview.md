@@ -3,107 +3,107 @@
 
 ## cnname()
 
-祝利仪
+乔瑜超
 
 ## cnname("彭")
 
-彭韬霜
+彭浩
 
 ## cnname(5)
 
-朱逸承,郑森善,胡华泓,罗峻,傅富
+马枫,戴凌璋,王俊勋,徐怡,胡东
 
 ## cnname("姚", 5)
 
-姚超柏,姚卓桂,姚景,姚可,姚华彩
+姚烈怡,姚航,姚鼎毓,姚甜,姚鼎
 
 ## cnname({ count: 5 })
 
-汪皓,易军鸿,龙语军,巢霞,石竹信
+贺涛,施祥,戴皓艳,郑佑霖,易昱
 
 ## cnname({ count: 5, unique: true, givenNameDuplicated: true })
 
-邓彩彩,蔡漪漪,江滨滨,欧璋璋,许基基
+潘锻锻,黄勋勋,费舒舒,陈柯柯,萧珂珂
 
 ## cnname({ count: 5, surname: "张" })
 
-张炫,张祥天,张奇,张鸿基,张永利
+张润波,张梦野,张承,张睿,张昕
 
 ## cnname({ count: 5, surname: "张", givenNameLength: 2 })
 
-张楠垒,张泽子,张熙予,张昕铭,张波然
+张霖伦,张心玲,张昊培,张涟俪,张航漪
 
 ## cnname({ count: 5, surname: "李", givenNameLength: 2, givenNameStartsWith: "俊" })
 
-李俊城,李俊冠,李俊利,李俊焱,李俊杰
+李俊睿,李俊文,李俊垚,李俊波,李俊岑
 
 ## cnname({ count: 5, surname: "张", givenNameLength: 2, givenNameEndsWith: "英" })
 
-张懿英,张彬英,张少英,张惠英,张森英
+张可英,张峰英,张烽英,张德英,张骏英
 
 ## cnname({ count: 5, unique: true, part: "surname" })
 
-邵,卢,武,祝,吴
+胡,雷,牛,任,谢
 
 ## cnname({ count: 5, unique: true, part: "givenName" })
 
-宇毓,嫣,坤善,骏,依
+铭,善瑞,伊,韬,梓
 
 ## cnname({ count: 5, unique: true, surnameType: "all-single", givenNameLength: 1 })
 
-逄哲,宣甜,甄梧,余全,窦凌
+弘歆,龙绣,睦殷,牛锐,闵安
 
 ## cnname({ count: 5, unique: true, surnameType: "all-compound", givenNameLength: 1 })
 
-钟离希,皇甫光,步都宇,羊舌倩,宇文烈
+宇文萱,公孙伊,锺离笑,司徒威,东郭航
 
 ## cnname({ count: 5, unique: true, surnameType: "common", givenNameLength: 1 })
 
-聂超,冯栋,何慧,石滨,于志
+王锴,俞岚,朱利,胡德,司语
 
 ## cnname({ count: 5, unique: true, surnameType: "common-single", givenNameLength: 1 })
 
-薛威,宋展,谢衡,严钜,丁烁
+萧霞,胡栋,胡劲,董德,周炎
 
 ## cnname({ count: 5, unique: true, surnameType: "common-compound", givenNameLength: 1 })
 
-司徒梧,上官焰,上官馨,慕容勋,夏侯美
+欧阳艳,公孙辰,司徒泓,尉迟桦,司空懿
 
 ## cnname({ count: 5, unique: true,  surname: ["张", "李"] })
 
-李钰佳,李昆,张彤阳,李鑫,李俐
+张柳星,李瑞,张杉慧,张峻,张殷
 
 ## cnname({ count: 5, unique: true, givenNameType: "male" })
 
-田辉,丁炜东,曹光毓,袁富冠,长孙弘
+陆奕健,姜亦野,薛东,应鑫元,万鼎
 
 ## cnname({ count: 5, unique: true, givenNameType: "female" })
 
-李韵,林心俪,郝彤,石琳,熊岑
+屈珍嫣,戴杰珂,吴宇瑶,薛穗,唐雪
 
 ## cnname({ count: 5, unique: true, givenNameType: "metal" })
 
-曹鑫钜,毛锴,常钜钜,张锐,章钟
+关锡锋,萧锐,吴锐,柏锡,贾钧
 
 ## cnname({ count: 5, unique: true, givenNameType: "wood" })
 
-翁柏榆,陈桂,钱樱,李棠杰,郝桦
+姜桦,瞿柯枫,蓝梁,徐枫,龙松
 
 ## cnname({ count: 5, unique: true, givenNameType: "water" })
 
-崔湛,樊漪涛,蒋涛,韩海,金涵
+段涟涟,牛湛涵,蒋泉,曾涛,许悠泽
 
 ## cnname({ count: 5, unique: true, givenNameType: "fire" })
 
-郭灿,陆炀晗,蔡焰全,岑煜,郑炀炀
+朱晗,易炎,周烈,顾炀,于旭
 
 ## cnname({ count: 5, unique: true, givenNameType: "earth" })
 
-孟坡,单坡宸,庄岱坤,袁腾坡,王岱
+翁峰,程城,程骏境,侯垒,徐城
 
 ## cnname({ count: 5, unique: true, givenNameType: "all" })
 
-崔钜锴,姚昱炎,谢绣,杜勇,余芳岱
+谭明美,关桂毓,郭书,许冠,曾俊仪
 
 ## isSurname("张")
 
@@ -139,44 +139,48 @@ false
 
 ## cnnamestr()
 
-高安榆
+钟哲钜
 
 ## cnnamestr("彭")
 
-彭野
+彭悠锐
 
 ## cnnamestr(5)
 
-吴锡娜,金运,章湛威,萧旭翊,郝霏婷
+关岩坡,郭毓文,赵歆,贺韬峥,胡弘
 
 ## cnnamestr("姚", 5)
 
-姚军野,姚雨,姚锡,姚冠永,姚亦健
+姚枫,姚烽景,姚鼎,姚炫,姚涛少
 
 ## cnnamestr({ count: 5 })
 
-欧富光,汪星文,韩岱,苏展星,胡甜
+卢伦涵,曾殷荣,聂昀,崔乔竹,邱婉
 
 ## cnnamestr({ count: 5, unique: true, givenNameDuplicated: true })
 
-廖弘弘,苏倩倩,范梁梁,杨钰钰,薛乔乔
+罗诗诗,姜霜霜,钱佳佳,贾威威,郝奇奇
 
 ## parseName("张三")
 
-{"surname":"张","givenName":"三"}
+{"surname":"张","givenName":"三","givenNameLength":1,"isCompoundSurname":false,"isSingleCharacterSurname":true,"isGivenNameDuplicated":false,"isCommonSurname":true}
 
 ## parseName("笑三")
 
-{"surname":"","givenName":"笑三"}
+{"surname":"","givenName":"笑三","givenNameLength":2,"isCompoundSurname":false,"isSingleCharacterSurname":false,"isGivenNameDuplicated":false,"isCommonSurname":false}
 
 ## parseName("三")
 
-{"surname":"","givenName":"三"}
+{"surname":"","givenName":"三","givenNameLength":1,"isCompoundSurname":false,"isSingleCharacterSurname":false,"isGivenNameDuplicated":false,"isCommonSurname":false}
 
 ## parseName("")
 
-{"surname":"","givenName":""}
+{"surname":"","givenName":"","givenNameLength":0,"isCompoundSurname":false,"isSingleCharacterSurname":false,"isGivenNameDuplicated":false,"isCommonSurname":false}
 
 ## parseName("欧阳三")
 
-{"surname":"欧阳","givenName":"三"}
+{"surname":"欧阳","givenName":"三","givenNameLength":1,"isCompoundSurname":true,"isSingleCharacterSurname":false,"isGivenNameDuplicated":false,"isCommonSurname":true}
+
+## parseName("欧阳娜娜")
+
+{"surname":"欧阳","givenName":"娜娜","givenNameLength":2,"isCompoundSurname":true,"isSingleCharacterSurname":false,"isGivenNameDuplicated":true,"isCommonSurname":true}

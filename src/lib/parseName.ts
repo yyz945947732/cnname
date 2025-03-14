@@ -12,7 +12,7 @@ import {
  * @returns {NameDetail} 详细姓名信息
  */
 function parseName(name: string): NameDetail {
-  if (name.length === 0) {
+  if (!name) {
     return {
       surname: '',
       givenName: '',
@@ -24,50 +24,41 @@ function parseName(name: string): NameDetail {
     };
   }
 
+  let surname = '';
+  let givenName = name;
+  let isCompoundSurname = false;
+  let isSingleCharacterSurname = false;
+
   if (name.length >= 3) {
-    const givenName = name.slice(2);
-    const surname = name.slice(0, 2);
-    const isCompoundSurname = getIsCompoundSurname(surname);
-    if (isCompoundSurname) {
-      const isGivenNameDuplicated = getIsDuplicatedGivenName(givenName);
-      const isCommonSurname = getIsCommonSurname(surname);
-      return {
-        surname,
-        givenName: name.slice(2),
-        givenNameLength: name.length - 2,
-        isCompoundSurname: true,
-        isSingleCharacterSurname: false,
-        isGivenNameDuplicated,
-        isCommonSurname,
-      };
+    const potentialSurname = name.slice(0, 2);
+    if (getIsCompoundSurname(potentialSurname)) {
+      surname = potentialSurname;
+      givenName = name.slice(2);
+      isCompoundSurname = true;
     }
   }
 
-  const surname = name.slice(0, 1);
-  const isSingleCharacterSurname = getIsSingleCharacterSurname(surname);
-  if (isSingleCharacterSurname) {
-    const givenName = name.slice(1);
-    const isCommonSurname = getIsCommonSurname(surname);
-    const isGivenNameDuplicated = getIsDuplicatedGivenName(givenName);
-    return {
-      surname,
-      givenName,
-      givenNameLength: name.length - 1,
-      isCompoundSurname: false,
-      isSingleCharacterSurname: true,
-      isGivenNameDuplicated,
-      isCommonSurname,
-    };
+  if (!isCompoundSurname) {
+    const potentialSurname = name.slice(0, 1);
+    if (getIsSingleCharacterSurname(potentialSurname)) {
+      surname = potentialSurname;
+      givenName = name.slice(1);
+      isSingleCharacterSurname = true;
+    }
   }
 
+  const isGivenNameDuplicated = getIsDuplicatedGivenName(givenName);
+  const isCommonSurname = getIsCommonSurname(surname);
+  const givenNameLength = givenName.length;
+
   return {
-    surname: '',
-    givenName: name,
-    givenNameLength: name.length,
-    isCompoundSurname: false,
-    isSingleCharacterSurname: false,
-    isGivenNameDuplicated: false,
-    isCommonSurname: false,
+    surname,
+    givenName,
+    givenNameLength,
+    isCompoundSurname,
+    isSingleCharacterSurname,
+    isGivenNameDuplicated,
+    isCommonSurname,
   };
 }
 
