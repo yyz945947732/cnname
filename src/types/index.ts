@@ -3,16 +3,25 @@ export interface Options {
   /** 返回值数量, 默认为 `1` */
   count?: number;
   /**
-   * 支持名类型，默认为 `all`
+   * 性别
    * @type `male` 男性常用名
    * @type `female` 女性常用名
+   */
+  gender?: 'male' | 'female';
+  /**
+   * 五行
    * @type `metal` 金属性名
    * @type `wood` 木属性名
    * @type `water` 水属性名
    * @type `fire` 火属性名
    * @type `earth` 土属性名
    */
-  givenNameType?: GivenNameType;
+  elements?: 'metal' | 'wood' | 'water' | 'fire' | 'earth';
+  /**
+   * 名字属性。
+   * @link https://github.com/yyz945947732/cnname/blob/master/docs/cn/givenNameType.md
+   */
+  givenNameType?: GivenNameType | GivenNameType[];
   /** 名长度 */
   givenNameLength?: number;
   /** 指定名字第一个字 */
@@ -42,7 +51,7 @@ export interface Options {
   /**
    * 返回不可重复，默认为 `false`
    *
-   * 如果 `unique` 为 `true`，但字典可返回的数量不足 `count`，则返回的数量可能会少于 `count`。
+   * 如果 `unique` 为 `true`，但字典可返回的数量不足 `count`，则返回的数量可能会少于 `count`
    */
   unique?: boolean;
   /**
@@ -64,15 +73,7 @@ export type SurnameType =
   | 'all-compound';
 
 /** 名字特性 */
-export type GivenNameType =
-  | 'all'
-  | 'male'
-  | 'female'
-  | 'metal'
-  | 'wood'
-  | 'water'
-  | 'fire'
-  | 'earth';
+export type GivenNameType = Options['gender'] | Options['elements'];
 
 /** 返回的姓名部分 */
 export type Part = 'fullName' | 'surname' | 'givenName';

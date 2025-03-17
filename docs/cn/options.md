@@ -5,7 +5,9 @@
 | 参数 | 类型 | 说明 | 默认值 |
 |------|------|------|------|
 | count | `number` | 生成的姓名数量。 | `1` |
-| givenNameType | `'all' \| 'male' \| 'female' \| 'metal' \| 'wood' \| 'water' \| 'fire' \| 'earth'` | 名特性。<br>`'all'` 无限制。<br> 性别：<br>`'male'` 男性名，`'female'` 女性名。<br> 五行：<br> `'metal'` 金，`'wood'` 木，`'water'` 水，`'fire'` 火，`'earth'` 土。 | `'all'` |
+| gender | `'male'` \| `'female'` | 性别。男性名或女性名。 | 无限制 |
+| element | `'metal'` \| `'wood'` \| `'water'` \| `'fire'` \| `'earth'` | 名字中包含的五行元素，例如（焕、淼、鑫...）。 | 无限制 |
+| givenNameType | [GivenNameType](givenNameType.md) \| GivenNameType[]  | [名字属性](givenNameType.md)。可传单个属性或属性数组，优先级将按照数组顺序。 | 无限制 |
 | givenNameLength | `number` | 名字长度（不含姓氏）。 | `1` 或 `2` |
 | givenNameStartsWith | `string` | 指定名字（不含姓氏）第一个字。 | 随机字 |
 | givenNameEndsWith | `string` | 指定名字（不含姓氏）最后一个字。 | 随机字 |
@@ -30,15 +32,29 @@ cnname({ count: 5 });
 ### 生成 3 个女性名字
 
 ```js
-cnname({ count: 3, givenNameType: 'female' });
+cnname({ count: 3, gender: 'female' });
 // => ["夏柔", "邓霞", "赵欣"]
 ```
 
 ### 生成 2 个五行属火的名字
 
 ```js
-cnname({ count: 2, givenNameType: 'fire' });
+cnname({ count: 2, element: 'fire' });
 // => ["杜旭", "熊煜"]
+```
+
+### 生成 2 个五行属水的女性名字
+
+```js
+cnname({ count: 2, element: 'water', gender: 'female' });
+// => ["郭淼莹", "陈诗泉"]
+```
+
+### 生成 2 个五行包含水和火的名字
+
+```js
+cnname({ count: 2, givenNameType: ['water', 'fire'] });
+// => ["苏泽灿", "聂涵晖"]
 ```
 
 ### 生成 2 个名字长度为 2 的姓名

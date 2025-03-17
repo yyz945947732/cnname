@@ -78,7 +78,7 @@ function cnname(
       fixSurname ||
       pickSurnameByAlgorithm(DEFAULT_SURNAME_TYPE, DEFAULT_SURNAME_ALGORITHM);
     const nameLength = Math.random() > 0.5 ? 2 : 1;
-    const givenName = pickRandomWords('all', nameLength);
+    const givenName = pickRandomWords(nameLength);
     return surname + givenName;
   });
 
