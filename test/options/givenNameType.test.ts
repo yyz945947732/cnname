@@ -9,6 +9,7 @@ assertType<string[]>(cnname({ count: 5, givenNameType: 'wood' }));
 assertType<string[]>(cnname({ count: 5, givenNameType: 'water' }));
 assertType<string[]>(cnname({ count: 5, givenNameType: 'fire' }));
 assertType<string[]>(cnname({ count: 5, givenNameType: 'earth' }));
+assertType<string[]>(cnname({ count: 5, givenNameType: ['earth', 'female'] }));
 
 describe('cnname.options.givenNameType', () => {
   test('cnname({ count: 5, unique: true, givenNameType: "male" }) should return array with five elements', () => {
@@ -34,5 +35,8 @@ describe('cnname.options.givenNameType', () => {
   });
   test('cnname({ count: 5, unique: true, givenNameType: "earth" }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, givenNameType: "earth" }).length).toBe(5);
+  });
+  test('cnname({ count: 5, unique: true, givenNameType: ["earth", "female"] }) should return array with five elements', () => {
+    expect(cnname({ count: 5, unique: true, givenNameType: ["earth", "female"] }).length).toBe(5);
   });
 });

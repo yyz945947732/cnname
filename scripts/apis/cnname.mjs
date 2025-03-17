@@ -105,4 +105,24 @@ export default [
     label: 'cnname({ count: 5, unique: true, givenNameType: "all" })',
     value: cnname({ count: 5, unique: true, givenNameType: "all" }),
   },
+  {
+    label: 'cnname({ count: 5, unique: true, givenNameType: ["earth", "female"] })',
+    value: cnname({ count: 5, unique: true, givenNameType: ["earth", "female"] }),
+  },
+  {
+    label: 'cnname({ count: 5, unique: true, givenNameType: ["water", "fire"] })',
+    value: cnname({ count: 5, unique: true, givenNameType: ["water", "fire"] }),
+  },
+  {
+    label: 'cnname({ count: 5, unique: true, gender: "female" })',
+    value: cnname({ count: 5, unique: true, gender: "female" }),
+  },
+  {
+    label: 'cnname({ count: 5, unique: true, elements: "fire" })',
+    value: cnname({ count: 5, unique: true, elements: "fire" }),
+  },
+  {
+    label: 'cnname({ count: 5, unique: true, elements: "earth", givenNameType: "water" })',
+    value: cnname({ count: 5, unique: true, elements: "earth", givenNameType: "water" }),
+  },
 ];

@@ -1,5 +1,5 @@
 import type { GivenNameType, Options, SurnameType } from '../types';
-import { DEFAULT_GIVEN_NAME_TYPE, DEFAULT_SURNAME_TYPE } from './default';
+import { DEFAULT_SURNAME_TYPE } from './default';
 import {
   getAllCommonCompoundSurnameSize,
   getAllCommonSingleCharacterSurnameSize,
@@ -16,6 +16,7 @@ import {
   getAllWoodWordsSize,
   getAllWordeSize,
 } from './dict';
+import { getGivenNameTypeList } from './index';
 
 /**
  * @private
@@ -61,7 +62,6 @@ function getSurnamePartMaxSize(options: Options): number {
  */
 function getGivenNamePartMaxSize(options: Options): number {
   const {
-    givenNameType = DEFAULT_GIVEN_NAME_TYPE,
     givenNameLength,
     givenNameDuplicated,
     givenNameStartsWith,
@@ -81,7 +81,8 @@ function getGivenNamePartMaxSize(options: Options): number {
     return 1;
   }
   if (len === 1) {
-    return getListSizeByGivenNameType(givenNameType);
+    const givenNameTypeList = getGivenNameTypeList(options);
+    return getListSizeByGivenNameType(givenNameTypeList?.[0]);
   }
   return Number.MAX_SAFE_INTEGER;
 }

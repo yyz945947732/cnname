@@ -1,8 +1,8 @@
 import type { Algorithm, GivenNameType, Options, SurnameType } from '../types';
 import {
-  DEFAULT_GIVEN_NAME_TYPE,
   DEFAULT_SURNAME_ALGORITHM,
   DEFAULT_SURNAME_TYPE,
+  GIVEN_NAME_TYPE_PRIORITY,
 } from './default';
 import {
   getAllCommonCompoundSurname,
@@ -69,14 +69,14 @@ export function getIsSingleCharacterSurname(surname: string): boolean {
  * 随机获取名
  */
 export function pickRandomWords(
-  givenNameType: GivenNameType = DEFAULT_GIVEN_NAME_TYPE,
   n = 1,
+  givenNameTypes?: GivenNameType[],
 ): string {
-  if (givenNameType === 'all') {
-    const words = getGivenNameListByGivenNameType(givenNameType);
-    return pickRandomEle(words, n).join('');
+  if (givenNameTypes?.length) {
+    return getGivenNameByGivenNameType(givenNameTypes, n);
   }
-  return getGivenNameByGivenNameType(givenNameType, n);
+  const words = getAllWords();
+  return pickRandomEle(words, n).join('');
 }
 
 /**
@@ -96,12 +96,12 @@ export function pickSurnameByAlgorithm(
  * 随机获取叠字名
  */
 export function pickDuplicatedGivenName(
-  givenNameType: GivenNameType = DEFAULT_GIVEN_NAME_TYPE,
+  givenNameTypes: GivenNameType[],
   len = 2,
   fixWord?: string,
 ): string {
   if (fixWord) return fixWord.repeat(len);
-  const words = getGivenNameListByGivenNameType(givenNameType);
+  const words = getGivenNameListByGivenNameType(givenNameTypes?.[0]);
   const givenName = pickRandomSingleEle(words);
   const duplicatedGivenName = givenName.repeat(len);
   return duplicatedGivenName;
@@ -188,11 +188,9 @@ export function getSurnameListBySurnameType(
  * 根据 `givenNameType` 获取所有名
  */
 export function getGivenNameListByGivenNameType(
-  givenNameType: GivenNameType = DEFAULT_GIVEN_NAME_TYPE,
+  givenNameType?: GivenNameType,
 ): string[] {
   switch (givenNameType) {
-    case 'all':
-      return getAllWords();
     case 'male':
       return getAllMaleWords();
     case 'female':
@@ -292,7 +290,6 @@ export function getSurnameByOptions(options: Options): string {
 export function getGivenNameByOptions(options: Options): string {
   const {
     givenNameDuplicated = false,
-    givenNameType = DEFAULT_GIVEN_NAME_TYPE,
     givenNameLength,
     givenNameStartsWith,
     givenNameEndsWith,
@@ -306,15 +303,17 @@ export function getGivenNameByOptions(options: Options): string {
 
   let result = '';
 
+  const givenNameTypeList = getGivenNameTypeList(options);
+
   if (givenNameDuplicated) {
     return pickDuplicatedGivenName(
-      givenNameType,
+      givenNameTypeList,
       givenNameLength,
       givenNameStartsWith || givenNameEndsWith,
     );
   }
 
-  result = pickRandomWords(givenNameType, nameLength);
+  result = pickRandomWords(nameLength, givenNameTypeList);
 
   if (givenNameStartsWith) {
     result = givenNameStartsWith + result.slice(1);
@@ -332,18 +331,58 @@ export function getGivenNameByOptions(options: Options): string {
  * 根据 `givenNameType` 获取名
  */
 function getGivenNameByGivenNameType(
-  givenNameType: GivenNameType,
+  givenNameTypes: GivenNameType[],
   n = 1,
 ): string {
-  const words = getGivenNameListByGivenNameType(givenNameType);
+  const typeWords: string[] = [];
   const normalWords = getAllNormalWords();
-  const result: string[] = [pickRandomSingleEle(words)];
+
+  for (const givenNameType of givenNameTypes) {
+    const words = getGivenNameListByGivenNameType(givenNameType);
+    typeWords.push(pickRandomSingleEle(words));
+  }
+
+  const result = typeWords.slice(0, n);
+
   while (result.length < n) {
     if (Math.random() > 0.5) {
       result.push(pickRandomSingleEle(normalWords));
     } else {
+      const type = pickRandomSingleEle(
+        givenNameTypes,
+      ) as unknown as GivenNameType;
+      const words = getGivenNameListByGivenNameType(type);
       result.push(pickRandomSingleEle(words));
     }
   }
   return shuffle(result).join('');
+}
+
+/**
+ * @private
+ * 获取需支持的 givenNameType 属性列表
+ */
+export function getGivenNameTypeList(options: Options): GivenNameType[] {
+  const { givenNameType } = options;
+  const list: GivenNameType[] = [];
+
+  for (const type of GIVEN_NAME_TYPE_PRIORITY) {
+    if (options[type] !== undefined) {
+      list.push(options[type]);
+    }
+  }
+
+  if (!givenNameType) {
+    return list;
+  }
+
+  if (Array.isArray(givenNameType)) {
+    list.push(...givenNameType);
+  }
+
+  if (typeof givenNameType === 'string') {
+    list.push(givenNameType);
+  }
+
+  return list;
 }

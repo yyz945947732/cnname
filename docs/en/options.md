@@ -5,7 +5,9 @@
 | Parameter | Type | Description | Default |
 |-----------|------|-------------|---------|
 | count | `number` | Number of names to generate. | `1` |
-| givenNameType | `'all' \| 'male' \| 'female' \| 'metal' \| 'wood' \| 'water' \| 'fire' \| 'earth'` | Name attribute: <br>`'all'` for no specific attribute. <br> Gender: <br> `'male'` for male names, `'female'` for female names. <br> Five Elements: <br> `'metal'` (金), `'wood'` (木), `'water'` (水), `'fire'` (火), `'earth'` (土). | `'all'` |
+| gender | `'male'` \| `'female'` | Gender. Male or female name. | No restriction |
+| element | `'metal'` \| `'wood'` \| `'water'` \| `'fire'` \| `'earth'` | The Five Elements contained in the name, e.g., (焕、淼、鑫...). | No restriction |
+| givenNameType | [GivenNameType](givenNameType.md) \| GivenNameType[] | [Name attributes](givenNameType.md). Can be a single attribute or an array of attributes, with priority following the array order. | No restriction |
 | givenNameLength | `number` | Length of the given name. | `1` or `2` |
 | givenNameStartsWith | `string` | Specify the first character of the given name. | Random character |
 | givenNameEndsWith | `string` | Specify the last character of the given name. | Random character |
@@ -30,15 +32,29 @@ cnname({ count: 5 });
 ### Generate 3 female names
 
 ```js
-cnname({ count: 3, givenNameType: 'female' });
+cnname({ count: 3, gender: 'female' });
 // => ["夏柔", "邓霞", "赵欣"]
 ```
 
 ### Generate 2 names with the "fire" element
 
 ```js
-cnname({ count: 2, givenNameType: 'fire' });
+cnname({ count: 2, element: 'fire' });
 // => ["杜旭", "熊煜"]
+```
+
+### Generate 2 female names with the "water" element
+
+```js
+cnname({ count: 2, element: 'water', gender: 'female' });
+// => ["郭淼莹", "陈诗泉"]
+```
+
+### Generate 2 names containing both "water" and "fire" elements
+
+```js
+cnname({ count: 2, givenNameType: ['water', 'fire'] });
+// => ["苏泽灿", "聂涵晖"]
 ```
 
 ### Generate 2 names with a given name length of 2 characters

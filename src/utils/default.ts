@@ -1,4 +1,4 @@
-import type { Algorithm, GivenNameType, SurnameType } from '../types';
+import type { Algorithm, SurnameType } from '../types';
 
 /**
  * @private
@@ -8,12 +8,12 @@ export const DEFAULT_SURNAME_TYPE: SurnameType = 'common';
 
 /**
  * @private
- * 默认 `givenNameType`
- */
-export const DEFAULT_GIVEN_NAME_TYPE: GivenNameType = 'all';
-
-/**
- * @private
  * 默认 `surnameAlgorithm`
  */
 export const DEFAULT_SURNAME_ALGORITHM: Algorithm = 'weight';
+
+/**
+ * @private
+ * 名字属性优先级
+ */
+export const GIVEN_NAME_TYPE_PRIORITY = ['elements', 'gender'] as const;
