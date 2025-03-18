@@ -3,44 +3,86 @@ import commonSurnameDict from '../../dict/commonSurname.json';
 import wordsDict from '../../dict/words.json';
 
 /** 所有姓氏 */
-const ALL_SURNAMES = allSurnameDict.dict.split(' ');
+const ALL_SURNAMES = parseDictToSurname(allSurnameDict.dict);
 /** 所有复姓 */
-const ALL_COMPOUND_SURNAMES = ALL_SURNAMES.filter((words) => words.length > 1);
+const ALL_COMPOUND_SURNAMES = getCompoundSurnameBySurnames(ALL_SURNAMES);
 /** 所有单字姓 */
-const ALL_SINGLE_CHARACTER_SURNAMES = ALL_SURNAMES.filter(
-  (words) => words.length === 1,
-);
+const ALL_SINGLE_CHARACTER_SURNAMES =
+  getSingleCharacterSurnameBySurnames(ALL_SURNAMES);
 
 /** 所有常见姓氏 */
-const COMMON_SURNAMES = commonSurnameDict.dict.split(' ');
+const COMMON_SURNAMES = parseDictToSurname(commonSurnameDict.dict);
 /** 所有常见复姓 */
-const COMMON_COMPOUND_SURNAMES = COMMON_SURNAMES.filter(
-  (words) => words.length > 1,
-);
+const COMMON_COMPOUND_SURNAMES = getCompoundSurnameBySurnames(COMMON_SURNAMES);
 /** 所有常见单字姓 */
-const COMMON_SINGLE_CHARACTER_SURNAMES = COMMON_SURNAMES.filter(
-  (words) => words.length === 1,
-);
+const COMMON_SINGLE_CHARACTER_SURNAMES =
+  getSingleCharacterSurnameBySurnames(COMMON_SURNAMES);
 
 /** 所有名 */
 const WORDS = getAllDictWords();
 /** 所有女性名 */
-const FEMALE_WORDS = wordsDict.female.split('');
+const FEMALE_WORDS = parseDictToWords(wordsDict.female);
 /** 所有男性名 */
-const MALE_WORDS = wordsDict.male.split('');
+const MALE_WORDS = parseDictToWords(wordsDict.male);
 /** 所有中性名 */
-const NORMAL_WORDS = wordsDict.normal.split('');
+const NORMAL_WORDS = parseDictToWords(wordsDict.normal);
 
 /** 金属性 */
-const METAL_WORDS = wordsDict.metal.split('');
+const METAL_WORDS = parseDictToWords(wordsDict.metal);
 /** 木属性 */
-const WOOD_WORDS = wordsDict.wood.split('');
+const WOOD_WORDS = parseDictToWords(wordsDict.wood);
 /** 水属性 */
-const WATER_WORDS = wordsDict.water.split('');
+const WATER_WORDS = parseDictToWords(wordsDict.water);
 /** 火属性 */
-const FIRE_WORDS = wordsDict.fire.split('');
+const FIRE_WORDS = parseDictToWords(wordsDict.fire);
 /** 土属性 */
-const EARTH_WORDS = wordsDict.earth.split('');
+const EARTH_WORDS = parseDictToWords(wordsDict.earth);
+
+/**
+ * @private
+ * 通过字典获取名
+ */
+function parseDictToWords(dict: string) {
+  return dict.split('');
+}
+
+/**
+ * @private
+ * 通过字典获取姓氏
+ */
+function parseDictToSurname(dict: string) {
+  return dict.split(' ');
+}
+
+/**
+ * @private
+ * 获取单姓列表
+ */
+function getSingleCharacterSurnameBySurnames(surnames: string[]): string[] {
+  return surnames.filter((words) => words.length === 1);
+}
+
+/**
+ * @private
+ * 获取复姓列表
+ */
+function getCompoundSurnameBySurnames(surnames: string[]): string[] {
+  return surnames.filter((words) => words.length > 1);
+}
+
+/**
+ * @private
+ * 获取完整名字典
+ */
+export function getAllDictWords(): string[] {
+  const list = Object.values(wordsDict);
+  const result = [];
+  for (const item of list) {
+    result.push(...item.split(''));
+  }
+  const uniqueResult = Array.from(new Set(result));
+  return uniqueResult;
+}
 
 /**
  * @private
@@ -135,20 +177,6 @@ export function getAllCommonCompoundSurnameSize(): number {
  */
 export function getAllCommonSingleCharacterSurnameSize(): number {
   return COMMON_SINGLE_CHARACTER_SURNAMES.length;
-}
-
-/**
- * @private
- * 获取完整名字典
- */
-export function getAllDictWords(): string[] {
-  const list = Object.values(wordsDict);
-  const result = [];
-  for (const item of list) {
-    result.push(...item.split(''));
-  }
-  const uniqueResult = Array.from(new Set(result));
-  return uniqueResult;
 }
 
 /**
