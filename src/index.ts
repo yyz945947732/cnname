@@ -6,5 +6,5 @@ import getSurname from './lib/getSurname';
 import isSurname from './lib/isSurname';
 import parseName from './lib/parseName';
 
-export { isSurname, getAllSurname, cnnamestr, parseName, getSurname, getGivenName };
+export { isSurname, getAllSurname, getGivenName, getSurname, parseName, cnnamestr };
 export default cnname;
