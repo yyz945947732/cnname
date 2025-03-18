@@ -189,7 +189,7 @@ export function getAllWords(): string[] {
  * @private
  * 获取所有名数量
  */
-export function getAllWordeSize(): number {
+export function getAllWordsSize(): number {
   return WORDS.length;
 }
 

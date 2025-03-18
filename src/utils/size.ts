@@ -14,7 +14,7 @@ import {
   getAllSurnameSize,
   getAllWaterWordsSize,
   getAllWoodWordsSize,
-  getAllWordeSize,
+  getAllWordsSize,
 } from './dict';
 import { getGivenNameTypeList } from './index';
 
@@ -45,15 +45,13 @@ export function getMaxSetSize(options: Options): number {
  */
 function getSurnamePartMaxSize(options: Options): number {
   const { surnameType = DEFAULT_SURNAME_TYPE, surname } = options;
-  const MAX_SURNAME_SIZE = getListSizeBySurnameType(surnameType);
   if (Array.isArray(surname)) {
-    const uniqueSurname = Array.from(new Set(surname));
-    return uniqueSurname.length;
+    return new Set(surname).size;
   }
   if (surname !== undefined) {
     return 1;
   }
-  return MAX_SURNAME_SIZE;
+  return getListSizeBySurnameType(surnameType);
 }
 
 /**
@@ -87,23 +85,16 @@ function getGivenNamePartMaxSize(options: Options): number {
  * 根据 `surnameType` 获取集合大小
  */
 function getListSizeBySurnameType(surnameType: SurnameType): number {
-  const MAX_ALL_SURNAME_SIZE = getAllSurnameSize();
-  const MAX_ALL_COMPOUND_SURNAME_SIZE = getAllCompoundSurnameSize();
-  const MAX_ALL_SINGLE_CHARACTER_SURNAME_SIZE = getAllSingleCharacterSurnameSize();
-  const MAX_COMMON_SURNAME_SIZE = getAllCommonSurnameSize();
-  const MAX_COMMON_COMPOUND_SURNAME_SIZE = getAllCommonCompoundSurnameSize();
-  const MAX_COMMON_SINGLE_CHARACTER_SURNAME_SIZE = getAllCommonSingleCharacterSurnameSize();
-
   const MAX_SURNAME_SIZE_MAP: Record<SurnameType, number> = {
-    all: MAX_ALL_SURNAME_SIZE,
-    'all-compound': MAX_ALL_COMPOUND_SURNAME_SIZE,
-    'all-single': MAX_ALL_SINGLE_CHARACTER_SURNAME_SIZE,
-    common: MAX_COMMON_SURNAME_SIZE,
-    'common-single': MAX_COMMON_SINGLE_CHARACTER_SURNAME_SIZE,
-    'common-compound': MAX_COMMON_COMPOUND_SURNAME_SIZE,
+    all: getAllSurnameSize(),
+    'all-compound': getAllCompoundSurnameSize(),
+    'all-single': getAllSingleCharacterSurnameSize(),
+    common: getAllCommonSurnameSize(),
+    'common-single': getAllCommonSingleCharacterSurnameSize(),
+    'common-compound': getAllCommonCompoundSurnameSize(),
   };
 
-  return MAX_SURNAME_SIZE_MAP[surnameType] ?? MAX_ALL_SURNAME_SIZE;
+  return MAX_SURNAME_SIZE_MAP[surnameType] ?? MAX_SURNAME_SIZE_MAP.all;
 }
 
 /**
@@ -111,24 +102,16 @@ function getListSizeBySurnameType(surnameType: SurnameType): number {
  * 根据 `givenNameType` 获取集合大小
  */
 function getListSizeByGivenNameType(givenNameType: GivenNameType): number {
-  const MAX_ALL_GIVEN_NAME_SIZE = getAllWordeSize();
-  const MAX_MALE_GIVEN_NAME_SIZE = getAllMaleWordsSize();
-  const MAX_FEMALE_GIVEN_NAME_SIZE = getAllFemaleWordsSize();
-  const MAX_METAL_GIVEN_NAME_SIZE = getAllMetalWordsSize();
-  const MAX_WOOD_GIVEN_NAME_SIZE = getAllWoodWordsSize();
-  const MAX_WATER_GIVEN_NAME_SIZE = getAllWaterWordsSize();
-  const MAX_FIRE_GIVEN_NAME_SIZE = getAllFireWordsSize();
-  const MAX_EARTH_GIVEN_NAME_SIZE = getAllEarthWordsSize();
+  const MAX_ALL_GIVEN_NAME_SIZE = getAllWordsSize();
 
   const MAX_GIVEN_NAME_SIZE_MAP: Record<GivenNameType, number> = {
-    all: MAX_ALL_GIVEN_NAME_SIZE,
-    male: MAX_MALE_GIVEN_NAME_SIZE,
-    female: MAX_FEMALE_GIVEN_NAME_SIZE,
-    metal: MAX_METAL_GIVEN_NAME_SIZE,
-    wood: MAX_WOOD_GIVEN_NAME_SIZE,
-    water: MAX_WATER_GIVEN_NAME_SIZE,
-    fire: MAX_FIRE_GIVEN_NAME_SIZE,
-    earth: MAX_EARTH_GIVEN_NAME_SIZE,
+    male: getAllMaleWordsSize(),
+    female: getAllFemaleWordsSize(),
+    metal: getAllMetalWordsSize(),
+    wood: getAllWoodWordsSize(),
+    water: getAllWaterWordsSize(),
+    fire: getAllFireWordsSize(),
+    earth: getAllEarthWordsSize(),
   };
 
   return MAX_GIVEN_NAME_SIZE_MAP[givenNameType] ?? MAX_ALL_GIVEN_NAME_SIZE;
