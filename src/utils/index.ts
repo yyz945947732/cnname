@@ -149,9 +149,7 @@ export function getSingleResult(options: Options): string {
  * @private
  * 获取所有姓氏
  */
-export function getSurnameListBySurnameType(
-  surnameType: SurnameType = DEFAULT_SURNAME_TYPE,
-): string[] {
+export function getSurnameListBySurnameType(surnameType: SurnameType): string[] {
   switch (surnameType) {
     case 'all':
       return getAllSurname();
@@ -200,13 +198,7 @@ export function getGivenNameListByGivenNameType(givenNameType?: GivenNameType): 
  * 处理 `{ part: 'surname', unique: 'true' }` 边缘情况的性能问题
  */
 export function handleuUniqueSrunamePartEdgeCase(options: Options): string[] | undefined {
-  const {
-    count = 1,
-    surnameType = DEFAULT_SURNAME_TYPE,
-    unique = false,
-    part = 'fullName',
-    surname,
-  } = options;
+  const { count = 1, surnameType = DEFAULT_SURNAME_TYPE, unique, part, surname } = options;
 
   const list = getSurnameListBySurnameType(surnameType);
   const maxSetSize = getMaxSetSize(options);

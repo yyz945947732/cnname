@@ -29,6 +29,9 @@ describe('parseName', () => {
   test('parseName("欧阳娜娜") should return { surname: "欧阳", givenName: "娜娜", isGivenNameDuplicated: true }', () => {
     expect(parseName('欧阳娜娜')).toEqual({ surname: '欧阳', givenName: '娜娜', isCompoundSurname: true, isSingleCharacterSurname: false, givenNameLength: 2, isGivenNameDuplicated: true, isCommonSurname: true });
   });
+  test('parseName("李娜娜") should return { surname: "李", givenName: "娜娜", isGivenNameDuplicated: true }', () => {
+    expect(parseName('李娜娜')).toEqual({ surname: '李', givenName: '娜娜', isCompoundSurname: false, isSingleCharacterSurname: true, givenNameLength: 2, isGivenNameDuplicated: true, isCommonSurname: true });
+  });
   test('parseName("帅哥") should return { surname: "帅", givenName: "哥", isCommonSurname: false }', () => {
     expect(parseName('帅哥')).toEqual({ surname: '帅', givenName: '哥', isCompoundSurname: false, isSingleCharacterSurname: true, givenNameLength: 1, isGivenNameDuplicated: false, isCommonSurname: false });
   });
