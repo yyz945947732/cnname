@@ -61,12 +61,7 @@ function getSurnamePartMaxSize(options: Options): number {
  * 计算 `part` 为 `givenName` 时，集合大小
  */
 function getGivenNamePartMaxSize(options: Options): number {
-  const {
-    givenNameLength,
-    givenNameDuplicated,
-    givenNameStartsWith,
-    givenNameEndsWith,
-  } = options;
+  const { givenNameLength, givenNameDuplicated, givenNameStartsWith, givenNameEndsWith } = options;
   let len = givenNameLength || 2;
   if (givenNameDuplicated) {
     return 1;
@@ -94,12 +89,10 @@ function getGivenNamePartMaxSize(options: Options): number {
 function getListSizeBySurnameType(surnameType: SurnameType): number {
   const MAX_ALL_SURNAME_SIZE = getAllSurnameSize();
   const MAX_ALL_COMPOUND_SURNAME_SIZE = getAllCompoundSurnameSize();
-  const MAX_ALL_SINGLE_CHARACTER_SURNAME_SIZE =
-    getAllSingleCharacterSurnameSize();
+  const MAX_ALL_SINGLE_CHARACTER_SURNAME_SIZE = getAllSingleCharacterSurnameSize();
   const MAX_COMMON_SURNAME_SIZE = getAllCommonSurnameSize();
   const MAX_COMMON_COMPOUND_SURNAME_SIZE = getAllCommonCompoundSurnameSize();
-  const MAX_COMMON_SINGLE_CHARACTER_SURNAME_SIZE =
-    getAllCommonSingleCharacterSurnameSize();
+  const MAX_COMMON_SINGLE_CHARACTER_SURNAME_SIZE = getAllCommonSingleCharacterSurnameSize();
 
   const MAX_SURNAME_SIZE_MAP: Record<SurnameType, number> = {
     all: MAX_ALL_SURNAME_SIZE,

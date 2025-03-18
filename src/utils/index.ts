@@ -21,11 +21,7 @@ import {
   getAllWoodWords,
   getAllWords,
 } from './dict';
-import {
-  pickRandomEle,
-  pickRandomSingleEle,
-  safePickSingleEleByAlgorithm,
-} from './random';
+import { pickRandomEle, pickRandomSingleEle, safePickSingleEleByAlgorithm } from './random';
 import { getMaxSetSize } from './size';
 
 /**
@@ -68,10 +64,7 @@ export function getIsSingleCharacterSurname(surname: string): boolean {
  * @private
  * 随机获取名
  */
-export function pickRandomWords(
-  n = 1,
-  givenNameTypes?: GivenNameType[],
-): string {
+export function pickRandomWords(n = 1, givenNameTypes?: GivenNameType[]): string {
   if (givenNameTypes?.length) {
     return getGivenNameByGivenNameType(givenNameTypes, n);
   }
@@ -83,10 +76,7 @@ export function pickRandomWords(
  * @private
  * 按随机算法获取姓氏
  */
-export function pickSurnameByAlgorithm(
-  surnameType: SurnameType,
-  algorithm: Algorithm,
-): string {
+export function pickSurnameByAlgorithm(surnameType: SurnameType, algorithm: Algorithm): string {
   const list = getSurnameListBySurnameType(surnameType);
   return safePickSingleEleByAlgorithm(list, algorithm);
 }
@@ -112,10 +102,7 @@ export function pickDuplicatedGivenName(
  * 判断是否为叠字名
  */
 export function getIsDuplicatedGivenName(givenName: string): boolean {
-  return (
-    givenName.length > 1 &&
-    givenName.split('').every((char) => char === givenName[0])
-  );
+  return givenName.length > 1 && givenName.split('').every((char) => char === givenName[0]);
 }
 
 /**
@@ -187,9 +174,7 @@ export function getSurnameListBySurnameType(
  * @private
  * 根据 `givenNameType` 获取所有名
  */
-export function getGivenNameListByGivenNameType(
-  givenNameType?: GivenNameType,
-): string[] {
+export function getGivenNameListByGivenNameType(givenNameType?: GivenNameType): string[] {
   switch (givenNameType) {
     case 'male':
       return getAllMaleWords();
@@ -214,9 +199,7 @@ export function getGivenNameListByGivenNameType(
  * @private
  * 处理 `{ part: 'surname', unique: 'true' }` 边缘情况的性能问题
  */
-export function handleuUniqueSrunamePartEdgeCase(
-  options: Options,
-): string[] | undefined {
+export function handleuUniqueSrunamePartEdgeCase(options: Options): string[] | undefined {
   const {
     count = 1,
     surnameType = DEFAULT_SURNAME_TYPE,
@@ -330,10 +313,7 @@ export function getGivenNameByOptions(options: Options): string {
  * @private
  * 根据 `givenNameType` 获取名
  */
-function getGivenNameByGivenNameType(
-  givenNameTypes: GivenNameType[],
-  n = 1,
-): string {
+function getGivenNameByGivenNameType(givenNameTypes: GivenNameType[], n = 1): string {
   const typeWords: string[] = [];
   const normalWords = getAllNormalWords();
 
@@ -348,9 +328,7 @@ function getGivenNameByGivenNameType(
     if (Math.random() > 0.5) {
       result.push(pickRandomSingleEle(normalWords));
     } else {
-      const type = pickRandomSingleEle(
-        givenNameTypes,
-      ) as unknown as GivenNameType;
+      const type = pickRandomSingleEle(givenNameTypes) as unknown as GivenNameType;
       const words = getGivenNameListByGivenNameType(type);
       result.push(pickRandomSingleEle(words));
     }

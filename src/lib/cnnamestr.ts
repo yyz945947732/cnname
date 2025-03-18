@@ -36,10 +36,7 @@ function cnnamestr(surname: string, num: number): string;
  */
 function cnnamestr(options: Options): string;
 
-function cnnamestr(
-  parameter1?: string | number | Options,
-  parameter2?: number,
-): string {
+function cnnamestr(parameter1?: string | number | Options, parameter2?: number): string {
   const result = cnname(parameter1 as unknown as string, parameter2);
   if (Array.isArray(result)) {
     return result.join();

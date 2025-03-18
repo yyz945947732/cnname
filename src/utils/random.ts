@@ -5,11 +5,7 @@ import { DEFAULT_SURNAME_ALGORITHM } from './default';
  * @private
  * 通过算法从数组中随机选取 n 个元素
  */
-export function pickEleByAlgorithm(
-  array: string[],
-  algorithm: Algorithm,
-  n = 1,
-): string[] {
+export function pickEleByAlgorithm(array: string[], algorithm: Algorithm, n = 1): string[] {
   const pickFnMap = {
     weight: pickWeightEle,
     random: pickRandomEle,
@@ -37,10 +33,7 @@ export function randomNumber(a: number, b: number): number {
  * @private
  * 通过算法安全的从数组中随机选取 1 个元素
  */
-export function safePickSingleEleByAlgorithm(
-  array: string[],
-  algorithm: Algorithm,
-): string {
+export function safePickSingleEleByAlgorithm(array: string[], algorithm: Algorithm): string {
   if (!array || !array.length) {
     return '';
   }

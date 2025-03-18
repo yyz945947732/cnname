@@ -7,16 +7,14 @@ const ALL_SURNAMES = parseDictToSurname(allSurnameDict.dict);
 /** 所有复姓 */
 const ALL_COMPOUND_SURNAMES = getCompoundSurnameBySurnames(ALL_SURNAMES);
 /** 所有单字姓 */
-const ALL_SINGLE_CHARACTER_SURNAMES =
-  getSingleCharacterSurnameBySurnames(ALL_SURNAMES);
+const ALL_SINGLE_CHARACTER_SURNAMES = getSingleCharacterSurnameBySurnames(ALL_SURNAMES);
 
 /** 所有常见姓氏 */
 const COMMON_SURNAMES = parseDictToSurname(commonSurnameDict.dict);
 /** 所有常见复姓 */
 const COMMON_COMPOUND_SURNAMES = getCompoundSurnameBySurnames(COMMON_SURNAMES);
 /** 所有常见单字姓 */
-const COMMON_SINGLE_CHARACTER_SURNAMES =
-  getSingleCharacterSurnameBySurnames(COMMON_SURNAMES);
+const COMMON_SINGLE_CHARACTER_SURNAMES = getSingleCharacterSurnameBySurnames(COMMON_SURNAMES);
 
 /** 所有名 */
 const WORDS = getAllDictWords();
