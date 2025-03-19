@@ -97,11 +97,7 @@ cnname({ count: 5, gender: 'female' });
 
 **`cnname(options: Options): string[]`**
 
-使用[自定义规则](docs/cn/options.md)生成随机名字，可控制名字长度、性别等。
-
-### ⚡ Options
-
-👉 [查看文档](docs/cn/options.md)
+通过高级选项获取姓名。支持性别、五行、叠字名、复姓等丰富功能。👉 [查看文档](docs/cn/options.md)
 
 ### 🛠️ 工具方法
 
