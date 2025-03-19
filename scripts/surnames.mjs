@@ -8,7 +8,7 @@ const surnamesPreview = surnames
     (item) =>
       `
 
-## ${item}`
+## [${item}](https://baike.baidu.com/item/${item}姓)`
   )
   .join('');
 
