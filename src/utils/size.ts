@@ -1,6 +1,7 @@
 import type { GivenNameType, Options, SurnameType } from '../types';
 import { DEFAULT_SURNAME_TYPE } from './default';
 import {
+  getAllAnimalWordsSize,
   getAllCommonCompoundSurnameSize,
   getAllCommonSingleCharacterSurnameSize,
   getAllCommonSurnameSize,
@@ -112,6 +113,7 @@ function getListSizeByGivenNameType(givenNameType: GivenNameType): number {
     water: getAllWaterWordsSize(),
     fire: getAllFireWordsSize(),
     earth: getAllEarthWordsSize(),
+    animal: getAllAnimalWordsSize(),
   };
 
   return MAX_GIVEN_NAME_SIZE_MAP[givenNameType] ?? MAX_ALL_GIVEN_NAME_SIZE;
