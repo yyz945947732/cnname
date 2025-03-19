@@ -99,7 +99,7 @@ Generate a specified number of random Chinese names with a given surname.
 
 Get names with advanced options. Supports gender, Five Elements, reduplicated names, compound surnames, and more. 👉 [Documentation](docs/en/options.md)
 
-### 🛠️ Utils
+## 🛠️ Utils
 
 - [isSurname](docs/en/isSurname.md)
 
