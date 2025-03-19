@@ -1,5 +1,5 @@
 import type { SurnameType } from '../types';
-import { getSurnameListBySurnameType } from '../utils';
+import { getSurnameListBySurnameType } from '../utils/list';
 
 /**
  * 获取所有姓氏

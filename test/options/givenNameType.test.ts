@@ -3,20 +3,17 @@ import { describe, test, expect, assertType } from 'vitest';
 
 assertType<string[]>(cnname({ count: 5, givenNameType: 'male' }));
 assertType<string[]>(cnname({ count: 5, givenNameType: 'female' }));
-assertType<string[]>(cnname({ count: 5, givenNameType: 'all' }));
 assertType<string[]>(cnname({ count: 5, givenNameType: 'metal' }));
 assertType<string[]>(cnname({ count: 5, givenNameType: 'wood' }));
 assertType<string[]>(cnname({ count: 5, givenNameType: 'water' }));
 assertType<string[]>(cnname({ count: 5, givenNameType: 'fire' }));
 assertType<string[]>(cnname({ count: 5, givenNameType: 'earth' }));
 assertType<string[]>(cnname({ count: 5, givenNameType: ['earth', 'female'] }));
+assertType<string[]>(cnname({ count: 5, givenNameType: 'animal' }));
 
 describe('cnname.options.givenNameType', () => {
   test('cnname({ count: 5, unique: true, givenNameType: "male" }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, givenNameType: "male" }).length).toBe(5);
-  });
-  test('cnname({ count: 5, unique: true, givenNameType: "all" }) should return array with five elements', () => {
-    expect(cnname({ count: 5, unique: true, givenNameType: "all" }).length).toBe(5);
   });
   test('cnname({ count: 5, unique: true, givenNameType: "female" }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, givenNameType: "female" }).length).toBe(5);
@@ -38,5 +35,8 @@ describe('cnname.options.givenNameType', () => {
   });
   test('cnname({ count: 5, unique: true, givenNameType: ["earth", "female"] }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, givenNameType: ["earth", "female"] }).length).toBe(5);
+  });
+  test('cnname({ count: 5, unique: true, givenNameType: "animal" }) should return array with five elements', () => {
+    expect(cnname({ count: 5, unique: true, givenNameType: "animal" }).length).toBe(5);
   });
 });

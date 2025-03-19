@@ -73,7 +73,10 @@ export type SurnameType =
   | 'all-compound';
 
 /** 名字特性 */
-export type GivenNameType = Options['gender'] | Options['elements'];
+export type GivenNameType = Options['gender'] | Options['elements'] | Others;
+
+/** 其他特性 */
+export type Others = 'animal';
 
 /** 返回的姓名部分 */
 export type Part = 'fullName' | 'surname' | 'givenName';

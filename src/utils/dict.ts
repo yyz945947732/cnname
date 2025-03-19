@@ -36,6 +36,9 @@ const FIRE_WORDS = parseDictToWords(wordsDict.fire);
 /** 土属性 */
 const EARTH_WORDS = parseDictToWords(wordsDict.earth);
 
+/** 动物属性 */
+const ANIMAL_WORDS = parseDictToWords(wordsDict.animal);
+
 /**
  * @private
  * 通过字典获取名
@@ -275,6 +278,14 @@ export function getAllEarthWords(): string[] {
 
 /**
  * @private
+ * 获取所有动物名
+ */
+export function getAllAnimalWords(): string[] {
+  return ANIMAL_WORDS;
+}
+
+/**
+ * @private
  * 获取所有金属性名数量
  */
 export function getAllMetalWordsSize(): number {
@@ -311,4 +322,12 @@ export function getAllFireWordsSize(): number {
  */
 export function getAllEarthWordsSize(): number {
   return EARTH_WORDS.length;
+}
+
+/**
+ * @private
+ * 获取所有动物名数量
+ */
+export function getAllAnimalWordsSize(): number {
+  return ANIMAL_WORDS.length;
 }

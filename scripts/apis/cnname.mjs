@@ -102,6 +102,10 @@ export default [
     value: cnname({ count: 5, unique: true, givenNameType: "earth" }),
   },
   {
+    label: 'cnname({ count: 5, unique: true, givenNameType: "animal" })',
+    value: cnname({ count: 5, unique: true, givenNameType: "animal" }),
+  },
+  {
     label: 'cnname({ count: 5, unique: true, givenNameType: "all" })',
     value: cnname({ count: 5, unique: true, givenNameType: "all" }),
   },

@@ -2,27 +2,19 @@ import type { Algorithm, GivenNameType, Options, SurnameType } from '../types';
 import {
   DEFAULT_SURNAME_ALGORITHM,
   DEFAULT_SURNAME_TYPE,
+  GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE,
   GIVEN_NAME_TYPE_PRIORITY,
 } from './default';
 import {
-  getAllCommonCompoundSurname,
-  getAllCommonSingleCharacterSurname,
   getAllCommonSurname,
   getAllCompoundSurname,
-  getAllEarthWords,
-  getAllFemaleWords,
-  getAllFireWords,
-  getAllMaleWords,
-  getAllMetalWords,
   getAllNormalWords,
   getAllSingleCharacterSurname,
   getAllSurname,
-  getAllWaterWords,
-  getAllWoodWords,
   getAllWords,
 } from './dict';
+import { getGivenNameListByGivenNameType, getSurnameListBySurnameType } from './list';
 import { pickRandomEle, pickRandomSingleEle, safePickSingleEleByAlgorithm } from './random';
-import { getMaxSetSize } from './size';
 
 /**
  * @private
@@ -147,54 +139,6 @@ export function getSingleResult(options: Options): string {
 
 /**
  * @private
- * 获取所有姓氏
- */
-export function getSurnameListBySurnameType(surnameType: SurnameType): string[] {
-  switch (surnameType) {
-    case 'all':
-      return getAllSurname();
-    case 'all-single':
-      return getAllSingleCharacterSurname();
-    case 'all-compound':
-      return getAllCompoundSurname();
-    case 'common':
-      return getAllCommonSurname();
-    case 'common-single':
-      return getAllCommonSingleCharacterSurname();
-    case 'common-compound':
-      return getAllCommonCompoundSurname();
-    default:
-      return getAllSurname();
-  }
-}
-
-/**
- * @private
- * 根据 `givenNameType` 获取所有名
- */
-export function getGivenNameListByGivenNameType(givenNameType?: GivenNameType): string[] {
-  switch (givenNameType) {
-    case 'male':
-      return getAllMaleWords();
-    case 'female':
-      return getAllFemaleWords();
-    case 'metal':
-      return getAllMetalWords();
-    case 'wood':
-      return getAllWoodWords();
-    case 'water':
-      return getAllWaterWords();
-    case 'fire':
-      return getAllFireWords();
-    case 'earth':
-      return getAllEarthWords();
-    default:
-      return getAllWords();
-  }
-}
-
-/**
- * @private
  * 处理 `{ part: 'surname', unique: 'true' }` 边缘情况的性能问题
  */
 export function handleuUniqueSrunamePartEdgeCase(options: Options): string[] {
@@ -313,8 +257,10 @@ function getGivenNameByGivenNameType(givenNameTypes: GivenNameType[], n: number)
       result.push(pickRandomSingleEle(normalWords));
     } else {
       const type = pickRandomSingleEle(givenNameTypes) as unknown as GivenNameType;
-      const words = getGivenNameListByGivenNameType(type);
-      result.push(pickRandomSingleEle(words));
+      if (!GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE.includes(type)) {
+        const words = getGivenNameListByGivenNameType(type);
+        result.push(pickRandomSingleEle(words));
+      }
     }
   }
   return shuffle(result).join('');
