@@ -98,10 +98,7 @@ function cnnameWithOptions(options: Options): string[] {
 
     // 由于姓氏数据样本量太少，考虑到性能问题直接返回全部数据
     if (part === 'surname' && num > maxSetSize) {
-      const list = handleuUniqueSrunamePartEdgeCase(options);
-      if (list) {
-        return list;
-      }
+      return handleuUniqueSrunamePartEdgeCase(options);
     }
 
     while (uniqueResult.size < num && uniqueResult.size < maxSetSize) {

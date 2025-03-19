@@ -5,7 +5,7 @@ import { DEFAULT_SURNAME_ALGORITHM } from './default';
  * @private
  * 通过算法从数组中随机选取 n 个元素
  */
-export function pickEleByAlgorithm(array: string[], algorithm: Algorithm, n = 1): string[] {
+export function pickEleByAlgorithm(array: string[], algorithm: Algorithm, n: number): string[] {
   const pickFnMap = {
     weight: pickWeightEle,
     random: pickRandomEle,
@@ -17,7 +17,6 @@ export function pickEleByAlgorithm(array: string[], algorithm: Algorithm, n = 1)
     return pickFn(array, n);
   }
 
-  /* istanbul ignore next -- @preserve */
   return pickFnMap[DEFAULT_SURNAME_ALGORITHM](array, n);
 }
 
@@ -52,7 +51,7 @@ export function pickRandomSingleEle(array: string[]): string {
  * @private
  * 通过纯随机算法从数组中随机选取 n 个元素
  */
-export function pickRandomEle(array: string[], n = 1): string[] {
+export function pickRandomEle(array: string[], n: number): string[] {
   /* istanbul ignore if -- @preserve */
   if (!array || !array.length || n <= 0) return [];
 
@@ -70,7 +69,7 @@ export function pickRandomEle(array: string[], n = 1): string[] {
  * @private
  * 通过权重算法从数组中随机选取 n 个元素
  */
-export function pickWeightEle(array: string[], n = 1): string[] {
+export function pickWeightEle(array: string[], n: number): string[] {
   /* istanbul ignore if -- @preserve */
   if (!array || !array.length || n <= 0) return [];
 

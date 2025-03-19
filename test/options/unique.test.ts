@@ -37,7 +37,7 @@ describe('cnname.options.unique', () => {
   test('cnname({ count: 5, unique: true, part: "givenName" }) should return array with givenName', () => {
     expect(cnname({ count: 5, unique: true, part: 'givenName' }).length).toBe(5);
   });
-  test('cnname({ count: 5, unique: true, part: "surname" }) should return array with givenName', () => {
+  test('cnname({ count: 5, unique: true, part: "surname" }) should return array with surname', () => {
     expect(cnname({ count: 5, unique: true, part: 'surname' }).length).toBe(5);
   });
 });

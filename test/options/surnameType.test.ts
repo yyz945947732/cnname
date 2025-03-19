@@ -31,4 +31,8 @@ describe('cnname.options.surnameType', () => {
     // @ts-expect-error
     expect(cnname({ count: 5, surnameType: 'error', surnameAlgorithm: 'random' }).length).toBe(5);
   });
+  test('cnname({ count: 100, surnameType: "error", unique: true, surnameAlgorithm: "random" }) should return array with 100 elements', () => {
+    // @ts-expect-error
+    expect(cnname({ count: 100, surnameType: 'error', unique: true, surnameAlgorithm: 'random' }).length).toBe(100);
+  });
 });

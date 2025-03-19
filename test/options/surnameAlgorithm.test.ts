@@ -17,6 +17,10 @@ describe('cnname.options.surnameAlgorithm', () => {
   test('cnname({ count: 5, part: "surname", surnameType: "common", surnameAlgorithm: "weight" }) should return array with five elements', () => {
     expect(cnname({ count: 5, part: "surname", surnameType: "common", surnameAlgorithm: "weight" }).length).toBe(5);
   });
+  test('cnname({ count: 5, part: "surname", surnameType: "common", surnameAlgorithm: "error" }) should return array with five elements', () => {
+    // @ts-expect-error
+    expect(cnname({ count: 5, part: "surname", surnameType: "common", surnameAlgorithm: "error" }).length).toBe(5);
+  });
   test('cnname({ count: 5000, unique: true, part: "surname", surnameType: "common", surnameAlgorithm: "random" }) should return instantly', () => {
     expect(cnname({ count: 5000, unique: true, part: 'surname', surnameType: 'common', surnameAlgorithm: 'random' }).length).lt(5000);
   });
