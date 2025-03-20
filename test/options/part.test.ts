@@ -25,8 +25,8 @@ describe('cnname.options.part', () => {
   test('cnname({ count: 100, unique: true, part: "givenName", givenNameType: "female", givenNameLength: 1 }) should return instantly', () => {
     expect(cnname({ count: 100, unique: true, part: 'givenName', givenNameType: "female", givenNameLength: 1 }).length).lt(100);
   });
-  test('cnname({ count: 50000, unique: true, part: "givenName", givenNameType: "all", givenNameLength: 1 }) should return instantly', () => {
-    expect(cnname({ count: 50000, unique: true, part: 'givenName', givenNameType: "all", givenNameLength: 1 }).length).lt(50000);
+  test('cnname({ count: 50000, unique: true, part: "givenName", givenNameLength: 1 }) should return instantly', () => {
+    expect(cnname({ count: 50000, unique: true, part: 'givenName', givenNameLength: 1 }).length).lt(50000);
   });
   test('cnname({ count: 50, unique: true, part: "surname", surnameType: "common", surnameAlgorithm: "random" }) should return instantly', () => {
     expect(cnname({ count: 50, unique: true, part: 'surname', surnameType: 'common', surnameAlgorithm: 'random' }).length).toBe(50);
