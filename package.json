@@ -34,14 +34,14 @@
     "url": "git+https://github.com/yyz945947732/cnname.git"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.1.2",
-    "@vitest/coverage-istanbul": "^3.0.7",
-    "bumpp": "^10.0.3",
+    "@biomejs/biome": "^1.9.4",
+    "@vitest/coverage-istanbul": "^3.0.9",
+    "bumpp": "^10.1.0",
     "husky": "^9.1.7",
-    "lint-staged": "^15.4.3",
+    "lint-staged": "^15.5.0",
     "tsup": "^8.4.0",
-    "typescript": "^5.2.2",
-    "vitest": "^3.0.7"
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.9"
   },
   "keywords": [
     "汉字",
