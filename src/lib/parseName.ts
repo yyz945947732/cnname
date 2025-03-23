@@ -16,16 +16,17 @@ function parseName(name: string): NameDetail {
     return {
       surname: '',
       givenName: '',
+      fullName: '',
       givenNameLength: 0,
       isCompoundSurname: false,
       isSingleCharacterSurname: false,
       isGivenNameDuplicated: false,
-      isCommonSurname: false,
     };
   }
 
   let surname = '';
   let givenName = name;
+  const fullName = name;
   let isCompoundSurname = false;
   let isSingleCharacterSurname = false;
 
@@ -48,17 +49,16 @@ function parseName(name: string): NameDetail {
   }
 
   const isGivenNameDuplicated = getIsDuplicatedGivenName(givenName);
-  const isCommonSurname = getIsCommonSurname(surname);
   const givenNameLength = givenName.length;
 
   return {
     surname,
     givenName,
+    fullName,
     givenNameLength,
     isCompoundSurname,
     isSingleCharacterSurname,
     isGivenNameDuplicated,
-    isCommonSurname,
   };
 }
 

@@ -90,6 +90,8 @@ export interface NameDetail {
   surname: string;
   /** 名 */
   givenName: string;
+  /** 完整姓名 */
+  fullName: string;
   /** 是否为复姓 */
   isCompoundSurname: boolean;
   /** 是否为单字姓氏 */
@@ -98,6 +100,4 @@ export interface NameDetail {
   givenNameLength: number;
   /** 是否为叠字名 */
   isGivenNameDuplicated: boolean;
-  /** 是否为常见姓氏 */
-  isCommonSurname: boolean;
 }
