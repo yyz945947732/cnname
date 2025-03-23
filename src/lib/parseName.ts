@@ -1,6 +1,5 @@
 import type { NameDetail } from '../types';
 import {
-  getIsCommonSurname,
   getIsCompoundSurname,
   getIsDuplicatedGivenName,
   getIsSingleCharacterSurname,

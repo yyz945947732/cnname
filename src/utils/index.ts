@@ -6,7 +6,6 @@ import {
   GIVEN_NAME_TYPE_PRIORITY,
 } from './default';
 import {
-  getAllCommonSurname,
   getAllCompoundSurname,
   getAllNormalWords,
   getAllSingleCharacterSurname,
