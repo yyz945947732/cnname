@@ -20,11 +20,11 @@ _(NameDetail)_: Detailed name information.
 
 - `surname` The surname.
 - `givenName` The given name.
+-  `fullName` The full name.
 - `givenNameLength` Length of the given name.
 - `isCompoundSurname` Whether it is a compound surname.
 - `isSingleCharacterSurname` Whether it is a single-character surname.
 - `isGivenNameDuplicated` Whether the given name is a duplicated name (e.g., "娜娜")
-- `isCommonSurname` Whether it is a [common surname](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)
 
 ## Example
 
@@ -35,10 +35,10 @@ parseName('欧阳娜娜');
 // {
 //    surname: '欧阳',
 //    givenName: '娜娜',
+//    fullName: '欧阳娜娜',
 //    givenNameLength: 2,
 //    isCompoundSurname: true,
 //    isSingleCharacterSurname: false,
 //    isGivenNameDuplicated: true,
-//    isCommonSurname: true
 // }
 ```
