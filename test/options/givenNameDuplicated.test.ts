@@ -5,7 +5,7 @@ assertType<string[]>(cnname({ count: 5, givenNameDuplicated: true }));
 
 describe('cnname.options.givenNameDuplicated', () => {
   test('cnname({ count: 5, givenNameDuplicated: true }) should return array with five elements', () => {
-    expect(cnname({ count: 5, givenNameDuplicated: true }).length).toBe(5);
+    expect(cnname({ count: 5, givenNameDuplicated: true })).toHaveLength(5);
   });
   test('cnname({ count: 5, unique: true, givenNameDuplicated: true, givenNameLength: 2, surnameType: "all-single" }) should return array with repeated givenName', () => {
     const result = cnname({ count: 5, unique: true, givenNameDuplicated: true, givenNameLength: 2, surnameType: "all-single" });

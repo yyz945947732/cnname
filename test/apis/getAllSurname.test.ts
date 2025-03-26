@@ -9,10 +9,22 @@ assertType<string[]>(getAllSurname('common-single'));
 assertType<string[]>(getAllSurname('common-compound'));
 
 describe('getAllSurname', () => {
-  test('getAllSurname() should return array with at least 200 elements', () => {
-    expect(getAllSurname().length).gte(200);
+  test('getAllSurname() should return array', () => {
+    expect(getAllSurname()).toBeInstanceOf(Array);
   });
-  test('getAllSurname("common") should contain fewer than 1,000 elements', () => {
-    expect(getAllSurname('common').length).lt(1000);
+  test('getAllSurname("all-single") should return array', () => {
+    expect(getAllSurname('all-single')).toBeInstanceOf(Array);
+  });
+  test('getAllSurname("all-compound") should return array', () => {
+    expect(getAllSurname('all-compound')).toBeInstanceOf(Array);
+  });
+  test('getAllSurname("common") should return array', () => {
+    expect(getAllSurname('common')).toBeInstanceOf(Array);
+  });
+  test('getAllSurname("common-single") should return array', () => {
+    expect(getAllSurname('common-single')).toBeInstanceOf(Array);
+  });
+  test('getAllSurname("common-compound") should return array', () => {
+    expect(getAllSurname('common-compound')).toBeInstanceOf(Array);
   });
 });

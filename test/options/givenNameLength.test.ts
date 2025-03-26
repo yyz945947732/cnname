@@ -7,7 +7,7 @@ assertType<string[]>(cnname({ count: 5, givenNameLength: 0 }));
 
 describe('cnname.options.givenNameLength', () => {
   test('cnname({ count: 5, givenNameLength: 999 }) should return array with five elements', () => {
-    expect(cnname({ count: 5, givenNameLength: 999 }).length).toBe(5);
+    expect(cnname({ count: 5, givenNameLength: 999 })).toHaveLength(5);
   });
   test('cnname({ count: 5, surname: "张", givenNameLength: 2 }) should return array with givenNameLength 2', () => {
     const result = cnname({ count: 5, surname: "张", givenNameLength: 2 });

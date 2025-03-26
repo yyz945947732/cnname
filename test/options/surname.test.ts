@@ -12,7 +12,7 @@ describe('cnname.options.surname', () => {
     expect(name[0]).toBe("张");
   });
   test('cnname({ count: 5, unique: true, surname: ["张", "李"] }) should return array with five elements', () => {
-    expect(cnname({ count: 5, unique: true, surname: ["张", "李"] }).length).toBe(5);
+    expect(cnname({ count: 5, unique: true, surname: ["张", "李"] })).toHaveLength(5);
   });
   test('cnname({ count: 5, unique: true, surname: ["张", "李"] }) should return array with surname "张" or "李"', () => {
     expect(cnname({ count: 5, unique: true, surname: ["张", "李"] }).every(surname => ["张", "李"].includes(surname[0]))).toBeTruthy();
@@ -21,9 +21,12 @@ describe('cnname.options.surname', () => {
     expect(cnname({ count: 5, unique: true, surname: ["张", "张"] }).every(surname => ["张"].includes(surname[0]))).toBeTruthy();
   });
   test('cnname({ count: 5, unique: true, surname: [] }) should return array with five elements', () => {
-    expect(cnname({ count: 5, unique: true, surname: [] }).length).toBe(5);
+    expect(cnname({ count: 5, unique: true, surname: [] })).toHaveLength(5);
+  });
+  test('cnname({ count: 5, surname: [] }) should return array with five elements', () => {
+    expect(cnname({ count: 5, surname: [] })).toHaveLength(5);
   });
   test('cnname({ count: 5, unique: true, part: "surname", surname: [] }) should return array with one elements', () => {
-    expect(cnname({ count: 5, unique: true, part: 'surname', surname: [] }).length).toBe(0);
+    expect(cnname({ count: 5, unique: true, part: 'surname', surname: [] })).toHaveLength(0);
   });
 });

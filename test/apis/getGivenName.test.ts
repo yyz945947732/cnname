@@ -7,15 +7,15 @@ assertType<string[]>(getGivenName({ count: 1 }));
 
 describe('getGivenName', () => {
   test('getGivenName() should return a string', () => {
-    expect(typeof getGivenName()).toBe('string');
+    expect(getGivenName()).toBeTypeOf('string');
   });
   test('getGivenName(5) should return array with five elements', () => {
     expect(getGivenName(5)).toBeInstanceOf(Array);
-    expect(getGivenName(5).length).toBe(5);
+    expect(getGivenName(5)).toHaveLength(5);
   });
   test('getGivenName({ count: 5 }) should return array with five elements', () => {
     expect(getGivenName({ count: 5 })).toBeInstanceOf(Array);
-    expect(getGivenName({ count: 5 }).length).toBe(5);
+    expect(getGivenName({ count: 5 })).toHaveLength(5);
   });
   test('getGivenName({ count: 5, unique: true, givenNameDuplicated: true, givenNameLength: 2 }) should return array with repeated givenName', () => {
     const result = getGivenName({ count: 5, unique: true, givenNameDuplicated: true, givenNameLength: 2 });

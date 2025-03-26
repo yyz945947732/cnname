@@ -9,18 +9,18 @@ assertType<string[]>(cnname({ count: 5, elements: 'earth' }));
 
 describe('cnname.options.elements', () => {
   test('cnname({ count: 5, unique: true, elements: "metal" }) should return array with five elements', () => {
-    expect(cnname({ count: 5, unique: true, elements: "metal" }).length).toBe(5);
+    expect(cnname({ count: 5, unique: true, elements: "metal" })).toHaveLength(5);
   });
   test('cnname({ count: 5, unique: true, elements: "wood" }) should return array with five elements', () => {
-    expect(cnname({ count: 5, unique: true, elements: "wood" }).length).toBe(5);
+    expect(cnname({ count: 5, unique: true, elements: "wood" })).toHaveLength(5);
   });
   test('cnname({ count: 5, unique: true, elements: "water" }) should return array with five elements', () => {
-    expect(cnname({ count: 5, unique: true, elements: "water" }).length).toBe(5);
+    expect(cnname({ count: 5, unique: true, elements: "water" })).toHaveLength(5);
   });
   test('cnname({ count: 5, unique: true, elements: "fire" }) should return array with five elements', () => {
-    expect(cnname({ count: 5, unique: true, elements: "fire" }).length).toBe(5);
+    expect(cnname({ count: 5, unique: true, elements: "fire" })).toHaveLength(5);
   });
   test('cnname({ count: 5, unique: true, elements: "earth" }) should return array with five elements', () => {
-    expect(cnname({ count: 5, unique: true, elements: "earth" }).length).toBe(5);
+    expect(cnname({ count: 5, unique: true, elements: "earth" })).toHaveLength(5);
   });
 });
