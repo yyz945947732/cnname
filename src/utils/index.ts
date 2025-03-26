@@ -164,6 +164,17 @@ export function shuffle(array: string[]): string[] {
 
 /**
  * @private
+ * 判断是否为汉字
+ */
+export function isCnChar(word: string): boolean {
+  if (word.length === 1) {
+    return !!word.match(/[\u4e00-\u9fa5]/);
+  }
+  return word.match(/[\u4e00-\u9fa5]/g)?.join('').length === word.length;
+}
+
+/**
+ * @private
  * 根据 Options 获取 `surname` 的值
  */
 export function getSurnameByOptions(options: Options): string {
