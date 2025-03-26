@@ -46,7 +46,7 @@ function cnname(options: Options): string[];
 
 function cnname(parameter1?: number | string | Options, parameter2?: number): string | string[] {
   let num: number;
-  let fixSurname = '';
+  let fixSurname = undefined;
   let single = false;
   if (isOptions(parameter1)) {
     return cnnameWithOptions(parameter1);
@@ -69,7 +69,7 @@ function cnname(parameter1?: number | string | Options, parameter2?: number): st
 
   const result = Array.from({ length: num }, () => {
     const surname =
-      fixSurname || pickSurnameByAlgorithm(DEFAULT_SURNAME_TYPE, DEFAULT_SURNAME_ALGORITHM);
+      fixSurname ?? pickSurnameByAlgorithm(DEFAULT_SURNAME_TYPE, DEFAULT_SURNAME_ALGORITHM);
     const nameLength = Math.random() > 0.5 ? 2 : 1;
     const givenName = pickRandomWords(nameLength);
     return surname + givenName;
@@ -88,13 +88,9 @@ function cnnameWithOptions(options: Options): string[] {
 
   const num = count < 0 ? 0 : count;
 
-  const result = Array.from({ length: num }, () => {
-    return getSingleResult(options);
-  }).filter(Boolean);
-
   if (unique) {
     const maxSetSize = getMaxSetSize(options);
-    const uniqueResult = new Set<string>(result);
+    const uniqueResult = new Set<string>([]);
 
     // 由于姓氏数据样本量太少，考虑到性能问题直接返回全部数据
     if (part === 'surname' && num > maxSetSize) {
@@ -106,6 +102,10 @@ function cnnameWithOptions(options: Options): string[] {
     }
     return Array.from(uniqueResult);
   }
+
+  const result = Array.from({ length: num }, () => {
+    return getSingleResult(options);
+  });
 
   return result;
 }

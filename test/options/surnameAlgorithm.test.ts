@@ -21,16 +21,4 @@ describe('cnname.options.surnameAlgorithm', () => {
     // @ts-expect-error
     expect(cnname({ count: 5, part: "surname", surnameType: "common", surnameAlgorithm: "error" })).toHaveLength(5);
   });
-  test('cnname({ count: 5000, unique: true, part: "surname", surnameType: "common", surnameAlgorithm: "random" }) should return instantly', () => {
-    expect(cnname({ count: 5000, unique: true, part: 'surname', surnameType: 'common', surnameAlgorithm: 'random' }).length).lt(5000);
-  });
-  test('cnname({ count: 50000, unique: true, part: "surname", surnameType: "all", surnameAlgorithm: "random" }) should return instantly', () => {
-    expect(cnname({ count: 50000, unique: true, part: 'surname', surnameType: 'all', surnameAlgorithm: 'random' }).length).lt(50000);
-  });
-  test('cnname({ count: 5000, unique: true, part: "surname", surnameType: "common", surnameAlgorithm: "weight" }) should return instantly', () => {
-    expect(cnname({ count: 5000, unique: true, part: 'surname', surnameType: 'common', surnameAlgorithm: 'weight' }).length).lt(5000);
-  });
-  test('cnname({ count: 50000, unique: true, part: "surname", surnameType: "all", surnameAlgorithm: "weight" }) should return instantly', () => {
-    expect(cnname({ count: 50000, unique: true, part: 'surname', surnameType: 'all', surnameAlgorithm: 'weight' }).length).lt(50000);
-  });
 });

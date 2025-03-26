@@ -23,6 +23,9 @@ describe('cnname.options.surname', () => {
   test('cnname({ count: 5, unique: true, surname: [] }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, surname: [] })).toHaveLength(5);
   });
+  test('cnname({ count: 5, surname: [] }) should return array with five elements', () => {
+    expect(cnname({ count: 5, surname: [] })).toHaveLength(5);
+  });
   test('cnname({ count: 5, unique: true, part: "surname", surname: [] }) should return array with one elements', () => {
     expect(cnname({ count: 5, unique: true, part: 'surname', surname: [] })).toHaveLength(0);
   });

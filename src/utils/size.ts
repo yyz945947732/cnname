@@ -47,7 +47,7 @@ export function getMaxSetSize(options: Options): number {
 function getSurnamePartMaxSize(options: Options): number {
   const { surnameType = DEFAULT_SURNAME_TYPE, surname } = options;
   if (Array.isArray(surname)) {
-    return new Set(surname).size;
+    return Math.max(new Set(surname).size, 1);
   }
   if (surname !== undefined) {
     return 1;
