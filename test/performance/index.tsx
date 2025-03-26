@@ -32,4 +32,10 @@ describe('performance', () => {
   test('cnname({ count: 50, unique: true, part: "surname", surnameType: "common", surnameAlgorithm: "random" }) should return instantly', () => {
     expect(cnname({ count: 50, unique: true, part: 'surname', surnameType: 'common', surnameAlgorithm: 'random' })).toHaveLength(50);
   });
+  test('cnname({ count: 50000, surnameAlgorithm: "random" }) should return instantly', () => {
+    expect(cnname({ count: 50000, part: 'surname', surnameType: 'all', surnameAlgorithm: 'random' })).toHaveLength(50000);
+  });
+  test('cnname({ count: 50000, surnameAlgorithm: "weight" }) should return instantly', () => {
+    expect(cnname({ count: 50000, part: 'surname', surnameType: 'common', surnameAlgorithm: 'weight' })).toHaveLength(50000);
+  });
 });
