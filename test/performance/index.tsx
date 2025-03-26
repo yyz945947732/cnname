@@ -1,5 +1,5 @@
 import cnname from '../../src';
-import { describe, test, expect, assertType } from 'vitest';
+import { describe, test, expect } from 'vitest';
 
 describe('performance', () => {
   test('cnname({ count: 50000, unique: true, surname: "张", givenNameLength: 2, givenNameStartsWith: "俊" }) should return instantly', () => {
