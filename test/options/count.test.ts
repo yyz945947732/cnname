@@ -15,7 +15,7 @@ describe('cnname.options.count', () => {
   test('cnname({}) should return array with one elements', () => {
     expect(cnname({})).toHaveLength(1);
   });
-  test('cnname({ count: -1 }) should return array with one elements', () => {
+  test('cnname({ count: -1 }) should return empty array', () => {
     expect(cnname({ count: -1 })).toHaveLength(0);
   });
   test('cnname({ count: 0 }) should return empty array', () => {
