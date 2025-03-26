@@ -12,6 +12,7 @@
 | givenNameStartsWith | `string` | Specify the first character of the given name. | Random character |
 | givenNameEndsWith | `string` | Specify the last character of the given name. | Random character |
 | givenNameDuplicated | `boolean` | Whether to return only repeated given names (e.g., "婷婷", "明明"). | `false` |
+| givenName | `string \| string[]` | Specify a given name (single or array).。 | Random given name |
 | surnameType | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | Surname type: <br>`'common'` for [common surname](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json). <br>`'common-single'` for common single-character surnames. <br> `'common-compound'` for common compound surnames. <br>`'all'` for all surnames. <br> `'all-single'` for single-character surnames. <br> `'all-compound'` for compound surnames. | `'common'` |
 | surnameAlgorithm | `'weight' \| 'random'` | Random generate algorithm (surname). <br>`'weight'` weighted by real frequency. <br>`'random'` purely random. | `'weight'` |
 | surname | `string \| string[]` | Specify a surname (single or array). | Random surname |
@@ -76,6 +77,13 @@ cnname({ count: 3, givenNameStartsWith: "小" });
 ```js
 cnname({ count: 3, givenNameDuplicated: true });
 // => ["李莉莉", "李维维", "符馨馨"]
+```
+
+### Generate 3 names with specific given name
+
+```js
+cnname({ count: 3, givenName: ['俊杰', '杰伦'] });
+// => ["周俊杰", "林杰伦", "张俊杰"]
 ```
 
 ### Generate 2 names with compound surnames

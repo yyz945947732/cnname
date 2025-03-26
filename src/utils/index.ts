@@ -131,7 +131,7 @@ export function getSingleResult(options: Options): string {
  * @private
  * 处理 `{ part: 'surname', unique: 'true' }` 边缘情况的性能问题
  */
-export function handleuUniqueSrunamePartEdgeCase(options: Options): string[] {
+export function handleUniqueSurnamePartEdgeCase(options: Options): string[] {
   const { surnameType = DEFAULT_SURNAME_TYPE, surname } = options;
 
   if (Array.isArray(surname)) {
@@ -205,7 +205,16 @@ export function getGivenNameByOptions(options: Options): string {
     givenNameLength,
     givenNameStartsWith,
     givenNameEndsWith,
+    givenName: fixGivenName,
   } = options;
+
+  if (Array.isArray(fixGivenName)) {
+    return safePickSingleEleByAlgorithm(fixGivenName, 'random');
+  }
+
+  if (fixGivenName !== undefined) {
+    return fixGivenName;
+  }
 
   const nameLength = Number.isInteger(givenNameLength)
     ? givenNameLength
