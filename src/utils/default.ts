@@ -23,3 +23,15 @@ export const GIVEN_NAME_TYPE_PRIORITY = ['elements', 'gender'] as const;
  * 以下类型的名字最好只包含一个字
  */
 export const GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE = ['animal'];
+
+/**
+ * @private
+ * 常见单姓固定数量
+ */
+export const COMMON_SINGLE_CHARACTER_SURNAMES_TOTAL = 130;
+
+/**
+ * @private
+ * 常见复姓固定数量
+ */
+export const COMMON_COMPOUND_SURNAMES_TOTAL = 16;
