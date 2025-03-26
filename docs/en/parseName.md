@@ -20,8 +20,9 @@ _(NameDetail)_: Detailed name information.
 
 - `surname` The surname.
 - `givenName` The given name.
--  `fullName` The full name.
+- `fullName` The full name.
 - `givenNameLength` Length of the given name.
+- `isValidName` Whether it is a valid name.
 - `isCompoundSurname` Whether it is a compound surname.
 - `isSingleCharacterSurname` Whether it is a single-character surname.
 - `isGivenNameDuplicated` Whether the given name is a duplicated name (e.g., "娜娜")
@@ -37,6 +38,7 @@ parseName('欧阳娜娜');
 //    givenName: '娜娜',
 //    fullName: '欧阳娜娜',
 //    givenNameLength: 2,
+//    isValidName: true,
 //    isCompoundSurname: true,
 //    isSingleCharacterSurname: false,
 //    isGivenNameDuplicated: true,

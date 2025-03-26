@@ -3,6 +3,7 @@ import {
   getIsCompoundSurname,
   getIsDuplicatedGivenName,
   getIsSingleCharacterSurname,
+  isCnChar,
 } from '../utils';
 
 /**
@@ -17,6 +18,7 @@ function parseName(name: string): NameDetail {
       givenName: '',
       fullName: '',
       givenNameLength: 0,
+      isValidName: false,
       isCompoundSurname: false,
       isSingleCharacterSurname: false,
       isGivenNameDuplicated: false,
@@ -25,7 +27,7 @@ function parseName(name: string): NameDetail {
 
   let surname = '';
   let givenName = name;
-  const fullName = name;
+  let isValidName = false;
   let isCompoundSurname = false;
   let isSingleCharacterSurname = false;
 
@@ -47,6 +49,11 @@ function parseName(name: string): NameDetail {
     }
   }
 
+  if (isCnChar(name) && surname && givenName) {
+    isValidName = true;
+  }
+
+  const fullName = name;
   const isGivenNameDuplicated = getIsDuplicatedGivenName(givenName);
   const givenNameLength = givenName.length;
 
@@ -54,6 +61,7 @@ function parseName(name: string): NameDetail {
     surname,
     givenName,
     fullName,
+    isValidName,
     givenNameLength,
     isCompoundSurname,
     isSingleCharacterSurname,

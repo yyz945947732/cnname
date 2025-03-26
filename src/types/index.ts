@@ -92,6 +92,8 @@ export interface NameDetail {
   givenName: string;
   /** 完整姓名 */
   fullName: string;
+  /** 是否为合法姓名 */
+  isValidName: boolean;
   /** 是否为复姓 */
   isCompoundSurname: boolean;
   /** 是否为单字姓氏 */
