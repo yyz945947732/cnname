@@ -12,6 +12,7 @@
 | givenNameStartsWith | `string` | 指定名字（不含姓氏）第一个字。 | 随机字 |
 | givenNameEndsWith | `string` | 指定名字（不含姓氏）最后一个字。 | 随机字 |
 | givenNameDuplicated | `boolean` | 是否只返回叠字名（如 "婷婷"、"明明"）。 | `false` |
+| givenName | `string \| string[]` | 指定名（不含姓氏），可传单个名或名数组。 | 随机名 |
 | surnameType | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | 姓氏类型。<br>`'common'` [常见姓氏](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)。<br>`'common-single'` 常见单字姓。<br>`'common-compound'` 常见复姓。<br>`'all'` 全部姓氏。<br>`'all-single'` 全部单字姓。<br>`'all-compound'` 全部复姓。 | `'common'` |
 | surnameAlgorithm | `'weight' \| 'random'` | 随机算法（姓氏）。<br>`'weight'` 按常见度加权（接近现实世界概率）。<br>`'random'` 纯随机。 | `'weight'` |
 | surname | `string \| string[]` | 指定姓氏，可传单个姓或姓氏数组。 | 随机姓氏 |
@@ -76,6 +77,13 @@ cnname({ count: 3, givenNameStartsWith: "小" });
 ```js
 cnname({ count: 3, givenNameDuplicated: true });
 // => ["李莉莉", "李维维", "符馨馨"]
+```
+
+### 生成 3 个特定名的名字
+
+```js
+cnname({ count: 3, givenName: ['俊杰', '杰伦'] });
+// => ["周俊杰", "林杰伦", "张俊杰"]
 ```
 
 ### 生成 2 个复姓的姓名

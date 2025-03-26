@@ -1,7 +1,7 @@
 import type { Options } from '../types/index';
 import {
   getSingleResult,
-  handleuUniqueSrunamePartEdgeCase,
+  handleUniqueSurnamePartEdgeCase,
   isOptions,
   pickRandomWords,
   pickSurnameByAlgorithm,
@@ -94,7 +94,7 @@ function cnnameWithOptions(options: Options): string[] {
 
     // 由于姓氏数据样本量太少，考虑到性能问题直接返回全部数据
     if (part === 'surname' && num > maxSetSize) {
-      return handleuUniqueSrunamePartEdgeCase(options);
+      return handleUniqueSurnamePartEdgeCase(options);
     }
 
     while (uniqueResult.size < num && uniqueResult.size < maxSetSize) {

@@ -30,6 +30,8 @@ export interface Options {
   givenNameEndsWith?: string;
   /** 仅返回叠字名，默认为 `false` */
   givenNameDuplicated?: boolean;
+  /** 仅返回指定名 */
+  givenName?: string | string[];
   /**
    * 支持姓氏类型，默认为 `common`
    * @type `common` 包括常见姓氏
