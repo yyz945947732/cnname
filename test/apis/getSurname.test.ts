@@ -11,11 +11,11 @@ describe('getSurname', () => {
   });
   test('getSurname(5) should return array with one elements', () => {
     expect(getSurname(5)).toBeInstanceOf(Array);
-    expect(getSurname(5).length).toBe(5);
+    expect(getSurname(5)).toHaveLength(5);
   });
   test('getSurname({ count: 5 }) should return array with five elements', () => {
     expect(getSurname({ count: 5 })).toBeInstanceOf(Array);
-    expect(getSurname({ count: 5 }).length).toBe(5);
+    expect(getSurname({ count: 5 })).toHaveLength(5);
   });
   test('getSurname({ count: 5, surnameType: "common-compound" }) should return an array of compound surname', () => {
     expect(getSurname({ count: 5, surnameType: 'common-compound' }).every(surname => surname.length === 2)).toBeTruthy();
