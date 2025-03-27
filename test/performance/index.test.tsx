@@ -3,13 +3,7 @@ import cnname from '../../src';
 
 describe('performance', () => {
   test('cnname({ count: 50000, unique: true, surname: "张", givenNameLength: 2, givenNameStartsWith: "俊" }) should return instantly', () => {
-    const data = cnname({
-      count: 50000,
-      unique: true,
-      surname: '张',
-      givenNameLength: 2,
-      givenNameStartsWith: '俊',
-    });
+    const data = cnname({ count: 50000, unique: true, surname: '张', givenNameLength: 2, givenNameStartsWith: '俊' });
     expect(data.length).toBeLessThan(50000);
   });
   test('cnname({ count: 50000, unique: true, surname: "张", givenNameLength: 2, givenNameStartsWith: "俊", givenNameEndsWith: "科" }) should return instantly', () => {
@@ -24,12 +18,7 @@ describe('performance', () => {
     expect(data.length).toBeLessThan(50000);
   });
   test('cnname({ count: 5000, unique: true, part: "surname", surnameType: "common", surnameAlgorithm: "random" }) should return instantly', () => {
-    const data = cnname({
-      unique: true,
-      part: 'surname',
-      surnameType: 'common',
-      surnameAlgorithm: 'random',
-    });
+    const data = cnname({ unique: true, part: 'surname', surnameType: 'common', surnameAlgorithm: 'random' });
     expect(data.length).toBeLessThan(5000);
   });
   test('cnname({ count: 50000, unique: true, part: "surname", surnameType: "all", surnameAlgorithm: "random" }) should return instantly', () => {

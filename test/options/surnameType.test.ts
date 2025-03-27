@@ -10,10 +10,14 @@ assertType<string[]>(cnname({ count: 5, surnameType: 'all' }));
 
 describe('cnname.options.surnameType', () => {
   test('cnname({ count: 5, unique: true, surnameType: "all-compound" }) should return array with five elements', () => {
-    expect(cnname({ count: 5, unique: true, surnameType: 'all-compound' })).toHaveLength(5);
+    const data = cnname({ count: 5, unique: true, surnameType: 'all-compound' });
+    expect(data).toHaveLength(5);
+    expect(data.every((name) => name.length >= 3)).toBeTruthy();
   });
   test('cnname({ count: 5, unique: true, surnameType: "all-single" }) should return array with five elements', () => {
-    expect(cnname({ count: 5, unique: true, surnameType: 'all-single' })).toHaveLength(5);
+    const data = cnname({ count: 5, unique: true, surnameType: 'all-single' });
+    expect(data).toHaveLength(5);
+    expect(data.every((name) => name.length <= 3)).toBeTruthy();
   });
   test('cnname({ count: 5, unique: true, surnameType: "all" }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, surnameType: 'all' })).toHaveLength(5);
@@ -22,10 +26,14 @@ describe('cnname.options.surnameType', () => {
     expect(cnname({ count: 5, part: 'surname', surnameType: 'common' })).toHaveLength(5);
   });
   test('cnname({ count: 5, part: "surname", surnameType: "common-single" }) should return array with five elements', () => {
-    expect(cnname({ count: 5, part: 'surname', surnameType: 'common-single' })).toHaveLength(5);
+    const data = cnname({ count: 5, unique: true, surnameType: 'common-single' });
+    expect(data).toHaveLength(5);
+    expect(data.every((name) => name.length <= 3)).toBeTruthy();
   });
   test('cnname({ count: 5, part: "surname", surnameType: "common-compound" }) should return array with five elements', () => {
-    expect(cnname({ count: 5, part: 'surname', surnameType: 'common-compound' })).toHaveLength(5);
+    const data = cnname({ count: 5, unique: true, surnameType: 'common-compound' });
+    expect(data).toHaveLength(5);
+    expect(data.every((name) => name.length >= 3)).toBeTruthy();
   });
   test('cnname({ count: 5, surnameType: "error", surnameAlgorithm: "random" }) should return array with five elements', () => {
     // @ts-expect-error
