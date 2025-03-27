@@ -2,7 +2,7 @@ import { assertType, describe, expect, test } from 'vitest';
 import cnname from '../../src';
 
 assertType<string[]>(cnname({ unique: true }));
-assertType<string[]>(cnname({ count: 5, unique: true, givenNameLength: 2 }));
+assertType<string[]>(cnname({ count: 5, unique: true }));
 
 describe('cnname.options.unique', () => {
   test('cnname({ count: 5, unique: true }) should return array with five elements', () => {
