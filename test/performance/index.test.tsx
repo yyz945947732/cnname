@@ -10,7 +10,7 @@ describe('performance', () => {
       givenNameLength: 2,
       givenNameStartsWith: '俊',
     });
-    expect(data.length).lt(50000);
+    expect(data.length).toBeLessThan(50000);
   });
   test('cnname({ count: 50000, unique: true, surname: "张", givenNameLength: 2, givenNameStartsWith: "俊", givenNameEndsWith: "科" }) should return instantly', () => {
     const data = cnname({
@@ -21,17 +21,16 @@ describe('performance', () => {
       givenNameStartsWith: '俊',
       givenNameEndsWith: '科',
     });
-    expect(data.length).lt(50000);
+    expect(data.length).toBeLessThan(50000);
   });
   test('cnname({ count: 5000, unique: true, part: "surname", surnameType: "common", surnameAlgorithm: "random" }) should return instantly', () => {
     const data = cnname({
-      count: 5000,
       unique: true,
       part: 'surname',
       surnameType: 'common',
       surnameAlgorithm: 'random',
     });
-    expect(data.length).lt(5000);
+    expect(data.length).toBeLessThan(5000);
   });
   test('cnname({ count: 50000, unique: true, part: "surname", surnameType: "all", surnameAlgorithm: "random" }) should return instantly', () => {
     const data = cnname({
@@ -41,7 +40,7 @@ describe('performance', () => {
       surnameType: 'all',
       surnameAlgorithm: 'random',
     });
-    expect(data.length).lt(50000);
+    expect(data.length).toBeLessThan(50000);
   });
   test('cnname({ count: 5000, unique: true, part: "surname", surnameType: "common", surnameAlgorithm: "weight" }) should return instantly', () => {
     const data = cnname({
@@ -51,7 +50,7 @@ describe('performance', () => {
       surnameType: 'common',
       surnameAlgorithm: 'weight',
     });
-    expect(data.length).lt(5000);
+    expect(data.length).toBeLessThan(5000);
   });
   test('cnname({ count: 50000, unique: true, part: "surname", surnameType: "all", surnameAlgorithm: "weight" }) should return instantly', () => {
     const data = cnname({
@@ -61,7 +60,7 @@ describe('performance', () => {
       surnameType: 'all',
       surnameAlgorithm: 'weight',
     });
-    expect(data.length).lt(50000);
+    expect(data.length).toBeLessThan(50000);
   });
   test('cnname({ count: 100, unique: true, part: "givenName", givenNameType: "male", givenNameLength: 1 }) should return instantly', () => {
     const data = cnname({
@@ -71,7 +70,7 @@ describe('performance', () => {
       givenNameType: 'male',
       givenNameLength: 1,
     });
-    expect(data.length).lt(100);
+    expect(data.length).toBeLessThan(100);
   });
   test('cnname({ count: 100, unique: true, part: "givenName", givenNameType: "female", givenNameLength: 1 }) should return instantly', () => {
     const data = cnname({
@@ -81,11 +80,11 @@ describe('performance', () => {
       givenNameType: 'female',
       givenNameLength: 1,
     });
-    expect(data.length).lt(100);
+    expect(data.length).toBeLessThan(100);
   });
   test('cnname({ count: 50000, unique: true, part: "givenName", givenNameLength: 1 }) should return instantly', () => {
     const data = cnname({ count: 50000, unique: true, part: 'givenName', givenNameLength: 1 });
-    expect(data.length).lt(50000);
+    expect(data.length).toBeLessThan(50000);
   });
   test('cnname({ count: 50, unique: true, part: "surname", surnameType: "common", surnameAlgorithm: "random" }) should return instantly', () => {
     const data = cnname({
