@@ -1,14 +1,14 @@
 import { assertType, describe, expect, test } from 'vitest';
 import cnname from '../../src';
 import {
-  getAllMaleWords,
-  getAllFemaleWords,
-  getAllMetalWords,
-  getAllWoodWords,
-  getAllWaterWords,
-  getAllFireWords,
-  getAllEarthWords,
   getAllAnimalWords,
+  getAllEarthWords,
+  getAllFemaleWords,
+  getAllFireWords,
+  getAllMaleWords,
+  getAllMetalWords,
+  getAllWaterWords,
+  getAllWoodWords,
 } from '../../src/utils/dict';
 
 const allMaleWords = getAllMaleWords();
