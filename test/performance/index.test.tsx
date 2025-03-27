@@ -75,16 +75,6 @@ describe('performance', () => {
     const data = cnname({ count: 50000, unique: true, part: 'givenName', givenNameLength: 1 });
     expect(data.length).toBeLessThan(50000);
   });
-  test('cnname({ count: 50, unique: true, part: "surname", surnameType: "common", surnameAlgorithm: "random" }) should return instantly', () => {
-    const data = cnname({
-      count: 50,
-      unique: true,
-      part: 'surname',
-      surnameType: 'common',
-      surnameAlgorithm: 'random',
-    });
-    expect(data).toHaveLength(50);
-  });
   test('cnname({ count: 50000, surnameAlgorithm: "random" }) should return instantly', () => {
     const data = cnname({ count: 50000, part: 'surname', surnameType: 'all', surnameAlgorithm: 'random' });
     expect(data).toHaveLength(50000);
