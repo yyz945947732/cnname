@@ -1,10 +1,5 @@
 import type { NameDetail } from '../types';
-import {
-  getIsCompoundSurname,
-  getIsDuplicatedGivenName,
-  getIsSingleCharacterSurname,
-  isCnChar,
-} from '../utils';
+import { getIsCompoundSurname, getIsDuplicatedGivenName, getIsSingleCharacterSurname, isCnChar } from '../utils';
 
 /**
  * 解析姓名

@@ -68,8 +68,7 @@ function cnname(parameter1?: number | string | Options, parameter2?: number): st
   }
 
   const result = Array.from({ length: num }, () => {
-    const surname =
-      fixSurname ?? pickSurnameByAlgorithm(DEFAULT_SURNAME_TYPE, DEFAULT_SURNAME_ALGORITHM);
+    const surname = fixSurname ?? pickSurnameByAlgorithm(DEFAULT_SURNAME_TYPE, DEFAULT_SURNAME_ALGORITHM);
     const nameLength = Math.random() > 0.5 ? 2 : 1;
     const givenName = pickRandomWords(nameLength);
     return surname + givenName;

@@ -67,11 +67,7 @@ export function pickSurnameByAlgorithm(surnameType: SurnameType, algorithm: Algo
  * @private
  * 随机获取叠字名
  */
-export function pickDuplicatedGivenName(
-  givenNameTypes: GivenNameType[],
-  len = 2,
-  fixWord?: string,
-): string {
+export function pickDuplicatedGivenName(givenNameTypes: GivenNameType[], len = 2, fixWord?: string): string {
   if (fixWord) return fixWord.repeat(len);
   const words = getGivenNameListByGivenNameType(givenNameTypes?.[0]);
   const givenName = pickRandomSingleEle(words);
@@ -93,8 +89,7 @@ export function getIsDuplicatedGivenName(givenName: string): boolean {
  */
 export function isOptions(value: unknown): value is Options {
   return (
-    Object.prototype.toString.call(value) === '[object Object]' &&
-    Object.getPrototypeOf(value) === Object.prototype
+    Object.prototype.toString.call(value) === '[object Object]' && Object.getPrototypeOf(value) === Object.prototype
   );
 }
 
@@ -216,22 +211,14 @@ export function getGivenNameByOptions(options: Options): string {
     return fixGivenName;
   }
 
-  const nameLength = Number.isInteger(givenNameLength)
-    ? givenNameLength
-    : Math.random() > 0.5
-      ? 2
-      : 1;
+  const nameLength = Number.isInteger(givenNameLength) ? givenNameLength : Math.random() > 0.5 ? 2 : 1;
 
   let result = '';
 
   const givenNameTypeList = getGivenNameTypeList(options);
 
   if (givenNameDuplicated) {
-    return pickDuplicatedGivenName(
-      givenNameTypeList,
-      givenNameLength,
-      givenNameStartsWith || givenNameEndsWith,
-    );
+    return pickDuplicatedGivenName(givenNameTypeList, givenNameLength, givenNameStartsWith || givenNameEndsWith);
   }
 
   result = pickRandomWords(nameLength, givenNameTypeList);

@@ -60,14 +60,7 @@ function getSurnamePartMaxSize(options: Options): number {
  * 计算 `part` 为 `givenName` 时，集合大小
  */
 function getGivenNamePartMaxSize(options: Options): number {
-  const {
-    givenNameLength,
-    givenNameDuplicated,
-    givenNameStartsWith,
-    givenNameEndsWith,
-    givenName,
-    part,
-  } = options;
+  const { givenNameLength, givenNameDuplicated, givenNameStartsWith, givenNameEndsWith, givenName, part } = options;
 
   if (Array.isArray(givenName)) {
     return Math.max(new Set(givenName).size, part === 'givenName' ? 0 : 1);

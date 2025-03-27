@@ -66,13 +66,7 @@ export interface Options {
 }
 
 /** 姓氏类型 */
-export type SurnameType =
-  | 'common'
-  | 'common-single'
-  | 'common-compound'
-  | 'all'
-  | 'all-single'
-  | 'all-compound';
+export type SurnameType = 'common' | 'common-single' | 'common-compound' | 'all' | 'all-single' | 'all-compound';
 
 /** 名字特性 */
 export type GivenNameType = Options['gender'] | Options['elements'] | Others;

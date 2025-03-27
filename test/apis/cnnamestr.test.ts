@@ -1,5 +1,5 @@
+import { assertType, describe, expect, test } from 'vitest';
 import { cnnamestr } from '../../src';
-import { describe, test, expect, assertType } from 'vitest';
 
 assertType<string>(cnnamestr());
 assertType<string>(cnnamestr('张'));
@@ -12,7 +12,7 @@ describe('cnnamestr', () => {
     expect(cnnamestr(5)).toBeTypeOf('string');
   });
   test('cnnamestr(-1) should return string', () => {
-    expect(cnnamestr(-1)).toBeTypeOf('string')
+    expect(cnnamestr(-1)).toBeTypeOf('string');
   });
   test('cnnamestr(0) should return ""', () => {
     expect(cnnamestr(0)).toBe('');

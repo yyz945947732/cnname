@@ -1,5 +1,5 @@
+import { assertType, describe, expect, test } from 'vitest';
 import cnname from '../../src';
-import { describe, test, expect, assertType } from 'vitest';
 
 assertType<string>(cnname());
 assertType<string>(cnname('张'));

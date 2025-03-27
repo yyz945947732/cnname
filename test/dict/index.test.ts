@@ -1,7 +1,12 @@
-import { describe, test, expect, assertType } from 'vitest';
+import { assertType, describe, expect, test } from 'vitest';
 import wordsDict from '../../dict/words.json';
-import { getAllCommonCompoundSurname, getAllCommonSingleCharacterSurname, getAllCommonSurname, getAllSurname } from '../../src/utils/dict';
-import { COMMON_SINGLE_CHARACTER_SURNAMES_TOTAL, COMMON_COMPOUND_SURNAMES_TOTAL } from '../../src/utils/default';
+import { COMMON_COMPOUND_SURNAMES_TOTAL, COMMON_SINGLE_CHARACTER_SURNAMES_TOTAL } from '../../src/utils/default';
+import {
+  getAllCommonCompoundSurname,
+  getAllCommonSingleCharacterSurname,
+  getAllCommonSurname,
+  getAllSurname,
+} from '../../src/utils/dict';
 
 const allSurnames = getAllSurname();
 const allCommonSurnames = getAllCommonSurname();
@@ -33,6 +38,6 @@ describe('dict', () => {
   });
   test('duplicate words should not appear in each type of words dict', () => {
     const dicts = Object.values(wordsDict);
-    expect(dicts.every(list => new Set(list).size === list.length )).toBeTruthy();
-  })
+    expect(dicts.every((list) => new Set(list).size === list.length)).toBeTruthy();
+  });
 });

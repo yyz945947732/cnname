@@ -1,6 +1,6 @@
 {
   "files": {
-    "include": ["src"]
+    "include": ["src", "test"]
   },
   "formatter": {
     "enabled": true,
@@ -8,7 +8,7 @@
     "indentStyle": "space",
     "indentWidth": 2,
     "lineEnding": "lf",
-    "lineWidth": 100,
+    "lineWidth": 120,
     "attributePosition": "auto"
   },
   "javascript": {
