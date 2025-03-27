@@ -3,6 +3,9 @@ dist
 .DS_Store
 *.log
 *.tgz
+.vscode/**
+!.vscode/extensions.json
+!.vscode/settings.json
 .cache
 coverage
 .idea
