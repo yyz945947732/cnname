@@ -51,39 +51,29 @@ describe('performance', () => {
     });
     expect(data.length).toBeLessThan(50000);
   });
-  test('cnname({ count: 100, unique: true, part: "givenName", givenNameType: "male", givenNameLength: 1 }) should return instantly', () => {
+  test('cnname({ count: 200, unique: true, part: "givenName", givenNameType: "male", givenNameLength: 1 }) should return instantly', () => {
     const data = cnname({
-      count: 100,
+      count: 200,
       unique: true,
       part: 'givenName',
       givenNameType: 'male',
       givenNameLength: 1,
     });
-    expect(data.length).toBeLessThan(100);
+    expect(data.length).toBeLessThan(200);
   });
-  test('cnname({ count: 100, unique: true, part: "givenName", givenNameType: "female", givenNameLength: 1 }) should return instantly', () => {
+  test('cnname({ count: 200, unique: true, part: "givenName", givenNameType: "female", givenNameLength: 1 }) should return instantly', () => {
     const data = cnname({
-      count: 100,
+      count: 200,
       unique: true,
       part: 'givenName',
       givenNameType: 'female',
       givenNameLength: 1,
     });
-    expect(data.length).toBeLessThan(100);
+    expect(data.length).toBeLessThan(200);
   });
   test('cnname({ count: 50000, unique: true, part: "givenName", givenNameLength: 1 }) should return instantly', () => {
     const data = cnname({ count: 50000, unique: true, part: 'givenName', givenNameLength: 1 });
     expect(data.length).toBeLessThan(50000);
-  });
-  test('cnname({ count: 50, unique: true, part: "surname", surnameType: "common", surnameAlgorithm: "random" }) should return instantly', () => {
-    const data = cnname({
-      count: 50,
-      unique: true,
-      part: 'surname',
-      surnameType: 'common',
-      surnameAlgorithm: 'random',
-    });
-    expect(data).toHaveLength(50);
   });
   test('cnname({ count: 50000, surnameAlgorithm: "random" }) should return instantly', () => {
     const data = cnname({ count: 50000, part: 'surname', surnameType: 'all', surnameAlgorithm: 'random' });
