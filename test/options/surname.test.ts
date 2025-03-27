@@ -15,14 +15,14 @@ describe('cnname.options.surname', () => {
     expect(cnname({ count: 5, unique: true, surname: ['张', '李'] })).toHaveLength(5);
   });
   test('cnname({ count: 5, unique: true, surname: ["张", "李"] }) should return array with surname "张" or "李"', () => {
-    expect(
-      cnname({ count: 5, unique: true, surname: ['张', '李'] }).every((surname) => ['张', '李'].includes(surname[0])),
-    ).toBeTruthy();
+    const data = cnname({ count: 5, unique: true, surname: ['张', '李'] });
+    const result = data.every((surname) => ['张', '李'].includes(surname[0]));
+    expect(result).toBeTruthy();
   });
   test('cnname({ count: 5, unique: true, surname: ["张", "张"] }) should return array with surname "张" or "张"', () => {
-    expect(
-      cnname({ count: 5, unique: true, surname: ['张', '张'] }).every((surname) => ['张'].includes(surname[0])),
-    ).toBeTruthy();
+    const data = cnname({ count: 5, unique: true, surname: ['张', '张'] });
+    const result = data.every((surname) => ['张'].includes(surname[0]));
+    expect(result).toBeTruthy();
   });
   test('cnname({ count: 5, unique: true, surname: [] }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, surname: [] })).toHaveLength(5);

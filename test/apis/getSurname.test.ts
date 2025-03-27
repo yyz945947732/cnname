@@ -18,13 +18,11 @@ describe('getSurname', () => {
     expect(getSurname({ count: 5 })).toHaveLength(5);
   });
   test('getSurname({ count: 5, surnameType: "common-compound" }) should return an array of compound surname', () => {
-    expect(
-      getSurname({ count: 5, surnameType: 'common-compound' }).every((surname) => surname.length === 2),
-    ).toBeTruthy();
+    const result = getSurname({ count: 5, surnameType: 'common-compound' }).every((surname) => surname.length === 2);
+    expect(result).toBeTruthy();
   });
   test('getSurname({ count: 5, surnameType: "common-single" }) should return an array of single surname', () => {
-    expect(
-      getSurname({ count: 5, surnameType: 'common-single' }).every((surname) => surname.length === 1),
-    ).toBeTruthy();
+    const result = getSurname({ count: 5, surnameType: 'common-single' }).every((surname) => surname.length === 1);
+    expect(result).toBeTruthy();
   });
 });
