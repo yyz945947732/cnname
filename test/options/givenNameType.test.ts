@@ -88,8 +88,8 @@ describe('cnname.options.givenNameType', () => {
     const combineWords = allEarthWords.concat(allFemaleWords);
     expect(data.every((name) => name.split('').every((word) => combineWords.includes(word)))).toBeTruthy();
   });
-  test('cnname({ count: 5, unique: true, givenNameType: "animal" }) should return array with five elements', () => {
-    expect(cnname({ count: 5, unique: true, givenNameType: 'animal' })).toHaveLength(5);
+  test('cnname({ count: 5, unique: true, givenNameType: "animal", givenNameLength: 2 }) should return array with five elements', () => {
+    expect(cnname({ count: 5, unique: true, givenNameType: 'animal', givenNameLength: 2 })).toHaveLength(5);
   });
   test('cnname({ count: 5, part: "givenName", givenNameType: "animal", givenNameLength: 1 }) should return array with animal given name', () => {
     const data = cnname({ count: 5, part: 'givenName', givenNameType: 'animal', givenNameLength: 1 });
