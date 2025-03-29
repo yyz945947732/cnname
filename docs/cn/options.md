@@ -14,7 +14,7 @@
 | givenNameDuplicated | `boolean` | 是否只返回叠字名（如 "婷婷"、"明明"）。 | `false` |
 | givenName | `string \| string[]` | 指定名（不含姓氏），可传单个名或名数组。 | 随机名 |
 | surnameType | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | 姓氏类型。<br>`'common'` [常见姓氏](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)。<br>`'common-single'` 常见单字姓。<br>`'common-compound'` 常见复姓。<br>`'all'` 全部姓氏。<br>`'all-single'` 全部单字姓。<br>`'all-compound'` 全部复姓。 | `'common'` |
-| surnameAlgorithm | `'weight' \| 'random'` | 随机算法（姓氏）。<br>`'weight'` 按常见度加权（接近现实世界概率）。<br>`'random'` 纯随机。 | `'weight'` |
+| surnameAlgorithm | `'weight' \| 'random'` | 随机算法（姓氏）。<br>`'weight'` 按字典库姓氏排序加权。<br>`'random'` 完全随机。 | `'weight'` |
 | surname | `string \| string[]` | 指定姓氏，可传单个姓或姓氏数组。 | 随机姓氏 |
 | unique | `boolean` | 是否确保返回的值不重复。 | `false` |
 | part | `'fullName' \| 'surname' \| 'givenName'` | 返回部分。<br>`'fullName'` 完整姓名。<br>`'surname'` 姓氏。<br>`'givenName'` 名。 | `'fullName'` |

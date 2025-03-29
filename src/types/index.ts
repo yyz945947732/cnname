@@ -44,8 +44,8 @@ export interface Options {
   surnameType?: SurnameType;
   /**
    * 姓氏抽取算法，默认为 `weight`
-   * @type `weight` 按常见度加权（接近真实概率）
-   * @type `random` 纯随机算法
+   * @type `weight` 按字典库姓氏排序加权
+   * @type `random` 完全随机
    */
   surnameAlgorithm?: Algorithm;
   /** 仅返回指定姓氏 */

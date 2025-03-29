@@ -51,25 +51,25 @@ describe('performance', () => {
     });
     expect(data.length).toBeLessThan(50000);
   });
-  test('cnname({ count: 200, unique: true, part: "givenName", givenNameType: "male", givenNameLength: 1 }) should return instantly', () => {
+  test('cnname({ count: 20000, unique: true, part: "givenName", givenNameType: "male", givenNameLength: 1 }) should return instantly', () => {
     const data = cnname({
-      count: 200,
+      count: 20000,
       unique: true,
       part: 'givenName',
       givenNameType: 'male',
       givenNameLength: 1,
     });
-    expect(data.length).toBeLessThan(200);
+    expect(data.length).toBeLessThan(20000);
   });
-  test('cnname({ count: 200, unique: true, part: "givenName", givenNameType: "female", givenNameLength: 1 }) should return instantly', () => {
+  test('cnname({ count: 20000, unique: true, part: "givenName", givenNameType: "female", givenNameLength: 1 }) should return instantly', () => {
     const data = cnname({
-      count: 200,
+      count: 20000,
       unique: true,
       part: 'givenName',
       givenNameType: 'female',
       givenNameLength: 1,
     });
-    expect(data.length).toBeLessThan(200);
+    expect(data.length).toBeLessThan(20000);
   });
   test('cnname({ count: 50000, unique: true, part: "givenName", givenNameLength: 1 }) should return instantly', () => {
     const data = cnname({ count: 50000, unique: true, part: 'givenName', givenNameLength: 1 });
