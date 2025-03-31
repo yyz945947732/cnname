@@ -1,4 +1,5 @@
 import { assertType, describe, expect, test } from 'vitest';
+import localAllSurnamesDict from '../../dict/surnames/all.json';
 import attributesWordsDict from '../../dict/words/attributes.json';
 import { COMMON_COMPOUND_SURNAMES_TOTAL, COMMON_SINGLE_CHARACTER_SURNAMES_TOTAL } from '../../src/utils/default';
 import {
@@ -32,7 +33,9 @@ describe('dict', () => {
     expect(allCommonCompoundSurname.length).toBe(COMMON_COMPOUND_SURNAMES_TOTAL);
   });
   test('the surnames in the common surname list should exist in the all surname dict', () => {
+    const localAllSurnames = localAllSurnamesDict.dict.split(' ');
     expect(allCommonSurnames.every((surname) => allSurnames.includes(surname))).toBeTruthy();
+    expect(allCommonSurnames.every((surname) => localAllSurnames.includes(surname))).toBeTruthy();
   });
   test('duplicate surnames should not appear in all surname dict', () => {
     const uniqAllSurnames = new Set(allSurnames);

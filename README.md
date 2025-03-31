@@ -70,7 +70,7 @@ cnname();
 cnname('高');
 // -> 高佳倩
 cnname(5);
-// -> ["余嘉扬", "娄子涵", "谢鸿宾", "彭天奇", "关智华"]
+// -> ["余嘉扬", "郭东仪", "谢鸿宾", "彭天奇", "关智华"]
 cnname('张', 5);
 // -> ["张腾", "张怡莉", "张瑞宇", "张萍", "张韵思"]
 cnname({ count: 5, gender: 'female' });
@@ -117,11 +117,9 @@ cnname({ count: 5, gender: 'female' });
 
 以下为资源库，如果缺少了你想要的姓氏或名字，[欢迎补充](https://github.com/yyz945947732/cnname/pulls)。
 
-- 🔥 [常见姓氏库](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)
+- 📖 [姓氏库](https://github.com/yyz945947732/cnname/blob/master/example/surnames.md)
 
-- 📖 [姓氏库](https://github.com/yyz945947732/cnname/blob/master/dict/allSurnames.json)
-
-- 📝 [名字库](https://github.com/yyz945947732/cnname/blob/master/dict/words.json)
+- 📝 [名字库](https://github.com/yyz945947732/cnname/blob/master/example/words.md)
 
 ## ✍️ 示例
 

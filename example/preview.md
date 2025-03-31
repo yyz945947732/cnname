@@ -2,151 +2,151 @@
 
 ## cnname()
 
-武妍
+邵曦云
 
 ## cnname("彭")
 
-彭鸿霞
+彭昀
 
 ## cnname(5)
 
-施杉怡,卢槿,余森乔,郭子,谢韵
+孙灿,林军光,崔琪峥,李芳,田俐
 
 ## cnname("姚", 5)
 
-姚诗,姚玲,姚衡杰,姚钰,姚康均
+姚凡焕,姚泽,姚峥,姚晨,姚露
 
 ## cnname({ count: 5 })
 
-聂文,周煜可,郭泉芳,汪菁旭,方嫣
+唐蕊枫,田钟诗,覃健,庞泓蕊,甘杉贺
 
 ## cnname({ count: 5, unique: true, givenNameDuplicated: true })
 
-许健健,夏洁洁,于尧尧,韩少少,江霏霏
+丁庆庆,杨芮芮,何烽烽,罗萱萱,邓艳艳
 
 ## cnname({ count: 5, surname: "张" })
 
-张雯,张林栋,张善源,张震,张基
+张昀霞,张永贺,张晓,张伟康,张咏
 
 ## cnname({ count: 5, surname: "张", givenNameLength: 2 })
 
-张冠星,张怡渊,张云彤,张瑜昆,张佩琳
+张绮境,张懿昆,张宸承,张钟辰,张镇蕊
 
 ## cnname({ count: 5, surname: "李", givenNameLength: 2, givenNameStartsWith: "俊" })
 
-李俊安,李俊萍,李俊晨,李俊钦,李俊雯
+李俊鼎,李俊乐,李俊焱,李俊敏,李俊军
 
 ## cnname({ count: 5, surname: "张", givenNameLength: 2, givenNameEndsWith: "英" })
 
-张锡英,张翼英,张昆英,张衡英,张瑶英
+张殷英,张渊英,张博英,张冠英,张佑英
 
 ## cnname({ count: 5, unique: true, part: "surname" })
 
-魏,苏,戴,薛,徐
+曾,吕,孙,葛,孟
 
 ## cnname({ count: 5, unique: true, part: "givenName" })
 
-晓,波信,仪,雪,榆
+永,鹤,勋竹,欣,子
 
 ## cnname({ count: 5, unique: true, surnameType: "all-single", givenNameLength: 1 })
 
-茹柯,拱昀,薛铠,菅林,翁芸
+唐彪,褚依,声舒,阳少,田展
 
 ## cnname({ count: 5, unique: true, surnameType: "all-compound", givenNameLength: 1 })
 
-东方萧,东欧奕,公西炜,羊舌铮,夏侯航
+皇甫钰,上官琦,宇文鹤,鲜于歆,夏侯锡
 
 ## cnname({ count: 5, unique: true, surnameType: "common", givenNameLength: 1 })
 
-许锴,谭源,吴莹,赵妮,吴纶
+闫凌,杜卓,梁卫,殷蝉,常梧
 
 ## cnname({ count: 5, unique: true, surnameType: "common-single", givenNameLength: 1 })
 
-齐宾,张昀,莫宇,莫燕,郑彦
+钱坤,宋姬,徐勇,任语,董祥
 
 ## cnname({ count: 5, unique: true, surnameType: "common-compound", givenNameLength: 1 })
 
-慕容曦,上官庆,诸葛坤,皇甫昭,欧阳璇
+申屠佩,上官柯,诸葛敏,令狐哲,司徒曦
 
 ## cnname({ count: 5, unique: true, surname: ["张", "李"] })
 
-张俐克,张霖霄,张镇,张磊,李咏栋
+李宾,李珂,张伊,张宾源,张昆
 
 ## cnname({ count: 5, unique: true, surname: "关" })
 
-关曼倩,关义,关健,关涵永,关豪心
+关茵文,关蕊克,关灿桦,关昕鹰,关琳
 
 ## cnname({ count: 5, unique: true, givenName: ["小桐", "穗宁"] })
 
-吴穗宁,王小桐,高穗宁,林穗宁,傅穗宁
+韦穗宁,苏小桐,张穗宁,乔穗宁,葛小桐
 
 ## cnname({ count: 5, unique: true, givenName: "佳运" })
 
-贺佳运,唐佳运,安佳运,汪佳运,沈佳运
+蒋佳运,冯佳运,邵佳运,卢佳运,包佳运
 
 ## cnname({ count: 5, unique: true, givenNameType: "male" })
 
-戴展,卢宾,许光韬,董天,贾佑
+唐俊,安炎善,郭昭翼,于良光,赵宸诚
 
 ## cnname({ count: 5, unique: true, givenNameType: "female" })
 
-齐梅樱,黎珂,郭芷瑶,李娇梦,文君美
+唐瑶静,秦彩,梅明芊,董静,谭姬
 
 ## cnname({ count: 5, unique: true, givenNameType: "metal" })
 
-严铄,方钦,石鑫,尉迟钟锐,秦铠
+叶钦,叶镇,伍锡,贺钰,温镇
 
 ## cnname({ count: 5, unique: true, givenNameType: "wood" })
 
-颜枫,郭杉,邱杉昕,公孙柏,林桂
+吴梧,杜凡森,岳柏,周柯柳,曹槿栋
 
 ## cnname({ count: 5, unique: true, givenNameType: "water" })
 
-任滨,董海阳,庞海,林淼彬,许涛
+柯淇,殷铭源,洪滨昱,孔殷泓,尹泓
 
 ## cnname({ count: 5, unique: true, givenNameType: "fire" })
 
-杨烈,齐晴煜,赵烽,杨炜,熊安旭
+袁炫君,邹晴,袁焕奇,徐焕,关晖
 
 ## cnname({ count: 5, unique: true, givenNameType: "earth" })
 
-高城,曾岩,陈元岱,杜岩峰,王垚
+董城,朱岱,何岳,龚峰佑,姚岱
 
 ## cnname({ count: 5, unique: true, givenNameType: "animal" })
 
-万彪,温善龙,刘鹰,徐燕彬,郭雀
+彭凤然,廖鹤,韦蝉,赵燕,林燕
 
 ## cnname({ count: 5, unique: true, givenNameType: "all" })
 
-姜鹰,沈佳,谢毅,于扬卓,熊桦炜
+陶运,陶枫,姜烁,郭富,聂昕
 
 ## cnname({ count: 5, unique: true, givenNameType: ["earth", "female"] })
 
-姚岚,贾垚,黄岱燕,熊均,谭峰
+唐慧岳,方颖坤,左均,沈峰,尹基
 
 ## cnname({ count: 5, unique: true, givenNameType: ["water", "fire"] })
 
-何源,孙波曦,李泉,何洁旭,邹源
+赵涛,吕海,李沐,孟泽,韩涵
 
 ## cnname({ count: 5, unique: true, gender: "female" })
 
-麦曼信,郭芊,段芸,庞颖,康彤
+包英妍,曹翰梦,黄倩,武茵,程嫣
 
 ## cnname({ count: 5, unique: true, elements: "fire" })
 
-石曦泽,戴焱,李烨焱,马炜炜,方晴
+崔晗,任煜,刘炜,贺瑾晖,殷炎卓
 
 ## cnname({ count: 5, unique: true, elements: "earth", givenNameType: "water" })
 
-宋城源,齐岳,秦磊,孙泷境,毛岳
+陆海基,许峥泉,卢培,赖基沐,谭磊
 
 ## cnname({ count: 10, unique: true, surnameAlgorithm: "random" })
 
-邹妙翼,慕容佳,毕琦修,罗毅,关庆,韩鲸艳,乔妮,毛鹿岑,殷辉,王炎辰
+廖佩,薛峥,欧阳雯蝶,钱鑫,陶彩,耿澜哲,汪歆,方蕊,罗珂云,耿蝶珂
 
 ## cnname({ count: 10, unique: true, surnameAlgorithm: "weight" })
 
-傅勋,洪斌霜,许瑞,袁健钰,吴姬,谢艳泷,廖源,郭馨栋,黄翼鑫,肖柔绮
+马昊,吕梦瑾,苏浩琳,潘灿,朱彦阳,廖鑫,尚雯,潘可,樊宇,高全运
 
 ## isSurname("张")
 
@@ -158,51 +158,51 @@ false
 
 ## getAllSurname("common")
 
-王,李,张,陈,刘,杨,黄,胡,赵,周,吴,徐,孙,宋,朱,马,郭,高,曹,林,梁,何,罗,郑,韩,谢,唐,董,傅,冯,许,袁,薛,姚,于,彭,肖,曾,谭,卢,苏,贾,毛,夏,余,邓,闫,戴,江,叶,丁,蔡,程,石,钟,廖,田,任,汪,范,方,潘,杜,魏,沈,万,熊,金,陆,郝,孔,白,崔,康,吕,邱,秦,蒋,姜,史,顾,侯,邵,孟,邹,段,钱,汤,黎,莫,常,尹,武,乔,贺,赖,龚,文,易,洪,庞,龙,殷,施,樊,翟,安,颜,齐,严,涂,陶,温,麦,季,俞,章,鲁,葛,伍,韦,申,尤,毕,聂,娄,焦,关,雷,柳,上官,欧阳,皇甫,司马,夏侯,诸葛,东方,尉迟,公孙,慕容,司徒,司空,令狐,轩辕,宇文,澹台
+王,李,张,刘,陈,杨,黄,赵,吴,周,徐,孙,马,朱,胡,林,郭,何,高,罗,郑,梁,谢,宋,唐,许,冯,韩,邓,曹,彭,曾,肖,田,董,潘,袁,于,蒋,蔡,余,杜,叶,程,苏,魏,吕,丁,任,沈,姚,卢,姜,崔,钟,谭,陆,汪,范,廖,石,金,韦,贾,夏,傅,方,白,邹,孟,熊,秦,邱,江,尹,薛,闫,段,雷,侯,龙,史,陶,黎,贺,顾,毛,郝,龚,邵,赖,万,钱,严,覃,武,戴,莫,孔,向,汤,常,温,康,洪,施,文,牛,樊,葛,邢,安,齐,易,乔,伍,庞,颜,倪,庄,聂,章,鲁,岳,翟,殷,詹,申,欧,耿,关,兰,焦,俞,左,柳,甘,祝,包,宁,尚,符,舒,阮,柯,纪,梅,童,凌,毕,欧阳,上官,皇甫,令狐,诸葛,司徒,司马,申屠,夏侯,慕容,尉迟,长孙
 
 ## getAllSurname("common").length
 
-146
+162
 
 ## getAllSurname("common-compound")
 
-上官,欧阳,皇甫,司马,夏侯,诸葛,东方,尉迟,公孙,慕容,司徒,司空,令狐,轩辕,宇文,澹台
+欧阳,上官,皇甫,令狐,诸葛,司徒,司马,申屠,夏侯,慕容,尉迟,长孙
 
 ## getAllSurname("common-compound").length
 
-16
+12
 
 ## getAllSurname("common-single")
 
-王,李,张,陈,刘,杨,黄,胡,赵,周,吴,徐,孙,宋,朱,马,郭,高,曹,林,梁,何,罗,郑,韩,谢,唐,董,傅,冯,许,袁,薛,姚,于,彭,肖,曾,谭,卢,苏,贾,毛,夏,余,邓,闫,戴,江,叶,丁,蔡,程,石,钟,廖,田,任,汪,范,方,潘,杜,魏,沈,万,熊,金,陆,郝,孔,白,崔,康,吕,邱,秦,蒋,姜,史,顾,侯,邵,孟,邹,段,钱,汤,黎,莫,常,尹,武,乔,贺,赖,龚,文,易,洪,庞,龙,殷,施,樊,翟,安,颜,齐,严,涂,陶,温,麦,季,俞,章,鲁,葛,伍,韦,申,尤,毕,聂,娄,焦,关,雷,柳
+王,李,张,刘,陈,杨,黄,赵,吴,周,徐,孙,马,朱,胡,林,郭,何,高,罗,郑,梁,谢,宋,唐,许,冯,韩,邓,曹,彭,曾,肖,田,董,潘,袁,于,蒋,蔡,余,杜,叶,程,苏,魏,吕,丁,任,沈,姚,卢,姜,崔,钟,谭,陆,汪,范,廖,石,金,韦,贾,夏,傅,方,白,邹,孟,熊,秦,邱,江,尹,薛,闫,段,雷,侯,龙,史,陶,黎,贺,顾,毛,郝,龚,邵,赖,万,钱,严,覃,武,戴,莫,孔,向,汤,常,温,康,洪,施,文,牛,樊,葛,邢,安,齐,易,乔,伍,庞,颜,倪,庄,聂,章,鲁,岳,翟,殷,詹,申,欧,耿,关,兰,焦,俞,左,柳,甘,祝,包,宁,尚,符,舒,阮,柯,纪,梅,童,凌,毕
 
 ## getAllSurname("common-single").length
 
-130
+150
 
 ## cnnamestr()
 
-郑朗
+龙韬
 
 ## cnnamestr("彭")
 
-彭杉
+彭妮
 
 ## cnnamestr(5)
 
-曹祺鹰,周森峰,马弘,史歆,贺云
+葛宁,龙垚莹,尚克思,贺菁智,戴全晖
 
 ## cnnamestr("姚", 5)
 
-姚晴震,姚宇,姚瑶,姚霞煜,姚瑜梧
+姚梧锡,姚松,姚渊,姚毅阳,姚钦
 
 ## cnnamestr({ count: 5 })
 
-潘少妍,朱妍,张琳,唐蕊,杨梅灵
+任烁柯,熊超,石潇泉,樊峰渊,易纶
 
 ## cnnamestr({ count: 5, unique: true, givenNameDuplicated: true })
 
-汪峰峰,江欣欣,邱伊伊,涂桐桐,许焕焕
+江雨雨,彭均均,安慧慧,白浩浩,唐曼曼
 
 ## parseName("张三")
 
@@ -230,24 +230,24 @@ false
 
 ## getSurname()
 
-王
+彭
 
 ## getSurname(5)
 
-余,吴,杨,秦,刘
+宁,颜,罗,陈,余
 
 ## getSurname({ count: 5, surnameType: "common-compound", unique: true })
 
-上官,东方,司马,欧阳,夏侯
+司马,申屠,欧阳,上官,皇甫
 
 ## getGivenName()
 
-琪昀
+栋
 
 ## getGivenName(5)
 
-承,轩菁,善,光威,凤
+锐,蝉,逸静,奕曼,淇
 
 ## getGivenName({ count: 5, givenNameDuplicated: true, unique: true })
 
-淼淼
+雪雪
