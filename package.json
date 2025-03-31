@@ -12,6 +12,7 @@
     "example:preview": "node scripts/preview.mjs",
     "example:surnames": "node scripts/surnames.mjs",
     "example:words": "node scripts/words.mjs",
+    "dict": "node scripts/dict.mjs",
     "test": "vitest",
     "test:cov": "vitest run --coverage",
     "lint": "biome check --write --unsafe && biome format --write",
