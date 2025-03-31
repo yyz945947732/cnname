@@ -101,17 +101,17 @@ cnname({ count: 5, gender: 'female' });
 
 ## 🛠️ 工具方法
 
-- [isSurname](docs/cn/isSurname.md)
+- [isSurname](docs/cn/isSurname.md) - 判断是否为姓氏。
 
-- [cnnamestr](docs/cn/cnnamestr.md)
+- [cnnamestr](docs/cn/cnnamestr.md) - 同 `cnname`，但始终返回字符串。
 
-- [parseName](docs/cn/parseName.md)
+- [parseName](docs/cn/parseName.md) - 解析名字，返回姓氏等信息。
 
-- [getAllSurname](docs/cn/getAllSurname.md)
+- [getAllSurname](docs/cn/getAllSurname.md) - 获取所有姓氏。
 
-- [getSurname](docs/cn/getSurname.md)
+- [getSurname](docs/cn/getSurname.md) - 随机获取姓氏。
 
-- [getGivenName](docs/cn/getGivenName.md)
+- [getGivenName](docs/cn/getGivenName.md) - 随机获取名（不含姓氏）。
 
 ## 📚 资源
 

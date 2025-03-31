@@ -101,17 +101,17 @@ Get names with advanced options. Supports gender, Five Elements, reduplicated na
 
 ## 🛠️ Utils
 
-- [isSurname](docs/en/isSurname.md)
+- [isSurname](docs/en/isSurname.md) - Return whether a given string is a surname.
 
-- [cnnamestr](docs/en/cnnamestr.md)
+- [cnnamestr](docs/en/cnnamestr.md) - Same as `cnname`, but always returns a string.
 
-- [parseName](docs/en/parseName.md)
+- [parseName](docs/en/parseName.md) -  Parse a name and extract surname and other information.
 
-- [getAllSurname](docs/en/getAllSurname.md)
+- [getAllSurname](docs/en/getAllSurname.md) - Get all surnames.
 
-- [getSurname](docs/en/getSurname.md)
+- [getSurname](docs/en/getSurname.md) - Get a random surname.
 
-- [getGivenName](docs/en/getGivenName.md)
+- [getGivenName](docs/en/getGivenName.md) - Get a random given name.
 
 ## 📚 Resource
 
