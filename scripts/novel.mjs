@@ -16,7 +16,7 @@ ${主角名字}心头微凉，定睛一看。
 
 他们分别是：
 
-${cnname(1000).join('，')}
+${cnname(1000).join('，')}。
 `;
 
 updateExample(novel, 'novel');
