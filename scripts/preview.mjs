@@ -8,8 +8,7 @@ const apisPreview = apis.map(item =>
 
 ${item.value}`).join('')
 
-const preview = `
-# API Preview${apisPreview}
+const preview = `# API Preview${apisPreview}
 `;
 
 updateExample(preview, 'preview');

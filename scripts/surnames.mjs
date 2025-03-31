@@ -12,8 +12,7 @@ const surnamesPreview = surnames
   )
   .join('');
 
-const preview = `
-# 姓氏大全${surnamesPreview}
+const preview = `# 姓氏大全${surnamesPreview}
 `;
 
 updateExample(preview, 'surnames');

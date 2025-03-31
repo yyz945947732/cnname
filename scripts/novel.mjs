@@ -4,8 +4,7 @@ import { updateExample } from './utils/index.mjs';
 const 主角名字 = cnname();
 const 反派名字 = cnname('张');
 
-const novel = `
-# 第 1 章 千人围攻
+const novel = `# 第 1 章 千人围攻
 
 "${主角名字}，你已经被我们围攻了！！！"
 

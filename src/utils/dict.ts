@@ -1,43 +1,50 @@
-import allSurnameDict from '../../dict/allSurnames.json';
-import commonSurnameDict from '../../dict/commonSurname.json';
-import wordsDict from '../../dict/words.json';
+import commonSurnameDict from '../../dict/surnames/common.json';
+import rareSurnameDict from '../../dict/surnames/rare.json';
+import attributesWordDict from '../../dict/words/attributes.json';
+import normalWordDict from '../../dict/words/normal.json';
 
 /** 所有姓氏 */
-const ALL_SURNAMES = parseDictToSurname(allSurnameDict.dict);
-/** 所有复姓 */
-const ALL_COMPOUND_SURNAMES = getCompoundSurnameBySurnames(ALL_SURNAMES);
+const ALL_SURNAMES = combineSurnameDicts(
+  commonSurnameDict.single,
+  commonSurnameDict.compound,
+  rareSurnameDict.single,
+  rareSurnameDict.compound,
+);
 /** 所有单字姓 */
-const ALL_SINGLE_CHARACTER_SURNAMES = getSingleCharacterSurnameBySurnames(ALL_SURNAMES);
+const ALL_SINGLE_CHARACTER_SURNAMES = combineSurnameDicts(commonSurnameDict.single, rareSurnameDict.single);
+/** 所有复姓 */
+const ALL_COMPOUND_SURNAMES = combineSurnameDicts(commonSurnameDict.compound, rareSurnameDict.compound);
 
 /** 所有常见姓氏 */
-const COMMON_SURNAMES = parseDictToSurname(commonSurnameDict.dict);
-/** 所有常见复姓 */
-const COMMON_COMPOUND_SURNAMES = getCompoundSurnameBySurnames(COMMON_SURNAMES);
+const COMMON_SURNAMES = combineSurnameDicts(commonSurnameDict.single, commonSurnameDict.compound);
 /** 所有常见单字姓 */
-const COMMON_SINGLE_CHARACTER_SURNAMES = getSingleCharacterSurnameBySurnames(COMMON_SURNAMES);
+const COMMON_SINGLE_CHARACTER_SURNAMES = parseDictToSurname(commonSurnameDict.single);
+/** 所有常见复姓 */
+const COMMON_COMPOUND_SURNAMES = parseDictToSurname(commonSurnameDict.compound);
 
 /** 所有名 */
 const WORDS = getAllDictWords();
+/** 所有普通名 */
+const NORMAL_WORDS = parseDictToWords(normalWordDict.normal);
+
 /** 所有女性名 */
-const FEMALE_WORDS = parseDictToWords(wordsDict.female);
+const FEMALE_WORDS = parseDictToWords(attributesWordDict.female);
 /** 所有男性名 */
-const MALE_WORDS = parseDictToWords(wordsDict.male);
-/** 所有中性名 */
-const NORMAL_WORDS = parseDictToWords(wordsDict.normal);
+const MALE_WORDS = parseDictToWords(attributesWordDict.male);
 
 /** 金属性 */
-const METAL_WORDS = parseDictToWords(wordsDict.metal);
+const METAL_WORDS = parseDictToWords(attributesWordDict.metal);
 /** 木属性 */
-const WOOD_WORDS = parseDictToWords(wordsDict.wood);
+const WOOD_WORDS = parseDictToWords(attributesWordDict.wood);
 /** 水属性 */
-const WATER_WORDS = parseDictToWords(wordsDict.water);
+const WATER_WORDS = parseDictToWords(attributesWordDict.water);
 /** 火属性 */
-const FIRE_WORDS = parseDictToWords(wordsDict.fire);
+const FIRE_WORDS = parseDictToWords(attributesWordDict.fire);
 /** 土属性 */
-const EARTH_WORDS = parseDictToWords(wordsDict.earth);
+const EARTH_WORDS = parseDictToWords(attributesWordDict.earth);
 
 /** 动物属性 */
-const ANIMAL_WORDS = parseDictToWords(wordsDict.animal);
+const ANIMAL_WORDS = parseDictToWords(attributesWordDict.animal);
 
 /**
  * @private
@@ -57,18 +64,15 @@ function parseDictToSurname(dict: string) {
 
 /**
  * @private
- * 获取单姓列表
+ * 组合姓氏字典
  */
-function getSingleCharacterSurnameBySurnames(surnames: string[]): string[] {
-  return surnames.filter((words) => words.length === 1);
-}
-
-/**
- * @private
- * 获取复姓列表
- */
-function getCompoundSurnameBySurnames(surnames: string[]): string[] {
-  return surnames.filter((words) => words.length > 1);
+export function combineSurnameDicts(...dicts: string[]): string[] {
+  const result = [];
+  for (const dict of dicts) {
+    const surnames = parseDictToSurname(dict);
+    result.push(...surnames);
+  }
+  return Array.from(new Set(result));
 }
 
 /**
@@ -76,8 +80,10 @@ function getCompoundSurnameBySurnames(surnames: string[]): string[] {
  * 获取完整名字典
  */
 export function getAllDictWords(): string[] {
-  const list = Object.values(wordsDict);
+  const list = Object.values(attributesWordDict);
+  const normal = parseDictToWords(normalWordDict.normal);
   const result = [];
+  result.push(...normal);
   for (const item of list) {
     result.push(...item.split(''));
   }

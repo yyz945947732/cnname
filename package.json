@@ -7,10 +7,11 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "node scripts/preview.mjs",
-    "example": "tsup && node scripts/novel.mjs && node scripts/preview.mjs && node scripts/surnames.mjs",
+    "example": "tsup && node scripts/index.mjs",
     "example:novel": "node scripts/novel.mjs",
     "example:preview": "node scripts/preview.mjs",
     "example:surnames": "node scripts/surnames.mjs",
+    "example:words": "node scripts/words.mjs",
     "test": "vitest",
     "test:cov": "vitest run --coverage",
     "lint": "biome check --write --unsafe && biome format --write",
