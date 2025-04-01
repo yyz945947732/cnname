@@ -113,8 +113,7 @@ describe('cnname.options.givenNameType', () => {
   );
   test('cnname({ count: 5, unique: true, part: "givenName", givenNameType: "error", givenNameLength: 1 }) should return array with five elements', () => {
     // @ts-expect-error
-    expect(
-      cnname({ count: 5, unique: true, part: 'givenName', givenNameType: 'error', givenNameLength: 1 }),
-    ).toHaveLength(5);
+    const data = cnname({ count: 5, unique: true, part: 'givenName', givenNameType: 'error', givenNameLength: 1 });
+    expect(data).toHaveLength(5);
   });
 });
