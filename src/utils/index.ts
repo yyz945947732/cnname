@@ -124,24 +124,6 @@ export function getSingleResult(options: Options): string {
 
 /**
  * @private
- * 处理 `{ part: 'surname', unique: 'true' }` 边缘情况的性能问题
- */
-export function handleUniqueSurnamePartEdgeCase(options: Options): string[] {
-  const { surnameType = DEFAULT_SURNAME_TYPE, surname } = options;
-
-  if (Array.isArray(surname)) {
-    return surname;
-  }
-
-  if (surname !== undefined) {
-    return [surname];
-  }
-
-  return getSurnameListBySurnameType(surnameType);
-}
-
-/**
- * @private
  *  打乱数组
  */
 export function shuffle(array: string[]): string[] {

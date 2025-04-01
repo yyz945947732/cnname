@@ -98,7 +98,7 @@ describe('cnname.options.givenNameType', () => {
     expect(data.every((name) => allAnimalWords.includes(name))).toBeTruthy();
   });
   test.each(GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE)(
-    'givenNameType %s should always return one attribute word',
+    'givenNameType %s should always return only one attribute word',
     (givenNameType) => {
       const words = cnname({ count: 5, part: 'givenName', givenNameType, givenNameLength: 2 });
       const list = getGivenNameListByGivenNameType(givenNameType);
@@ -111,4 +111,9 @@ describe('cnname.options.givenNameType', () => {
       ).toBeTruthy();
     },
   );
+  test('cnname({ count: 5, unique: true, part: "givenName", givenNameType: "error", givenNameLength: 1 }) should return array with five elements', () => {
+    // @ts-expect-error
+    const data = cnname({ count: 5, unique: true, part: 'givenName', givenNameType: 'error', givenNameLength: 1 });
+    expect(data).toHaveLength(5);
+  });
 });

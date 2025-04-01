@@ -8,5 +8,8 @@ export default defineConfig({
       reporter: ['cobertura', 'lcov'],
       include: ['**/src/**'],
     },
+    benchmark: {
+      include: ['**/performance/**'],
+    }
   },
 });

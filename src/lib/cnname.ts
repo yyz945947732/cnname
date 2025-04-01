@@ -1,11 +1,5 @@
 import type { Options } from '../types/index';
-import {
-  getSingleResult,
-  handleUniqueSurnamePartEdgeCase,
-  isOptions,
-  pickRandomWords,
-  pickSurnameByAlgorithm,
-} from '../utils';
+import { getSingleResult, isOptions, pickRandomWords, pickSurnameByAlgorithm } from '../utils';
 import { DEFAULT_SURNAME_ALGORITHM, DEFAULT_SURNAME_TYPE } from '../utils/default';
 import { getMaxSetSize } from '../utils/size';
 
@@ -83,18 +77,13 @@ function cnname(parameter1?: number | string | Options, parameter2?: number): st
  * @returns {string[]} 随机中文名数组
  */
 function cnnameWithOptions(options: Options): string[] {
-  const { count = 1, part = 'fullName', unique = false } = options;
+  const { count = 1, unique = false } = options;
 
   const num = count < 0 ? 0 : count;
 
   if (unique) {
     const maxSetSize = getMaxSetSize(options);
     const uniqueResult = new Set<string>([]);
-
-    // 由于姓氏数据样本量太少，考虑到性能问题直接返回全部数据
-    if (part === 'surname' && num > maxSetSize) {
-      return handleUniqueSurnamePartEdgeCase(options);
-    }
 
     while (uniqueResult.size < num && uniqueResult.size < maxSetSize) {
       uniqueResult.add(getSingleResult(options));

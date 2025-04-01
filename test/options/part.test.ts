@@ -31,4 +31,12 @@ describe('cnname.options.part', () => {
     // @ts-expect-error
     expect(cnname({ count: 5, part: 'error' })).toHaveLength(5);
   });
+  test('cnname({ count: 5000, unique: true, part: "surname" }) should return less than 5000', () => {
+    const data = cnname({ count: 50000, unique: true, part: 'surname' });
+    expect(data.length).toBeLessThan(5000);
+  });
+  test('cnname({ count: 5000, unique: true, part: "givenName", givenNameLength: 1, givenNameType: "female" }) should return less than 5000', () => {
+    const data = cnname({ count: 50000, unique: true, part: 'givenName', givenNameLength: 1, givenNameType: 'female' });
+    expect(data.length).toBeLessThan(5000);
+  });
 });
