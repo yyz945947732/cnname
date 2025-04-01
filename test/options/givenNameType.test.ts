@@ -1,5 +1,6 @@
 import { assertType, describe, expect, test } from 'vitest';
 import cnname from '../../src';
+import { GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE } from '../../src/utils/default';
 import {
   getAllAnimalWords,
   getAllEarthWords,
@@ -10,6 +11,7 @@ import {
   getAllWaterWords,
   getAllWoodWords,
 } from '../../src/utils/dict';
+import { getGivenNameListByGivenNameType } from '../../src/utils/list';
 
 const allMaleWords = getAllMaleWords();
 const allFemaleWords = getAllFemaleWords();
@@ -88,11 +90,24 @@ describe('cnname.options.givenNameType', () => {
     const combineWords = allEarthWords.concat(allFemaleWords);
     expect(data.every((name) => name.split('').every((word) => combineWords.includes(word)))).toBeTruthy();
   });
-  test('cnname({ count: 5, unique: true, givenNameType: "animal", givenNameLength: 2 }) should return array with five elements', () => {
-    expect(cnname({ count: 5, unique: true, givenNameType: 'animal', givenNameLength: 2 })).toHaveLength(5);
+  test('cnname({ count: 5, unique: true, givenNameType: "animal" }) should return array with five elements', () => {
+    expect(cnname({ count: 5, unique: true, givenNameType: 'animal' })).toHaveLength(5);
   });
   test('cnname({ count: 5, part: "givenName", givenNameType: "animal", givenNameLength: 1 }) should return array with animal given name', () => {
     const data = cnname({ count: 5, part: 'givenName', givenNameType: 'animal', givenNameLength: 1 });
     expect(data.every((name) => allAnimalWords.includes(name))).toBeTruthy();
+  });
+  test('givenNameType in "GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE" should always return one attribute word', () => {
+    expect(
+      GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE.every((givenNameType) => {
+        const words = cnname({ count: 5, part: 'givenName', givenNameType, givenNameLength: 2 });
+        const list = getGivenNameListByGivenNameType(givenNameType);
+        return words.every((name) => {
+          return (
+            (list.includes(name[0]) && !list.includes(name[1])) || (list.includes(name[1]) && !list.includes(name[0]))
+          );
+        });
+      }),
+    ).toBeTruthy();
   });
 });
