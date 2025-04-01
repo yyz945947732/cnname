@@ -10,7 +10,7 @@
     "test": "vitest",
     "test:cov": "vitest run --coverage",
     "bench": "vitest bench --outputJson benchmark.json",
-    "bench:compare": "vitest bench --compare benchmark.json",
+    "bench:comp": "vitest bench --compare benchmark.json",
     "lint": "biome check --write --unsafe && biome format --write",
     "build": "tsup",
     "release": "bumpp",
