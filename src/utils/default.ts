@@ -28,10 +28,10 @@ export const GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE: GivenNameType[] = ['animal']
  * @private
  * 常见单姓固定数量
  */
-export const COMMON_SINGLE_CHARACTER_SURNAMES_TOTAL = 150;
+export const COMMON_SINGLE_CHARACTER_SURNAMES_TOTAL: number = 150;
 
 /**
  * @private
  * 常见复姓固定数量
  */
-export const COMMON_COMPOUND_SURNAMES_TOTAL = 12;
+export const COMMON_COMPOUND_SURNAMES_TOTAL: number = 12;

@@ -20,8 +20,8 @@ import { pickRandomEle, pickRandomSingleEle, safePickSingleEleByAlgorithm } from
  * 判断值是否存在姓氏中
  */
 export function getIsSurname(surname: string): boolean {
-  const allSurnames = getAllSurname();
-  return allSurnames.some((item) => item === surname);
+  const set = new Set(getAllSurname());
+  return set.has(surname);
 }
 
 /**
@@ -29,8 +29,8 @@ export function getIsSurname(surname: string): boolean {
  * 判断值是否存在复姓中
  */
 export function getIsCompoundSurname(surname: string): boolean {
-  const allCompoundSurnames = getAllCompoundSurname();
-  return allCompoundSurnames.some((item) => item === surname);
+  const set = new Set(getAllCompoundSurname());
+  return set.has(surname);
 }
 
 /**
@@ -38,8 +38,8 @@ export function getIsCompoundSurname(surname: string): boolean {
  * 判断值是否存在单字姓中
  */
 export function getIsSingleCharacterSurname(surname: string): boolean {
-  const allSingleCharacterSurnames = getAllSingleCharacterSurname();
-  return allSingleCharacterSurnames.some((item) => item === surname);
+  const set = new Set(getAllSingleCharacterSurname());
+  return set.has(surname);
 }
 
 /**

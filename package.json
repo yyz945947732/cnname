@@ -9,7 +9,8 @@
     "start": "node scripts/preview.mjs",
     "test": "vitest",
     "test:cov": "vitest run --coverage",
-    "bench": "vitest bench",
+    "bench": "vitest bench --outputJson benchmark.json",
+    "bench:comp": "vitest bench --compare benchmark.json",
     "lint": "biome check --write --unsafe && biome format --write",
     "build": "tsup",
     "release": "bumpp",
@@ -57,7 +58,7 @@
     "fake chinese name"
   ],
   "lint-staged": {
-    "{src,test}/**/*.ts": [
+    "{src,test,performance}/**/*.ts": [
       "biome check --write",
       "biome format --write"
     ]

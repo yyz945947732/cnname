@@ -61,12 +61,15 @@ function cnname(parameter1?: number | string | Options, parameter2?: number): st
     num = 0;
   }
 
-  const result = Array.from({ length: num }, () => {
+  const result = [];
+
+  for (let i = 0; i < num; i++) {
     const surname = fixSurname ?? pickSurnameByAlgorithm(DEFAULT_SURNAME_TYPE, DEFAULT_SURNAME_ALGORITHM);
     const nameLength = Math.random() > 0.5 ? 2 : 1;
     const givenName = pickRandomWords(nameLength);
-    return surname + givenName;
-  });
+    const fullname = surname + givenName;
+    result.push(fullname);
+  }
 
   return single ? result[0] : result;
 }
@@ -79,21 +82,24 @@ function cnname(parameter1?: number | string | Options, parameter2?: number): st
 function cnnameWithOptions(options: Options): string[] {
   const { count = 1, unique = false } = options;
 
-  const num = count < 0 ? 0 : count;
+  if (count <= 0) return [];
 
   if (unique) {
     const maxSetSize = getMaxSetSize(options);
-    const uniqueResult = new Set<string>([]);
+    const uniqueResult = new Set<string>();
+    const size = Math.min(count, maxSetSize);
 
-    while (uniqueResult.size < num && uniqueResult.size < maxSetSize) {
+    while (uniqueResult.size < size) {
       uniqueResult.add(getSingleResult(options));
     }
     return Array.from(uniqueResult);
   }
 
-  const result = Array.from({ length: num }, () => {
-    return getSingleResult(options);
-  });
+  const result = [];
+
+  for (let i = 0; i < count; i++) {
+    result.push(getSingleResult(options));
+  }
 
   return result;
 }
