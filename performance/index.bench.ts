@@ -4,7 +4,7 @@ import cnname from '../src';
 const TEST_LARGE_COUNT = 50000;
 const TEST_FEW_COUNT = 50;
 
-describe(`performance ${TEST_LARGE_COUNT}`, () => {
+describe(`count ${TEST_LARGE_COUNT}`, () => {
   bench('unique weight surname', () => {
     cnname({ count: TEST_LARGE_COUNT, unique: true, part: 'surname', surnameAlgorithm: 'weight' });
   });
@@ -49,7 +49,7 @@ describe(`performance ${TEST_LARGE_COUNT}`, () => {
   });
 });
 
-describe(`performance ${TEST_FEW_COUNT}`, () => {
+describe(`count ${TEST_FEW_COUNT}`, () => {
   bench('unique weight surname', () => {
     cnname({ count: TEST_FEW_COUNT, unique: true, part: 'surname', surnameAlgorithm: 'weight' });
   });

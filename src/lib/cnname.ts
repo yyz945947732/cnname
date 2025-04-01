@@ -61,12 +61,15 @@ function cnname(parameter1?: number | string | Options, parameter2?: number): st
     num = 0;
   }
 
-  const result = Array.from({ length: num }, () => {
+  const result = [];
+
+  for (let i = 0; i < num; i++) {
     const surname = fixSurname ?? pickSurnameByAlgorithm(DEFAULT_SURNAME_TYPE, DEFAULT_SURNAME_ALGORITHM);
     const nameLength = Math.random() > 0.5 ? 2 : 1;
     const givenName = pickRandomWords(nameLength);
-    return surname + givenName;
-  });
+    const fullname = surname + givenName;
+    result.push(fullname);
+  }
 
   return single ? result[0] : result;
 }
@@ -91,9 +94,11 @@ function cnnameWithOptions(options: Options): string[] {
     return Array.from(uniqueResult);
   }
 
-  const result = Array.from({ length: num }, () => {
-    return getSingleResult(options);
-  });
+  const result = [];
+
+  for (let i = 0; i < num; i++) {
+    result.push(getSingleResult(options));
+  }
 
   return result;
 }
