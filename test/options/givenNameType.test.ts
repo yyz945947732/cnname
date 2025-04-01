@@ -97,17 +97,18 @@ describe('cnname.options.givenNameType', () => {
     const data = cnname({ count: 5, part: 'givenName', givenNameType: 'animal', givenNameLength: 1 });
     expect(data.every((name) => allAnimalWords.includes(name))).toBeTruthy();
   });
-  test('givenNameType in "GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE" should always return one attribute word', () => {
-    expect(
-      GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE.every((givenNameType) => {
-        const words = cnname({ count: 5, part: 'givenName', givenNameType, givenNameLength: 2 });
-        const list = getGivenNameListByGivenNameType(givenNameType);
-        return words.every((name) => {
+  test.each(GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE)(
+    'givenNameType %s should always return one attribute word',
+    (givenNameType) => {
+      const words = cnname({ count: 5, part: 'givenName', givenNameType, givenNameLength: 2 });
+      const list = getGivenNameListByGivenNameType(givenNameType);
+      expect(
+        words.every((name) => {
           return (
             (list.includes(name[0]) && !list.includes(name[1])) || (list.includes(name[1]) && !list.includes(name[0]))
           );
-        });
-      }),
-    ).toBeTruthy();
-  });
+        }),
+      ).toBeTruthy();
+    },
+  );
 });
