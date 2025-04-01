@@ -1,6 +1,10 @@
 {
   "files": {
-    "include": ["src", "test"]
+    "include": [
+      "src",
+      "test",
+      "performance"
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -89,6 +93,10 @@
         "useValidTypeof": "error"
       }
     },
-    "ignore": ["node_modules", "dist", "public"]
+    "ignore": [
+      "node_modules",
+      "dist",
+      "public"
+    ]
   }
 }
