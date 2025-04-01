@@ -3,6 +3,31 @@ import rareSurnameDict from '../../dict/surnames/rare.json';
 import attributesWordDict from '../../dict/words/attributes.json';
 import normalWordDict from '../../dict/words/normal.json';
 
+/**
+ * @private
+ * 通过字典获取名
+ */
+const parseDictToWords = (dict: string) => dict.split('');
+
+/**
+ * @private
+ * 通过字典获取姓氏
+ */
+const parseDictToSurname = (dict: string) => dict.split(' ');
+
+/**
+ * @private
+ * 组合姓氏字典
+ */
+const combineSurnameDicts = (...dicts: string[]): string[] => {
+  const result = [];
+  for (const dict of dicts) {
+    const surnames = parseDictToSurname(dict);
+    result.push(...surnames);
+  }
+  return Array.from(new Set(result));
+};
+
 /** 所有姓氏 */
 const ALL_SURNAMES = combineSurnameDicts(
   commonSurnameDict.single,
@@ -45,35 +70,6 @@ const EARTH_WORDS = parseDictToWords(attributesWordDict.earth);
 
 /** 动物属性 */
 const ANIMAL_WORDS = parseDictToWords(attributesWordDict.animal);
-
-/**
- * @private
- * 通过字典获取名
- */
-function parseDictToWords(dict: string) {
-  return dict.split('');
-}
-
-/**
- * @private
- * 通过字典获取姓氏
- */
-function parseDictToSurname(dict: string) {
-  return dict.split(' ');
-}
-
-/**
- * @private
- * 组合姓氏字典
- */
-export function combineSurnameDicts(...dicts: string[]): string[] {
-  const result = [];
-  for (const dict of dicts) {
-    const surnames = parseDictToSurname(dict);
-    result.push(...surnames);
-  }
-  return Array.from(new Set(result));
-}
 
 /**
  * @private

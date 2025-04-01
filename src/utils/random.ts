@@ -33,7 +33,7 @@ export function randomNumber(a: number, b: number): number {
  * 通过算法安全的从数组中随机选取 1 个元素
  */
 export function safePickSingleEleByAlgorithm(array: string[], algorithm: Algorithm): string {
-  if (!array || !array.length) {
+  if (!array.length) {
     return '';
   }
   return pickEleByAlgorithm(array, algorithm, 1)[0];
@@ -53,7 +53,7 @@ export function pickRandomSingleEle(array: string[]): string {
  */
 export function pickRandomEle(array: string[], n: number): string[] {
   /* istanbul ignore if -- @preserve */
-  if (!array || !array.length || n <= 0) return [];
+  if (!array.length || n <= 0) return [];
 
   const result = [];
   const length = array.length;
@@ -71,7 +71,7 @@ export function pickRandomEle(array: string[], n: number): string[] {
  */
 export function pickWeightEle(array: string[], n: number): string[] {
   /* istanbul ignore if -- @preserve */
-  if (!array || !array.length || n <= 0) return [];
+  if (!array.length || n <= 0) return [];
 
   const len = array.length;
   const totalWeight = (len * (len + 1)) / 2;
