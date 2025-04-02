@@ -28,12 +28,12 @@ export interface Options {
   givenNameStartsWith?: string;
   /** 指定名字最后一个字 */
   givenNameEndsWith?: string;
-  /** 使用叠字名，默认为 `false` */
+  /** 是否使用叠字名，默认为 `false` */
   givenNameDuplicated?: boolean;
   /** 指定名 */
   givenName?: string | string[];
   /**
-   * 支持姓氏类型，默认为 `common`
+   * 姓氏类型，默认为 `common`
    * @type `common` 包括常见姓氏
    * @type `common-single` 包括常见单字姓氏
    * @type `common-compound` 包括常见复姓
@@ -51,7 +51,7 @@ export interface Options {
   /** 指定姓氏 */
   surname?: string | string[];
   /**
-   * 返回值不重复，默认为 `false`
+   * 是否返回值不重复，默认为 `false`
    *
    * 如果 `unique` 为 `true`，但字典可返回的数量不足 `count`，则返回的数量可能会少于 `count`
    */
