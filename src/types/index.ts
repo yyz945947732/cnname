@@ -1,6 +1,6 @@
 /** 高级配置 */
 export interface Options {
-  /** 返回值数量, 默认为 `1` */
+  /** 返回数量, 默认为 `1` */
   count?: number;
   /**
    * 性别
@@ -18,7 +18,7 @@ export interface Options {
    */
   elements?: 'metal' | 'wood' | 'water' | 'fire' | 'earth';
   /**
-   * 名字属性。
+   * 名字所含特性
    * @link https://github.com/yyz945947732/cnname/blob/master/docs/cn/givenNameType.md
    */
   givenNameType?: GivenNameType | GivenNameType[];
@@ -28,9 +28,9 @@ export interface Options {
   givenNameStartsWith?: string;
   /** 指定名字最后一个字 */
   givenNameEndsWith?: string;
-  /** 仅返回叠字名，默认为 `false` */
+  /** 使用叠字名，默认为 `false` */
   givenNameDuplicated?: boolean;
-  /** 仅返回指定名 */
+  /** 指定名 */
   givenName?: string | string[];
   /**
    * 支持姓氏类型，默认为 `common`
@@ -43,15 +43,15 @@ export interface Options {
    */
   surnameType?: SurnameType;
   /**
-   * 姓氏抽取算法，默认为 `weight`
-   * @type `weight` 按字典库姓氏排序加权
+   * 姓氏抽取策略，默认为 `weight`
+   * @type `weight` 按字典库中姓氏的排序加权后随机抽取
    * @type `random` 完全随机
    */
   surnameAlgorithm?: Algorithm;
-  /** 仅返回指定姓氏 */
+  /** 指定姓氏 */
   surname?: string | string[];
   /**
-   * 返回不可重复，默认为 `false`
+   * 返回值不重复，默认为 `false`
    *
    * 如果 `unique` 为 `true`，但字典可返回的数量不足 `count`，则返回的数量可能会少于 `count`
    */
