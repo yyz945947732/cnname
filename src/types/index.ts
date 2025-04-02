@@ -57,7 +57,7 @@ export interface Options {
    */
   unique?: boolean;
   /**
-   * 返回的姓名部分，默认为 `fullName`
+   * 返回类型，默认为 `fullName`
    * @type `fullName` 返回完整姓名
    * @type `surname` 只返回姓
    * @type `givenName` 只返回名
