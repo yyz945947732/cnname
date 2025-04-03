@@ -1,6 +1,5 @@
-import type { Options } from '../types';
-import { isOptions } from '../utils';
-import getName from './getName';
+import { pickSurnameByStrategy } from '../utils';
+import { DEFAULT_SURNAME_PICK_STRATEGY, DEFAULT_SURNAME_RARITY } from '../utils/default';
 
 /**
  * 返回随机姓氏
@@ -15,21 +14,22 @@ function getSurname(): string;
  */
 function getSurname(num: number): string[];
 
-/**
- * 返回随机姓氏
- * @param {Options} options 高级配置
- * @returns {string[]} 随机姓氏数组
- */
-function getSurname(options: Options): string[];
+function getSurname(parameter1?: number): string | string[] {
+  let num = parameter1 ?? 1;
 
-function getSurname(parameter1?: number | Options): string | string[] {
-  if (typeof parameter1 === 'number') {
-    return getName({ returnType: 'surname', count: parameter1 });
+  if (num < 0) {
+    num = 0;
   }
-  if (isOptions(parameter1)) {
-    return getName({ ...parameter1, returnType: 'surname' });
+
+  const result = [];
+  const single = parameter1 === undefined;
+
+  for (let i = 0; i < num; i++) {
+    const surname = pickSurnameByStrategy(DEFAULT_SURNAME_RARITY, DEFAULT_SURNAME_PICK_STRATEGY);
+    result.push(surname);
   }
-  return getName({ returnType: 'surname' })?.[0];
+
+  return single ? result[0] : result;
 }
 
 export default getSurname;
