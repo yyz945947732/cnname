@@ -1,4 +1,4 @@
-import type { GivenNameAttribute, Options, SurnameDictKey, SurnameType } from '../types';
+import type { GivenNameAttribute, Options, SurnameDictKey } from '../types';
 import { DEFAULT_SURNAME_RARITY } from './default';
 import {
   getAllAnimalWordsSize,

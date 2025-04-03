@@ -65,39 +65,39 @@ pnpm install cnname
 ### 🚀 使用示例
 
 ```js
-import cnname from 'cnname';
+import { getName } from 'cnname';
 
-cnname();
+getName();
 // -> 李炜
-cnname('高');
+getName('高');
 // -> 高佳倩
-cnname(5);
+getName(5);
 // -> ["余嘉扬", "郭东仪", "谢鸿宾", "彭天奇", "关智华"]
-cnname('张', 5);
+getName('张', 5);
 // -> ["张腾", "张怡莉", "张瑞宇", "张萍", "张韵思"]
-cnname({ count: 5, gender: 'female' });
+getName({ count: 5, gender: 'female' });
 // -> ["庞妙", "黄如嫣", "姜莹", "莫惠安", "周敏"]
 ```
 
 ## 📖 API
 
-**`cnname(): string`**
+**`getName(): string`**
 
 获取一个随机姓名。
 
-**`cnname(surname: string): string`**
+**`getName(surname: string): string`**
 
 获取指定姓氏的随机姓名。
 
-**`cnname(num: number): string[]`**
+**`getName(num: number): string[]`**
 
 获取指定数量的随机姓名。
 
-**`cnname(surname: string, num: number): string[]`**
+**`getName(surname: string, num: number): string[]`**
 
 获取指定姓氏和数量的随机姓名。
 
-**`cnname(options: Options): string[]`**
+**`getName(options: Options): string[]`**
 
 通过高级选项获取姓名。支持性别、五行、叠字名、复姓等丰富功能。👉 [查看文档](docs/cn/options.md)
 
@@ -105,7 +105,7 @@ cnname({ count: 5, gender: 'female' });
 
 - [isSurname](docs/cn/isSurname.md) - 判断是否为姓氏。
 
-- [cnnamestr](docs/cn/cnnamestr.md) - 同 `cnname`，但始终返回字符串。
+- [getNameStr](docs/cn/getNameStr.md) - 同 `getName`，但始终返回字符串。
 
 - [parseName](docs/cn/parseName.md) - 解析名字，返回姓氏等信息。
 
@@ -126,10 +126,10 @@ cnname({ count: 5, gender: 'female' });
 ## ✍️ 示例
 
 ```js
-import cnname from 'cnname';
+import { getName } from 'cnname';
 
-const 主角名字 = cnname();
-const 反派名字 = cnname('张');
+const 主角名字 = getName();
+const 反派名字 = getName('张');
 
 const novel = `
 # 第 1 章 千人围攻
@@ -144,7 +144,7 @@ ${主角名字}心头微凉，定睛一看。
 
 他们分别是：
 
-${cnname(1000).join('，')}。
+${getName(1000).join('，')}。
 `;
 ```
 

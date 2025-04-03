@@ -1,25 +1,25 @@
 import type { Options } from '../types/index';
-import cnname from './cnname';
+import getName from './getName';
 
 /**
  * 返回随机中文名
  * @returns {string} 随机中文名
  */
-function cnnamestr(): string;
+function getNameStr(): string;
 
 /**
  * 返回随机中文名
  * @param {number} num 随机个数
  * @returns {string} 一串随机中文名
  */
-function cnnamestr(num: number): string;
+function getNameStr(num: number): string;
 
 /**
  * 返回随机中文名
  * @param {string} surname 姓氏
  * @returns {string} 随机中文名
  */
-function cnnamestr(surname: string): string;
+function getNameStr(surname: string): string;
 
 /**
  * 返回随机中文名
@@ -27,18 +27,18 @@ function cnnamestr(surname: string): string;
  * @param {number} num 随机个数
  * @returns {string} 一串随机中文名
  */
-function cnnamestr(surname: string, num: number): string;
+function getNameStr(surname: string, num: number): string;
 
 /**
  * 返回随机中文名
  * @param {Options} options 高级配置
  * @returns {string} 一串随机中文名
  */
-function cnnamestr(options: Options): string;
+function getNameStr(options: Options): string;
 
-function cnnamestr(parameter1?: string | number | Options, parameter2?: number): string {
-  const result = cnname(parameter1 as unknown as string, parameter2);
+function getNameStr(parameter1?: string | number | Options, parameter2?: number): string {
+  const result = getName(parameter1 as unknown as string, parameter2);
   return Array.isArray(result) ? result.join() : result;
 }
 
-export default cnnamestr;
+export default getNameStr;

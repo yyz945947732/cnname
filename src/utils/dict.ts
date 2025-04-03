@@ -1,7 +1,7 @@
-import commonSurnameDict from '../../dict/surnames/common.json';
-import rareSurnameDict from '../../dict/surnames/rare.json';
-import attributesWordDict from '../../dict/words/attributes.json';
-import normalWordDict from '../../dict/words/normal.json';
+import commonSurnameDict from '@/dict/surnames/common.json';
+import rareSurnameDict from '@/dict/surnames/rare.json';
+import attributesWordDict from '@/dict/words/attributes.json';
+import normalWordDict from '@/dict/words/normal.json';
 
 /**
  * @private

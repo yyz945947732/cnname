@@ -1,27 +1,27 @@
+import { getName } from '@/src';
 import { assertType, describe, expect, test } from 'vitest';
-import cnname from '../../src';
 
-assertType<string[]>(cnname({ count: 5, surnamePickStrategy: 'random' }));
-assertType<string[]>(cnname({ count: 5, surnamePickStrategy: 'weight' }));
+assertType<string[]>(getName({ count: 5, surnamePickStrategy: 'random' }));
+assertType<string[]>(getName({ count: 5, surnamePickStrategy: 'weight' }));
 
-describe('cnname.options.surnamePickStrategy', () => {
-  test('cnname({ count: 5, surnamePickStrategy: "weight" }) should return array with five elements', () => {
-    expect(cnname({ count: 5, surnamePickStrategy: 'weight' })).toHaveLength(5);
+describe('getName.options.surnamePickStrategy', () => {
+  test('getName({ count: 5, surnamePickStrategy: "weight" }) should return array with five elements', () => {
+    expect(getName({ count: 5, surnamePickStrategy: 'weight' })).toHaveLength(5);
   });
-  test('cnname({ count: 5, surnamePickStrategy: "random" }) should return array with five elements', () => {
-    expect(cnname({ count: 5, surnamePickStrategy: 'random' })).toHaveLength(5);
+  test('getName({ count: 5, surnamePickStrategy: "random" }) should return array with five elements', () => {
+    expect(getName({ count: 5, surnamePickStrategy: 'random' })).toHaveLength(5);
   });
-  test('cnname({ count: 5, returnType: "surname", surnameRarity: "all", surnamePickStrategy: "random" }) should return array with five elements', () => {
-    const data = cnname({ count: 5, returnType: 'surname', surnameRarity: 'all', surnamePickStrategy: 'random' });
+  test('getName({ count: 5, returnType: "surname", surnameRarity: "all", surnamePickStrategy: "random" }) should return array with five elements', () => {
+    const data = getName({ count: 5, returnType: 'surname', surnameRarity: 'all', surnamePickStrategy: 'random' });
     expect(data).toHaveLength(5);
   });
-  test('cnname({ count: 5, returnType: "surname", surnameRarity: "all", surnamePickStrategy: "weight" }) should return array with five elements', () => {
-    const data = cnname({ count: 5, returnType: 'surname', surnameRarity: 'all', surnamePickStrategy: 'weight' });
+  test('getName({ count: 5, returnType: "surname", surnameRarity: "all", surnamePickStrategy: "weight" }) should return array with five elements', () => {
+    const data = getName({ count: 5, returnType: 'surname', surnameRarity: 'all', surnamePickStrategy: 'weight' });
     expect(data).toHaveLength(5);
   });
-  test('cnname({ count: 5, returnType: "surname", surnameRarity: "all", surnamePickStrategy: "error" }) should return array with five elements', () => {
+  test('getName({ count: 5, returnType: "surname", surnameRarity: "all", surnamePickStrategy: "error" }) should return array with five elements', () => {
     // @ts-expect-error
-    const data = cnname({ count: 5, returnType: 'surname', surnameRarity: 'all', surnamePickStrategy: 'error' });
+    const data = getName({ count: 5, returnType: 'surname', surnameRarity: 'all', surnamePickStrategy: 'error' });
     expect(data).toHaveLength(5);
   });
 });

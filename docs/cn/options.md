@@ -1,4 +1,4 @@
-# `cnname(options: Options)`
+# `getName(options: Options)`
 
 ## ⚡ Options
 
@@ -25,99 +25,99 @@
 ### 生成 5 个随机名字
 
 ```js
-import cnname from 'cnname';
+import { getName } from 'cnname';
 
-cnname({ count: 5 });
+getName({ count: 5 });
 // => ["杨波", "郑龙", "苏佩楠", "王楠", "许岩"]
 ```
 
 ### 生成 3 个女性名字
 
 ```js
-cnname({ count: 3, gender: 'female' });
+getName({ count: 3, gender: 'female' });
 // => ["夏柔", "邓霞", "赵欣"]
 ```
 
 ### 生成 2 个五行属火的名字
 
 ```js
-cnname({ count: 2, wuxing: 'fire' });
+getName({ count: 2, wuxing: 'fire' });
 // => ["杜旭", "熊煜"]
 ```
 
 ### 生成 2 个五行属水的女性名字
 
 ```js
-cnname({ count: 2, wuxing: 'water', gender: 'female' });
+getName({ count: 2, wuxing: 'water', gender: 'female' });
 // => ["郭淼莹", "陈诗泉"]
 ```
 
 ### 生成 2 个五行包含水和火的名字
 
 ```js
-cnname({ count: 2, givenNameAttributes: ['water', 'fire'] });
+getName({ count: 2, givenNameAttributes: ['water', 'fire'] });
 // => ["苏泽灿", "聂涵晖"]
 ```
 
 ### 生成 2 个名字长度为 2 的名字
 
 ```js
-cnname({ count: 2, givenNameLength: 2 });
+getName({ count: 2, givenNameLength: 2 });
 // => ["陈晓东", "张涛昆"]
 ```
 
 ### 生成以 "小" 开头的名字
 
 ```js
-cnname({ count: 3, givenNameStartsWith: "小" });
+getName({ count: 3, givenNameStartsWith: "小" });
 // => ["赵小星", "王小龙", "李小佳"]
 ```
 
 ### 生成叠字名
 
 ```js
-cnname({ count: 3, givenNameDuplicated: true });
+getName({ count: 3, givenNameDuplicated: true });
 // => ["李莉莉", "李维维", "符馨馨"]
 ```
 
 ### 生成 3 个特定名的名字
 
 ```js
-cnname({ count: 3, givenName: ['俊杰', '杰伦'] });
+getName({ count: 3, givenName: ['俊杰', '杰伦'] });
 // => ["周俊杰", "林杰伦", "张俊杰"]
 ```
 
 ### 生成 2 个姓氏为复姓的名字
 
 ```js
-cnname({ count: 2, surnameType: 'compound' });
+getName({ count: 2, surnameType: 'compound' });
 // => ["司徒杉", "欧阳昊"]
 ```
 
 ### 生成 3 个特定姓氏的名字
 
 ```js
-cnname({ count: 3, surname: ['张', '刘'] });
+getName({ count: 3, surname: ['张', '刘'] });
 // => ["刘海", "张天宇", "刘伟"]
 ```
 
 ### 只返回名字部分
 
 ```js
-cnname({ count: 3, returnType: 'givenName' });
+getName({ count: 3, returnType: 'givenName' });
 // => ["晨", "浩然", "宇航"]
 ```
 
 ### 只返回姓氏部分
 
 ```js
-cnname({ count: 3, returnType: 'surname' });
+getName({ count: 3, returnType: 'surname' });
 // => ["赵", "钱", "孙"]
 ```
 
 ### 生成 3 个姓氏为冷门姓氏的名字
 
 ```js
-cnname({ count: 3, surnameRarity: 'rare' });
+getName({ count: 3, surnameRarity: 'rare' });
 // => ["嵇舒", "贡翊", "第五悠梦"]
 ```

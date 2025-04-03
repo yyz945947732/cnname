@@ -1,6 +1,6 @@
+import { parseName } from '@/src';
+import type { NameDetail } from '@/src/types';
 import { assertType, describe, expect, test } from 'vitest';
-import { parseName } from '../../src';
-import type { NameDetail } from '../../src/types';
 
 assertType<NameDetail>(parseName('张三'));
 assertType<NameDetail>(parseName('笑三'));

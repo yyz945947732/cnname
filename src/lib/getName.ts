@@ -7,21 +7,21 @@ import { getMaxSetSize } from '../utils/size';
  * 返回随机中文名
  * @returns {string} 随机中文名
  */
-function cnname(): string;
+function getName(): string;
 
 /**
  * 返回随机中文名
  * @param {number} num 随机个数
  * @returns {string[]} 随机中文名数组
  */
-function cnname(num: number): string[];
+function getName(num: number): string[];
 
 /**
  * 返回随机中文名
  * @param {string} surname 姓氏
  * @returns {string} 随机中文名
  */
-function cnname(surname: string): string;
+function getName(surname: string): string;
 
 /**
  * 返回随机中文名
@@ -29,21 +29,21 @@ function cnname(surname: string): string;
  * @param {number} num 随机个数
  * @returns {string} 随机中文名数组
  */
-function cnname(surname: string, num: number): string[];
+function getName(surname: string, num: number): string[];
 
 /**
  * 返回随机中文名
  * @param {Options} options 高级配置
  * @returns {string[]} 随机中文名数组
  */
-function cnname(options: Options): string[];
+function getName(options: Options): string[];
 
-function cnname(parameter1?: number | string | Options, parameter2?: number): string | string[] {
+function getName(parameter1?: number | string | Options, parameter2?: number): string | string[] {
   let num: number;
   let fixSurname = undefined;
   let single = false;
   if (isOptions(parameter1)) {
-    return cnnameWithOptions(parameter1);
+    return getNameWithOptions(parameter1);
   }
   if (typeof parameter1 === 'string') {
     fixSurname = parameter1;
@@ -75,11 +75,11 @@ function cnname(parameter1?: number | string | Options, parameter2?: number): st
 }
 
 /**
- * `cnname(Options)` 处理高级配置
+ * `getName(Options)` 处理高级配置
  * @param {number} num 随机个数
  * @returns {string[]} 随机中文名数组
  */
-function cnnameWithOptions(options: Options): string[] {
+function getNameWithOptions(options: Options): string[] {
   const { count = 1, unique = false } = options;
 
   if (count <= 0) return [];
@@ -104,4 +104,4 @@ function cnnameWithOptions(options: Options): string[] {
   return result;
 }
 
-export default cnname;
+export default getName;
