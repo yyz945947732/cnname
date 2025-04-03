@@ -47,7 +47,7 @@ export interface Options {
    * @type `weight` 按字典库中姓氏的排序加权后随机抽取
    * @type `random` 完全随机
    */
-  surnameAlgorithm?: Algorithm;
+  surnamePickStrategy?: PickStrategy;
   /** 指定姓氏 */
   surname?: string | string[];
   /**
@@ -78,7 +78,7 @@ export type Others = 'animal';
 export type ReturnType = 'fullName' | 'surname' | 'givenName';
 
 /** 随机抽取算法 */
-export type Algorithm = 'weight' | 'random';
+export type PickStrategy = 'weight' | 'random';
 
 /** 详细姓名信息 */
 export interface NameDetail {

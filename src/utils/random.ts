@@ -1,23 +1,23 @@
-import type { Algorithm } from '../types';
-import { DEFAULT_SURNAME_ALGORITHM } from './default';
+import type { PickStrategy } from '../types';
+import { DEFAULT_SURNAME_PICK_STRATEGY } from './default';
 
 /**
  * @private
  * 通过算法从数组中随机选取 n 个元素
  */
-export function pickEleByAlgorithm(array: string[], algorithm: Algorithm, n: number): string[] {
+export function pickEleByStrategy(array: string[], strategy: PickStrategy, n: number): string[] {
   const pickFnMap = {
     weight: pickWeightEle,
     random: pickRandomEle,
   };
 
-  const pickFn = pickFnMap[algorithm];
+  const pickFn = pickFnMap[strategy];
 
   if (pickFn) {
     return pickFn(array, n);
   }
 
-  return pickFnMap[DEFAULT_SURNAME_ALGORITHM](array, n);
+  return pickFnMap[DEFAULT_SURNAME_PICK_STRATEGY](array, n);
 }
 
 /**
@@ -32,11 +32,11 @@ export function randomNumber(a: number, b: number): number {
  * @private
  * 通过算法安全的从数组中随机选取 1 个元素
  */
-export function safePickSingleEleByAlgorithm(array: string[], algorithm: Algorithm): string {
+export function safePickSingleEleByStrategy(array: string[], strategy: PickStrategy): string {
   if (!array.length) {
     return '';
   }
-  return pickEleByAlgorithm(array, algorithm, 1)[0];
+  return pickEleByStrategy(array, strategy, 1)[0];
 }
 
 /**
@@ -44,7 +44,7 @@ export function safePickSingleEleByAlgorithm(array: string[], algorithm: Algorit
  * 通过随机算法安全的从数组中随机选取 1 个元素
  */
 export function pickRandomSingleEle(array: string[]): string {
-  return safePickSingleEleByAlgorithm(array, 'random');
+  return safePickSingleEleByStrategy(array, 'random');
 }
 
 /**
