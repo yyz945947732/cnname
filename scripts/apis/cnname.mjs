@@ -142,11 +142,11 @@ export default [
     value: cnname({ count: 5, unique: true, elements: "earth", givenNameType: "water" }),
   },
   {
-    label: 'cnname({ count: 10, unique: true, surnameAlgorithm: "random" })',
-    value: cnname({ count: 10, unique: true, surnameAlgorithm: 'random' }),
+    label: 'cnname({ count: 10, unique: true, surnamePickStrategy: "random" })',
+    value: cnname({ count: 10, unique: true, surnamePickStrategy: 'random' }),
   },
   {
-    label: 'cnname({ count: 10, unique: true, surnameAlgorithm: "weight" })',
-    value: cnname({ count: 10, unique: true, surnameAlgorithm: 'weight' }),
+    label: 'cnname({ count: 10, unique: true, surnamePickStrategy: "weight" })',
+    value: cnname({ count: 10, unique: true, surnamePickStrategy: 'weight' }),
   },
 ];

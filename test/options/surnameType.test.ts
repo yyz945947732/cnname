@@ -35,12 +35,12 @@ describe('cnname.options.surnameType', () => {
     expect(data).toHaveLength(5);
     expect(data.every((name) => name.length >= 3)).toBeTruthy();
   });
-  test('cnname({ count: 5, surnameType: "error", surnameAlgorithm: "random" }) should return array with five elements', () => {
+  test('cnname({ count: 5, surnameType: "error", surnamePickStrategy: "random" }) should return array with five elements', () => {
     // @ts-expect-error
-    expect(cnname({ count: 5, surnameType: 'error', surnameAlgorithm: 'random' })).toHaveLength(5);
+    expect(cnname({ count: 5, surnameType: 'error', surnamePickStrategy: 'random' })).toHaveLength(5);
   });
-  test('cnname({ count: 100, surnameType: "error", unique: true, surnameAlgorithm: "random" }) should return array with 100 elements', () => {
+  test('cnname({ count: 100, surnameType: "error", unique: true, surnamePickStrategy: "random" }) should return array with 100 elements', () => {
     // @ts-expect-error
-    expect(cnname({ count: 100, surnameType: 'error', unique: true, surnameAlgorithm: 'random' })).toHaveLength(100);
+    expect(cnname({ count: 100, surnameType: 'error', unique: true, surnamePickStrategy: 'random' })).toHaveLength(100);
   });
 });

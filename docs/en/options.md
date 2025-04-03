@@ -14,7 +14,7 @@
 | givenNameDuplicated | `boolean` | Whether to return only repeated given names (e.g., "婷婷", "明明"). | `false` |
 | givenName | `string \| string[]` | Specify a given name (single or array).。 | Random given name |
 | surnameType | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | Surname type: <br>`'common'` for [common surname](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json). <br>`'common-single'` for common single-character surnames. <br> `'common-compound'` for common compound surnames. <br>`'all'` for all surnames. <br> `'all-single'` for single-character surnames. <br> `'all-compound'` for compound surnames. | `'common'` |
-| surnameAlgorithm | `'weight' \| 'random'` | Random generate algorithm (surname). <br>`'weight'` based on  surnames order in dictionary. <br>`'random'` purely random. | `'weight'` |
+| surnamePickStrategy | `'weight' \| 'random'` | Surname pick strategy. <br>`'weight'` randomly pick after weighting based on the order of surnames in the dictionary. <br>`'random'` completely random. | `'weight'` |
 | surname | `string \| string[]` | Specify a surname (single or array). | Random surname |
 | unique | `boolean` | Ensure the returned names are unique. | `false` |
 | returnType | `'fullName' \| 'surname' \| 'givenName'` | Part of returned name: <br> `'fullName'` for full names. <br> `'surname'` for surnames only. <br> `'givenName'` for given names only. | `'fullName'` |
@@ -117,6 +117,6 @@ cnname({ count: 3, returnType: 'surname' });
 ### Generate names with a higher probability of uncommon surnames
 
 ```js
-cnname({ count: 3, surnameType: 'all', surnameAlgorithm: 'random' });
+cnname({ count: 3, surnameType: 'all', surnamePickStrategy: 'random' });
 // => ["嵇舒", "贡翊", "第五悠梦"]
 ```

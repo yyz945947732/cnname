@@ -1,6 +1,6 @@
-import type { Algorithm, GivenNameType, Options, SurnameType } from '../types';
+import type { GivenNameType, Options, PickStrategy, SurnameType } from '../types';
 import {
-  DEFAULT_SURNAME_ALGORITHM,
+  DEFAULT_SURNAME_PICK_STRATEGY,
   DEFAULT_SURNAME_TYPE,
   GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE,
   GIVEN_NAME_TYPE_PRIORITY,
@@ -13,7 +13,7 @@ import {
   getAllWords,
 } from './dict';
 import { getGivenNameListByGivenNameType, getSurnameListBySurnameType } from './list';
-import { pickRandomEle, pickRandomSingleEle, safePickSingleEleByAlgorithm } from './random';
+import { pickRandomEle, pickRandomSingleEle, safePickSingleEleByStrategy } from './random';
 
 /**
  * @private
@@ -58,9 +58,9 @@ export function pickRandomWords(n: number, givenNameTypes?: GivenNameType[]): st
  * @private
  * 按随机算法获取姓氏
  */
-export function pickSurnameByAlgorithm(surnameType: SurnameType, algorithm: Algorithm): string {
+export function pickSurnameByStrategy(surnameType: SurnameType, strategy: PickStrategy): string {
   const list = getSurnameListBySurnameType(surnameType);
-  return safePickSingleEleByAlgorithm(list, algorithm);
+  return safePickSingleEleByStrategy(list, strategy);
 }
 
 /**
@@ -157,19 +157,19 @@ export function isCnChar(word: string): boolean {
 export function getSurnameByOptions(options: Options): string {
   const {
     surnameType = DEFAULT_SURNAME_TYPE,
-    surnameAlgorithm = DEFAULT_SURNAME_ALGORITHM,
+    surnamePickStrategy = DEFAULT_SURNAME_PICK_STRATEGY,
     surname: fixedSurname,
   } = options;
 
   if (Array.isArray(fixedSurname)) {
-    return safePickSingleEleByAlgorithm(fixedSurname, surnameAlgorithm);
+    return safePickSingleEleByStrategy(fixedSurname, surnamePickStrategy);
   }
 
   if (fixedSurname !== undefined) {
     return fixedSurname;
   }
 
-  return pickSurnameByAlgorithm(surnameType, surnameAlgorithm);
+  return pickSurnameByStrategy(surnameType, surnamePickStrategy);
 }
 
 /**
@@ -186,7 +186,7 @@ export function getGivenNameByOptions(options: Options): string {
   } = options;
 
   if (Array.isArray(fixGivenName)) {
-    return safePickSingleEleByAlgorithm(fixGivenName, 'random');
+    return safePickSingleEleByStrategy(fixGivenName, 'random');
   }
 
   if (fixGivenName !== undefined) {
