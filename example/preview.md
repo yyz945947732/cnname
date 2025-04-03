@@ -2,155 +2,151 @@
 
 ## getName()
 
-王潇雨
+郭渊
 
 ## getName("彭")
 
-彭晓
+彭澜煜
 
 ## getName(5)
 
-廖心,刘钰德,贾楠祥,涂怡钟,唐嫣岳
+武源晨,罗榆,黄梓,伍义,杨敏
 
 ## getName("姚", 5)
 
-姚晨凌,姚亦蝉,姚菁华,姚昱,姚语彤
+姚昱衡,姚镇铠,姚婷,姚良泉,姚远
 
 ## getName({ count: 5 })
 
-付芮,孙俐,吴宸,翟倩杉,崔琪凯
+韦康修,顾辰,周琦,庄俊辰,陈乔
 
 ## getName({ count: 5, unique: true, givenNameDuplicated: true })
 
-唐焱焱,陶烽烽,曹梅梅,庄潇潇,秦永永
+蔡焕焕,杨汶汶,汪姬姬,马鱼鱼,谭铄铄
 
 ## getName({ count: 5, surname: "张" })
 
-张柯镇,张妙柏,张峥柔,张晖凌,张贺
+张熙,张维怡,张珂涛,张林曦,张勇柯
 
 ## getName({ count: 5, surname: "张", givenNameLength: 2 })
 
-张威娇,张彬辉,张伦炜,张慧纶,张子林
+张富松,张芊歆,张良祺,张然琳,张泉莉
 
 ## getName({ count: 5, surname: "李", givenNameLength: 2, givenNameStartsWith: "俊" })
 
-李俊芊,李俊纶,李俊仪,李俊明,李俊妙
+李俊奕,李俊霜,李俊思,李俊斌,李俊伦
 
 ## getName({ count: 5, surname: "张", givenNameLength: 2, givenNameEndsWith: "英" })
 
-张辉英,张信英,张彩英,张卓英,张茵英
+张克英,张榆英,张劲英,张岚英,张瑶英
 
 ## getName({ count: 5, unique: true, returnType: "surname" })
 
-陶,冯,邓,严,徐
+于,王,任,高,韩
 
 ## getName({ count: 5, unique: true, returnType: "givenName" })
 
-晨,文,婷,鲸贺,城
+艳,雀,基,蝶霞,依
 
 ## getName({ count: 5, unique: true, surnameType: "single", surnameRarity: "all", givenNameLength: 1 })
 
-终沐,娄凌,项铄,浦奇,田莹
+师曼,卓殷,芦昕,储洁,侯翼
 
 ## getName({ count: 5, unique: true, surnameType: "compound", surnameRarity: "all", givenNameLength: 1 })
 
-欧阳毓,仲孙乐,夏侯蝉,公孙静,申屠悠
+诸葛彦,司寇秋,太叔珂,皇甫炜,司徒琳
 
 ## getName({ count: 5, unique: true, surnameType: "single", surnameRarity: "common", givenNameLength: 1 })
 
-毕鹿,杜伟,施媛,孙峰,胡威
+彭涛,殷依,康雀,郭腾,许均
 
 ## getName({ count: 5, unique: true, surnameType: "compound", surnameRarity: "common", givenNameLength: 1 })
 
-尉迟松,尉迟婷,诸葛鹿,皇甫宸,申屠媛
+司马宁,诸葛君,皇甫勋,皇甫秋,令狐柯
 
 ## getName({ count: 5, unique: true, surnameType: "single", surnameRarity: "rare", givenNameLength: 1 })
 
-学轩,穆骏,夙栋,双卓,世嘉
+礼茜,查涛,仉昱,郦焱,庚焕
 
 ## getName({ count: 5, unique: true, surnameType: "compound", surnameRarity: "rare", givenNameLength: 1 })
 
-谷梁鱼,东方文,濮阳善,巫马俊,壤驷睿
+轩辕华,司寇翰,仲孙峥,闻人逸,谷梁纶
 
 ## getName({ count: 5, unique: true, surname: ["张", "李"] })
 
-张卓炎,李锦铭,李秋娇,李怡婉,张皓翊
+张雪,张霄城,李霄棠,李森,张昕
 
 ## getName({ count: 5, unique: true, surname: "关" })
 
-关杰梅,关霜,关芳惠,关欣,关岱良
+关亮,关蝶锋,关森,关惠,关锡
 
 ## getName({ count: 5, unique: true, givenName: ["小桐", "穗宁"] })
 
-谢小桐,陶穗宁,伍小桐,倪小桐,武穗宁
+肖穗宁,孟小桐,付小桐,宋穗宁,叶穗宁
 
 ## getName({ count: 5, unique: true, givenName: "佳运" })
 
-潘佳运,梁佳运,方佳运,崔佳运,万佳运
+章佳运,伍佳运,孟佳运,陈佳运,任佳运
 
 ## getName({ count: 5, unique: true, givenNameAttributes: "male" })
 
-贾瑞,叶野,韦鸿,吕杰,熊军轩
+范昆,苏熙,林博豪,许峻,宋智瑾
 
 ## getName({ count: 5, unique: true, givenNameAttributes: "female" })
 
-付姬,徐艳,邓霜绣,刘南颖,贺蔚
+叶佩梦,史瑶,赵灵,彭怡,芦惠
 
 ## getName({ count: 5, unique: true, givenNameAttributes: "metal" })
 
-萧铄鑫,韩锦,魏钟,黄钦,柴锦晨
+纪钧君,何萧鑫,石钦懿,陆铠钰,邹铮鑫
 
 ## getName({ count: 5, unique: true, givenNameAttributes: "wood" })
 
-包铭楠,蔡槿云,黄榆,沈森桦,高榆
+毕槿星,张松,闫栩柳,尹榆,蒋梧
 
 ## getName({ count: 5, unique: true, givenNameAttributes: "water" })
 
-余洁洁,汤泉,徐渊,徐康泷,贺渊
+蒋淼,阎渊,唐沐,刘沐竹,马淼海
 
 ## getName({ count: 5, unique: true, givenNameAttributes: "fire" })
 
-赵旭,赵煜峥,魏炫,余曦逸,孙焕烽
+芦曦,龙烈,卢灿烁,谢炎焱,梁骏晴
 
 ## getName({ count: 5, unique: true, givenNameAttributes: "earth" })
 
-邵坤腾,朱坤,向坤,徐峻哲,谭峥
+杨悠坤,文峻境,朱岚利,苏城,刘峰
 
 ## getName({ count: 5, unique: true, givenNameAttributes: "animal" })
 
-程龙,毕麟晗,包龙,罗南麟,史彬彪
-
-## getName({ count: 5, unique: true, givenNameAttributes: "all" })
-
-纪善尧,尹锦,黎义,赖铄,包维焱
+雷鹤,余鹿,何鹿永,倪彪,樊龙
 
 ## getName({ count: 5, unique: true, givenNameAttributes: ["earth", "female"] })
 
-黄城慧,文垚,吴洁培,韦基燕,洪均
+田茵基,樊均,高坤,纪培,韩芊峥
 
 ## getName({ count: 5, unique: true, givenNameAttributes: ["water", "fire"] })
 
-尹煜洁,吴泉,史泉,包涵烁,马滨
+杜泉,耿泽,胡滨,包波,熊沐烨
 
 ## getName({ count: 5, unique: true, gender: "female" })
 
-白芮,程珍,于凤莹,熊霞,邓妍
+洪燕诗,焦琳,田婷,冯骏蕊,邓语宏
 
 ## getName({ count: 5, unique: true, wuxing: "fire" })
 
-彭炫烁,李晖旭,江晖,程翊炫,周曦
+黄炜焕,邓景炜,邓晖烽,郝烨,赵烨
 
 ## getName({ count: 5, unique: true, wuxing: "earth", givenNameAttributes: "water" })
 
-杜滨培,孟坤洁,杨基,崔岚淇,何垚滨
+蒋淼基,姚峻源,罗垚,姚垚,金峰
 
 ## getName({ count: 10, unique: true, surnamePickStrategy: "random" })
 
-倪岱,包炫辰,萧奇,骆庆翊,文宁钟,长孙嫣妙,申鹤峰,陈霜,康祺然,令狐培麟
+伍棠永,马康,史斌,安棠,邢怡瑶,高咏杰,令狐毅奕,徐彪,吕雀志,孙炎
 
 ## getName({ count: 10, unique: true, surnamePickStrategy: "weight" })
 
-许琦鹤,马炫昕,段泷榆,李乐钟,余悠铄,曾琦嫣,范芸,熊桂,唐希基,田凯
+孙柏,钟霄海,彭珊婷,季宾雅,叶梓哲,魏德皓,侯健,苏钦,贾槿烨,熊翔
 
 ## isSurname("张")
 
@@ -202,27 +198,27 @@ false
 
 ## getNameStr()
 
-覃垚
+崔书韵
 
 ## getNameStr("彭")
 
-彭展逸
+彭劲
 
 ## getNameStr(5)
 
-李坤,周澜,薛昭,严佳,郝铠翰
+袁翼运,颜亮渊,杨棠宏,范婷,范德扬
 
 ## getNameStr("姚", 5)
 
-姚康,姚智凤,姚蔚华,姚茹奇,姚睿柳
+姚曼,姚运,姚雅,姚龙,姚佑威
 
 ## getNameStr({ count: 5 })
 
-史沐冠,潘敏,唐栋,何辰,于蝶凤
+贺铄,申屠伟运,蔡渊潇,简志,王林鹿
 
 ## getNameStr({ count: 5, unique: true, givenNameDuplicated: true })
 
-付霞霞,季滨滨,贺栋栋,张子子,赵锋锋
+郭泉泉,阎彪彪,潘炜炜,方舒舒,徐信信
 
 ## parseName("张三")
 
@@ -250,24 +246,24 @@ false
 
 ## getSurname()
 
-程
+秦
 
 ## getSurname(5)
 
-龙,戴,萧,宋,谢
+高,季,田,徐,蓝
 
 ## getSurname({ count: 5, surnameType: "compound", unique: true })
 
-上官,欧阳,皇甫,夏侯,诸葛
+令狐,司徒,长孙,夏侯,皇甫
 
 ## getGivenName()
 
-麟韵
+良
 
 ## getGivenName(5)
 
-祺,榆婷,文,英义,彬浩
+菁,鲸,雯麟,贺浩,乐博
 
 ## getGivenName({ count: 5, givenNameDuplicated: true, unique: true })
 
-哲哲
+书书
