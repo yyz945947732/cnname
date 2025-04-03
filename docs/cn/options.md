@@ -17,7 +17,7 @@
 | surnameAlgorithm | `'weight' \| 'random'` | 随机算法（姓氏）。<br>`'weight'` 按字典库姓氏排序加权。<br>`'random'` 完全随机。 | `'weight'` |
 | surname | `string \| string[]` | 指定姓氏，可传单个姓或姓氏数组。 | 随机姓氏 |
 | unique | `boolean` | 是否确保返回的值不重复。 | `false` |
-| part | `'fullName' \| 'surname' \| 'givenName'` | 返回部分。<br>`'fullName'` 完整姓名。<br>`'surname'` 姓氏。<br>`'givenName'` 名。 | `'fullName'` |
+| returnType | `'fullName' \| 'surname' \| 'givenName'` | 返回姓名部分。<br>`'fullName'` 完整姓名。<br>`'surname'` 姓氏。<br>`'givenName'` 名。 | `'fullName'` |
 
 ## ✍️ 示例
 
@@ -103,14 +103,14 @@ cnname({ count: 3, surname: ['张', '刘'] });
 ### 只返回名字部分
 
 ```js
-cnname({ count: 3, part: 'givenName' });
+cnname({ count: 3, returnType: 'givenName' });
 // => ["晨", "浩然", "宇航"]
 ```
 
 ### 只返回姓氏部分
 
 ```js
-cnname({ count: 3, part: 'surname' });
+cnname({ count: 3, returnType: 'surname' });
 // => ["赵", "钱", "孙"]
 ```
 

@@ -22,15 +22,15 @@ describe('cnname.options.surnameType', () => {
   test('cnname({ count: 5, unique: true, surnameType: "all" }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, surnameType: 'all' })).toHaveLength(5);
   });
-  test('cnname({ count: 5, part: "surname", surnameType: "common" }) should return array with five elements', () => {
-    expect(cnname({ count: 5, part: 'surname', surnameType: 'common' })).toHaveLength(5);
+  test('cnname({ count: 5, returnType: "surname", surnameType: "common" }) should return array with five elements', () => {
+    expect(cnname({ count: 5, returnType: 'surname', surnameType: 'common' })).toHaveLength(5);
   });
-  test('cnname({ count: 5, part: "surname", surnameType: "common-single" }) should return array with five elements', () => {
+  test('cnname({ count: 5, unique: true, surnameType: "common-single" }) should return array with five elements', () => {
     const data = cnname({ count: 5, unique: true, surnameType: 'common-single' });
     expect(data).toHaveLength(5);
     expect(data.every((name) => name.length <= 3)).toBeTruthy();
   });
-  test('cnname({ count: 5, part: "surname", surnameType: "common-compound" }) should return array with five elements', () => {
+  test('cnname({ count: 5, unique: true, surnameType: "common-compound" }) should return array with five elements', () => {
     const data = cnname({ count: 5, unique: true, surnameType: 'common-compound' });
     expect(data).toHaveLength(5);
     expect(data.every((name) => name.length >= 3)).toBeTruthy();

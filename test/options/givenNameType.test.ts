@@ -36,71 +36,71 @@ describe('cnname.options.givenNameType', () => {
   test('cnname({ count: 5, unique: true, givenNameType: "male" }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, givenNameType: 'male' })).toHaveLength(5);
   });
-  test('cnname({ count: 5, part: "givenName", givenNameType: "male", givenNameLength: 1 }) should return array with male given name', () => {
-    const data = cnname({ count: 5, part: 'givenName', givenNameType: 'male', givenNameLength: 1 });
+  test('cnname({ count: 5, returnType: "givenName", givenNameType: "male", givenNameLength: 1 }) should return array with male given name', () => {
+    const data = cnname({ count: 5, returnType: 'givenName', givenNameType: 'male', givenNameLength: 1 });
     expect(data.every((name) => allMaleWords.includes(name))).toBeTruthy();
   });
   test('cnname({ count: 5, unique: true, givenNameType: "female" }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, givenNameType: 'female' })).toHaveLength(5);
   });
-  test('cnname({ count: 5, part: "givenName", givenNameType: "female", givenNameLength: 1 }) should return array with female given name', () => {
-    const data = cnname({ count: 5, part: 'givenName', givenNameType: 'female', givenNameLength: 1 });
+  test('cnname({ count: 5, returnType: "givenName", givenNameType: "female", givenNameLength: 1 }) should return array with female given name', () => {
+    const data = cnname({ count: 5, returnType: 'givenName', givenNameType: 'female', givenNameLength: 1 });
     expect(data.every((name) => allFemaleWords.includes(name))).toBeTruthy();
   });
   test('cnname({ count: 5, unique: true, givenNameType: "metal" }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, givenNameType: 'metal' })).toHaveLength(5);
   });
-  test('cnname({ count: 5, part: "givenName", givenNameType: "metal", givenNameLength: 1 }) should return array with metal given name', () => {
-    const data = cnname({ count: 5, part: 'givenName', givenNameType: 'metal', givenNameLength: 1 });
+  test('cnname({ count: 5, returnType: "givenName", givenNameType: "metal", givenNameLength: 1 }) should return array with metal given name', () => {
+    const data = cnname({ count: 5, returnType: 'givenName', givenNameType: 'metal', givenNameLength: 1 });
     expect(data.every((name) => allMetalWords.includes(name))).toBeTruthy();
   });
   test('cnname({ count: 5, unique: true, givenNameType: "wood" }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, givenNameType: 'wood' })).toHaveLength(5);
   });
-  test('cnname({ count: 5, part: "givenName", givenNameType: "wood", givenNameLength: 1 }) should return array with wood given name', () => {
-    const data = cnname({ count: 5, part: 'givenName', givenNameType: 'wood', givenNameLength: 1 });
+  test('cnname({ count: 5, returnType: "givenName", givenNameType: "wood", givenNameLength: 1 }) should return array with wood given name', () => {
+    const data = cnname({ count: 5, returnType: 'givenName', givenNameType: 'wood', givenNameLength: 1 });
     expect(data.every((name) => allWoodWords.includes(name))).toBeTruthy();
   });
   test('cnname({ count: 5, unique: true, givenNameType: "water" }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, givenNameType: 'water' })).toHaveLength(5);
   });
-  test('cnname({ count: 5, part: "givenName", givenNameType: "water", givenNameLength: 1 }) should return array with water given name', () => {
-    const data = cnname({ count: 5, part: 'givenName', givenNameType: 'water', givenNameLength: 1 });
+  test('cnname({ count: 5, returnType: "givenName", givenNameType: "water", givenNameLength: 1 }) should return array with water given name', () => {
+    const data = cnname({ count: 5, returnType: 'givenName', givenNameType: 'water', givenNameLength: 1 });
     expect(data.every((name) => allWaterWords.includes(name))).toBeTruthy();
   });
   test('cnname({ count: 5, unique: true, givenNameType: "fire" }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, givenNameType: 'fire' })).toHaveLength(5);
   });
-  test('cnname({ count: 5, part: "givenName", givenNameType: "fire", givenNameLength: 1 }) should return array with fire given name', () => {
-    const data = cnname({ count: 5, part: 'givenName', givenNameType: 'fire', givenNameLength: 1 });
+  test('cnname({ count: 5, returnType: "givenName", givenNameType: "fire", givenNameLength: 1 }) should return array with fire given name', () => {
+    const data = cnname({ count: 5, returnType: 'givenName', givenNameType: 'fire', givenNameLength: 1 });
     expect(data.every((name) => allFireWords.includes(name))).toBeTruthy();
   });
   test('cnname({ count: 5, unique: true, givenNameType: "earth" }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, givenNameType: 'earth' })).toHaveLength(5);
   });
-  test('cnname({ count: 5, part: "givenName", givenNameType: "earth", givenNameLength: 1 }) should return array with earth given name', () => {
-    const data = cnname({ count: 5, part: 'givenName', givenNameType: 'earth', givenNameLength: 1 });
+  test('cnname({ count: 5, returnType: "givenName", givenNameType: "earth", givenNameLength: 1 }) should return array with earth given name', () => {
+    const data = cnname({ count: 5, returnType: 'givenName', givenNameType: 'earth', givenNameLength: 1 });
     expect(data.every((name) => allEarthWords.includes(name))).toBeTruthy();
   });
   test('cnname({ count: 5, unique: true, givenNameType: ["earth", "female"] }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, givenNameType: ['earth', 'female'] })).toHaveLength(5);
   });
-  test('cnname({ count: 5, part: "givenName", givenNameType: ["earth", "female"], givenNameLength: 2 }) should return array with earth female given name', () => {
-    const data = cnname({ count: 5, part: 'givenName', givenNameType: ['earth', 'female'], givenNameLength: 2 });
+  test('cnname({ count: 5, returnType: "givenName", givenNameType: ["earth", "female"], givenNameLength: 2 }) should return array with earth female given name', () => {
+    const data = cnname({ count: 5, returnType: 'givenName', givenNameType: ['earth', 'female'], givenNameLength: 2 });
     const combineWords = allEarthWords.concat(allFemaleWords);
     expect(data.every((name) => name.split('').every((word) => combineWords.includes(word)))).toBeTruthy();
   });
   test('cnname({ count: 5, unique: true, givenNameType: "animal" }) should return array with five elements', () => {
     expect(cnname({ count: 5, unique: true, givenNameType: 'animal' })).toHaveLength(5);
   });
-  test('cnname({ count: 5, part: "givenName", givenNameType: "animal", givenNameLength: 1 }) should return array with animal given name', () => {
-    const data = cnname({ count: 5, part: 'givenName', givenNameType: 'animal', givenNameLength: 1 });
+  test('cnname({ count: 5, returnType: "givenName", givenNameType: "animal", givenNameLength: 1 }) should return array with animal given name', () => {
+    const data = cnname({ count: 5, returnType: 'givenName', givenNameType: 'animal', givenNameLength: 1 });
     expect(data.every((name) => allAnimalWords.includes(name))).toBeTruthy();
   });
   test.each(GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE)(
     'givenNameType %s should always return only one attribute word',
     (givenNameType) => {
-      const words = cnname({ count: 5, part: 'givenName', givenNameType, givenNameLength: 2 });
+      const words = cnname({ count: 5, returnType: 'givenName', givenNameType, givenNameLength: 2 });
       const list = getGivenNameListByGivenNameType(givenNameType);
       expect(
         words.every((name) => {
@@ -111,9 +111,15 @@ describe('cnname.options.givenNameType', () => {
       ).toBeTruthy();
     },
   );
-  test('cnname({ count: 5, unique: true, part: "givenName", givenNameType: "error", givenNameLength: 1 }) should return array with five elements', () => {
+  test('cnname({ count: 5, unique: true, returnType: "givenName", givenNameType: "error", givenNameLength: 1 }) should return array with five elements', () => {
     // @ts-expect-error
-    const data = cnname({ count: 5, unique: true, part: 'givenName', givenNameType: 'error', givenNameLength: 1 });
+    const data = cnname({
+      count: 5,
+      unique: true,
+      returnType: 'givenName',
+      givenNameType: 'error',
+      givenNameLength: 1,
+    });
     expect(data).toHaveLength(5);
   });
 });

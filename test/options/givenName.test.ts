@@ -23,10 +23,10 @@ describe('cnname.options.givenName', () => {
   test('cnname({ count: 5, givenName: [] }) should return array with five elements', () => {
     expect(cnname({ count: 5, givenName: [] })).toHaveLength(5);
   });
-  test('cnname({ count: 5, unique: true, part: "givenName", givenName: [] }) should return empty array', () => {
-    expect(cnname({ count: 5, unique: true, part: 'givenName', givenName: [] })).toHaveLength(0);
+  test('cnname({ count: 5, unique: true, returnType: "givenName", givenName: [] }) should return empty array', () => {
+    expect(cnname({ count: 5, unique: true, returnType: 'givenName', givenName: [] })).toHaveLength(0);
   });
-  test('cnname({ count: 5, part: "givenName", givenName: [] }) should return array with five empty string', () => {
-    expect(cnname({ count: 5, part: 'givenName', givenName: [] }).every((name) => name === '')).toBeTruthy();
+  test('cnname({ count: 5, returnType: "givenName", givenName: [] }) should return array with five empty string', () => {
+    expect(cnname({ count: 5, returnType: 'givenName', givenName: [] }).every((name) => name === '')).toBeTruthy();
   });
 });

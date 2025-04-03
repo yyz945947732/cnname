@@ -57,12 +57,12 @@ export interface Options {
    */
   unique?: boolean;
   /**
-   * 返回类型，默认为 `fullName`
+   * 返回姓名部分，默认为 `fullName`
    * @type `fullName` 返回完整姓名
    * @type `surname` 只返回姓
    * @type `givenName` 只返回名
    */
-  part?: Part;
+  returnType?: ReturnType;
 }
 
 /** 姓氏类型 */
@@ -75,7 +75,7 @@ export type GivenNameType = Options['gender'] | Options['elements'] | Others;
 export type Others = 'animal';
 
 /** 返回的姓名部分 */
-export type Part = 'fullName' | 'surname' | 'givenName';
+export type ReturnType = 'fullName' | 'surname' | 'givenName';
 
 /** 随机抽取算法 */
 export type Algorithm = 'weight' | 'random';
