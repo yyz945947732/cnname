@@ -1,6 +1,5 @@
-import { assertType, describe, expect, test } from 'vitest';
-import { getName } from '../../src';
-import { GIVEN_NAME_INCLUDE_ONE_CHARACTER_ATTRIBUTE } from '../../src/utils/default';
+import { getName } from '@/src';
+import { GIVEN_NAME_INCLUDE_ONE_CHARACTER_ATTRIBUTE } from '@/src/utils/default';
 import {
   getAllAnimalWords,
   getAllEarthWords,
@@ -10,8 +9,9 @@ import {
   getAllMetalWords,
   getAllWaterWords,
   getAllWoodWords,
-} from '../../src/utils/dict';
-import { getGivenNameListByGivenNameAttribute } from '../../src/utils/list';
+} from '@/src/utils/dict';
+import { getGivenNameListByGivenNameAttribute } from '@/src/utils/list';
+import { assertType, describe, expect, test } from 'vitest';
 
 const allMaleWords = getAllMaleWords();
 const allFemaleWords = getAllFemaleWords();

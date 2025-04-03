@@ -1,5 +1,5 @@
+import { getName } from '@/src';
 import { assertType, describe, expect, test } from 'vitest';
-import { getName } from '../../src';
 
 assertType<string>(getName());
 assertType<string>(getName('张'));

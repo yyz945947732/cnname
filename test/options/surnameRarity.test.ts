@@ -1,6 +1,6 @@
+import { getName } from '@/src';
+import { getAllCommonSurname, getAllRareSurname, getAllSurname } from '@/src/utils/dict';
 import { assertType, describe, expect, test } from 'vitest';
-import { getName } from '../../src';
-import { getAllCommonSurname, getAllRareSurname, getAllSurname } from '../../src/utils/dict';
 
 assertType<string[]>(getName({ count: 5, surnameRarity: 'all' }));
 assertType<string[]>(getName({ count: 5, surnameRarity: 'common' }));

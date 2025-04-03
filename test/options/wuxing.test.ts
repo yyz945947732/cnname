@@ -1,12 +1,12 @@
-import { assertType, describe, expect, test } from 'vitest';
-import { getName } from '../../src';
+import { getName } from '@/src';
 import {
   getAllEarthWords,
   getAllFireWords,
   getAllMetalWords,
   getAllWaterWords,
   getAllWoodWords,
-} from '../../src/utils/dict';
+} from '@/src/utils/dict';
+import { assertType, describe, expect, test } from 'vitest';
 
 const allMetalWords = getAllMetalWords();
 const allWoodWords = getAllWoodWords();

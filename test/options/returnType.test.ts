@@ -1,6 +1,6 @@
+import { getName } from '@/src';
+import { getAllCommonSurname, getAllDictWords } from '@/src/utils/dict';
 import { assertType, describe, expect, test } from 'vitest';
-import { getName } from '../../src';
-import { getAllCommonSurname, getAllDictWords } from '../../src/utils/dict';
 
 const allCommonSurname = getAllCommonSurname();
 const allWords = getAllDictWords();

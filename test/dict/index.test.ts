@@ -1,9 +1,9 @@
+import localAllSurnamesDict from '@/dict/surnames/all.json';
+import commonSurnameDict from '@/dict/surnames/common.json';
+import rareSurnameDict from '@/dict/surnames/rare.json';
+import attributesWordsDict from '@/dict/words/attributes.json';
+import { COMMON_COMPOUND_SURNAMES_TOTAL, COMMON_SINGLE_CHARACTER_SURNAMES_TOTAL } from '@/src/utils/default';
 import { assertType, describe, expect, test } from 'vitest';
-import localAllSurnamesDict from '../../dict/surnames/all.json';
-import commonSurnameDict from '../../dict/surnames/common.json';
-import rareSurnameDict from '../../dict/surnames/rare.json';
-import attributesWordsDict from '../../dict/words/attributes.json';
-import { COMMON_COMPOUND_SURNAMES_TOTAL, COMMON_SINGLE_CHARACTER_SURNAMES_TOTAL } from '../../src/utils/default';
 
 const allSurnames = localAllSurnamesDict.dict.split(' ');
 const allSingleCharacterSurname = allSurnames.filter((surname) => surname.length === 1);
