@@ -1,10 +1,10 @@
-import type { GivenNameAttribute, PickStrategy, SurnameType } from '../types';
+import type { GivenNameAttribute, PickStrategy, SurnameRarity } from '../types';
 
 /**
  * @private
- * 默认 `surnameType`
+ * 默认 `surnameRarity`
  */
-export const DEFAULT_SURNAME_TYPE: SurnameType = 'common';
+export const DEFAULT_SURNAME_RARITY: SurnameRarity = 'common';
 
 /**
  * @private

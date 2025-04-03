@@ -1,7 +1,7 @@
-import type { GivenNameAttribute, Options, PickStrategy, SurnameType } from '../types';
+import type { GivenNameAttribute, Options, PickStrategy, SurnameDictKey, SurnameRarity, SurnameType } from '../types';
 import {
   DEFAULT_SURNAME_PICK_STRATEGY,
-  DEFAULT_SURNAME_TYPE,
+  DEFAULT_SURNAME_RARITY,
   GIVEN_NAME_ATTRIBUTE_PRIORITY,
   GIVEN_NAME_INCLUDE_ONE_CHARACTER_ATTRIBUTE,
 } from './default';
@@ -12,7 +12,7 @@ import {
   getAllSurname,
   getAllWords,
 } from './dict';
-import { getGivenNameListByGivenNameAttribute, getSurnameListBySurnameType } from './list';
+import { getGivenNameListByGivenNameAttribute, getSurnameListBySurnameDictKey } from './list';
 import { pickRandomEle, pickRandomSingleEle, safePickSingleEleByStrategy } from './random';
 
 /**
@@ -58,8 +58,8 @@ export function pickRandomWords(n: number, givenNameAttributes?: GivenNameAttrib
  * @private
  * 按随机算法获取姓氏
  */
-export function pickSurnameByStrategy(surnameType: SurnameType, strategy: PickStrategy): string {
-  const list = getSurnameListBySurnameType(surnameType);
+export function pickSurnameByStrategy(surnameDictKey: SurnameDictKey, strategy: PickStrategy): string {
+  const list = getSurnameListBySurnameDictKey(surnameDictKey);
   return safePickSingleEleByStrategy(list, strategy);
 }
 
@@ -152,13 +152,25 @@ export function isCnChar(word: string): boolean {
 
 /**
  * @private
+ * 获取姓氏字典列表 `key`
+ */
+export function getSurnameDictKey(surnameRarity: SurnameRarity, surnameType?: SurnameType): SurnameDictKey {
+  if (!surnameType) {
+    return surnameRarity;
+  }
+  return `${surnameRarity}-${surnameType}`;
+}
+
+/**
+ * @private
  * 根据 Options 获取 `surname` 的值
  */
 export function getSurnameByOptions(options: Options): string {
   const {
-    surnameType = DEFAULT_SURNAME_TYPE,
+    surnameRarity = DEFAULT_SURNAME_RARITY,
     surnamePickStrategy = DEFAULT_SURNAME_PICK_STRATEGY,
     surname: fixedSurname,
+    surnameType,
   } = options;
 
   if (Array.isArray(fixedSurname)) {
@@ -169,7 +181,9 @@ export function getSurnameByOptions(options: Options): string {
     return fixedSurname;
   }
 
-  return pickSurnameByStrategy(surnameType, surnamePickStrategy);
+  const surnameDictKey = getSurnameDictKey(surnameRarity, surnameType);
+
+  return pickSurnameByStrategy(surnameDictKey, surnamePickStrategy);
 }
 
 /**
@@ -179,10 +193,10 @@ export function getSurnameByOptions(options: Options): string {
 export function getGivenNameByOptions(options: Options): string {
   const {
     givenNameDuplicated = false,
+    givenName: fixGivenName,
     givenNameLength,
     givenNameStartsWith,
     givenNameEndsWith,
-    givenName: fixGivenName,
   } = options;
 
   if (Array.isArray(fixGivenName)) {

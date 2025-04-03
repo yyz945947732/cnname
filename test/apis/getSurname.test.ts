@@ -17,12 +17,12 @@ describe('getSurname', () => {
     expect(getSurname({ count: 5 })).toBeInstanceOf(Array);
     expect(getSurname({ count: 5 })).toHaveLength(5);
   });
-  test('getSurname({ count: 5, surnameType: "common-compound" }) should return an array of compound surname', () => {
-    const result = getSurname({ count: 5, surnameType: 'common-compound' }).every((surname) => surname.length === 2);
+  test('getSurname({ count: 5, surnameType: "compound" }) should return an array of compound surname', () => {
+    const result = getSurname({ count: 5, surnameType: 'compound' }).every((surname) => surname.length === 2);
     expect(result).toBeTruthy();
   });
-  test('getSurname({ count: 5, surnameType: "common-single" }) should return an array of single surname', () => {
-    const result = getSurname({ count: 5, surnameType: 'common-single' }).every((surname) => surname.length === 1);
+  test('getSurname({ count: 5, surnameType: "single" }) should return an array of single surname', () => {
+    const result = getSurname({ count: 5, surnameType: 'single' }).every((surname) => surname.length === 1);
     expect(result).toBeTruthy();
   });
 });

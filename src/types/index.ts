@@ -33,15 +33,18 @@ export interface Options {
   /** 指定名 */
   givenName?: string | string[];
   /**
-   * 姓氏类型，默认为 `common`
-   * @type `common` 包括常见姓氏
-   * @type `common-single` 包括常见单字姓氏
-   * @type `common-compound` 包括常见复姓
-   * @type `all` 包括所有姓氏
-   * @type `all-single` 包括所有单字姓
-   * @type `all-compound` 包括所有复姓
+   * 姓氏类型
+   * @type `single` 单字姓
+   * @type `compound` 复姓
    */
   surnameType?: SurnameType;
+  /**
+   * 姓氏稀有度，默认为 `common`
+   * @type `all` 所有姓氏
+   * @type `common` 常见姓氏
+   * @type `rare` 冷门姓氏
+   */
+  surnameRarity?: SurnameRarity;
   /**
    * 姓氏抽取策略，默认为 `weight`
    * @type `weight` 按字典库中姓氏的排序加权后随机抽取
@@ -66,7 +69,13 @@ export interface Options {
 }
 
 /** 姓氏类型 */
-export type SurnameType = 'common' | 'common-single' | 'common-compound' | 'all' | 'all-single' | 'all-compound';
+export type SurnameType = 'single' | 'compound';
+
+/** 姓氏稀有度 */
+export type SurnameRarity = 'all' | 'common' | 'rare';
+
+/** 姓氏字典键 */
+export type SurnameDictKey = SurnameRarity | `${SurnameRarity}-${SurnameType}`;
 
 /** 名字特性 */
 export type GivenNameAttribute = Options['gender'] | Options['wuxing'] | Others;

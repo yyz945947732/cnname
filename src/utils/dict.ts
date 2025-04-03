@@ -47,6 +47,13 @@ const COMMON_SINGLE_CHARACTER_SURNAMES = parseDictToSurname(commonSurnameDict.si
 /** 所有常见复姓 */
 const COMMON_COMPOUND_SURNAMES = parseDictToSurname(commonSurnameDict.compound);
 
+/** 所有冷门姓氏 */
+const RARE_SURNAMES = combineSurnameDicts(rareSurnameDict.single, rareSurnameDict.compound);
+/** 所有冷门单字姓 */
+const RARE_SINGLE_CHARACTER_SURNAMES = parseDictToSurname(rareSurnameDict.single);
+/** 所有冷门复姓 */
+const RARE_COMPOUND_SURNAMES = parseDictToSurname(rareSurnameDict.compound);
+
 /** 所有名 */
 const WORDS = getAllDictWords();
 /** 所有普通名 */
@@ -136,6 +143,30 @@ export function getAllCommonSingleCharacterSurname(): string[] {
 }
 
 /**
+ * @private
+ * 获取所有冷门姓
+ */
+export function getAllRareSurname(): string[] {
+  return RARE_SURNAMES;
+}
+
+/**
+ * @private
+ * 获取所有冷门复姓
+ */
+export function getAllRareCompoundSurname(): string[] {
+  return RARE_COMPOUND_SURNAMES;
+}
+
+/**
+ * @private
+ * 获取所有冷门单字姓
+ */
+export function getAllRareSingleCharacterSurname(): string[] {
+  return RARE_SINGLE_CHARACTER_SURNAMES;
+}
+
+/**
  * 获取所有姓氏数量
  */
 export function getAllSurnameSize(): number {
@@ -180,6 +211,30 @@ export function getAllCommonCompoundSurnameSize(): number {
  */
 export function getAllCommonSingleCharacterSurnameSize(): number {
   return COMMON_SINGLE_CHARACTER_SURNAMES.length;
+}
+
+/**
+ * @private
+ * 获取所稀有姓氏数量
+ */
+export function getAllRareSurnameSize(): number {
+  return RARE_SURNAMES.length;
+}
+
+/**
+ * @private
+ * 获取所有稀有复姓数量
+ */
+export function getAllRareCompoundSurnameSize(): number {
+  return RARE_COMPOUND_SURNAMES.length;
+}
+
+/**
+ * @private
+ * 获取所稀有单字姓数量
+ */
+export function getAllRareSingleCharacterSurnameSize(): number {
+  return RARE_SINGLE_CHARACTER_SURNAMES.length;
 }
 
 /**

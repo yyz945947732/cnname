@@ -13,7 +13,8 @@
 | givenNameEndsWith | `string` | 指定名字（不含姓氏）最后一个字。 | 随机字 |
 | givenNameDuplicated | `boolean` | 是否只返回叠字名（如 "婷婷"、"明明"）。 | `false` |
 | givenName | `string \| string[]` | 指定名（不含姓氏），可传单个名或名数组。 | 随机名 |
-| surnameType | `'common' \| 'common-single' \| 'common-compound' \| 'all' \| 'all-single' \| 'all-compound'` | 姓氏类型。<br>`'common'` [常见姓氏](https://github.com/yyz945947732/cnname/blob/master/dict/commonSurname.json)。<br>`'common-single'` 常见单字姓。<br>`'common-compound'` 常见复姓。<br>`'all'` 全部姓氏。<br>`'all-single'` 全部单字姓。<br>`'all-compound'` 全部复姓。 | `'common'` |
+| surnameType | `'single' \| 'compound'` | 姓氏类型。<br>`'single'` 单字姓。<br>`'compound'` 复姓。 | 无限制 |
+| surnameRarity | `'all' \| 'common' \| 'rare'` | 姓氏稀有度。<br>`'all'` 所有姓氏。<br>`'common'` 常见姓氏。<br>`'rare'` 冷门姓氏。 | `common` |
 | surnamePickStrategy | `'weight' \| 'random'` | 姓氏抽取策略。<br>`'weight'` 按字典库中姓氏的排序加权后随机抽取。<br>`'random'` 完全随机。 | `'weight'` |
 | surname | `string \| string[]` | 指定姓氏，可传单个姓或姓氏数组。 | 随机姓氏 |
 | unique | `boolean` | 是否确保返回的值不重复。 | `false` |
@@ -21,7 +22,7 @@
 
 ## ✍️ 示例
 
-### 生成 5 个随机姓名
+### 生成 5 个随机名字
 
 ```js
 import cnname from 'cnname';
@@ -58,7 +59,7 @@ cnname({ count: 2, givenNameAttributes: ['water', 'fire'] });
 // => ["苏泽灿", "聂涵晖"]
 ```
 
-### 生成 2 个名字长度为 2 的姓名
+### 生成 2 个名字长度为 2 的名字
 
 ```js
 cnname({ count: 2, givenNameLength: 2 });
@@ -86,10 +87,10 @@ cnname({ count: 3, givenName: ['俊杰', '杰伦'] });
 // => ["周俊杰", "林杰伦", "张俊杰"]
 ```
 
-### 生成 2 个复姓的姓名
+### 生成 2 个姓氏为复姓的名字
 
 ```js
-cnname({ count: 2, surnameType: 'common-compound' });
+cnname({ count: 2, surnameType: 'compound' });
 // => ["司徒杉", "欧阳昊"]
 ```
 
@@ -114,9 +115,9 @@ cnname({ count: 3, returnType: 'surname' });
 // => ["赵", "钱", "孙"]
 ```
 
-### 生成名字有更高概率包含冷门的姓氏
+### 生成 3 个姓氏为冷门姓氏的名字
 
 ```js
-cnname({ count: 3, surnameType: 'all', surnamePickStrategy: 'random' });
+cnname({ count: 3, surnameRarity: 'rare' });
 // => ["嵇舒", "贡翊", "第五悠梦"]
 ```

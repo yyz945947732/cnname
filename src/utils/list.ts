@@ -1,4 +1,4 @@
-import type { GivenNameAttribute, SurnameType } from '../types';
+import type { GivenNameAttribute, SurnameDictKey } from '../types';
 import {
   getAllAnimalWords,
   getAllCommonCompoundSurname,
@@ -10,6 +10,9 @@ import {
   getAllFireWords,
   getAllMaleWords,
   getAllMetalWords,
+  getAllRareCompoundSurname,
+  getAllRareSingleCharacterSurname,
+  getAllRareSurname,
   getAllSingleCharacterSurname,
   getAllSurname,
   getAllWaterWords,
@@ -21,8 +24,8 @@ import {
  * @private
  * 根据 `surnameType` 获取所有姓氏
  */
-export function getSurnameListBySurnameType(surnameType: SurnameType): string[] {
-  switch (surnameType) {
+export function getSurnameListBySurnameDictKey(surnameDictKey: SurnameDictKey): string[] {
+  switch (surnameDictKey) {
     case 'all':
       return getAllSurname();
     case 'all-single':
@@ -35,6 +38,12 @@ export function getSurnameListBySurnameType(surnameType: SurnameType): string[] 
       return getAllCommonSingleCharacterSurname();
     case 'common-compound':
       return getAllCommonCompoundSurname();
+    case 'rare':
+      return getAllRareSurname();
+    case 'rare-single':
+      return getAllRareSingleCharacterSurname();
+    case 'rare-compound':
+      return getAllRareCompoundSurname();
     default:
       return getAllSurname();
   }
