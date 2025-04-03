@@ -99,7 +99,7 @@ Generate a specified number of random Chinese names with a given surname.
 
 **`cnname(options: Option): string[]`**
 
-Get names with advanced options. Supports gender, Five Elements, reduplicated names, compound surnames, and more. 👉 [Documentation](docs/en/options.md)
+Get names with advanced options. Supports gender, wuxing (Five Elements), reduplicated names, compound surnames, and more. 👉 [Documentation](docs/en/options.md)
 
 ## 🛠️ Utils
 

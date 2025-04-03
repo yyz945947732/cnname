@@ -14,9 +14,9 @@ export const DEFAULT_SURNAME_PICK_STRATEGY: PickStrategy = 'weight';
 
 /**
  * @private
- * 名字属性的优先级顺序，决定如何筛选名字
+ * 名字特性的优先级顺序，决定如何筛选名字
  */
-export const GIVEN_NAME_TYPE_PRIORITY = ['elements', 'gender'] as const;
+export const GIVEN_NAME_ATTRIBUTE_PRIORITY = ['wuxing', 'gender'] as const;
 
 /**
  * @private

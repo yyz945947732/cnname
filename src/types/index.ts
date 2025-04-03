@@ -16,7 +16,7 @@ export interface Options {
    * @type `fire` 火属性名
    * @type `earth` 土属性名
    */
-  elements?: 'metal' | 'wood' | 'water' | 'fire' | 'earth';
+  wuxing?: 'metal' | 'wood' | 'water' | 'fire' | 'earth';
   /**
    * 名字所含特性
    * @link https://github.com/yyz945947732/cnname/blob/master/docs/cn/givenNameAttributes.md
@@ -69,7 +69,7 @@ export interface Options {
 export type SurnameType = 'common' | 'common-single' | 'common-compound' | 'all' | 'all-single' | 'all-compound';
 
 /** 名字特性 */
-export type GivenNameAttribute = Options['gender'] | Options['elements'] | Others;
+export type GivenNameAttribute = Options['gender'] | Options['wuxing'] | Others;
 
 /** 其他特性 */
 export type Others = 'animal';

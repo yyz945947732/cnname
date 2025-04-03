@@ -6,7 +6,7 @@
 |-----------|------|-------------|---------|
 | count | `number` | Number of names to generate. | `1` |
 | gender | `'male'` \| `'female'` | Gender. Male or female name. | No restriction |
-| element | `'metal'` \| `'wood'` \| `'water'` \| `'fire'` \| `'earth'` | The Five Elements contained in the name, e.g., (焕、淼、鑫...). | No restriction |
+| wuxing | `'metal'` \| `'wood'` \| `'water'` \| `'fire'` \| `'earth'` | The Five Elements contained in the name, e.g., (焕、淼、鑫...). | No restriction |
 | givenNameAttributes | [GivenNameAttribute](givenNameAttributes.md) \| GivenNameAttribute[] | [Name attributes](givenNameAttributes.md). Can be a single attribute or an array of attributes, with priority following the array order. | No restriction |
 | givenNameLength | `number` | Length of the given name. | `1` or `2` |
 | givenNameStartsWith | `string` | Specify the first character of the given name. | Random character |
@@ -37,21 +37,21 @@ cnname({ count: 3, gender: 'female' });
 // => ["夏柔", "邓霞", "赵欣"]
 ```
 
-### Generate 2 names with the "fire" element
+### Generate 2 names with the "fire" wuxing element
 
 ```js
-cnname({ count: 2, element: 'fire' });
+cnname({ count: 2, wuxing: 'fire' });
 // => ["杜旭", "熊煜"]
 ```
 
-### Generate 2 female names with the "water" element
+### Generate 2 female names with the "water" wuxing element
 
 ```js
-cnname({ count: 2, element: 'water', gender: 'female' });
+cnname({ count: 2, wuxing: 'water', gender: 'female' });
 // => ["郭淼莹", "陈诗泉"]
 ```
 
-### Generate 2 names containing both "water" and "fire" elements
+### Generate 2 names containing both "water" and "fire" wuxing element
 
 ```js
 cnname({ count: 2, givenNameAttributes: ['water', 'fire'] });

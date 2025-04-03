@@ -134,12 +134,12 @@ export default [
     value: cnname({ count: 5, unique: true, gender: "female" }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, elements: "fire" })',
-    value: cnname({ count: 5, unique: true, elements: "fire" }),
+    label: 'cnname({ count: 5, unique: true, wuxing: "fire" })',
+    value: cnname({ count: 5, unique: true, wuxing: "fire" }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, elements: "earth", givenNameAttributes: "water" })',
-    value: cnname({ count: 5, unique: true, elements: "earth", givenNameAttributes: "water" }),
+    label: 'cnname({ count: 5, unique: true, wuxing: "earth", givenNameAttributes: "water" })',
+    value: cnname({ count: 5, unique: true, wuxing: "earth", givenNameAttributes: "water" }),
   },
   {
     label: 'cnname({ count: 10, unique: true, surnamePickStrategy: "random" })',

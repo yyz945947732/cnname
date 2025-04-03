@@ -2,8 +2,8 @@ import type { GivenNameAttribute, Options, PickStrategy, SurnameType } from '../
 import {
   DEFAULT_SURNAME_PICK_STRATEGY,
   DEFAULT_SURNAME_TYPE,
+  GIVEN_NAME_ATTRIBUTE_PRIORITY,
   GIVEN_NAME_INCLUDE_ONE_CHARACTER_ATTRIBUTE,
-  GIVEN_NAME_TYPE_PRIORITY,
 } from './default';
 import {
   getAllCompoundSurname,
@@ -253,7 +253,7 @@ export function getGivenNameAttributeList(options: Options): GivenNameAttribute[
   const { givenNameAttributes } = options;
   const list: GivenNameAttribute[] = [];
 
-  for (const type of GIVEN_NAME_TYPE_PRIORITY) {
+  for (const type of GIVEN_NAME_ATTRIBUTE_PRIORITY) {
     if (options[type] !== undefined) {
       list.push(options[type]);
     }
