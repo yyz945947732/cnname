@@ -122,10 +122,6 @@ export default [
     value: getName({ count: 5, unique: true, givenNameAttributes: "animal" }),
   },
   {
-    label: 'getName({ count: 5, unique: true, givenNameAttributes: "all" })',
-    value: getName({ count: 5, unique: true, givenNameAttributes: "all" }),
-  },
-  {
     label: 'getName({ count: 5, unique: true, givenNameAttributes: ["earth", "female"] })',
     value: getName({ count: 5, unique: true, givenNameAttributes: ["earth", "female"] }),
   },
