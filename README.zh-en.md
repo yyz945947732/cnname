@@ -109,7 +109,7 @@ Get names with advanced options. Supports gender, wuxing (Five Elements), redupl
 
 - [parseName](docs/en/parseName.md) -  Parse a name and extract surname and other information.
 
-- [getAllSurname](docs/en/getAllSurname.md) - Get all surnames.
+- [getAllSurnames](docs/en/getAllSurnames.md) - Get all surnames.
 
 - [getSurname](docs/en/getSurname.md) - Get a random surname.
 

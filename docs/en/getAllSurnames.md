@@ -1,11 +1,11 @@
-# getAllSurname
+# getAllSurnames
 
 Retrieve all surnames with optional filters for rarity and type. The default rarity is `'all'` (all surnames).
 
 ## API
 
 ```ts
-getAllSurname(surnameRarity?: SurnameRarity, surnameType?: SurnameType): string[]
+getAllSurnames(surnameRarity?: SurnameRarity, surnameType?: SurnameType): string[]
 ```
 
 **Parameters:**
@@ -31,8 +31,8 @@ _(Array)_: A list of surnames.
 ## Example
 
 ```js
-import { getAllSurname } from 'cnname';
+import { getAllSurnames } from 'cnname';
 
-getAllSurname(); // ['赵', '钱', '孙', '李', '周', '吴', '郑', '王', ...]
-getAllSurname('common', 'compound'); // ['上官', '欧阳', '司马', ...]
+getAllSurnames(); // ['赵', '钱', '孙', '李', '周', '吴', '郑', '王', ...]
+getAllSurnames('common', 'compound'); // ['上官', '欧阳', '司马', ...]
 ```

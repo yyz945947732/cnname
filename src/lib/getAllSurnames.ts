@@ -8,10 +8,10 @@ import { getSurnameListBySurnameDictKey } from '../utils/list';
  * @param {SurnameType} surnameType 姓氏类型，`'single'` | `'compound'`
  * @returns {string[]} 姓氏列表
  */
-function getSurnameList(surnameRarity: SurnameRarity = 'all', surnameType?: SurnameType): string[] {
+function getAllSurnames(surnameRarity: SurnameRarity = 'all', surnameType?: SurnameType): string[] {
   const surnameDictKey = getSurnameDictKey(surnameRarity, surnameType);
 
   return getSurnameListBySurnameDictKey(surnameDictKey);
 }
 
-export default getSurnameList;
+export default getAllSurnames;
