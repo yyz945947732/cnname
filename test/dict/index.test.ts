@@ -1,28 +1,21 @@
 import { assertType, describe, expect, test } from 'vitest';
 import localAllSurnamesDict from '../../dict/surnames/all.json';
+import commonSurnameDict from '../../dict/surnames/common.json';
+import rareSurnameDict from '../../dict/surnames/rare.json';
 import attributesWordsDict from '../../dict/words/attributes.json';
 import { COMMON_COMPOUND_SURNAMES_TOTAL, COMMON_SINGLE_CHARACTER_SURNAMES_TOTAL } from '../../src/utils/default';
-import {
-  getAllCommonCompoundSurname,
-  getAllCommonSingleCharacterSurname,
-  getAllCommonSurname,
-  getAllCompoundSurname,
-  getAllRareCompoundSurname,
-  getAllRareSingleCharacterSurname,
-  getAllRareSurname,
-  getAllSingleCharacterSurname,
-  getAllSurname,
-} from '../../src/utils/dict';
 
-const allSurnames = getAllSurname();
-const allSingleCharacterSurname = getAllSingleCharacterSurname();
-const allCompoundSurname = getAllCompoundSurname();
-const allCommonSurnames = getAllCommonSurname();
-const allCommonSingleCharacterSurname = getAllCommonSingleCharacterSurname();
-const allCommonCompoundSurname = getAllCommonCompoundSurname();
-const allRareSurnames = getAllRareSurname();
-const allRareSingleCharacterSurname = getAllRareSingleCharacterSurname();
-const allRareCompoundSurname = getAllRareCompoundSurname();
+const allSurnames = localAllSurnamesDict.dict.split(' ');
+const allSingleCharacterSurname = allSurnames.filter((surname) => surname.length === 1);
+const allCompoundSurname = allSurnames.filter((surname) => surname.length > 1);
+
+const allCommonSingleCharacterSurname = commonSurnameDict.single.split(' ');
+const allCommonCompoundSurname = commonSurnameDict.compound.split(' ');
+const allCommonSurnames = allCommonSingleCharacterSurname.concat(allCommonCompoundSurname);
+
+const allRareSingleCharacterSurname = rareSurnameDict.single.split(' ');
+const allRareCompoundSurname = rareSurnameDict.compound.split(' ');
+const allRareSurnames = allRareSingleCharacterSurname.concat(allRareCompoundSurname);
 
 assertType<string[]>(allSurnames);
 assertType<string[]>(allSingleCharacterSurname);
@@ -50,6 +43,9 @@ describe('dict', () => {
     const localAllSurnames = localAllSurnamesDict.dict.split(' ');
     expect(allRareSurnames.every((surname) => allSurnames.includes(surname))).toBeTruthy();
     expect(allRareSurnames.every((surname) => localAllSurnames.includes(surname))).toBeTruthy();
+  });
+  test('the surnames in the rare surname list should not exist in the common surname dict', () => {
+    expect(allRareSurnames.every((surname) => !allCommonSurnames.includes(surname))).toBeTruthy();
   });
   test('duplicate surnames should not appear in all surname dict', () => {
     const uniqAllSurnames = new Set(allSurnames);
