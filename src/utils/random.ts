@@ -5,7 +5,7 @@ import { DEFAULT_SURNAME_PICK_STRATEGY } from './default';
  * @private
  * 通过算法从数组中随机选取 n 个元素
  */
-export function pickEleByAlgorithm(array: string[], strategy: PickStrategy, n: number): string[] {
+export function pickEleByStrategy(array: string[], strategy: PickStrategy, n: number): string[] {
   const pickFnMap = {
     weight: pickWeightEle,
     random: pickRandomEle,
@@ -36,7 +36,7 @@ export function safePickSingleEleByStrategy(array: string[], strategy: PickStrat
   if (!array.length) {
     return '';
   }
-  return pickEleByAlgorithm(array, strategy, 1)[0];
+  return pickEleByStrategy(array, strategy, 1)[0];
 }
 
 /**
