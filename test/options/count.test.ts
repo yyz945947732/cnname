@@ -1,27 +1,27 @@
 import { assertType, describe, expect, test } from 'vitest';
-import cnname from '../../src';
+import { getName } from '../../src';
 
-assertType<string[]>(cnname({ count: 5 }));
-assertType<string[]>(cnname({ count: 0 }));
-assertType<string[]>(cnname({ count: -1 }));
+assertType<string[]>(getName({ count: 5 }));
+assertType<string[]>(getName({ count: 0 }));
+assertType<string[]>(getName({ count: -1 }));
 
-describe('cnname.options.count', () => {
-  test('cnname({ count: 5 }) should return array with five elements', () => {
-    expect(cnname({ count: 5 })).toHaveLength(5);
+describe('getName.options.count', () => {
+  test('getName({ count: 5 }) should return array with five elements', () => {
+    expect(getName({ count: 5 })).toHaveLength(5);
   });
-  test('cnname({ count: 1 }) should return array with one elements', () => {
-    expect(cnname({ count: 1 })).toHaveLength(1);
+  test('getName({ count: 1 }) should return array with one elements', () => {
+    expect(getName({ count: 1 })).toHaveLength(1);
   });
-  test('cnname({}) should return array with one elements', () => {
-    expect(cnname({})).toHaveLength(1);
+  test('getName({}) should return array with one elements', () => {
+    expect(getName({})).toHaveLength(1);
   });
-  test('cnname({ count: -1 }) should return empty array', () => {
-    expect(cnname({ count: -1 })).toHaveLength(0);
+  test('getName({ count: -1 }) should return empty array', () => {
+    expect(getName({ count: -1 })).toHaveLength(0);
   });
-  test('cnname({ count: 0 }) should return empty array', () => {
-    expect(cnname({ count: 0 })).toHaveLength(0);
+  test('getName({ count: 0 }) should return empty array', () => {
+    expect(getName({ count: 0 })).toHaveLength(0);
   });
-  test('cnname({ count: 100 }) should return array with 100 elements', () => {
-    expect(cnname({ count: 100 })).toHaveLength(100);
+  test('getName({ count: 100 }) should return array with 100 elements', () => {
+    expect(getName({ count: 100 })).toHaveLength(100);
   });
 });

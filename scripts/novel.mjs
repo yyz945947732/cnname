@@ -1,8 +1,8 @@
-import cnname from '../dist/index.js';
+import { getName } from '../dist/index.js';
 import { updateExample } from './utils/index.mjs';
 
-const 主角名字 = cnname();
-const 反派名字 = cnname('张');
+const 主角名字 = getName();
+const 反派名字 = getName('张');
 
 const novel = `# 第 1 章 千人围攻
 
@@ -16,7 +16,7 @@ ${主角名字}心头微凉，定睛一看。
 
 他们分别是：
 
-${cnname(1000).join('，')}。
+${getName(1000).join('，')}。
 `;
 
 updateExample(novel, 'novel');

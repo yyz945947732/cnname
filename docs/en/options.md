@@ -1,4 +1,4 @@
-# `cnname(options: Options)`
+# `getName(options: Options)`
 
 ## ⚡ Options
 
@@ -25,99 +25,99 @@
 ### Generate 5 random names
 
 ```js
-import cnname from 'cnname';
+import { getName } from 'cnname';
 
-cnname({ count: 5 });
+getName({ count: 5 });
 // => ["杨波", "郑龙", "苏佩楠", "王楠", "许岩"]
 ```
 
 ### Generate 3 female names
 
 ```js
-cnname({ count: 3, gender: 'female' });
+getName({ count: 3, gender: 'female' });
 // => ["夏柔", "邓霞", "赵欣"]
 ```
 
 ### Generate 2 names with the "fire" wuxing element
 
 ```js
-cnname({ count: 2, wuxing: 'fire' });
+getName({ count: 2, wuxing: 'fire' });
 // => ["杜旭", "熊煜"]
 ```
 
 ### Generate 2 female names with the "water" wuxing element
 
 ```js
-cnname({ count: 2, wuxing: 'water', gender: 'female' });
+getName({ count: 2, wuxing: 'water', gender: 'female' });
 // => ["郭淼莹", "陈诗泉"]
 ```
 
 ### Generate 2 names containing both "water" and "fire" wuxing element
 
 ```js
-cnname({ count: 2, givenNameAttributes: ['water', 'fire'] });
+getName({ count: 2, givenNameAttributes: ['water', 'fire'] });
 // => ["苏泽灿", "聂涵晖"]
 ```
 
 ### Generate 2 names with a given name length of 2 characters
 
 ```js
-cnname({ count: 2, givenNameLength: 2 });
+getName({ count: 2, givenNameLength: 2 });
 // => ["陈晓东", "张涛昆"]
 ```
 
 ### Generate 3 names with a given name that start with "小"
 
 ```js
-cnname({ count: 3, givenNameStartsWith: "小" });
+getName({ count: 3, givenNameStartsWith: "小" });
 // => ["赵小星", "王小龙", "李小佳"]
 ```
 
 ### Generate duplicated-character names
 
 ```js
-cnname({ count: 3, givenNameDuplicated: true });
+getName({ count: 3, givenNameDuplicated: true });
 // => ["李莉莉", "李维维", "符馨馨"]
 ```
 
 ### Generate 3 names with specific given name
 
 ```js
-cnname({ count: 3, givenName: ['俊杰', '杰伦'] });
+getName({ count: 3, givenName: ['俊杰', '杰伦'] });
 // => ["周俊杰", "林杰伦", "张俊杰"]
 ```
 
 ### Generate 2 names with compound surnames
 
 ```js
-cnname({ count: 2, surnameType: 'common-compound' });
+getName({ count: 2, surnameType: 'common-compound' });
 // => ["司徒杉", "欧阳昊"]
 ```
 
 ### Generate 3 names with specific surnames
 
 ```js
-cnname({ count: 3, surname: ['张', '刘'] });
+getName({ count: 3, surname: ['张', '刘'] });
 // => ["刘海", "张天宇", "刘伟"]
 ```
 
 ### Return only the given name
 
 ```js
-cnname({ count: 3, returnType: 'givenName' });
+getName({ count: 3, returnType: 'givenName' });
 // => ["晨", "浩然", "宇航"]
 ```
 
 ### Return only the surname
 
 ```js
-cnname({ count: 3, returnType: 'surname' });
+getName({ count: 3, returnType: 'surname' });
 // => ["赵", "钱", "孙"]
 ```
 
 ### Generate names with a higher probability of uncommon surnames
 
 ```js
-cnname({ count: 3, surnameRarity: 'rare' });
+getName({ count: 3, surnameRarity: 'rare' });
 // => ["嵇舒", "贡翊", "第五悠梦"]
 ```

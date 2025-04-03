@@ -1,6 +1,6 @@
 import type { Options } from '../types';
 import { isOptions } from '../utils';
-import cnname from './cnname';
+import getName from './getName';
 
 /**
  * 返回随机名
@@ -24,12 +24,12 @@ function getGivenName(options: Options): string[];
 
 function getGivenName(parameter1?: number | Options): string | string[] {
   if (typeof parameter1 === 'number') {
-    return cnname({ returnType: 'givenName', count: parameter1 });
+    return getName({ returnType: 'givenName', count: parameter1 });
   }
   if (isOptions(parameter1)) {
-    return cnname({ ...parameter1, returnType: 'givenName' });
+    return getName({ ...parameter1, returnType: 'givenName' });
   }
-  return cnname({ returnType: 'givenName' })?.[0];
+  return getName({ returnType: 'givenName' })?.[0];
 }
 
 export default getGivenName;

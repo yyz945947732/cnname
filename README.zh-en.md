@@ -65,39 +65,39 @@ pnpm install cnname
 ### 🚀 Usage
 
 ```js
-import cnname from 'cnname';
+import { getName } from 'cnname';
 
-cnname();
+getName();
 // -> 李炜
-cnname('高');
+getName('高');
 // -> 高佳倩
-cnname(5);
+getName(5);
 // -> ["余嘉扬", "郭东仪", "谢鸿宾", "彭天奇", "关智华"]
-cnname('张', 5);
+getName('张', 5);
 // -> ["张腾", "张怡莉", "张瑞宇", "张萍", "张韵思"]
-cnname({ count: 5, gender: 'female' });
+getName({ count: 5, gender: 'female' });
 // -> ["庞妙", "黄如嫣", "姜莹", "莫惠安", "周敏"]
 ```
 
 ## 📖 API
 
-**`cnname(): string`**
+**`getName(): string`**
 
 Generate a random Chinese name.
 
-**`cnname(surname: string): string`**
+**`getName(surname: string): string`**
 
 Generate a random Chinese name with a specified surname.
 
-**`cnname(num: number): string[]`**
+**`getName(num: number): string[]`**
 
 Generate a specified number of random Chinese names.
 
-**`cnname(surname: string, num: number): string[]`**
+**`getName(surname: string, num: number): string[]`**
 
 Generate a specified number of random Chinese names with a given surname.
 
-**`cnname(options: Option): string[]`**
+**`getName(options: Option): string[]`**
 
 Get names with advanced options. Supports gender, wuxing (Five Elements), reduplicated names, compound surnames, and more. 👉 [Documentation](docs/en/options.md)
 
@@ -105,7 +105,7 @@ Get names with advanced options. Supports gender, wuxing (Five Elements), redupl
 
 - [isSurname](docs/en/isSurname.md) - Return whether a given string is a surname.
 
-- [cnnamestr](docs/en/cnnamestr.md) - Same as `cnname`, but always returns a string.
+- [getNameStr](docs/en/getNameStr.md) - Same as `getName`, but always returns a string.
 
 - [parseName](docs/en/parseName.md) -  Parse a name and extract surname and other information.
 
@@ -126,10 +126,10 @@ Below are the available resources. If you find missing surnames or names, [contr
 ## ✍️ Example
 
 ```js
-import cnname from 'cnname';
+import { getName } from 'cnname';
 
-const 主角名字 = cnname();
-const 反派名字 = cnname('张');
+const 主角名字 = getName();
+const 反派名字 = getName('张');
 
 const novel = `
 # 第 1 章 千人围攻
@@ -144,7 +144,7 @@ ${主角名字}心头微凉，定睛一看。
 
 他们分别是：
 
-${cnname(1000).join('，')}。
+${getName(1000).join('，')}。
 `;
 ```
 
