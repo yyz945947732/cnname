@@ -7,6 +7,9 @@ import {
   getAllCommonSingleCharacterSurname,
   getAllCommonSurname,
   getAllCompoundSurname,
+  getAllRareCompoundSurname,
+  getAllRareSingleCharacterSurname,
+  getAllRareSurname,
   getAllSingleCharacterSurname,
   getAllSurname,
 } from '../../src/utils/dict';
@@ -17,6 +20,9 @@ const allCompoundSurname = getAllCompoundSurname();
 const allCommonSurnames = getAllCommonSurname();
 const allCommonSingleCharacterSurname = getAllCommonSingleCharacterSurname();
 const allCommonCompoundSurname = getAllCommonCompoundSurname();
+const allRareSurnames = getAllRareSurname();
+const allRareSingleCharacterSurname = getAllRareSingleCharacterSurname();
+const allRareCompoundSurname = getAllRareCompoundSurname();
 
 assertType<string[]>(allSurnames);
 assertType<string[]>(allSingleCharacterSurname);
@@ -24,6 +30,9 @@ assertType<string[]>(allCompoundSurname);
 assertType<string[]>(allCommonSurnames);
 assertType<string[]>(allCommonSingleCharacterSurname);
 assertType<string[]>(allCommonCompoundSurname);
+assertType<string[]>(allRareSurnames);
+assertType<string[]>(allRareSingleCharacterSurname);
+assertType<string[]>(allRareCompoundSurname);
 
 describe('dict', () => {
   test(`the total number of common single surnames should be ${COMMON_SINGLE_CHARACTER_SURNAMES_TOTAL}`, () => {
@@ -37,6 +46,11 @@ describe('dict', () => {
     expect(allCommonSurnames.every((surname) => allSurnames.includes(surname))).toBeTruthy();
     expect(allCommonSurnames.every((surname) => localAllSurnames.includes(surname))).toBeTruthy();
   });
+  test('the surnames in the rare surname list should exist in the all surname dict', () => {
+    const localAllSurnames = localAllSurnamesDict.dict.split(' ');
+    expect(allRareSurnames.every((surname) => allSurnames.includes(surname))).toBeTruthy();
+    expect(allRareSurnames.every((surname) => localAllSurnames.includes(surname))).toBeTruthy();
+  });
   test('duplicate surnames should not appear in all surname dict', () => {
     const uniqAllSurnames = new Set(allSurnames);
     expect(uniqAllSurnames.size === allSurnames.length).toBeTruthy();
@@ -45,13 +59,17 @@ describe('dict', () => {
     const uniqAllCommonSurnames = new Set(allCommonSurnames);
     expect(uniqAllCommonSurnames.size === allCommonSurnames.length).toBeTruthy();
   });
+  test('duplicate surnames should not appear in rare surname dict', () => {
+    const uniqAllRareSurnames = new Set(allRareSurnames);
+    expect(uniqAllRareSurnames.size === allRareSurnames.length).toBeTruthy();
+  });
   test('all single character surname should only have one word', () => {
     expect(allSingleCharacterSurname.every((surname) => surname.length === 1)).toBeTruthy();
   });
   test('all compound surname should have at least two word', () => {
     expect(allCompoundSurname.every((surname) => surname.length > 1)).toBeTruthy();
   });
-  test('duplicate words should not appear in each type of words dict', () => {
+  test('duplicate words should not appear in each attribute of words dict', () => {
     const dicts = Object.values(attributesWordsDict);
     expect(dicts.every((list) => new Set(list).size === list.length)).toBeTruthy();
   });

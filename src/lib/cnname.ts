@@ -1,6 +1,6 @@
 import type { Options } from '../types/index';
 import { getSingleResult, isOptions, pickRandomWords, pickSurnameByStrategy } from '../utils';
-import { DEFAULT_SURNAME_PICK_STRATEGY, DEFAULT_SURNAME_TYPE } from '../utils/default';
+import { DEFAULT_SURNAME_PICK_STRATEGY, DEFAULT_SURNAME_RARITY } from '../utils/default';
 import { getMaxSetSize } from '../utils/size';
 
 /**
@@ -64,7 +64,7 @@ function cnname(parameter1?: number | string | Options, parameter2?: number): st
   const result = [];
 
   for (let i = 0; i < num; i++) {
-    const surname = fixSurname ?? pickSurnameByStrategy(DEFAULT_SURNAME_TYPE, DEFAULT_SURNAME_PICK_STRATEGY);
+    const surname = fixSurname ?? pickSurnameByStrategy(DEFAULT_SURNAME_RARITY, DEFAULT_SURNAME_PICK_STRATEGY);
     const nameLength = Math.random() > 0.5 ? 2 : 1;
     const givenName = pickRandomWords(nameLength);
     const fullname = surname + givenName;

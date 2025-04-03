@@ -50,24 +50,28 @@ export default [
     value: cnname({ count: 5, unique: true, returnType: "givenName" }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, surnameType: "all-single", givenNameLength: 1 })',
-    value: cnname({ count: 5, unique: true, surnameType: "all-single", givenNameLength: 1 }),
+    label: 'cnname({ count: 5, unique: true, surnameType: "single", surnameRarity: "all", givenNameLength: 1 })',
+    value: cnname({ count: 5, unique: true, surnameType: "single", surnameRarity: 'all', givenNameLength: 1 }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, surnameType: "all-compound", givenNameLength: 1 })',
-    value: cnname({ count: 5, unique: true, surnameType: "all-compound", givenNameLength: 1 }),
+    label: 'cnname({ count: 5, unique: true, surnameType: "compound", surnameRarity: "all", givenNameLength: 1 })',
+    value: cnname({ count: 5, unique: true, surnameType: "compound", surnameRarity: 'all', givenNameLength: 1 }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, surnameType: "common", givenNameLength: 1 })',
-    value: cnname({ count: 5, unique: true, surnameType: "common", givenNameLength: 1 }),
+    label: 'cnname({ count: 5, unique: true, surnameType: "single", surnameRarity: "common", givenNameLength: 1 })',
+    value: cnname({ count: 5, unique: true, surnameType: "single", surnameRarity: 'common', givenNameLength: 1 }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, surnameType: "common-single", givenNameLength: 1 })',
-    value: cnname({ count: 5, unique: true, surnameType: "common-single", givenNameLength: 1 }),
+    label: 'cnname({ count: 5, unique: true, surnameType: "compound", surnameRarity: "common", givenNameLength: 1 })',
+    value: cnname({ count: 5, unique: true, surnameType: "compound", surnameRarity: 'common', givenNameLength: 1 }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, surnameType: "common-compound", givenNameLength: 1 })',
-    value: cnname({ count: 5, unique: true, surnameType: "common-compound", givenNameLength: 1 }),
+    label: 'cnname({ count: 5, unique: true, surnameType: "single", surnameRarity: "rare", givenNameLength: 1 })',
+    value: cnname({ count: 5, unique: true, surnameType: "single", surnameRarity: 'rare', givenNameLength: 1 }),
+  },
+  {
+    label: 'cnname({ count: 5, unique: true, surnameType: "compound", surnameRarity: "rare", givenNameLength: 1 })',
+    value: cnname({ count: 5, unique: true, surnameType: "compound", surnameRarity: 'rare', givenNameLength: 1 }),
   },
   {
     label: 'cnname({ count: 5, unique: true, surname: ["张", "李"] })',

@@ -1,5 +1,5 @@
-import type { GivenNameAttribute, Options, SurnameType } from '../types';
-import { DEFAULT_SURNAME_TYPE } from './default';
+import type { GivenNameAttribute, Options, SurnameDictKey, SurnameType } from '../types';
+import { DEFAULT_SURNAME_RARITY } from './default';
 import {
   getAllAnimalWordsSize,
   getAllCommonCompoundSurnameSize,
@@ -11,13 +11,16 @@ import {
   getAllFireWordsSize,
   getAllMaleWordsSize,
   getAllMetalWordsSize,
+  getAllRareCompoundSurnameSize,
+  getAllRareSingleCharacterSurnameSize,
+  getAllRareSurnameSize,
   getAllSingleCharacterSurnameSize,
   getAllSurnameSize,
   getAllWaterWordsSize,
   getAllWoodWordsSize,
   getAllWordsSize,
 } from './dict';
-import { getGivenNameAttributeList } from './index';
+import { getGivenNameAttributeList, getSurnameDictKey } from './index';
 
 /**
  * @private
@@ -45,14 +48,15 @@ export function getMaxSetSize(options: Options): number {
  * 计算 `returnType` 为 `surname` 时，集合大小
  */
 function getSurnamePartMaxSize(options: Options): number {
-  const { surnameType = DEFAULT_SURNAME_TYPE, surname, returnType } = options;
+  const { surnameRarity = DEFAULT_SURNAME_RARITY, surnameType, surname, returnType } = options;
   if (Array.isArray(surname)) {
     return Math.max(new Set(surname).size, returnType === 'surname' ? 0 : 1);
   }
   if (surname !== undefined) {
     return 1;
   }
-  return getListSizeBySurnameType(surnameType);
+  const surnameDictKey = getSurnameDictKey(surnameRarity, surnameType);
+  return getListSizeBySurnameDictKey(surnameDictKey);
 }
 
 /**
@@ -92,17 +96,20 @@ function getGivenNamePartMaxSize(options: Options): number {
  * @private
  * 根据 `surnameType` 获取集合大小
  */
-function getListSizeBySurnameType(surnameType: SurnameType): number {
-  const MAX_SURNAME_SIZE_MAP: Record<SurnameType, number> = {
+function getListSizeBySurnameDictKey(surnameDictKey: SurnameDictKey): number {
+  const MAX_SURNAME_SIZE_MAP: Record<SurnameDictKey, number> = {
     all: getAllSurnameSize(),
     'all-compound': getAllCompoundSurnameSize(),
     'all-single': getAllSingleCharacterSurnameSize(),
     common: getAllCommonSurnameSize(),
     'common-single': getAllCommonSingleCharacterSurnameSize(),
     'common-compound': getAllCommonCompoundSurnameSize(),
+    rare: getAllRareSurnameSize(),
+    'rare-compound': getAllRareCompoundSurnameSize(),
+    'rare-single': getAllRareSingleCharacterSurnameSize(),
   };
 
-  return MAX_SURNAME_SIZE_MAP[surnameType] ?? MAX_SURNAME_SIZE_MAP.all;
+  return MAX_SURNAME_SIZE_MAP[surnameDictKey] ?? MAX_SURNAME_SIZE_MAP.all;
 }
 
 /**

@@ -109,7 +109,7 @@ cnname({ count: 5, gender: 'female' });
 
 - [parseName](docs/cn/parseName.md) - 解析名字，返回姓氏等信息。
 
-- [getAllSurname](docs/cn/getAllSurname.md) - 获取所有姓氏。
+- [getAllSurnames](docs/cn/getAllSurnames.md) - 获取所有姓氏。
 
 - [getSurname](docs/cn/getSurname.md) - 随机获取姓氏。
 

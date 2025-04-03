@@ -1,7 +1,7 @@
-import { getAllSurname } from '../dist/index.js';
+import { getAllSurnames } from '../dist/index.js';
 import { updateExample } from './utils/index.mjs';
 
-const surnames = getAllSurname();
+const surnames = getAllSurnames();
 
 const surnamesPreview = surnames
   .map(
