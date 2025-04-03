@@ -1,6 +1,6 @@
 import { assertType, describe, expect, test } from 'vitest';
 import cnname from '../../src';
-import { GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE } from '../../src/utils/default';
+import { GIVEN_NAME_INCLUDE_ONE_CHARACTER_ATTRIBUTE } from '../../src/utils/default';
 import {
   getAllAnimalWords,
   getAllEarthWords,
@@ -102,7 +102,7 @@ describe('cnname.options.givenNameAttributes', () => {
     const data = cnname({ count: 5, returnType: 'givenName', givenNameAttributes: 'animal', givenNameLength: 1 });
     expect(data.every((name) => allAnimalWords.includes(name))).toBeTruthy();
   });
-  test.each(GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE)(
+  test.each(GIVEN_NAME_INCLUDE_ONE_CHARACTER_ATTRIBUTE)(
     'givenNameAttributes %s should always return only one attribute word',
     (givenNameAttributes) => {
       const words = cnname({ count: 5, returnType: 'givenName', givenNameAttributes, givenNameLength: 2 });

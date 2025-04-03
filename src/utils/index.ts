@@ -2,7 +2,7 @@ import type { GivenNameAttribute, Options, PickStrategy, SurnameType } from '../
 import {
   DEFAULT_SURNAME_PICK_STRATEGY,
   DEFAULT_SURNAME_TYPE,
-  GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE,
+  GIVEN_NAME_INCLUDE_ONE_CHARACTER_ATTRIBUTE,
   GIVEN_NAME_TYPE_PRIORITY,
 } from './default';
 import {
@@ -236,7 +236,7 @@ function getGivenNameByGivenNameAttribute(givenNameAttributes: GivenNameAttribut
       result.push(pickRandomSingleEle(normalWords));
     } else {
       const type = pickRandomSingleEle(givenNameAttributes) as unknown as GivenNameAttribute;
-      if (!GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE.includes(type)) {
+      if (!GIVEN_NAME_INCLUDE_ONE_CHARACTER_ATTRIBUTE.includes(type)) {
         const words = getGivenNameListByGivenNameAttribute(type);
         result.push(pickRandomSingleEle(words));
       }

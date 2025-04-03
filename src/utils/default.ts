@@ -22,7 +22,7 @@ export const GIVEN_NAME_TYPE_PRIORITY = ['elements', 'gender'] as const;
  * @private
  * 以下类型的名字最好只包含一个字
  */
-export const GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE: GivenNameAttribute[] = ['animal'];
+export const GIVEN_NAME_INCLUDE_ONE_CHARACTER_ATTRIBUTE: GivenNameAttribute[] = ['animal'];
 
 /**
  * @private
