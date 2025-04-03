@@ -17,7 +17,7 @@
 | surnameAlgorithm | `'weight' \| 'random'` | Random generate algorithm (surname). <br>`'weight'` based on  surnames order in dictionary. <br>`'random'` purely random. | `'weight'` |
 | surname | `string \| string[]` | Specify a surname (single or array). | Random surname |
 | unique | `boolean` | Ensure the returned names are unique. | `false` |
-| part | `'fullName' \| 'surname' \| 'givenName'` | Part of returned name: <br> `'fullName'` for full names. <br> `'surname'` for surnames only. <br> `'givenName'` for given names only. | `'fullName'` |
+| returnType | `'fullName' \| 'surname' \| 'givenName'` | Part of returned name: <br> `'fullName'` for full names. <br> `'surname'` for surnames only. <br> `'givenName'` for given names only. | `'fullName'` |
 
 ## ✍️ Examples
 
@@ -100,17 +100,17 @@ cnname({ count: 3, surname: ['张', '刘'] });
 // => ["刘海", "张天宇", "刘伟"]
 ```
 
-### Return only the given name part
+### Return only the given name
 
 ```js
-cnname({ count: 3, part: 'givenName' });
+cnname({ count: 3, returnType: 'givenName' });
 // => ["晨", "浩然", "宇航"]
 ```
 
-### Return only the surname part
+### Return only the surname
 
 ```js
-cnname({ count: 3, part: 'surname' });
+cnname({ count: 3, returnType: 'surname' });
 // => ["赵", "钱", "孙"]
 ```
 

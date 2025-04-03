@@ -24,16 +24,16 @@ import { getGivenNameTypeList } from './index';
  * 根据高级配置获取集合最大大小
  */
 export function getMaxSetSize(options: Options): number {
-  const { part = 'fullName' } = options;
+  const { returnType = 'fullName' } = options;
 
   const maxSurnameNum = getSurnamePartMaxSize(options);
   const maxGivenNameNum = getGivenNamePartMaxSize(options);
 
-  if (part === 'surname') {
+  if (returnType === 'surname') {
     return maxSurnameNum;
   }
 
-  if (part === 'givenName') {
+  if (returnType === 'givenName') {
     return maxGivenNameNum;
   }
 
@@ -42,12 +42,12 @@ export function getMaxSetSize(options: Options): number {
 
 /**
  * @private
- * 计算 `part` 为 `surname` 时，集合大小
+ * 计算 `returnType` 为 `surname` 时，集合大小
  */
 function getSurnamePartMaxSize(options: Options): number {
-  const { surnameType = DEFAULT_SURNAME_TYPE, surname, part } = options;
+  const { surnameType = DEFAULT_SURNAME_TYPE, surname, returnType } = options;
   if (Array.isArray(surname)) {
-    return Math.max(new Set(surname).size, part === 'surname' ? 0 : 1);
+    return Math.max(new Set(surname).size, returnType === 'surname' ? 0 : 1);
   }
   if (surname !== undefined) {
     return 1;
@@ -57,13 +57,14 @@ function getSurnamePartMaxSize(options: Options): number {
 
 /**
  * @private
- * 计算 `part` 为 `givenName` 时，集合大小
+ * 计算 `returnType` 为 `givenName` 时，集合大小
  */
 function getGivenNamePartMaxSize(options: Options): number {
-  const { givenNameLength, givenNameDuplicated, givenNameStartsWith, givenNameEndsWith, givenName, part } = options;
+  const { givenNameLength, givenNameDuplicated, givenNameStartsWith, givenNameEndsWith, givenName, returnType } =
+    options;
 
   if (Array.isArray(givenName)) {
-    return Math.max(new Set(givenName).size, part === 'givenName' ? 0 : 1);
+    return Math.max(new Set(givenName).size, returnType === 'givenName' ? 0 : 1);
   }
   if (givenName !== undefined || givenNameDuplicated) {
     return 1;

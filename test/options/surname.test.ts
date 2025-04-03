@@ -30,10 +30,10 @@ describe('cnname.options.surname', () => {
   test('cnname({ count: 5, surname: [] }) should return array with five elements', () => {
     expect(cnname({ count: 5, surname: [] })).toHaveLength(5);
   });
-  test('cnname({ count: 5, unique: true, part: "surname", surname: [] }) should return empty array', () => {
-    expect(cnname({ count: 5, unique: true, part: 'surname', surname: [] })).toHaveLength(0);
+  test('cnname({ count: 5, unique: true, returnType: "surname", surname: [] }) should return empty array', () => {
+    expect(cnname({ count: 5, unique: true, returnType: 'surname', surname: [] })).toHaveLength(0);
   });
-  test('cnname({ count: 5, part: "surname", surname: [] }) should return array with five empty string', () => {
-    expect(cnname({ count: 5, part: 'surname', surname: [] }).every((name) => name === '')).toBeTruthy();
+  test('cnname({ count: 5, returnType: "surname", surname: [] }) should return array with five empty string', () => {
+    expect(cnname({ count: 5, returnType: 'surname', surname: [] }).every((name) => name === '')).toBeTruthy();
   });
 });

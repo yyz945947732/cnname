@@ -98,19 +98,19 @@ export function isOptions(value: unknown): value is Options {
  * 根据高级配置获取单个结果
  */
 export function getSingleResult(options: Options): string {
-  const { part = 'fullName' } = options;
+  const { returnType = 'fullName' } = options;
 
   let surname: string;
   let givenName: string;
 
-  if (part !== 'givenName') {
+  if (returnType !== 'givenName') {
     surname = getSurnameByOptions(options);
   }
-  if (part !== 'surname') {
+  if (returnType !== 'surname') {
     givenName = getGivenNameByOptions(options);
   }
 
-  switch (part) {
+  switch (returnType) {
     case 'fullName':
       return surname + givenName;
     case 'surname':

@@ -24,12 +24,12 @@ function getGivenName(options: Options): string[];
 
 function getGivenName(parameter1?: number | Options): string | string[] {
   if (typeof parameter1 === 'number') {
-    return cnname({ part: 'givenName', count: parameter1 });
+    return cnname({ returnType: 'givenName', count: parameter1 });
   }
   if (isOptions(parameter1)) {
-    return cnname({ ...parameter1, part: 'givenName' });
+    return cnname({ ...parameter1, returnType: 'givenName' });
   }
-  return cnname({ part: 'givenName' })?.[0];
+  return cnname({ returnType: 'givenName' })?.[0];
 }
 
 export default getGivenName;
