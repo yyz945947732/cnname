@@ -7,7 +7,7 @@
 | count | `number` | 生成的姓名数量。 | `1` |
 | gender | `'male'` \| `'female'` | 性别。男性名或女性名。 | 无限制 |
 | element | `'metal'` \| `'wood'` \| `'water'` \| `'fire'` \| `'earth'` | 名字中包含的五行元素，例如（焕、淼、鑫...）。 | 无限制 |
-| givenNameType | [GivenNameType](givenNameType.md) \| GivenNameType[]  | [名字属性](givenNameType.md)。可传单个属性或属性数组，优先级将按照数组顺序。 | 无限制 |
+| givenNameAttributes | [GivenNameAttribute](givenNameAttributes.md) \| GivenNameAttribute[]  | [名字特性](givenNameAttributes.md)。可传单个特性或特性数组，优先级将参照数组顺序。 | 无限制 |
 | givenNameLength | `number` | 名字长度（不含姓氏）。 | `1` 或 `2` |
 | givenNameStartsWith | `string` | 指定名字（不含姓氏）第一个字。 | 随机字 |
 | givenNameEndsWith | `string` | 指定名字（不含姓氏）最后一个字。 | 随机字 |
@@ -54,7 +54,7 @@ cnname({ count: 2, element: 'water', gender: 'female' });
 ### 生成 2 个五行包含水和火的名字
 
 ```js
-cnname({ count: 2, givenNameType: ['water', 'fire'] });
+cnname({ count: 2, givenNameAttributes: ['water', 'fire'] });
 // => ["苏泽灿", "聂涵晖"]
 ```
 

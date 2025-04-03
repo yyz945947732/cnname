@@ -86,48 +86,48 @@ export default [
     value: cnname({ count: 5, unique: true, givenName: "佳运" }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, givenNameType: "male" })',
-    value: cnname({ count: 5, unique: true, givenNameType: "male" }),
+    label: 'cnname({ count: 5, unique: true, givenNameAttributes: "male" })',
+    value: cnname({ count: 5, unique: true, givenNameAttributes: "male" }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, givenNameType: "female" })',
-    value: cnname({ count: 5, unique: true, givenNameType: "female" }),
+    label: 'cnname({ count: 5, unique: true, givenNameAttributes: "female" })',
+    value: cnname({ count: 5, unique: true, givenNameAttributes: "female" }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, givenNameType: "metal" })',
-    value: cnname({ count: 5, unique: true, givenNameType: "metal" }),
+    label: 'cnname({ count: 5, unique: true, givenNameAttributes: "metal" })',
+    value: cnname({ count: 5, unique: true, givenNameAttributes: "metal" }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, givenNameType: "wood" })',
-    value: cnname({ count: 5, unique: true, givenNameType: "wood" }),
+    label: 'cnname({ count: 5, unique: true, givenNameAttributes: "wood" })',
+    value: cnname({ count: 5, unique: true, givenNameAttributes: "wood" }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, givenNameType: "water" })',
-    value: cnname({ count: 5, unique: true, givenNameType: "water" }),
+    label: 'cnname({ count: 5, unique: true, givenNameAttributes: "water" })',
+    value: cnname({ count: 5, unique: true, givenNameAttributes: "water" }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, givenNameType: "fire" })',
-    value: cnname({ count: 5, unique: true, givenNameType: "fire" }),
+    label: 'cnname({ count: 5, unique: true, givenNameAttributes: "fire" })',
+    value: cnname({ count: 5, unique: true, givenNameAttributes: "fire" }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, givenNameType: "earth" })',
-    value: cnname({ count: 5, unique: true, givenNameType: "earth" }),
+    label: 'cnname({ count: 5, unique: true, givenNameAttributes: "earth" })',
+    value: cnname({ count: 5, unique: true, givenNameAttributes: "earth" }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, givenNameType: "animal" })',
-    value: cnname({ count: 5, unique: true, givenNameType: "animal" }),
+    label: 'cnname({ count: 5, unique: true, givenNameAttributes: "animal" })',
+    value: cnname({ count: 5, unique: true, givenNameAttributes: "animal" }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, givenNameType: "all" })',
-    value: cnname({ count: 5, unique: true, givenNameType: "all" }),
+    label: 'cnname({ count: 5, unique: true, givenNameAttributes: "all" })',
+    value: cnname({ count: 5, unique: true, givenNameAttributes: "all" }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, givenNameType: ["earth", "female"] })',
-    value: cnname({ count: 5, unique: true, givenNameType: ["earth", "female"] }),
+    label: 'cnname({ count: 5, unique: true, givenNameAttributes: ["earth", "female"] })',
+    value: cnname({ count: 5, unique: true, givenNameAttributes: ["earth", "female"] }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, givenNameType: ["water", "fire"] })',
-    value: cnname({ count: 5, unique: true, givenNameType: ["water", "fire"] }),
+    label: 'cnname({ count: 5, unique: true, givenNameAttributes: ["water", "fire"] })',
+    value: cnname({ count: 5, unique: true, givenNameAttributes: ["water", "fire"] }),
   },
   {
     label: 'cnname({ count: 5, unique: true, gender: "female" })',
@@ -138,8 +138,8 @@ export default [
     value: cnname({ count: 5, unique: true, elements: "fire" }),
   },
   {
-    label: 'cnname({ count: 5, unique: true, elements: "earth", givenNameType: "water" })',
-    value: cnname({ count: 5, unique: true, elements: "earth", givenNameType: "water" }),
+    label: 'cnname({ count: 5, unique: true, elements: "earth", givenNameAttributes: "water" })',
+    value: cnname({ count: 5, unique: true, elements: "earth", givenNameAttributes: "water" }),
   },
   {
     label: 'cnname({ count: 10, unique: true, surnamePickStrategy: "random" })',

@@ -1,4 +1,4 @@
-import type { GivenNameType, PickStrategy, SurnameType } from '../types';
+import type { GivenNameAttribute, PickStrategy, SurnameType } from '../types';
 
 /**
  * @private
@@ -22,7 +22,7 @@ export const GIVEN_NAME_TYPE_PRIORITY = ['elements', 'gender'] as const;
  * @private
  * 以下类型的名字最好只包含一个字
  */
-export const GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE: GivenNameType[] = ['animal'];
+export const GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE: GivenNameAttribute[] = ['animal'];
 
 /**
  * @private

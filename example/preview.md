@@ -84,47 +84,47 @@
 
 谭佳运,黄佳运,庄佳运,蒋佳运,林佳运
 
-## cnname({ count: 5, unique: true, givenNameType: "male" })
+## cnname({ count: 5, unique: true, givenNameAttributes: "male" })
 
 殷宇,吕纶南,章彦朗,高庆,傅昱凯
 
-## cnname({ count: 5, unique: true, givenNameType: "female" })
+## cnname({ count: 5, unique: true, givenNameAttributes: "female" })
 
 唐茹峥,许妍,尹曼娜,侯芸,聂美
 
-## cnname({ count: 5, unique: true, givenNameType: "metal" })
+## cnname({ count: 5, unique: true, givenNameAttributes: "metal" })
 
 牛钦,邢镇永,谢铮铮,姚锋铮,阮铭
 
-## cnname({ count: 5, unique: true, givenNameType: "wood" })
+## cnname({ count: 5, unique: true, givenNameAttributes: "wood" })
 
 丁栩,胡桦,石昕枫,吴槿,金桦
 
-## cnname({ count: 5, unique: true, givenNameType: "water" })
+## cnname({ count: 5, unique: true, givenNameAttributes: "water" })
 
 司马洁,金泷,于雅泉,李泓,贺淼泽
 
-## cnname({ count: 5, unique: true, givenNameType: "fire" })
+## cnname({ count: 5, unique: true, givenNameAttributes: "fire" })
 
 李烨,赵灿烨,尹柯炜,赵炜,黄晴
 
-## cnname({ count: 5, unique: true, givenNameType: "earth" })
+## cnname({ count: 5, unique: true, givenNameAttributes: "earth" })
 
 叶佑磊,杨垚清,吕均磊,江航垚,易坤
 
-## cnname({ count: 5, unique: true, givenNameType: "animal" })
+## cnname({ count: 5, unique: true, givenNameAttributes: "animal" })
 
 吕彪晨,申雀昱,林蝶,钟嘉鱼,樊蝶
 
-## cnname({ count: 5, unique: true, givenNameType: "all" })
+## cnname({ count: 5, unique: true, givenNameAttributes: "all" })
 
 陈良,侯朗,符宇宇,廖竹,沈婉昕
 
-## cnname({ count: 5, unique: true, givenNameType: ["earth", "female"] })
+## cnname({ count: 5, unique: true, givenNameAttributes: ["earth", "female"] })
 
 彭岳,陆岩,孔均,安垚,张岩蔚
 
-## cnname({ count: 5, unique: true, givenNameType: ["water", "fire"] })
+## cnname({ count: 5, unique: true, givenNameAttributes: ["water", "fire"] })
 
 余沐,董沐,史滨,聂涛,曾泉
 
@@ -136,7 +136,7 @@
 
 方曦,姜曦炎,郭炜,蔡曦焱,汪灿烈
 
-## cnname({ count: 5, unique: true, elements: "earth", givenNameType: "water" })
+## cnname({ count: 5, unique: true, elements: "earth", givenNameAttributes: "water" })
 
 蔡岱,郭岳淇,岳泷培,魏涛坤,郑境波
 

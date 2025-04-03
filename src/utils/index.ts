@@ -1,4 +1,4 @@
-import type { GivenNameType, Options, PickStrategy, SurnameType } from '../types';
+import type { GivenNameAttribute, Options, PickStrategy, SurnameType } from '../types';
 import {
   DEFAULT_SURNAME_PICK_STRATEGY,
   DEFAULT_SURNAME_TYPE,
@@ -12,7 +12,7 @@ import {
   getAllSurname,
   getAllWords,
 } from './dict';
-import { getGivenNameListByGivenNameType, getSurnameListBySurnameType } from './list';
+import { getGivenNameListByGivenNameAttribute, getSurnameListBySurnameType } from './list';
 import { pickRandomEle, pickRandomSingleEle, safePickSingleEleByStrategy } from './random';
 
 /**
@@ -46,9 +46,9 @@ export function getIsSingleCharacterSurname(surname: string): boolean {
  * @private
  * 随机获取名
  */
-export function pickRandomWords(n: number, givenNameTypes?: GivenNameType[]): string {
-  if (givenNameTypes?.length) {
-    return getGivenNameByGivenNameType(givenNameTypes, n);
+export function pickRandomWords(n: number, givenNameAttributes?: GivenNameAttribute[]): string {
+  if (givenNameAttributes?.length) {
+    return getGivenNameByGivenNameAttribute(givenNameAttributes, n);
   }
   const words = getAllWords();
   return pickRandomEle(words, n).join('');
@@ -67,9 +67,9 @@ export function pickSurnameByStrategy(surnameType: SurnameType, strategy: PickSt
  * @private
  * 随机获取叠字名
  */
-export function pickDuplicatedGivenName(givenNameTypes: GivenNameType[], len = 2, fixWord?: string): string {
+export function pickDuplicatedGivenName(givenNameAttribute: GivenNameAttribute[], len = 2, fixWord?: string): string {
   if (fixWord) return fixWord.repeat(len);
-  const words = getGivenNameListByGivenNameType(givenNameTypes?.[0]);
+  const words = getGivenNameListByGivenNameAttribute(givenNameAttribute?.[0]);
   const givenName = pickRandomSingleEle(words);
   const duplicatedGivenName = givenName.repeat(len);
   return duplicatedGivenName;
@@ -197,13 +197,13 @@ export function getGivenNameByOptions(options: Options): string {
 
   let result = '';
 
-  const givenNameTypeList = getGivenNameTypeList(options);
+  const givenNameAttributeList = getGivenNameAttributeList(options);
 
   if (givenNameDuplicated) {
-    return pickDuplicatedGivenName(givenNameTypeList, givenNameLength, givenNameStartsWith || givenNameEndsWith);
+    return pickDuplicatedGivenName(givenNameAttributeList, givenNameLength, givenNameStartsWith || givenNameEndsWith);
   }
 
-  result = pickRandomWords(nameLength, givenNameTypeList);
+  result = pickRandomWords(nameLength, givenNameAttributeList);
 
   if (givenNameStartsWith) {
     result = givenNameStartsWith + result.slice(1);
@@ -218,14 +218,14 @@ export function getGivenNameByOptions(options: Options): string {
 
 /**
  * @private
- * 根据 `givenNameType` 获取名
+ * 根据 `givenNameAttribute` 获取名
  */
-function getGivenNameByGivenNameType(givenNameTypes: GivenNameType[], n: number): string {
+function getGivenNameByGivenNameAttribute(givenNameAttributes: GivenNameAttribute[], n: number): string {
   const typeWords: string[] = [];
   const normalWords = getAllNormalWords();
 
-  for (const givenNameType of givenNameTypes) {
-    const words = getGivenNameListByGivenNameType(givenNameType);
+  for (const givenNameAttribute of givenNameAttributes) {
+    const words = getGivenNameListByGivenNameAttribute(givenNameAttribute);
     typeWords.push(pickRandomSingleEle(words));
   }
 
@@ -235,9 +235,9 @@ function getGivenNameByGivenNameType(givenNameTypes: GivenNameType[], n: number)
     if (Math.random() > 0.5) {
       result.push(pickRandomSingleEle(normalWords));
     } else {
-      const type = pickRandomSingleEle(givenNameTypes) as unknown as GivenNameType;
+      const type = pickRandomSingleEle(givenNameAttributes) as unknown as GivenNameAttribute;
       if (!GIVEN_NAME_INCLUDE_ONE_CHARACTER_TYPE.includes(type)) {
-        const words = getGivenNameListByGivenNameType(type);
+        const words = getGivenNameListByGivenNameAttribute(type);
         result.push(pickRandomSingleEle(words));
       }
     }
@@ -247,11 +247,11 @@ function getGivenNameByGivenNameType(givenNameTypes: GivenNameType[], n: number)
 
 /**
  * @private
- * 获取需支持的 givenNameType 属性列表
+ * 获取需支持的 givenNameAttribute 特性列表
  */
-export function getGivenNameTypeList(options: Options): GivenNameType[] {
-  const { givenNameType } = options;
-  const list: GivenNameType[] = [];
+export function getGivenNameAttributeList(options: Options): GivenNameAttribute[] {
+  const { givenNameAttributes } = options;
+  const list: GivenNameAttribute[] = [];
 
   for (const type of GIVEN_NAME_TYPE_PRIORITY) {
     if (options[type] !== undefined) {
@@ -259,16 +259,16 @@ export function getGivenNameTypeList(options: Options): GivenNameType[] {
     }
   }
 
-  if (!givenNameType) {
+  if (!givenNameAttributes) {
     return list;
   }
 
-  if (Array.isArray(givenNameType)) {
-    list.push(...givenNameType);
+  if (Array.isArray(givenNameAttributes)) {
+    list.push(...givenNameAttributes);
   }
 
-  if (typeof givenNameType === 'string') {
-    list.push(givenNameType);
+  if (typeof givenNameAttributes === 'string') {
+    list.push(givenNameAttributes);
   }
 
   return list;
