@@ -1,6 +1,4 @@
-import type { Options } from '../types';
-import { isOptions } from '../utils';
-import getName from './getName';
+import { pickRandomWords } from '../utils';
 
 /**
  * 返回随机名
@@ -15,21 +13,23 @@ function getGivenName(): string;
  */
 function getGivenName(num: number): string[];
 
-/**
- * 返回随机名
- * @param {Options} options 高级配置
- * @returns {string[]} 随机名数组
- */
-function getGivenName(options: Options): string[];
+function getGivenName(parameter1?: number): string | string[] {
+  let num = parameter1 ?? 1;
 
-function getGivenName(parameter1?: number | Options): string | string[] {
-  if (typeof parameter1 === 'number') {
-    return getName({ returnType: 'givenName', count: parameter1 });
+  if (num < 0) {
+    num = 0;
   }
-  if (isOptions(parameter1)) {
-    return getName({ ...parameter1, returnType: 'givenName' });
+
+  const result = [];
+  const single = parameter1 === undefined;
+
+  for (let i = 0; i < num; i++) {
+    const givenNameLen = Math.random() > 0.5 ? 2 : 1;
+    const givenName = pickRandomWords(givenNameLen);
+    result.push(givenName);
   }
-  return getName({ returnType: 'givenName' })?.[0];
+
+  return single ? result[0] : result;
 }
 
 export default getGivenName;
