@@ -41,8 +41,7 @@ describe('getName.options.surnameType', () => {
   });
   test('getName({ count: 100, surnameType: "error", unique: true, surnamePickStrategy: "random" }) should return array with 100 elements', () => {
     // @ts-expect-error
-    expect(getName({ count: 100, surnameType: 'error', unique: true, surnamePickStrategy: 'random' })).toHaveLength(
-      100,
-    );
+    const data = getName({ count: 100, surnameType: 'error', unique: true, surnamePickStrategy: 'random' });
+    expect(data).toHaveLength(100);
   });
 });
