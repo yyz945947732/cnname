@@ -7,7 +7,7 @@
 | count | `number` | Number of names to generate. | `1` |
 | gender | `'male'` \| `'female'` | Gender. Male or female name. | No restriction |
 | element | `'metal'` \| `'wood'` \| `'water'` \| `'fire'` \| `'earth'` | The Five Elements contained in the name, e.g., (焕、淼、鑫...). | No restriction |
-| givenNameType | [GivenNameType](givenNameType.md) \| GivenNameType[] | [Name attributes](givenNameType.md). Can be a single attribute or an array of attributes, with priority following the array order. | No restriction |
+| givenNameAttributes | [GivenNameAttribute](givenNameAttributes.md) \| GivenNameAttribute[] | [Name attributes](givenNameAttributes.md). Can be a single attribute or an array of attributes, with priority following the array order. | No restriction |
 | givenNameLength | `number` | Length of the given name. | `1` or `2` |
 | givenNameStartsWith | `string` | Specify the first character of the given name. | Random character |
 | givenNameEndsWith | `string` | Specify the last character of the given name. | Random character |
@@ -54,7 +54,7 @@ cnname({ count: 2, element: 'water', gender: 'female' });
 ### Generate 2 names containing both "water" and "fire" elements
 
 ```js
-cnname({ count: 2, givenNameType: ['water', 'fire'] });
+cnname({ count: 2, givenNameAttributes: ['water', 'fire'] });
 // => ["苏泽灿", "聂涵晖"]
 ```
 

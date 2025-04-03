@@ -37,13 +37,13 @@ describe('cnname.options.returnType', () => {
     const data = cnname({ count: 50000, unique: true, returnType: 'surname' });
     expect(data.length).toBeLessThan(5000);
   });
-  test('cnname({ count: 5000, unique: true, returnType: "givenName", givenNameLength: 1, givenNameType: "female" }) should return less than 5000', () => {
+  test('cnname({ count: 5000, unique: true, returnType: "givenName", givenNameLength: 1, givenNameAttributes: "female" }) should return less than 5000', () => {
     const data = cnname({
       count: 50000,
       unique: true,
       returnType: 'givenName',
       givenNameLength: 1,
-      givenNameType: 'female',
+      givenNameAttributes: 'female',
     });
     expect(data.length).toBeLessThan(5000);
   });

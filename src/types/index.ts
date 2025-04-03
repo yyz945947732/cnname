@@ -19,9 +19,9 @@ export interface Options {
   elements?: 'metal' | 'wood' | 'water' | 'fire' | 'earth';
   /**
    * 名字所含特性
-   * @link https://github.com/yyz945947732/cnname/blob/master/docs/cn/givenNameType.md
+   * @link https://github.com/yyz945947732/cnname/blob/master/docs/cn/givenNameAttributes.md
    */
-  givenNameType?: GivenNameType | GivenNameType[];
+  givenNameAttributes?: GivenNameAttribute | GivenNameAttribute[];
   /** 名长度 */
   givenNameLength?: number;
   /** 指定名字第一个字 */
@@ -69,7 +69,7 @@ export interface Options {
 export type SurnameType = 'common' | 'common-single' | 'common-compound' | 'all' | 'all-single' | 'all-compound';
 
 /** 名字特性 */
-export type GivenNameType = Options['gender'] | Options['elements'] | Others;
+export type GivenNameAttribute = Options['gender'] | Options['elements'] | Others;
 
 /** 其他特性 */
 export type Others = 'animal';

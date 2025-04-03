@@ -1,4 +1,4 @@
-import type { GivenNameType, Options, SurnameType } from '../types';
+import type { GivenNameAttribute, Options, SurnameType } from '../types';
 import { DEFAULT_SURNAME_TYPE } from './default';
 import {
   getAllAnimalWordsSize,
@@ -17,7 +17,7 @@ import {
   getAllWoodWordsSize,
   getAllWordsSize,
 } from './dict';
-import { getGivenNameTypeList } from './index';
+import { getGivenNameAttributeList } from './index';
 
 /**
  * @private
@@ -82,8 +82,8 @@ function getGivenNamePartMaxSize(options: Options): number {
     return 1;
   }
   if (len === 1) {
-    const givenNameTypeList = getGivenNameTypeList(options);
-    return getListSizeByGivenNameType(givenNameTypeList?.[0]);
+    const givenNameAttributeList = getGivenNameAttributeList(options);
+    return getListSizeByGivenNameAttribute(givenNameAttributeList?.[0]);
   }
   return Number.MAX_SAFE_INTEGER;
 }
@@ -107,12 +107,12 @@ function getListSizeBySurnameType(surnameType: SurnameType): number {
 
 /**
  * @private
- * 根据 `givenNameType` 获取集合大小
+ * 根据 `givenNameAttribute` 获取集合大小
  */
-function getListSizeByGivenNameType(givenNameType: GivenNameType): number {
+function getListSizeByGivenNameAttribute(givenNameAttribute: GivenNameAttribute): number {
   const MAX_ALL_GIVEN_NAME_SIZE = getAllWordsSize();
 
-  const MAX_GIVEN_NAME_SIZE_MAP: Record<GivenNameType, number> = {
+  const MAX_GIVEN_NAME_SIZE_MAP: Record<GivenNameAttribute, number> = {
     male: getAllMaleWordsSize(),
     female: getAllFemaleWordsSize(),
     metal: getAllMetalWordsSize(),
@@ -123,5 +123,5 @@ function getListSizeByGivenNameType(givenNameType: GivenNameType): number {
     animal: getAllAnimalWordsSize(),
   };
 
-  return MAX_GIVEN_NAME_SIZE_MAP[givenNameType] ?? MAX_ALL_GIVEN_NAME_SIZE;
+  return MAX_GIVEN_NAME_SIZE_MAP[givenNameAttribute] ?? MAX_ALL_GIVEN_NAME_SIZE;
 }

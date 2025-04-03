@@ -1,4 +1,4 @@
-import type { GivenNameType, SurnameType } from '../types';
+import type { GivenNameAttribute, SurnameType } from '../types';
 import {
   getAllAnimalWords,
   getAllCommonCompoundSurname,
@@ -42,10 +42,10 @@ export function getSurnameListBySurnameType(surnameType: SurnameType): string[] 
 
 /**
  * @private
- * 根据 `givenNameType` 获取所有名
+ * 根据 `givenNameAttribute` 获取所有名
  */
-export function getGivenNameListByGivenNameType(givenNameType?: GivenNameType): string[] {
-  switch (givenNameType) {
+export function getGivenNameListByGivenNameAttribute(givenNameAttribute?: GivenNameAttribute): string[] {
+  switch (givenNameAttribute) {
     case 'male':
       return getAllMaleWords();
     case 'female':
