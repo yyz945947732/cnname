@@ -38,8 +38,6 @@
   </a>
 </p>
 
-<h1>⚠️ Version 2.0 is under development. Please read the <a href="https://github.com/yyz945947732/cnname/tree/v1.6.2">current version</a> documentation ⚠️</h1>
-
 ## ✨ Features
 
 - 🎲 Easily and simply generate various random Chinese names.

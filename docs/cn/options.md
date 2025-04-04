@@ -25,8 +25,6 @@
 ### 生成 5 个随机名字
 
 ```js
-import { getName } from 'cnname';
-
 getName({ count: 5 });
 // => ["杨波", "郑龙", "苏佩楠", "王楠", "许岩"]
 ```
