@@ -1,16 +1,16 @@
 import { getName } from '../dist/index.js';
 import { updateExample } from './utils/index.mjs';
 
-const 主角名字 = getName();
-const 反派名字 = getName('张');
+const 主角 = getName();
+const 反派 = getName('张');
 
 const novel = `# 第 1 章 千人围攻
 
-"${主角名字}，你已经被我们围攻了！！！"
+"${主角}，你已经被我们围攻了！！！"
 
-${反派名字}的厉啸从身后传来，随着尖锐的破空声，一声利箭没入${主角名字}身旁的黄土墙。
+${反派}的厉啸从身后传来，随着尖锐的破空声，一声利箭没入${主角}身旁的黄土墙。
 
-${主角名字}心头微凉，定睛一看。
+${主角}心头微凉，定睛一看。
 
 只见阴暗的密林四处，已经隐隐约约钻出千道黑色人影。
 
