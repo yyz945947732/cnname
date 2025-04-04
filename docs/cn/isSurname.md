@@ -23,5 +23,5 @@ import { isSurname } from 'cnname';
 
 isSurname('王'); // true
 isSurname('欧阳'); // true
-isSurname('猪'); // false
+isSurname('屁'); // false
 ```
