@@ -11,13 +11,17 @@ jobs:
       matrix:
         node-version: [18.x]
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 10.5.2
 
       - name: Install
-        run: yarn
+        run: pnpm install
 
       - name: Test
-        run: yarn test:cov
+        run: pnpm test:cov
 
       - name: Code coverage
         uses: coverallsapp/github-action@master
