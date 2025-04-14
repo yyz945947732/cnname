@@ -68,5 +68,6 @@
       "biome check --write",
       "biome format --write"
     ]
-  }
+  },
+  "packageManager": "pnpm@10.5.2"
 }
