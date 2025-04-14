@@ -1,7 +1,7 @@
 {
   "name": "cnname",
   "version": "2.1.0",
-  "description": "随机生成中文名",
+  "description": "Randomly generate Chinese names.",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -54,14 +54,18 @@
     "vitest": "^3.0.9"
   },
   "keywords": [
-    "汉字",
-    "名字",
-    "随机名字",
-    "chinese",
+    "chinese name",
+    "random chinese name",
+    "fake chinese name",
+    "generate chinese name",
+    "chinese name generator",
+    "chinese faker",
     "cnchar",
     "cnchar-name",
-    "chinese name",
-    "fake chinese name"
+    "名字",
+    "生成名字",
+    "随机名字",
+    "中文名"
   ],
   "lint-staged": {
     "{src,test,performance}/**/*.ts": [
