@@ -45,7 +45,7 @@ export function getMaxSetSize(options: Options): number {
 
 /**
  * @private
- * 计算 `returnType` 为 `surname` 时，集合大小
+ * 计算 `returnType` 为 `surname` 时，集合最大大小
  */
 function getSurnamePartMaxSize(options: Options): number {
   const { surnameRarity = DEFAULT_SURNAME_RARITY, surnameType, surname, returnType } = options;
@@ -61,7 +61,7 @@ function getSurnamePartMaxSize(options: Options): number {
 
 /**
  * @private
- * 计算 `returnType` 为 `givenName` 时，集合大小
+ * 计算 `returnType` 为 `givenName` 时，集合最大大小
  */
 function getGivenNamePartMaxSize(options: Options): number {
   const { givenNameLength, givenNameDuplicated, givenNameStartsWith, givenNameEndsWith, givenName, returnType } =
@@ -94,7 +94,7 @@ function getGivenNamePartMaxSize(options: Options): number {
 
 /**
  * @private
- * 根据 `surnameType` 获取集合大小
+ * 根据 `surnameType` 获取集合最大大小
  */
 function getListSizeBySurnameDictKey(surnameDictKey: SurnameDictKey): number {
   const MAX_SURNAME_SIZE_MAP: Record<SurnameDictKey, number> = {
@@ -114,7 +114,7 @@ function getListSizeBySurnameDictKey(surnameDictKey: SurnameDictKey): number {
 
 /**
  * @private
- * 根据 `givenNameAttribute` 获取集合大小
+ * 根据 `givenNameAttribute` 获取集合最大大小
  */
 function getListSizeByGivenNameAttribute(givenNameAttribute: GivenNameAttribute): number {
   const MAX_ALL_GIVEN_NAME_SIZE = getAllWordsSize();

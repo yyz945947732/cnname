@@ -67,4 +67,12 @@ describe('parseName', () => {
       isValidName: false,
     });
   });
+  test('parseName("朱雀玄武赦令") should return { surname: "朱", givenName: "雀玄武赦令", fullName: "朱雀玄武赦令", isValidName: true }', () => {
+    expect(parseName('朱雀玄武赦令')).toMatchObject({
+      surname: '朱',
+      givenName: '雀玄武赦令',
+      fullName: '朱雀玄武赦令',
+      isValidName: true,
+    });
+  });
 });
