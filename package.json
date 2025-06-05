@@ -20,7 +20,7 @@
     "bench:comp": "vitest bench --compare benchmark.json",
     "lint": "biome check --write --unsafe && biome format --write",
     "build": "tsup",
-    "release": "bumpp",
+    "release": "bumpp && pnpm publish",
     "example": "tsup && node scripts/index.mjs",
     "example:novel": "node scripts/novel.mjs",
     "example:preview": "node scripts/preview.mjs",
