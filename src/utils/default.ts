@@ -2,13 +2,13 @@ import type { GivenNameAttribute, PickStrategy, SurnameRarity } from '../types';
 
 /**
  * @private
- * 默认 `surnameRarity`
+ * 默认姓氏稀有度 `surnameRarity`
  */
 export const DEFAULT_SURNAME_RARITY: SurnameRarity = 'common';
 
 /**
  * @private
- * 默认 `surnamePickStrategy`
+ * 默认姓氏抽取策略 `surnamePickStrategy`
  */
 export const DEFAULT_SURNAME_PICK_STRATEGY: PickStrategy = 'weight';
 

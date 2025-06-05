@@ -27,6 +27,7 @@
     "example:surnames": "node scripts/surnames.mjs",
     "example:words": "node scripts/words.mjs",
     "dict": "node scripts/dict.mjs",
+    "prepare": "simple-git-hooks",
     "prepublishOnly": "tsup",
     "preflight": "pnpm install && run-s dict example test:run lint build"
   },
