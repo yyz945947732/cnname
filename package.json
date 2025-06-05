@@ -27,8 +27,8 @@
     "example:surnames": "node scripts/surnames.mjs",
     "example:words": "node scripts/words.mjs",
     "dict": "node scripts/dict.mjs",
+    "prepare": "simple-git-hooks",
     "prepublishOnly": "tsup",
-    "prepare": "husky",
     "preflight": "pnpm install && run-s dict example test:run lint build"
   },
   "type": "module",
@@ -49,9 +49,9 @@
     "@biomejs/biome": "^1.9.4",
     "@vitest/coverage-istanbul": "^3.2.0",
     "bumpp": "^10.1.1",
-    "husky": "^9.1.7",
     "lint-staged": "^16.1.0",
     "npm-run-all2": "^8.0.4",
+    "simple-git-hooks": "^2.13.0",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3",
     "vitest": "^3.2.0"
@@ -75,6 +75,9 @@
       "biome check --write",
       "biome format --write"
     ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
   },
   "packageManager": "pnpm@10.5.2"
 }

@@ -2,13 +2,13 @@ import type { GivenNameAttribute, PickStrategy, SurnameRarity } from '../types';
 
 /**
  * @private
- * 默认 `surnameRarity`
+ * 默认姓氏稀有度 `surnameRarity`
  */
 export const DEFAULT_SURNAME_RARITY: SurnameRarity = 'common';
 
 /**
  * @private
- * 默认 `surnamePickStrategy`
+ * 默认姓氏抽取策略 `surnamePickStrategy`
  */
 export const DEFAULT_SURNAME_PICK_STRATEGY: PickStrategy = 'weight';
 
@@ -20,7 +20,7 @@ export const GIVEN_NAME_ATTRIBUTE_PRIORITY = ['wuxing', 'gender'] as const;
 
 /**
  * @private
- * 以下类型的名字最好只包含一个字
+ * 以下类型的名字最好只包含一个特性字
  */
 export const GIVEN_NAME_INCLUDE_ONE_CHARACTER_ATTRIBUTE: GivenNameAttribute[] = ['animal'];
 
