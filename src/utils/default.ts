@@ -20,7 +20,7 @@ export const GIVEN_NAME_ATTRIBUTE_PRIORITY = ['wuxing', 'gender'] as const;
 
 /**
  * @private
- * 以下类型的名字最好只包含一个字
+ * 以下类型的名字最好只包含一个特性字
  */
 export const GIVEN_NAME_INCLUDE_ONE_CHARACTER_ATTRIBUTE: GivenNameAttribute[] = ['animal'];
 
