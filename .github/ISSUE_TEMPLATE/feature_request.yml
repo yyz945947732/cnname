@@ -1,4 +1,4 @@
-name: "\U0001F680 New feature proposal"
+name: "\U0001F680 New feature"
 description: Propose a new feature
 labels: ['Feature']
 body:
@@ -17,13 +17,6 @@ body:
     attributes:
       label: Suggested solution
       description: 'We could provide following implementation...'
-    validations:
-      required: true
-  - type: textarea
-    id: alternative
-    attributes:
-      label: Alternative
-      description: Clear and concise description of any alternative solutions or features you've considered.
   - type: textarea
     id: additional-context
     attributes:
