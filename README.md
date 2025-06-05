@@ -1,4 +1,4 @@
-简体中文 | [English](./README.zh-en.md)
+简体中文 | [English](./README.en-US.md)
 
 <div align="center">
   <h1>cnname</h1>
