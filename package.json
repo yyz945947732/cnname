@@ -14,6 +14,7 @@
   "scripts": {
     "start": "node scripts/preview.mjs",
     "test": "vitest",
+    "test:run": "vitest run",
     "test:cov": "vitest run --coverage",
     "bench": "vitest bench --outputJson benchmark.json",
     "bench:comp": "vitest bench --compare benchmark.json",
@@ -27,7 +28,8 @@
     "example:words": "node scripts/words.mjs",
     "dict": "node scripts/dict.mjs",
     "prepublishOnly": "tsup",
-    "prepare": "husky"
+    "prepare": "husky",
+    "preflight": "pnpm install && run-s dict example test:run lint build"
   },
   "type": "module",
   "author": "yyz945947732 <945947732@qq.com>",
@@ -49,6 +51,7 @@
     "bumpp": "^10.1.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.0",
+    "npm-run-all2": "^8.0.4",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3",
     "vitest": "^3.2.0"
