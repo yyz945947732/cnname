@@ -1,0 +1,24 @@
+name: "Bug report"
+description: Report an issue
+labels: ['Bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: I am doing ... What I expect is ... What actually happening is ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: |
+        Anything else relevant? Please tell us here if you run Faker in a Web Browser.
+        **Tip:** You can attach images, recordings or log files by clicking this area to highlight it and then dragging files in.
