@@ -12,7 +12,7 @@
     }
   },
   "scripts": {
-    "start": "node scripts/preview.mjs",
+    "start": "pnpm example:preview",
     "test": "vitest run",
     "test:cov": "vitest run --coverage",
     "test:watch": "vitest",
@@ -21,14 +21,14 @@
     "lint": "biome check --write --unsafe && biome format --write",
     "build": "tsup",
     "release": "bumpp && pnpm publish",
-    "example": "tsup && run-p example:novel example:preview example:surnames example:words",
+    "example": "pnpm build && run-p example:novel example:preview example:surnames example:words",
     "example:novel": "node scripts/novel.mjs",
     "example:preview": "node scripts/preview.mjs",
     "example:surnames": "node scripts/surnames.mjs",
     "example:words": "node scripts/words.mjs",
     "dict": "node scripts/dict.mjs",
     "prepare": "simple-git-hooks",
-    "prepublishOnly": "tsup",
+    "prepublishOnly": "pnpm build",
     "preflight": "pnpm install && run-s dict test lint example"
   },
   "type": "module",
