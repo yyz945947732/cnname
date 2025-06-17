@@ -81,7 +81,7 @@ export type SurnameDictKey = SurnameRarity | `${SurnameRarity}-${SurnameType}`;
 export type GivenNameAttribute = Options['gender'] | Options['wuxing'] | Others;
 
 /** 其他特性 */
-export type Others = 'animal';
+export type Others = 'animal' | 'color';
 
 /** 返回的姓名部分 */
 export type ReturnType = 'fullName' | 'surname' | 'givenName';

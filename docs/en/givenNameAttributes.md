@@ -9,4 +9,5 @@
 |        | water     | 水   | 涛、淼、淇、波、海... |
 |        | fire      | 火    | 炎、炜、烽、烁、焕... |
 |        | earth     | 土   | 坤、岳、峰、岩、岱... |
-| Others  | animal  | Animal  | 龙、麟、凤、鹿、鹤... |
+| Others | animal  | Animal  | 龙、麟、凤、鹿、鹤... |
+|        | color   | Color  | 白、紫、碧、青、彩... |

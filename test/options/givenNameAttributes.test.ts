@@ -2,6 +2,7 @@ import { getName } from '@/src';
 import { GIVEN_NAME_INCLUDE_ONE_CHARACTER_ATTRIBUTE } from '@/src/utils/default';
 import {
   getAllAnimalWords,
+  getAllColorWords,
   getAllEarthWords,
   getAllFemaleWords,
   getAllFireWords,
@@ -21,6 +22,7 @@ const allWaterWords = getAllWaterWords();
 const allFireWords = getAllFireWords();
 const allEarthWords = getAllEarthWords();
 const allAnimalWords = getAllAnimalWords();
+const allColorWords = getAllColorWords();
 
 assertType<string[]>(getName({ count: 5, givenNameAttributes: 'male' }));
 assertType<string[]>(getName({ count: 5, givenNameAttributes: 'female' }));
@@ -31,6 +33,7 @@ assertType<string[]>(getName({ count: 5, givenNameAttributes: 'fire' }));
 assertType<string[]>(getName({ count: 5, givenNameAttributes: 'earth' }));
 assertType<string[]>(getName({ count: 5, givenNameAttributes: ['earth', 'female'] }));
 assertType<string[]>(getName({ count: 5, givenNameAttributes: 'animal' }));
+assertType<string[]>(getName({ count: 5, givenNameAttributes: 'color' }));
 
 describe('getName.options.givenNameAttributes', () => {
   test('getName({ count: 5, unique: true, givenNameAttributes: "male" }) should return array with five elements', () => {
@@ -98,9 +101,17 @@ describe('getName.options.givenNameAttributes', () => {
   test('getName({ count: 5, unique: true, givenNameAttributes: "animal" }) should return array with five elements', () => {
     expect(getName({ count: 5, unique: true, givenNameAttributes: 'animal' })).toHaveLength(5);
   });
+  test('getName({ count: 5, returnType: "givenName", givenNameAttributes: "color", givenNameLength: 1 }) should return array with color given name', () => {
+    const data = getName({ count: 5, returnType: 'givenName', givenNameAttributes: 'color', givenNameLength: 1 });
+    expect(data.every((name) => allColorWords.includes(name))).toBeTruthy();
+  });
   test('getName({ count: 5, returnType: "givenName", givenNameAttributes: "animal", givenNameLength: 1 }) should return array with animal given name', () => {
     const data = getName({ count: 5, returnType: 'givenName', givenNameAttributes: 'animal', givenNameLength: 1 });
     expect(data.every((name) => allAnimalWords.includes(name))).toBeTruthy();
+  });
+  test('getName({ count: 5, returnType: "givenName", givenNameAttributes: "color", givenNameLength: 1 }) should return array with color given name', () => {
+    const data = getName({ count: 5, returnType: 'givenName', givenNameAttributes: 'color', givenNameLength: 1 });
+    expect(data.every((name) => allColorWords.includes(name))).toBeTruthy();
   });
   test.each(GIVEN_NAME_INCLUDE_ONE_CHARACTER_ATTRIBUTE)(
     'givenNameAttributes %s should always return only one attribute word',

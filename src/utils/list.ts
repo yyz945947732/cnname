@@ -1,6 +1,7 @@
 import type { GivenNameAttribute, SurnameDictKey } from '../types';
 import {
   getAllAnimalWords,
+  getAllColorWords,
   getAllCommonCompoundSurname,
   getAllCommonSingleCharacterSurname,
   getAllCommonSurname,
@@ -71,6 +72,8 @@ export function getGivenNameListByGivenNameAttribute(givenNameAttribute?: GivenN
       return getAllEarthWords();
     case 'animal':
       return getAllAnimalWords();
+    case 'color':
+      return getAllColorWords();
     default:
       return getAllWords();
   }
