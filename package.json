@@ -13,15 +13,15 @@
   },
   "scripts": {
     "start": "node scripts/preview.mjs",
-    "test": "vitest",
-    "test:run": "vitest run",
+    "test": "vitest run",
     "test:cov": "vitest run --coverage",
+    "test:watch": "vitest",
     "bench": "vitest bench --outputJson benchmark.json",
     "bench:comp": "vitest bench --compare benchmark.json",
     "lint": "biome check --write --unsafe && biome format --write",
     "build": "tsup",
     "release": "bumpp && pnpm publish",
-    "example": "tsup && node scripts/index.mjs",
+    "example": "tsup && run-p example:novel example:preview example:surnames example:words",
     "example:novel": "node scripts/novel.mjs",
     "example:preview": "node scripts/preview.mjs",
     "example:surnames": "node scripts/surnames.mjs",
@@ -29,7 +29,7 @@
     "dict": "node scripts/dict.mjs",
     "prepare": "simple-git-hooks",
     "prepublishOnly": "tsup",
-    "preflight": "pnpm install && run-s dict example test:run lint build"
+    "preflight": "pnpm install && run-s dict test lint example"
   },
   "type": "module",
   "author": "yyz945947732 <945947732@qq.com>",
