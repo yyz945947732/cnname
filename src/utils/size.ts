@@ -2,6 +2,7 @@ import type { GivenNameAttribute, Options, SurnameDictKey } from '../types';
 import { DEFAULT_SURNAME_RARITY } from './default';
 import {
   getAllAnimalWordsSize,
+  getAllColorWordsSize,
   getAllCommonCompoundSurnameSize,
   getAllCommonSingleCharacterSurnameSize,
   getAllCommonSurnameSize,
@@ -128,6 +129,7 @@ function getListSizeByGivenNameAttribute(givenNameAttribute: GivenNameAttribute)
     fire: getAllFireWordsSize(),
     earth: getAllEarthWordsSize(),
     animal: getAllAnimalWordsSize(),
+    color: getAllColorWordsSize(),
   };
 
   return MAX_GIVEN_NAME_SIZE_MAP[givenNameAttribute] ?? MAX_ALL_GIVEN_NAME_SIZE;

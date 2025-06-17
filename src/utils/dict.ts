@@ -77,6 +77,8 @@ const EARTH_WORDS = parseDictToWords(attributesWordDict.earth);
 
 /** 动物属性 */
 const ANIMAL_WORDS = parseDictToWords(attributesWordDict.animal);
+/** 动物属性 */
+const COLOR_WORDS = parseDictToWords(attributesWordDict.color);
 
 /**
  * @private
@@ -343,6 +345,14 @@ export function getAllAnimalWords(): string[] {
 
 /**
  * @private
+ * 获取所有颜色名
+ */
+export function getAllColorWords(): string[] {
+  return COLOR_WORDS;
+}
+
+/**
+ * @private
  * 获取所有金属性名数量
  */
 export function getAllMetalWordsSize(): number {
@@ -387,4 +397,12 @@ export function getAllEarthWordsSize(): number {
  */
 export function getAllAnimalWordsSize(): number {
   return ANIMAL_WORDS.length;
+}
+
+/**
+ * @private
+ * 获取所有颜色名数量
+ */
+export function getAllColorWordsSize(): number {
+  return COLOR_WORDS.length;
 }

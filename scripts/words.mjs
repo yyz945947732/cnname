@@ -12,7 +12,8 @@ const attributesNameMap = {
   water: '水',
   fire: '火',
   earth: '土',
-  animal: '动物'
+  animal: '动物',
+  color: '颜色',
 };
 
 const attributes = Object.keys(attributesWordDict);
