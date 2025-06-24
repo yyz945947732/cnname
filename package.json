@@ -46,7 +46,7 @@
     "url": "git+https://github.com/yyz945947732/cnname.git"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
+    "@biomejs/biome": "^2.0.4",
     "@vitest/coverage-istanbul": "^3.2.0",
     "bumpp": "^10.1.1",
     "lint-staged": "^16.1.0",
