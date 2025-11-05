@@ -47,14 +47,14 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.0.4",
-    "@vitest/coverage-istanbul": "^3.2.0",
+    "@vitest/coverage-istanbul": "^4.0.7",
     "bumpp": "^10.1.1",
     "lint-staged": "^16.1.0",
     "npm-run-all2": "^8.0.4",
     "simple-git-hooks": "^2.13.0",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3",
-    "vitest": "^3.2.0"
+    "vitest": "^4.0.7"
   },
   "keywords": [
     "chinese name",
