@@ -1,6 +1,6 @@
 {
   "name": "cnname",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "Generate realistic Chinese names for mock data, novels, games, and tests.",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
