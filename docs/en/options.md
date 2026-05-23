@@ -12,7 +12,7 @@
 | givenNameStartsWith | `string` | Specify the first character of the given name. | Random character |
 | givenNameEndsWith | `string` | Specify the last character of the given name. | Random character |
 | givenNameDuplicated | `boolean` | Whether to return only repeated given names (e.g., "婷婷", "明明"). | `false` |
-| givenName | `string \| string[]` | Specify a given name (single or array).。 | Random given name |
+| givenName | `string \| string[]` | Specify a given name (single or array). | Random given name |
 | surnameType | `'single' \| 'compound'` | Surname type. <br>`'single'` single-character surname. <br>`'compound'` compound surname. | No restriction |
 | surnameRarity | `'all' \| 'common' \| 'rare'` | Surname rarity. <br> `'all'` all surnames. <br> `'common'` common surnames. <br> `'rare'` rare surnames. | `common` |
 | surnamePickStrategy | `'weight' \| 'random'` | Surname pick strategy. <br>`'weight'` randomly pick after weighting based on the order of surnames in the dictionary. <br>`'random'` completely random. | `'weight'` |
@@ -88,7 +88,7 @@ getName({ count: 3, givenName: ['俊杰', '杰伦'] });
 ### Generate 2 names with compound surnames
 
 ```js
-getName({ count: 2, surnameType: 'common-compound' });
+getName({ count: 2, surnameType: 'compound' });
 // => ["司徒杉", "欧阳昊"]
 ```
 

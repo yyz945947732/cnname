@@ -42,6 +42,21 @@
 
 [在 StackBlitz 中打开](https://stackblitz.com/edit/cnname-demo-cn?file=src%2FDemo.tsx)
 
+## 🚀 快速开始
+
+```js
+import { getName, isSurname, parseName } from 'cnname';
+
+getName({ count: 10, gender: 'female' });
+// -> ["庞妙", "黄如嫣", "姜莹", ...]
+
+parseName('欧阳娜娜');
+// -> { surname: '欧阳', givenName: '娜娜', fullName: '欧阳娜娜', ... }
+
+isSurname('欧阳');
+// -> true
+```
+
 ## ✨ 特性
 
 - 🎲 轻松简单的生成各种随机中文姓名。
@@ -49,6 +64,19 @@
 - ⚡ 轻量级库，快速生成，无额外依赖。
 - 🛠 提供多种 API，可自定义生成规则。
 - 📚 适用于测试数据、小说创作、游戏角色等场景。
+
+## ✅ 能力概览
+
+| 能力 | 支持 |
+|------|------|
+| 零运行时依赖 | ✅ |
+| TypeScript 类型 | ✅ |
+| 单姓/复姓 | ✅ |
+| 常见/冷门姓氏 | ✅ |
+| 性别倾向名字 | ✅ |
+| 五行属性名字 | ✅ |
+| 叠字名 | ✅ |
+| 姓名解析 | ✅ |
 
 ## 📦 安装
 

@@ -1,12 +1,13 @@
 {
   "name": "cnname",
-  "version": "2.3.0",
-  "description": "Randomly generate Chinese names.",
+  "version": "2.3.1",
+  "description": "Generate realistic Chinese names for mock data, novels, games, and tests.",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
@@ -34,6 +35,8 @@
   "type": "module",
   "author": "yyz945947732 <945947732@qq.com>",
   "license": "MIT",
+  "homepage": "https://github.com/yyz945947732/cnname#readme",
+  "sideEffects": false,
   "files": [
     "dist"
   ],
@@ -63,6 +66,9 @@
     "generate chinese name",
     "chinese name generator",
     "chinese faker",
+    "faker chinese name",
+    "mock chinese name",
+    "random name generator",
     "cnchar",
     "cnchar-name",
     "名字",

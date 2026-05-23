@@ -1,4 +1,4 @@
-[简体中文](./READEME.md) | English
+[简体中文](./README.md) | English
 
 <div align="center">
   <h1>cnname</h1>
@@ -42,13 +42,41 @@
 
 [Open in StackBlitz](https://stackblitz.com/edit/cnname-demo-en?file=src%2FDemo.tsx)
 
+## 🚀 Quick Start
+
+```js
+import { getName, isSurname, parseName } from 'cnname';
+
+getName({ count: 10, gender: 'female' });
+// -> ["庞妙", "黄如嫣", "姜莹", ...]
+
+parseName('欧阳娜娜');
+// -> { surname: '欧阳', givenName: '娜娜', fullName: '欧阳娜娜', ... }
+
+isSurname('欧阳');
+// -> true
+```
+
 ## ✨ Features
 
 - 🎲 Easily and simply generate various random Chinese names.
-- 🎭 Supports a wide range of surname types and name attribute.
+- 🎭 Supports a wide range of surname types and name attributes.
 - ⚡ Lightweight and fast with no extra dependencies.
 - 🛠 Provides various APIs for custom generation rules.
 - 📚 Suitable for test data, novel writing, game characters, and more.
+
+## ✅ Capability Overview
+
+| Capability | Supported |
+|------------|-----------|
+| Zero runtime dependencies | ✅ |
+| TypeScript types | ✅ |
+| Single-character and compound surnames | ✅ |
+| Common and rare surnames | ✅ |
+| Gender-oriented given names | ✅ |
+| Wuxing/Five Elements given names | ✅ |
+| Duplicated-character given names | ✅ |
+| Chinese name parsing | ✅ |
 
 ## 📦 Install
 
@@ -99,7 +127,7 @@ Generate a specified number of random Chinese names.
 
 Generate a specified number of random Chinese names with a given surname.
 
-**`getName(options: Option): string[]`**
+**`getName(options: Options): string[]`**
 
 Get names with advanced options. Supports gender, wuxing (Five Elements), reduplicated names, compound surnames, and more. 👉 [Documentation](docs/en/options.md)
 
