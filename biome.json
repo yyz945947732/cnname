@@ -1,6 +1,6 @@
 {
   "files": {
-    "include": ["src", "test", "performance"]
+    "includes": ["src/**", "test/**", "performance/**"]
   },
   "formatter": {
     "enabled": true,
@@ -29,7 +29,9 @@
       "recommended": true,
       "complexity": {
         "noExtraBooleanCast": "error",
-        "noMultipleSpacesInRegularExpressionLiterals": "error",
+        "noAdjacentSpacesInRegex": "error",
+        "noArguments": "error",
+        "noCommaOperator": "error",
         "noStaticOnlyClass": "error",
         "noUselessConstructor": "error"
       },
@@ -40,8 +42,8 @@
         "noEmptyPattern": "error",
         "noGlobalObjectCalls": "error",
         "noInnerDeclarations": "error",
+        "noInvalidBuiltinInstantiation": "error",
         "noInvalidConstructorSuper": "error",
-        "noNewSymbol": "error",
         "noSelfAssign": "error",
         "noSwitchDeclarations": "error",
         "noUndeclaredVariables": "error",
@@ -51,15 +53,13 @@
         "noUnusedLabels": "error",
         "noUnusedVariables": "error",
         "useIsNan": "error",
+        "useValidTypeof": "error",
         "useYield": "error"
       },
       "style": {
-        "noArguments": "error",
-        "noCommaOperator": "error",
         "noInferrableTypes": "error",
         "noNamespace": "error",
         "noNonNullAssertion": "warn",
-        "noVar": "error",
         "useConsistentArrayType": "error",
         "useConst": "error",
         "useForOf": "warn",
@@ -86,9 +86,8 @@
         "noMisleadingInstantiator": "error",
         "noRedeclare": "error",
         "noUnsafeNegation": "error",
-        "useValidTypeof": "error"
+        "noVar": "error"
       }
-    },
-    "ignore": ["node_modules", "dist", "public"]
+    }
   }
 }

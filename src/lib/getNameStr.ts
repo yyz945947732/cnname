@@ -37,7 +37,20 @@ function getNameStr(surname: string, num: number): string;
 function getNameStr(options: Options): string;
 
 function getNameStr(parameter1?: string | number | Options, parameter2?: number): string {
-  const result = getName(parameter1 as unknown as string, parameter2);
+  let result: string | string[];
+
+  if (typeof parameter1 === 'string' && parameter2 !== undefined) {
+    result = getName(parameter1, parameter2);
+  } else if (typeof parameter1 === 'string') {
+    result = getName(parameter1);
+  } else if (typeof parameter1 === 'number') {
+    result = getName(parameter1);
+  } else if (parameter1) {
+    result = getName(parameter1);
+  } else {
+    result = getName();
+  }
+
   return Array.isArray(result) ? result.join() : result;
 }
 

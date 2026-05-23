@@ -1,6 +1,6 @@
+import { assertType, describe, expect, test } from 'vitest';
 import { getName } from '@/src';
 import { getAllFemaleWords, getAllMaleWords } from '@/src/utils/dict';
-import { assertType, describe, expect, test } from 'vitest';
 
 const allMaleWords = getAllMaleWords();
 const allFemaleWords = getAllFemaleWords();

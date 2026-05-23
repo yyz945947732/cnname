@@ -39,22 +39,21 @@ function getName(surname: string, num: number): string[];
 function getName(options: Options): string[];
 
 function getName(parameter1?: number | string | Options, parameter2?: number): string | string[] {
-  let num: number;
-  let fixSurname = undefined;
-  let single = false;
+  let num = 1;
+  let fixSurname: string | undefined;
+  let single = true;
   if (isOptions(parameter1)) {
     return getNameWithOptions(parameter1);
   }
   if (typeof parameter1 === 'string') {
     fixSurname = parameter1;
-    num = parameter2;
+    if (parameter2 !== undefined) {
+      num = parameter2;
+      single = false;
+    }
   } else if (typeof parameter1 === 'number') {
     num = parameter1;
-  }
-
-  if (num === undefined) {
-    num = 1;
-    single = true;
+    single = false;
   }
 
   if (num < 0) {

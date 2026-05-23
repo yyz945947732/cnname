@@ -5,6 +5,7 @@
   ],
   "compilerOptions": {
     "module": "esnext",
+    "ignoreDeprecations": "6.0",
     "allowJs": true,
     "checkJs": true,
     "lib": [

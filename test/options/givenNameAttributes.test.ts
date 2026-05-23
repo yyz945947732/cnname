@@ -1,3 +1,4 @@
+import { assertType, describe, expect, test } from 'vitest';
 import { getName } from '@/src';
 import { GIVEN_NAME_INCLUDE_ONE_CHARACTER_ATTRIBUTE } from '@/src/utils/default';
 import {
@@ -12,7 +13,6 @@ import {
   getAllWoodWords,
 } from '@/src/utils/dict';
 import { getGivenNameListByGivenNameAttribute } from '@/src/utils/list';
-import { assertType, describe, expect, test } from 'vitest';
 
 const allMaleWords = getAllMaleWords();
 const allFemaleWords = getAllFemaleWords();
@@ -113,20 +113,19 @@ describe('getName.options.givenNameAttributes', () => {
     const data = getName({ count: 5, returnType: 'givenName', givenNameAttributes: 'color', givenNameLength: 1 });
     expect(data.every((name) => allColorWords.includes(name))).toBeTruthy();
   });
-  test.each(GIVEN_NAME_INCLUDE_ONE_CHARACTER_ATTRIBUTE)(
-    'givenNameAttributes %s should always return only one attribute word',
-    (givenNameAttributes) => {
-      const words = getName({ count: 5, returnType: 'givenName', givenNameAttributes, givenNameLength: 2 });
-      const list = getGivenNameListByGivenNameAttribute(givenNameAttributes);
-      expect(
-        words.every((name) => {
-          return (
-            (list.includes(name[0]) && !list.includes(name[1])) || (list.includes(name[1]) && !list.includes(name[0]))
-          );
-        }),
-      ).toBeTruthy();
-    },
-  );
+  test.each(
+    GIVEN_NAME_INCLUDE_ONE_CHARACTER_ATTRIBUTE,
+  )('givenNameAttributes %s should always return only one attribute word', (givenNameAttributes) => {
+    const words = getName({ count: 5, returnType: 'givenName', givenNameAttributes, givenNameLength: 2 });
+    const list = getGivenNameListByGivenNameAttribute(givenNameAttributes);
+    expect(
+      words.every((name) => {
+        return (
+          (list.includes(name[0]) && !list.includes(name[1])) || (list.includes(name[1]) && !list.includes(name[0]))
+        );
+      }),
+    ).toBeTruthy();
+  });
   test('getName({ count: 5, unique: true, returnType: "givenName", givenNameAttributes: "error" }) should return array with five elements', () => {
     // @ts-expect-error
     const data = getName({ count: 5, unique: true, returnType: 'givenName', givenNameAttributes: 'error' });
