@@ -1,3 +1,5 @@
+
+
 简体中文 | [English](./README.en-US.md)
 
 <div align="center">
@@ -129,7 +131,7 @@ getName({ count: 5, gender: 'female' });
 
 **`getName(options: Options): string[]`**
 
-通过高级选项获取姓名。支持性别、五行、叠字名、复姓等丰富功能。👉 [查看文档](docs/cn/options.md)
+通过高级选项获取姓名。支持性别、五行、叠字名、复姓、去重等丰富功能。👉 [查看文档](docs/cn/options.md)
 
 ## 🛠️ 工具方法
 
